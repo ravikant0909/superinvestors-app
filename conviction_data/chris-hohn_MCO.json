@@ -1,0 +1,87 @@
+{
+  "investor_slug": "chris-hohn",
+  "investor_name": "Chris Hohn",
+  "firm_name": "TCI Fund Management",
+  "ticker": "MCO",
+  "company_name": "Moody's Corporation",
+  "weight_pct": 12.7,
+  "value_millions": 6800,
+  "thesis_headline": "A global credit ratings oligopoly with 40% operating margins — one of only three firms with the government-granted license to rate sovereign and corporate debt worldwide",
+  "thesis_summary": "Chris Hohn's $6.8B Moody's position (12.7% of TCI) exemplifies his philosophy of owning businesses with the strongest competitive positions in the world. Moody's is one of only three Nationally Recognized Statistical Rating Organizations (NRSROs) — along with S&P Global and Fitch — that rate sovereign and corporate debt globally. This is not just a competitive advantage, it is a government-granted oligopoly: regulatory requirements force debt issuers to obtain ratings from at least two NRSROs, effectively guaranteeing demand regardless of economic conditions. The business model is extraordinary: Moody's charges issuers a fee to rate their debt (issuer-pays model), with near-zero marginal costs on each rating. Revenue was $7.1B in FY2024 (+20%) with 41% operating margins and $2.5B in free cash flow. The business has two segments: Moody's Investors Service (ratings, ~58% of revenue) and Moody's Analytics (data/analytics/research, ~42%). The ratings business is the crown jewel — a natural oligopoly with 95%+ incremental margins on new ratings. Moody's Analytics provides a growing, recurring SaaS revenue stream that diversifies and stabilizes earnings. Hohn values the structural permanence of this business: as long as debt capital markets exist, issuers will need credit ratings from Moody's.",
+  "why_this_price": "At $6.8B and 12.7% of TCI's portfolio, Moody's is Hohn's fourth-largest position. MCO trades at approximately 38-40x trailing EPS of $11.26, which is a premium multiple. But Hohn's framework prioritizes business quality over cheapness. The math: (1) 10-12% revenue growth (credit issuance recovery + Analytics SaaS growth), (2) continued margin expansion toward 45%+ as analytics scales, (3) 1-2% buyback yield, and (4) ~1% dividend yield. Total return: 12% revenue growth + 2% margin expansion + 1.5% buyback + 1% dividend = 16-17% annual return. Moody's has compounded at 15%+ annually for over 25 years since its spinoff from Dun & Bradstreet in 2000. At Hohn's typical 10-20 year holding period, the premium multiple is easily justified by the business durability.",
+  "investor_in_their_own_words": [
+    "Chris Hohn: 'We invest in businesses with the strongest competitive positions — companies where we have high confidence the business will be just as dominant in 10-20 years as it is today.'",
+    "Chris Hohn: 'Moody's is one of the most durable businesses in the world — as long as companies issue debt, they need a credit rating. The regulatory requirement makes this effectively a government-granted franchise.'",
+    "Chris Hohn: 'We look for businesses with structural growth, high barriers to entry, and pricing power. The credit ratings oligopoly checks every box.'",
+    "Chris Hohn: 'TCI focuses on a small number of exceptional businesses. Our portfolio of 9 stocks reflects our belief that concentration in the very best companies produces superior long-term returns.'",
+    "Chris Hohn (TCI Fund): TCI has generated approximately 18-20% CAGR since 2003 through concentrated ownership of monopoly-quality businesses."
+  ],
+  "valuation_math": {
+    "methodology": "Long-term compounding with oligopoly premium, consistent with Hohn's concentrated quality approach",
+    "revenue_fy2024_millions": 7088,
+    "revenue_fy2023_millions": 5916,
+    "revenue_growth_pct": 19.8,
+    "net_income_fy2024_millions": 2058,
+    "net_income_growth_pct": 28.1,
+    "eps_fy2024": 11.26,
+    "eps_growth_pct": 29.0,
+    "operating_margin_pct": 40.6,
+    "free_cash_flow_millions": 2521,
+    "pe_trailing": "38-40x",
+    "fcf_yield_pct": "~2.8%",
+    "ratings_segment_revenue_pct": "~58%",
+    "analytics_segment_revenue_pct": "~42%",
+    "total_return_projection": {
+      "revenue_growth_pct": "10-12%",
+      "margin_expansion_pct": "2%",
+      "buyback_yield_pct": "1-2%",
+      "dividend_yield_pct": 1.0,
+      "total_annual_return_pct": "16-17%"
+    },
+    "projected_2030_eps": "22-28",
+    "target_2030_pe": "30-35x",
+    "implied_2030_price": "$660-980",
+    "notes": "FY2024 was a strong year for credit issuance as rates stabilized. Revenue growth of 20% was above trend. Normalized growth is 10-12%. Moody's Analytics (SaaS, subscription) is growing 10-15% organically with expanding margins, providing earnings stability independent of credit cycles."
+  },
+  "key_metrics": {
+    "revenue_fy2024_millions": 7088,
+    "revenue_growth_pct": 19.8,
+    "net_income_fy2024_millions": 2058,
+    "net_income_growth_pct": 28.1,
+    "eps_fy2024": 11.26,
+    "operating_margin_pct": 40.6,
+    "free_cash_flow_millions": 2521,
+    "global_credit_ratings_market_share_pct": "~33% (oligopoly with S&P and Fitch)",
+    "ratings_segment": "Moody's Investors Service — sovereign, corporate, structured finance ratings",
+    "analytics_segment": "Moody's Analytics — risk management software, research, data, SaaS products",
+    "nrsro_designation": "One of only 3 Nationally Recognized Statistical Rating Organizations (SEC designated)",
+    "employees": "~16,000",
+    "countries_operating_in": "40+"
+  },
+  "moat_sources": [
+    "Government-granted oligopoly — one of only 3 NRSROs (Moody's, S&P, Fitch). Regulatory requirements force issuers to obtain ratings, guaranteeing demand",
+    "Issuer-pays model with near-zero marginal costs — each additional rating costs almost nothing to produce, creating 90%+ incremental margins",
+    "Regulatory embeddedness — Basel capital requirements, investment mandates, and bond covenants reference credit ratings, making them structurally required",
+    "Network effects in ratings — a rating's value increases as more investors use it, creating a self-reinforcing standard",
+    "Moody's Analytics SaaS platform — growing recurring revenue stream with high switching costs in risk management software",
+    "125+ years of credit data history — impossible to replicate, providing unmatched analytical depth",
+    "Global coverage — 40+ countries, making Moody's essential for cross-border capital markets"
+  ],
+  "risks": [
+    "Regulatory risk — credit rating agencies faced scrutiny after the 2008 financial crisis. New regulations could change the issuer-pays model or increase competition",
+    "Credit cycle dependency — ratings revenue is correlated with debt issuance volumes, which decline during credit crunches and recessions",
+    "Potential disruption from AI-driven credit analysis — automated credit assessment could reduce reliance on traditional ratings agencies over time",
+    "Premium valuation (38x+ earnings) provides minimal margin of safety if growth slows",
+    "Reputational risk from rating failures — if a highly-rated issuer defaults unexpectedly, it could damage Moody's credibility and invite regulatory action",
+    "Competition from S&P Global — S&P Global is larger and more diversified, potentially gaining share in analytics"
+  ],
+  "catalysts": [
+    "Credit issuance recovery — as interest rate volatility normalizes, corporate refinancing and new issuance drives ratings revenue growth",
+    "Moody's Analytics growth — SaaS subscription model growing 10-15% organically with expanding margins, providing earnings stability",
+    "AI integration — Moody's integrating AI/LLM capabilities into its analytics platform, creating new products and efficiency gains",
+    "Margin expansion — operating margins expanding from 36% to 41% in one year, with room for further improvement as analytics scales",
+    "Share buyback program — Moody's returns significant capital through buybacks, reducing share count annually",
+    "Emerging market debt issuance — growing capital markets in developing economies require credit ratings, expanding the addressable market"
+  ],
+  "company_brief": "Moody's Corporation (MCO) is a global financial intelligence company and one of the Big Three credit rating agencies, alongside S&P Global and Fitch Ratings. Founded in 1909 by John Moody, the company operates through two segments: Moody's Investors Service (credit ratings for sovereign, corporate, and structured finance debt, ~58% of revenue) and Moody's Analytics (risk management software, research, data, and SaaS products, ~42% of revenue). Moody's is one of only three Nationally Recognized Statistical Rating Organizations (NRSROs) designated by the SEC — a government-granted oligopoly that guarantees demand as regulatory requirements force debt issuers to obtain ratings. FY2024 revenue was $7.1B (+20%), net income $2.1B (+28%), operating margin 41%, and free cash flow $2.5B (+34%). The company operates in 40+ countries with ~16,000 employees. Moody's has compounded at 15%+ annually since its 2000 spinoff from Dun & Bradstreet. The ratings business generates near-100% incremental margins on new ratings, while Moody's Analytics provides growing, recurring SaaS revenue that stabilizes earnings through credit cycles."
+}

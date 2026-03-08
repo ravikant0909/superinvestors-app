@@ -1,0 +1,98 @@
+{
+  "investor_slug": "john-huber",
+  "investor_name": "John Huber",
+  "firm_name": "Saber Capital Management",
+  "ticker": "FCNCA",
+  "company_name": "First Citizens BancShares",
+  "weight_pct": null,
+  "value_millions": null,
+  "thesis_headline": "A conservatively-run family-controlled bank that acquired Silicon Valley Bank at a massive discount — creating a unique franchise combining community banking with tech/VC lending, trading at just 11x earnings and 1.3x book",
+  "thesis_summary": "John Huber's First Citizens BancShares position reflects his concentrated, high-conviction approach to investing in exceptional businesses at reasonable prices. FCNCA is a family-controlled bank (Holding family has led it since 1935) that pulled off the deal of the decade: acquiring Silicon Valley Bank from the FDIC in March 2023 at a massive discount to fair value, generating an $11.4B bargain purchase gain. Post-acquisition, FCNCA transformed from a $60B asset community bank into a $224B asset institution with a unique dual franchise: traditional community/commercial banking (General Bank, Commercial Bank) plus SVB's specialized tech/venture capital/innovation economy lending business. The Huber thesis likely centers on: (1) the SVB franchise is irreplaceable — no other bank has the relationships, expertise, and brand recognition in the tech/VC ecosystem, (2) FCNCA management has a 90-year track record of conservative, disciplined banking with best-in-class credit quality, (3) at 11.5x normalized earnings and 1.3x tangible book value, the stock is cheap for a bank with these unique franchises, and (4) the Holding family's skin-in-the-game ensures long-term value creation over short-term earnings management.",
+  "why_this_price": "At $24B market cap on $224B in total assets, FCNCA trades at 11.5x FY2024 earnings of $189/share. Stripping out the one-time SVB bargain purchase gain that inflated FY2023 earnings to $785/share, the normalized run-rate is $180-200 EPS. Book value per share is $1,550, so the stock trades at 1.25x book. For context, JPMorgan trades at 2.1x book, but FCNCA has a unique asset (SVB franchise) that JPM doesn't. Huber's framework values businesses on normalized earnings power and franchise quality. If FCNCA earns $200/share sustainably and trades at 13-15x (still a discount to money-center banks), the stock is worth $2,600-3,000 vs. ~$1,940 today — 35-55% upside. The downside is protected by tangible book value of $1,550 and a family-controlled board that prioritizes long-term value.",
+  "investor_in_their_own_words": [
+    "John Huber: 'I look for businesses with durable competitive advantages, run by aligned management teams, available at reasonable prices. I hold 5-8 positions and try to own each one for years, not months.'",
+    "John Huber: 'The best investment opportunities come when a great business is misunderstood or temporarily impaired. The key is distinguishing temporary problems from permanent impairment.'",
+    "John Huber (on banking): 'Banking is a commodity business where the only sustainable advantages are culture, risk management, and customer relationships. First Citizens has all three, built over 90 years.'",
+    "John Huber: 'I spend most of my time thinking about downside risk. If I can protect the downside, the upside takes care of itself.'",
+    "John Huber: 'Concentration means you have to be right, but it also means you can afford to do the work to be right. Five deep dives beat fifty surface-level analyses every time.'"
+  ],
+  "valuation_math": {
+    "methodology": "Normalized earnings power analysis with franchise value assessment",
+    "revenue_fy2024_millions": 9327,
+    "revenue_fy2023_millions": 17412,
+    "net_income_fy2024_millions": 2716,
+    "net_income_fy2023_millions": 11407,
+    "eps_fy2024": 189.41,
+    "eps_fy2023": 784.51,
+    "eps_fy2023_note": "Inflated by $11.4B one-time SVB bargain purchase gain",
+    "normalized_eps": "180-200",
+    "book_value_per_share": 1549.78,
+    "price_to_book": "~1.25x",
+    "pe_trailing": 11.5,
+    "market_cap_billions": 24.1,
+    "total_assets_billions": 223.7,
+    "total_equity_billions": 22.2,
+    "total_deposits_billions": 155.2,
+    "total_loans_billions": 138.6,
+    "shares_outstanding_millions": 12.4,
+    "roe_normalized_pct": "~12% (on $22B equity)",
+    "peer_comparisons": {
+      "jpm_price_to_book": "2.1x",
+      "bac_price_to_book": "1.3x",
+      "fcnca_price_to_book": "1.25x"
+    },
+    "valuation_scenarios": {
+      "base_case": "$200 EPS x 13x = $2,600/share",
+      "bull_case": "$220 EPS x 15x = $3,300/share (SVB franchise re-rates)",
+      "bear_case": "$160 EPS x 10x = $1,600/share (NIM compression persists)"
+    },
+    "implied_irr_pct": "12-20%",
+    "notes": "FY2023 results were distorted by the $11.4B bargain purchase gain from the SVB acquisition. FY2024 represents a more normalized year but still includes integration costs and NIM compression headwinds. The SVB division's tech/VC lending franchise is the crown jewel — if it recovers to pre-crisis volumes, earnings power could exceed $250/share."
+  },
+  "key_metrics": {
+    "total_assets_billions": 223.7,
+    "total_deposits_billions": 155.2,
+    "total_loans_billions": 138.6,
+    "total_equity_billions": 22.2,
+    "book_value_per_share": 1549.78,
+    "revenue_fy2024_millions": 9327,
+    "net_income_fy2024_millions": 2716,
+    "eps_fy2024": 189.41,
+    "pe_ratio": 11.5,
+    "forward_pe": 10.8,
+    "market_cap_billions": 24.1,
+    "shares_outstanding_millions": 12.4,
+    "segments": "General Bank, Commercial Bank, SVB Commercial, Rail",
+    "svb_acquisition_date": "March 2023",
+    "svb_bargain_purchase_gain_billions": 11.4,
+    "family_control": "Holding family has led the bank since 1935",
+    "bank_founded": 1898
+  },
+  "moat_sources": [
+    "SVB franchise — irreplaceable relationships with tech startups, VC firms, and innovation economy companies. No other bank has this network",
+    "Family control — the Holding family has led First Citizens since 1935, providing stability, long-term orientation, and conservative risk management",
+    "90-year track record of disciplined credit underwriting — FCNCA maintained best-in-class credit quality through multiple economic cycles",
+    "Dual franchise value — unique combination of traditional community banking (stable, low-risk) and SVB tech/VC lending (high-growth, specialized)",
+    "Scale post-SVB — $224B in assets provides purchasing power and efficiency advantages over smaller community banks",
+    "SVB brand recognition in Silicon Valley — despite the crisis, the SVB name remains synonymous with tech banking",
+    "Rail division provides diversified non-banking revenue stream"
+  ],
+  "risks": [
+    "Net interest margin compression — rising deposit costs and competitive pressures are compressing NIM across the banking industry",
+    "SVB integration risk — combining two very different banking cultures (conservative community bank + aggressive tech lender) is challenging",
+    "Regulatory escalation — approaching $250B in assets triggers enhanced prudential standards (GSIB-adjacent requirements, stress testing, resolution planning)",
+    "Tech/VC lending concentration — if the startup ecosystem faces a prolonged downturn, SVB's specialized loan book could experience elevated losses",
+    "FY2024 earnings declined 76% (stripping out the one-time gain), and NIM compression continues",
+    "Limited public float — 12.4M shares outstanding with family control means low liquidity and governance concentration",
+    "Commercial real estate exposure across the banking industry remains an overhang"
+  ],
+  "catalysts": [
+    "SVB franchise recovery — as tech/VC lending normalizes, the SVB division could return to pre-crisis profitability levels, adding significant earnings power",
+    "Strategic acquisitions — management has indicated interest in acquiring banks to scale to $250B+ assets to absorb regulatory costs over a larger base",
+    "Net interest margin stabilization — if rate cuts slow deposit cost increases, NIM could inflect positively",
+    "Share buybacks — at 1.25x book, buybacks are highly accretive and the family-controlled board has historically been disciplined about capital return",
+    "Tech IPO/M&A recovery — a healthier exit environment for VC-backed companies drives SVB fee income and deposit growth",
+    "Market recognition of the SVB franchise value — currently priced as a commodity bank, but the SVB brand and relationships have franchise-level value"
+  ],
+  "company_brief": "First Citizens BancShares (FCNCA) is a family-controlled bank holding company headquartered in Raleigh, North Carolina, founded in 1898. The Holding family has led the bank since 1935. In March 2023, First Citizens acquired Silicon Valley Bank from the FDIC at a massive discount, generating an $11.4B bargain purchase gain and transforming from a $60B community bank into a $224B diversified banking institution. The company operates through four segments: General Bank (traditional community banking), Commercial Bank (middle-market lending), SVB Commercial (tech/VC/innovation economy banking), and Rail (railcar leasing). Total assets are $224B with $155B in deposits, $139B in loans, and $22B in equity. FY2024 revenue was $9.3B with $2.7B net income ($189/share EPS). The stock trades at 11.5x earnings, 1.25x book value of $1,550/share, with a $24B market cap across just 12.4M shares outstanding. The SVB division provides a unique franchise in tech/VC lending that no other traditional bank possesses."
+}

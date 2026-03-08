@@ -1,0 +1,100 @@
+{
+  "investor_slug": "cliff-sosin",
+  "investor_name": "Cliff Sosin",
+  "firm_name": "CAS Investment Partners",
+  "ticker": "HGV",
+  "company_name": "Hilton Grand Vacations",
+  "weight_pct": 10.2,
+  "value_millions": null,
+  "thesis_headline": "A branded timeshare platform with embedded recurring revenue, attached to the Hilton brand — temporarily impaired by integration costs and loan loss provisioning, creating a deep-value opportunity at 6x forward earnings",
+  "thesis_summary": "Cliff Sosin's Hilton Grand Vacations position is his second-largest holding after Carvana, representing 10.2% of his ultra-concentrated portfolio. Sosin — who runs just 2-3 core positions — is a deeply analytical investor who looks for businesses where the market is pricing in permanent impairment for what are actually temporary problems. HGV is the world's largest timeshare company by member count, operating under the powerful Hilton brand. The business model has two attractive components: (1) Real Estate Sales & Financing — selling vacation ownership interests and providing consumer financing (which is then securitized), and (2) Resort Operations & Club Management — collecting recurring annual fees from 720,000+ club members. The recurring fee income provides a stable, growing base of revenue with high margins. FY2024 net income collapsed 85% to $47M primarily due to integration costs from the Bluegreen Vacations acquisition, elevated loan loss provisioning, and higher interest expenses — but these are transient headwinds. The forward PE of 13.5x (vs. trailing 50x) reflects analysts' expectation of earnings normalization. Sosin likely sees HGV as dramatically mispriced: at $3.7B market cap, the recurring club management revenue alone could be worth $3-4B, meaning you get the entire real estate sales and financing business essentially for free.",
+  "why_this_price": "At $3.7B market cap on $5.0B revenue, HGV trades at 0.7x revenue and roughly 5x EBITDA of $726M. The forward PE of 13.5x reflects expected earnings normalization to $3.00-3.50 EPS. Sosin's analytical approach likely breaks HGV into its components: (1) Club Management recurring fees from 720K+ members (~$1.5B revenue, 50%+ margins) = worth $4-5B alone at 12-15x EBITDA, (2) Real estate sales and financing (~$3.5B revenue) = worth $1-2B, (3) minus net debt. The sum-of-parts exceeds $5B+ vs. $3.7B market cap. If HGV normalizes margins back to 15% operating margin (from 9.2% currently), net income recovers to $350-450M, EPS to $3.50-4.50, and at 12-15x, the stock is $42-68. Current price of $45 embeds very little recovery premium.",
+  "investor_in_their_own_words": [
+    "Cliff Sosin runs an ultra-concentrated portfolio of 2-3 positions, reflecting his conviction that deep analysis of a few businesses yields better returns than shallow analysis of many.",
+    "Sosin's approach at CAS Investment Partners is to build detailed, multi-year financial models and own businesses where his analytical work reveals a large gap between price and intrinsic value.",
+    "CAS Investment Partners targets situations where temporary problems depress earnings and stock price, but the underlying business model and competitive advantages remain intact.",
+    "Sosin has stated that the quality of a business is best assessed by its unit economics and the durability of its customer relationships — both of which favor HGV's recurring club membership model.",
+    "On concentration: Sosin believes that truly understanding a business requires putting a significant portion of capital at risk, which in turn forces more rigorous analysis."
+  ],
+  "valuation_math": {
+    "methodology": "Sum-of-parts with earnings normalization analysis",
+    "revenue_fy2024_millions": 4981,
+    "revenue_fy2023_millions": 3978,
+    "revenue_growth_pct": 25.2,
+    "net_income_fy2024_millions": 47,
+    "net_income_fy2023_millions": 313,
+    "eps_fy2024": 0.45,
+    "eps_fy2023": 2.80,
+    "ebitda_fy2024_millions": 726,
+    "ebitda_fy2023_millions": 826,
+    "operating_margin_fy2024_pct": 9.19,
+    "operating_margin_fy2023_pct": 15.41,
+    "free_cash_flow_fy2024_millions": 267,
+    "market_cap_billions": 3.7,
+    "ev_ebitda": "~5x",
+    "pe_trailing": 50.2,
+    "forward_pe": 13.5,
+    "sum_of_parts": {
+      "club_management_revenue_millions": "~1,500",
+      "club_management_ebitda_margin_pct": "50+",
+      "club_management_ebitda_millions": "~750-800",
+      "club_management_value_billions": "4-5 (at 12-15x segment EBITDA)",
+      "real_estate_and_financing_value_billions": "1-2",
+      "total_enterprise_value_billions": "5-7",
+      "minus_net_debt_billions": "~2-3",
+      "implied_equity_value_billions": "3-5"
+    },
+    "normalized_earnings_scenario": {
+      "target_operating_margin_pct": "14-16%",
+      "implied_net_income_millions": "350-450",
+      "implied_eps": "3.50-4.50",
+      "target_pe": "12-15x",
+      "implied_price": "$42-68"
+    },
+    "notes": "FY2024 earnings were depressed by Bluegreen Vacations integration costs, elevated loan loss provisions, and higher interest expenses. Revenue grew 25% (Bluegreen consolidation) but margins compressed. FY2025 shows early signs of recovery with EPS nearly doubling to $0.89."
+  },
+  "key_metrics": {
+    "revenue_fy2024_millions": 4981,
+    "revenue_growth_pct": 25.2,
+    "net_income_fy2024_millions": 47,
+    "eps_fy2024": 0.45,
+    "eps_fy2023": 2.80,
+    "ebitda_millions": 726,
+    "operating_margin_pct": 9.19,
+    "free_cash_flow_millions": 267,
+    "market_cap_billions": 3.7,
+    "forward_pe": 13.5,
+    "club_members": "720,000+",
+    "employees": 22300,
+    "segments": "Real Estate Sales & Financing, Resort Operations & Club Management",
+    "brand": "Hilton Grand Vacations (licensed from Hilton Hotels)",
+    "bluegreen_acquisition": "Completed 2024",
+    "revenue_fy2025_millions": 4510
+  },
+  "moat_sources": [
+    "Hilton brand — licensed from Hilton Hotels, providing instant trust, recognition, and access to 173M+ Hilton Honors members",
+    "Recurring club management revenue — 720K+ members pay annual fees regardless of whether they use their timeshare, creating a sticky, predictable revenue base",
+    "Switching costs — once a family owns a timeshare and builds vacation patterns around it, switching to a competitor is financially and emotionally costly",
+    "Securitization expertise — HGV securitizes timeshare loans at attractive rates, providing low-cost financing for sales and a structural advantage over smaller competitors",
+    "Scale — largest timeshare company by member count, with superior brand recognition and marketing efficiency",
+    "Bluegreen integration — adding 220K+ Bluegreen members creates cross-selling opportunities and cost synergies"
+  ],
+  "risks": [
+    "Timeshare industry reputation risk — timeshares have negative consumer perception, which could limit new buyer growth",
+    "Consumer financing risk — HGV provides consumer loans to finance timeshare purchases; elevated default rates would increase loan loss provisions",
+    "Bluegreen integration execution risk — combining two timeshare platforms with different customer demographics is operationally complex",
+    "Interest rate sensitivity — higher rates increase financing costs and reduce consumer affordability for timeshare purchases",
+    "FY2024 net income collapse (85% decline) may indicate deeper structural issues, not just integration costs",
+    "Regulatory risk — consumer finance regulations (CFPB) could restrict timeshare lending practices",
+    "Competition from vacation rental platforms (Airbnb, Vrbo) provides alternatives to traditional timeshare ownership"
+  ],
+  "catalysts": [
+    "Earnings normalization — as Bluegreen integration costs roll off and loan loss provisions stabilize, margins should revert toward 14-16% operating margin",
+    "Bluegreen synergies — management targets $100M+ in annual cost synergies from the Bluegreen acquisition",
+    "Share buyback program — at 5x EBITDA, buybacks are highly accretive to per-share value",
+    "Club membership growth — cross-selling Bluegreen members into the Hilton Grand Vacations system drives recurring fee growth",
+    "Hilton Honors member conversion — access to 173M+ Hilton loyalty members provides a massive prospecting funnel for new timeshare sales",
+    "FY2025 already showing recovery with EPS nearly doubling to $0.89 and margins stabilizing"
+  ],
+  "company_brief": "Hilton Grand Vacations (HGV) is the world's largest timeshare company by member count, operating vacation ownership resorts primarily under the Hilton brand. The company develops, sells, finances, and manages timeshare properties across the United States and Europe. HGV's business has two components: (1) Real Estate Sales & Financing — selling vacation ownership interests and providing consumer financing that is subsequently securitized, and (2) Resort Operations & Club Management — collecting recurring annual fees from 720,000+ club members. The Hilton brand is licensed from Hilton Hotels, providing access to the 173M+ Hilton Honors member base. In 2024, HGV completed the acquisition of Bluegreen Vacations, adding 220K+ members and expanding its resort portfolio. FY2024 revenue was $5.0B (+25% from Bluegreen) but net income collapsed to $47M as integration costs, elevated loan losses, and higher interest expenses compressed margins. The forward PE of 13.5x reflects analyst expectations of earnings normalization. Market cap is $3.7B with 22,300 employees."
+}

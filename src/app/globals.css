@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  --foreground: #1a1a2e;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --card-bg: #ffffff;
+  --page-bg: #f8fafc;
+  --green: #22c55e;
+  --red: #ef4444;
+  --blue: #3b82f6;
+  --yellow: #eab308;
+  --orange: #f97316;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--page-bg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.score-green { color: var(--green); }
+.score-blue { color: var(--blue); }
+.score-yellow { color: var(--yellow); }
+.score-orange { color: var(--orange); }
+.score-red { color: var(--red); }
+
+.badge-follow {
+  @apply inline-block px-2 py-0.5 rounded text-xs font-bold bg-green-100 text-green-700;
+}
+.badge-watch {
+  @apply inline-block px-2 py-0.5 rounded text-xs font-bold bg-yellow-100 text-yellow-700;
+}
+.badge-skip {
+  @apply inline-block px-2 py-0.5 rounded text-xs font-bold bg-red-100 text-red-700;
+}
+.badge-new {
+  @apply inline-block px-2 py-0.5 rounded text-xs font-bold bg-green-100 text-green-700;
+}
+.badge-increased {
+  @apply inline-block px-2 py-0.5 rounded text-xs font-bold bg-blue-100 text-blue-700;
+}
+.badge-decreased {
+  @apply inline-block px-2 py-0.5 rounded text-xs font-bold bg-orange-100 text-orange-700;
+}
+.badge-sold {
+  @apply inline-block px-2 py-0.5 rounded text-xs font-bold bg-red-100 text-red-700;
+}

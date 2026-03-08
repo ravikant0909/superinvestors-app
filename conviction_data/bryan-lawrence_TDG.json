@@ -1,0 +1,81 @@
+{
+  "investor_slug": "bryan-lawrence",
+  "investor_name": "Bryan Lawrence",
+  "firm_name": "Oakcliff Capital",
+  "ticker": "TDG",
+  "company_name": "TransDigm Group",
+  "weight_pct": 13.8,
+  "value_millions": 32,
+  "thesis_headline": "The Berkshire of aerospace parts — sole-source proprietary components with 48% EBITDA margins and unmatched aftermarket pricing power",
+  "thesis_summary": "TransDigm exemplifies Lawrence's third preferred business category: companies with pricing power and high utility relative to cost. TDG manufactures proprietary, sole-source aerospace components — highly engineered parts where the cost to the customer is trivial relative to the value of keeping an aircraft flying. A $500 actuator or valve is a rounding error on a $150M aircraft, but the aircraft cannot fly without it. This creates extraordinary pricing power: TDG raises aftermarket prices 5-10% annually with essentially zero customer pushback because the alternative is grounding aircraft. The company generates 48% EBITDA margins — among the highest of any industrial company globally. Lawrence explicitly mentioned TransDigm in his 2021 MOI Global interview as an example of a business with pricing power that can outrun inflation. The decentralized acquisition model (buying niche aerospace parts businesses and optimizing their pricing and margins) provides a repeatable growth engine.",
+  "why_this_price": "At $32M and 13.8% of portfolio, TDG is Lawrence's fourth-largest position. TransDigm earned $25.62 EPS in FY2024 (September year-end) on $7.9B revenue. At a stock price around $1,300-1,400, that is roughly 50-55x earnings — optically expensive. But Lawrence's 10-year view sees: (1) continued 5-10% organic aftermarket price increases, (2) 3-5% volume growth from expanding global aircraft fleet, (3) bolt-on acquisitions adding $500M-1B in revenue, and (4) special dividends returning excess cash (TDG has a history of massive special dividends). By 2030, revenue could reach $12-15B with $6-7B EBITDA, supporting $40-50 EPS. At 25-30x normalized earnings, the stock could be $1,000-1,500 — plus cumulative special dividends of $200-400 per share. Total IRR of 12-18%.",
+  "investor_in_their_own_words": [
+    "We look for companies with pricing power and high utility relative to cost.",
+    "We own businesses with pricing power that can outrun inflation — TransDigm is an example.",
+    "I develop 10-year cash flow projections for each holding. I target IRRs above 20% for new purchases and trim positions discounting IRRs below 15%.",
+    "We try to become the most informed investor in each of our holdings, making roughly two new investments annually.",
+    "Rather than relying heavily on management commentary, we talk to competitors, customers and ex-employees to obtain candid perspectives."
+  ],
+  "valuation_math": {
+    "methodology": "10-year DCF per Lawrence's stated approach, factoring aftermarket pricing power and acquisition roll-up",
+    "current_revenue_millions": 7940,
+    "current_ebitda_millions": 3843,
+    "current_ebitda_margin_pct": 48.4,
+    "current_net_income_millions": 1714,
+    "current_eps": 25.62,
+    "free_cash_flow_millions": 1880,
+    "revenue_growth_pct": 20.6,
+    "net_income_growth_pct": 32.1,
+    "organic_revenue_growth_pct": "8-12% (pricing + volume)",
+    "aftermarket_price_increase_annual_pct": "5-10%",
+    "projected_2030_revenue_millions": "12,000-15,000",
+    "projected_2030_ebitda_millions": "6,000-7,500",
+    "projected_2030_eps": "40-55",
+    "target_2030_ev_ebitda": "18-22x",
+    "special_dividends_cumulative": "$200-400 per share through 2030",
+    "implied_irr_pct": "12-18% (including special dividends)",
+    "notes": "TransDigm uses significant leverage (net debt ~$20B) to fund acquisitions and special dividends. This is intentional — the stable, recurring aftermarket cash flows support the leverage. The company has delivered 20%+ CAGR in shareholder returns since its 2006 IPO."
+  },
+  "key_metrics": {
+    "revenue_fy2024_millions": 7940,
+    "revenue_fy2023_millions": 6585,
+    "revenue_growth_pct": 20.6,
+    "ebitda_fy2024_millions": 3843,
+    "ebitda_margin_pct": 48.4,
+    "net_income_fy2024_millions": 1714,
+    "net_income_growth_pct": 32.1,
+    "eps_fy2024": 25.62,
+    "eps_fy2023": 22.03,
+    "free_cash_flow_millions": 1880,
+    "aftermarket_revenue_pct": "~55% of revenue (highest-margin segment)",
+    "sole_source_products_pct": "~80% of revenue from sole-source/proprietary parts",
+    "number_of_operating_units": "~50+ decentralized business units",
+    "acquisitions_since_ipo": "80+ bolt-on acquisitions since 2006",
+    "shareholder_return_since_ipo_cagr_pct": "20+"
+  },
+  "moat_sources": [
+    "Sole-source proprietary products — ~80% of revenue comes from parts where TDG is the only qualified supplier, certified by the OEM and FAA",
+    "Extreme pricing power — parts cost is trivial relative to aircraft value/operating cost; customers cannot switch without expensive recertification",
+    "Regulatory moat — FAA/EASA certification requirements create years-long barriers to entry for alternative suppliers",
+    "Aftermarket recurring revenue — once a part is designed into an aircraft platform, TDG earns aftermarket revenue for the 25-40 year life of the platform",
+    "Decentralized operating model — 50+ autonomous business units each run as independent profit centers, preventing bureaucracy",
+    "Acquisition flywheel — proven playbook of acquiring niche aerospace parts companies and optimizing pricing, margins, and operations"
+  ],
+  "risks": [
+    "Government scrutiny of aftermarket pricing practices — DOD and Congressional investigations into 'excessive' pricing on military parts",
+    "High leverage (~$20B net debt) creates financial risk if aerospace demand drops sharply (though aftermarket demand is highly stable)",
+    "Concentration risk in commercial aerospace — a prolonged downturn (like COVID's impact on air travel) would reduce OEM and aftermarket volumes",
+    "Antitrust risk from continued acquisitions — regulatory pushback on further consolidation in aerospace parts",
+    "CEO succession — Nick Howley (co-founder) has stepped back; Kevin Stein leads but institutional knowledge risk exists",
+    "Rising interest rates increase debt servicing costs on the leveraged balance sheet"
+  ],
+  "catalysts": [
+    "Continued 5-10% annual aftermarket price increases with no volume impact — the most reliable earnings growth driver in the portfolio",
+    "Global commercial aircraft fleet growth — Boeing and Airbus backlogs represent decades of new platform installations",
+    "Bolt-on acquisitions — TDG deploys $1-3B annually on accretive acquisitions of niche aerospace parts businesses",
+    "Special dividends — management returns excess cash through periodic large special dividends ($35-75 per share)",
+    "Defense spending tailwinds — increased global military budgets benefit TDG's defense aftermarket business",
+    "Post-COVID air travel recovery driving aftermarket demand to above pre-pandemic levels"
+  ],
+  "company_brief": "TransDigm Group (TDG) is a leading global designer, producer, and supplier of highly engineered proprietary aerospace components for commercial and military aircraft. Founded in 1993 by Nick Howley and others, the company has grown through 80+ acquisitions into a ~$8B revenue business with 50+ decentralized operating units. TDG's competitive advantage is its focus on sole-source, proprietary parts — components where TDG is the only FAA/EASA-certified supplier. These parts have high utility relative to their cost (a $500 part keeps a $150M aircraft flying), giving TDG extraordinary pricing power. The company generates 48% EBITDA margins, among the highest of any industrial company globally. Approximately 55% of revenue comes from the aftermarket (spare parts and repairs), which is highly recurring and grows with the installed fleet of aircraft. TDG uses leverage to fund acquisitions and returns excess cash through special dividends, delivering 20%+ CAGR in shareholder returns since its 2006 IPO. FY2024 (September year-end) revenue was $7.9B with $3.8B EBITDA and $1.9B free cash flow."
+}

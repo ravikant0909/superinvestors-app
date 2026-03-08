@@ -1,0 +1,78 @@
+{
+  "investor_slug": "bryan-lawrence",
+  "investor_name": "Bryan Lawrence",
+  "firm_name": "Oakcliff Capital",
+  "ticker": "IBKR",
+  "company_name": "Interactive Brokers Group",
+  "weight_pct": 28.4,
+  "value_millions": 66,
+  "thesis_headline": "The lowest-cost electronic brokerage is a two-sided market compounder with 70%+ operating margins and explosive account growth",
+  "thesis_summary": "Interactive Brokers is Bryan Lawrence's largest position because it exemplifies two of his three preferred business categories simultaneously: it is a two-sided market (connecting traders to exchanges worldwide) AND a lowest-cost operator in a fragmented industry. IBKR's fully automated platform processes trades at a fraction of competitors' cost, generating 71% operating margins on $5.2B of revenue. The company sits on a self-reinforcing flywheel: lower costs attract more sophisticated traders, more flow improves execution quality, better execution attracts more flow. Thomas Peterffy's 75%+ economic interest ensures perfect alignment. With customer accounts compounding at 25%+ annually and only ~3 million accounts vs. Schwab's 35 million+, the runway for growth is enormous. Lawrence sees this as a rare business where the competitive advantage actually widens with scale — each incremental account costs almost nothing to serve on a fully automated platform.",
+  "why_this_price": "At $66M for a 28.4% position, Lawrence's total portfolio is roughly $232M. He builds 10-year DCF models targeting 20%+ IRR for new purchases. IBKR trades at roughly 30x earnings, which looks expensive on a trailing P/E basis but is justified when you model the account growth trajectory: if accounts compound at 20%+ annually from ~3 million to 15-20 million over the next decade, and revenue per account stays stable or grows with market activity, IBKR's earnings power in 2034 dwarfs today's levels. At 30x today's EPS of ~$1.73, you are paying a very low multiple of 2030+ earnings. The 65%+ profit margin means nearly every incremental dollar of revenue falls to the bottom line.",
+  "investor_in_their_own_words": [
+    "We look for three types of businesses: two-sided markets that create value for multiple stakeholders, lowest-cost operators in fragmented industries with sustainable advantages, and companies with pricing power and high utility relative to cost.",
+    "We try to become the most informed investor in each of our holdings, making roughly two new investments annually.",
+    "I develop 10-year cash flow projections for each holding. I target IRRs above 20% for new purchases and trim positions discounting IRRs below 15%.",
+    "Rather than relying heavily on management commentary, we talk to competitors, customers and ex-employees to obtain candid perspectives.",
+    "About half of the U.S. stock market consists of passive index funds and ETFs — this creates opportunities for active, research-intensive investors."
+  ],
+  "valuation_math": {
+    "methodology": "10-year DCF projecting account and revenue growth, per Lawrence's stated approach",
+    "current_revenue_millions": 5185,
+    "current_net_income_millions": 755,
+    "current_eps": 1.73,
+    "operating_margin_pct": 71.3,
+    "profit_margin_pct": 65.7,
+    "revenue_growth_rate_pct": 19.5,
+    "account_growth_rate_pct": 25,
+    "projected_2030_accounts_millions": "8-10 (from ~3M today at 20-25% CAGR)",
+    "projected_2030_revenue_millions": "12,000-15,000",
+    "projected_2030_eps": "4.50-6.00",
+    "target_2030_pe": "20-25x",
+    "implied_2030_price": "$90-150",
+    "implied_irr_pct": "15-25%",
+    "notes": "Pre-tax income of $3.7B in FY2024 reflects the full consolidated entity including market-making. The brokerage segment alone generates enormous operating leverage. IBKR's economic interest structure (Peterffy owns ~75% economic interest through IBG LLC) means reported EPS understates per-share economics for public shareholders on a look-through basis."
+  },
+  "key_metrics": {
+    "revenue_fy2024_millions": 5185,
+    "revenue_fy2023_millions": 4340,
+    "revenue_growth_pct": 19.5,
+    "net_income_fy2024_millions": 755,
+    "pre_tax_income_fy2024_millions": 3695,
+    "operating_margin_pct": 71.3,
+    "profit_margin_pct": 65.7,
+    "gross_margin_pct": 80.3,
+    "eps_diluted_fy2024": 1.73,
+    "eps_growth_pct": 22.2,
+    "customer_accounts_approx": "~3 million (growing 25%+ annually)",
+    "founder_economic_interest_pct": "~75% (Thomas Peterffy via IBG LLC)",
+    "markets_connected": "150+ exchanges in 34 countries",
+    "currencies_supported": 29,
+    "automation_level": "Fully automated — minimal human intervention in trade processing"
+  },
+  "moat_sources": [
+    "Lowest-cost electronic broker globally — fully automated platform processes millions of trades at near-zero marginal cost",
+    "Two-sided market network effects: more traders improve execution quality and liquidity, attracting more traders",
+    "Technology platform built over 45+ years by founder Thomas Peterffy, one of the pioneers of electronic trading",
+    "Regulatory moat: broker-dealer licenses in 34 countries create enormous barriers to entry",
+    "Scale economics: 71% operating margin vs. industry average of 30-40%. Each incremental account adds revenue at near-100% incremental margin",
+    "Founder-led with 75%+ economic alignment — Peterffy has more skin in the game than almost any public company CEO"
+  ],
+  "risks": [
+    "Thomas Peterffy is 80 years old — succession risk is the biggest overhang on the stock",
+    "Revenue is correlated with market volatility and trading volumes — a prolonged low-volatility environment would slow growth",
+    "Regulatory risk: increased capital requirements or trading restrictions could compress margins",
+    "Competition from zero-commission brokers (Robinhood, Schwab) at the retail end, though IBKR targets professional/institutional traders",
+    "Concentrated ownership structure limits float and governance accountability",
+    "Net interest income (~50% of revenue) is sensitive to interest rate cuts — a rapid rate decline would compress earnings"
+  ],
+  "catalysts": [
+    "Continued 20-25% account growth as global retail trading adoption expands",
+    "International expansion — IBKR is uniquely positioned as the only truly global retail/professional broker",
+    "Rising interest rates boost net interest income on client cash balances",
+    "Market share gains from institutional accounts seeking lowest execution costs",
+    "Potential reclassification from 'brokerage' to 'financial technology platform' by market participants, driving multiple expansion",
+    "Crypto and digital asset trading expansion adds new revenue streams with minimal incremental cost"
+  ],
+  "company_brief": "Interactive Brokers Group (IBKR) is a fully automated electronic brokerage firm founded in 1978 by Thomas Peterffy. The company provides execution, clearing, and settlement services across stocks, options, futures, forex, bonds, metals, and cryptocurrencies on 150+ exchanges in 34 countries across 29 currencies. IBKR serves individual investors, financial advisors, hedge funds, proprietary trading firms, and introducing brokers. The company's competitive advantage stems from its technology-driven, lowest-cost model — it processes millions of trades daily with minimal human intervention, generating 71% operating margins. FY2024 revenue was $5.2B with $3.7B in pre-tax income. Customer accounts are growing at 25%+ annually, approaching 3 million. Founder Thomas Peterffy retains ~75% economic interest in the business through IBG LLC."
+}

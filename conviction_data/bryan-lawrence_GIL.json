@@ -1,0 +1,82 @@
+{
+  "investor_slug": "bryan-lawrence",
+  "investor_name": "Bryan Lawrence",
+  "firm_name": "Oakcliff Capital",
+  "ticker": "GIL",
+  "company_name": "Gildan Activewear",
+  "weight_pct": 18.2,
+  "value_millions": 43,
+  "thesis_headline": "The world's lowest-cost vertically integrated apparel manufacturer with pricing power disguised as a commodity business",
+  "thesis_summary": "Gildan fits perfectly into Lawrence's second preferred business category: the lowest-cost operator in a fragmented industry with sustainable advantages. Gildan operates one of the world's most efficient vertically integrated manufacturing operations, primarily in Honduras and the Caribbean Basin, producing basic activewear (t-shirts, fleece, socks) at costs that competitors cannot match. The company owns its entire supply chain from yarn spinning to finished garments, giving it a 500-1,000 basis point cost advantage over competitors who outsource to Asia. This cost advantage creates a durable moat — no rational competitor will invest billions to replicate Gildan's manufacturing footprint when the market is mature. The company generates consistent free cash flow ($350M+/year), returns most of it through buybacks and dividends, and recently acquired the Hanes brand portfolio to consolidate its dominance in basic apparel. Lawrence sees Gildan as a 'boring compounder' — the kind of business that compounds at 10-15% annually with very little downside risk.",
+  "why_this_price": "At $43M and 18.2% of portfolio, this is Lawrence's second-largest bet. Gildan trades at roughly 16-18x earnings with $2.46 EPS in FY2024. Lawrence's 10-year DCF framework likely assumes: (1) low-single-digit revenue growth (2-4% organically + Hanes integration), (2) margin improvement as Hanes manufacturing is brought in-house to Gildan's low-cost facilities, (3) aggressive share buybacks reducing share count by 3-5% annually, and (4) steady dividend growth. At 16x earnings with a 6% earnings yield and 3-5% buyback yield, the total shareholder return approaches 15%+ without any multiple expansion. The Hanes acquisition provides a step-function catalyst that is not yet reflected in normalized earnings.",
+  "investor_in_their_own_words": [
+    "We look for lowest-cost operators in fragmented industries with sustainable advantages.",
+    "We try to become the most informed investor in each of our holdings, making roughly two new investments annually.",
+    "We own businesses with pricing power that can outrun inflation.",
+    "Rather than relying heavily on management commentary, we talk to competitors, customers and ex-employees to obtain candid perspectives.",
+    "A dollar invested in Oakcliff in 2004 compounded to $14 by 2021 — we achieve this through patient ownership of quality businesses."
+  ],
+  "valuation_math": {
+    "methodology": "Normalized earnings yield + buyback yield + growth, per Lawrence's 10-year DCF approach",
+    "current_revenue_millions": 3271,
+    "current_net_income_millions": 401,
+    "current_eps": 2.46,
+    "operating_margin_pct": 18.9,
+    "free_cash_flow_millions": 356,
+    "fy2023_revenue_millions": 3196,
+    "fy2023_eps": 3.03,
+    "revenue_growth_pct": 2.3,
+    "hanes_acquisition_impact": "FY2025 revenue expected ~$3.6B (+10.7% YoY) as Hanes brands are fully consolidated",
+    "projected_2028_revenue_millions": "4,500-5,000 (with Hanes integration + organic growth)",
+    "projected_normalized_eps_2026": "3.00-3.50 (Hanes synergies + buybacks)",
+    "target_pe": "16-20x",
+    "implied_2028_price": "$55-70",
+    "implied_irr_pct": "12-18%",
+    "buyback_yield_pct": "3-5%",
+    "dividend_yield_pct": "~2%",
+    "total_shareholder_return_pct": "15-20% (earnings growth + buybacks + dividends)",
+    "notes": "FY2024 EPS of $2.46 was depressed by Hanes acquisition costs and integration charges. Normalized EPS is closer to $3.00. The acquisition transforms Gildan from a $3.2B company to a $4.5B+ company with significant cost synergies as Hanes manufacturing moves to Gildan's low-cost facilities."
+  },
+  "key_metrics": {
+    "revenue_fy2024_millions": 3271,
+    "revenue_fy2023_millions": 3196,
+    "revenue_growth_pct": 2.3,
+    "net_income_fy2024_millions": 401,
+    "net_income_fy2023_millions": 534,
+    "eps_fy2024": 2.46,
+    "eps_fy2023": 3.03,
+    "operating_margin_pct": 18.9,
+    "free_cash_flow_millions": 356,
+    "market_cap_billions": 12.4,
+    "employees": 51000,
+    "brands": "Gildan, Hanes, Comfort Colors, Champion, American Apparel",
+    "manufacturing_locations": "Honduras, Dominican Republic, Bangladesh, U.S.",
+    "vertical_integration": "Yarn spinning, fabric knitting, dyeing, cutting, sewing — entire supply chain owned",
+    "hanes_acquisition_closed": "December 2025"
+  },
+  "moat_sources": [
+    "Lowest-cost manufacturer globally — vertically integrated from yarn to finished garment, primarily in Honduras and Caribbean Basin with 500-1,000 bps cost advantage",
+    "Scale economics in basic apparel — $3.3B revenue base makes it uneconomical for competitors to replicate the manufacturing footprint",
+    "Brand portfolio after Hanes acquisition: Gildan + Hanes + Comfort Colors + Champion gives dominant share in printwear and basic activewear",
+    "Switching costs for distributors — Gildan is the default supplier for screen printers, decorators, and promotional product distributors",
+    "Environmental and labor compliance investments create regulatory barriers that smaller manufacturers cannot match",
+    "Proximity to U.S. market (Honduras/Dominican Republic) provides logistics advantage over Asian manufacturers"
+  ],
+  "risks": [
+    "Cotton price volatility — raw material costs can compress margins in the short term (though Gildan hedges and passes through costs with a lag)",
+    "Hanes integration execution risk — large acquisitions have integration risk, particularly in combining manufacturing operations",
+    "Consumer shift away from basic apparel toward athleisure/performance wear could erode core market",
+    "Trade policy risk — tariff changes affecting Caribbean Basin manufacturing could alter cost advantage",
+    "FY2024 net income decline of 25% raises questions about margin sustainability",
+    "Champion brand licensing complexity — brand ownership is shared/complicated after the Hanes deal"
+  ],
+  "catalysts": [
+    "Hanes brand integration cost synergies — moving Hanes manufacturing to Gildan's low-cost Central American facilities could add $100-200M in annual savings",
+    "Share buyback program — management has historically been aggressive with buybacks, reducing share count significantly",
+    "Printwear market recovery — normalized demand after post-COVID inventory destocking",
+    "International expansion — Gildan has minimal presence outside North America",
+    "Champion brand revitalization under Gildan's ownership",
+    "Margin expansion as integration charges roll off and cost synergies are realized"
+  ],
+  "company_brief": "Gildan Activewear (GIL) is the world's largest vertically integrated manufacturer of basic activewear and hosiery, headquartered in Montreal, Canada. The company produces t-shirts, fleece, socks, and underwear under the Gildan, Hanes, Comfort Colors, Champion, and American Apparel brands. Gildan's competitive advantage stems from its vertically integrated manufacturing operations in Honduras and the Caribbean Basin, where it controls the entire supply chain from yarn spinning to finished garments. This gives Gildan a structural cost advantage of 500-1,000 basis points over competitors who outsource to Asia. The company completed its acquisition of HanesBrands in December 2025, creating a dominant position in basic apparel with combined revenue approaching $4.5-5.0B. FY2024 revenue was $3.3B with $401M net income and $356M free cash flow. The company employs 51,000 people and serves the printwear/promotional products channel (where it is the dominant supplier) and retail brands."
+}

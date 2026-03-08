@@ -1,0 +1,16 @@
+node_modules/
+.next/
+out/
+site/
+__pycache__/
+*.pyc
+data/cache/
+data/pipeline.log
+*.db-shm
+*.db-wal
+.DS_Store
+.wrangler/
+.env
+.env.local
+tsconfig.tsbuildinfo
+.claude/worktrees/

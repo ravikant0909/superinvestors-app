@@ -1,0 +1,455 @@
+{
+  "generated_at": "2026-03-05T13:50:27.719890",
+  "total_conviction_bets": 56,
+  "threshold_pct": 10.0,
+  "bets": [
+    {
+      "investor_name": "Cliff Sosin",
+      "investor_slug": "cliff-sosin",
+      "ticker": "CVNA",
+      "company_name": "CARVANA CO",
+      "weight_pct": 83.25,
+      "value_thousands": 1945596604.0
+    },
+    {
+      "investor_name": "Murray Stahl",
+      "investor_slug": "murray-stahl",
+      "ticker": "TPL",
+      "company_name": "TEXAS PACIFIC LAND CORPORATI",
+      "weight_pct": 40.14,
+      "value_thousands": 2968063138.0
+    },
+    {
+      "investor_name": "Guy Spier",
+      "investor_slug": "guy-spier",
+      "ticker": "BRK-A",
+      "company_name": "BERKSHIRE HATHAWAY INC DEL",
+      "weight_pct": 36.38,
+      "value_thousands": 109446000.0
+    },
+    {
+      "investor_name": "Francis Chou",
+      "investor_slug": "francis-chou",
+      "ticker": "BRK-A",
+      "company_name": "BERKSHIRE HATHAWAY INC DEL",
+      "weight_pct": 32.21,
+      "value_thousands": 64912806.0
+    },
+    {
+      "investor_name": "Bryan Lawrence",
+      "investor_slug": "bryan-lawrence",
+      "ticker": "IBKR",
+      "company_name": "INTERACTIVE BROKERS GROUP IN",
+      "weight_pct": 28.42,
+      "value_thousands": 66286889.0
+    },
+    {
+      "investor_name": "Chris Hohn",
+      "investor_slug": "chris-hohn",
+      "ticker": "369604301",
+      "company_name": "GE AEROSPACE",
+      "weight_pct": 27.28,
+      "value_thousands": 14634638061.0
+    },
+    {
+      "investor_name": "Gavin Baker",
+      "investor_slug": "gavin-baker",
+      "ticker": "QQQ",
+      "company_name": "INVESCO QQQ TR",
+      "weight_pct": 26.27,
+      "value_thousands": 2150085000.0
+    },
+    {
+      "investor_name": "Li Lu",
+      "investor_slug": "li-lu",
+      "ticker": "GOOGL",
+      "company_name": "ALPHABET INC",
+      "weight_pct": 22.31,
+      "value_thousands": 796052900.0
+    },
+    {
+      "investor_name": "Leopold Aschenbrenner",
+      "investor_slug": "leopold-aschenbrenner",
+      "ticker": "CRWV",
+      "company_name": "COREWEAVE INC",
+      "weight_pct": 22.0,
+      "value_thousands": 1211162272.0
+    },
+    {
+      "investor_name": "Li Lu",
+      "investor_slug": "li-lu",
+      "ticker": "GOOG",
+      "company_name": "ALPHABET INC",
+      "weight_pct": 21.55,
+      "value_thousands": 769217940.0
+    },
+    {
+      "investor_name": "Prem Watsa",
+      "investor_slug": "prem-watsa",
+      "ticker": "ORLA",
+      "company_name": "ORLA MINING LTD",
+      "weight_pct": 20.33,
+      "value_thousands": 423610745.0
+    },
+    {
+      "investor_name": "Guy Spier",
+      "investor_slug": "guy-spier",
+      "ticker": "46436E718",
+      "company_name": "ISHARES TR",
+      "weight_pct": 18.88,
+      "value_thousands": 56815080.0
+    },
+    {
+      "investor_name": "Chuck Akre",
+      "investor_slug": "chuck-akre",
+      "ticker": "MA",
+      "company_name": "MASTERCARD INCORPORATED",
+      "weight_pct": 18.81,
+      "value_thousands": 1715654246.0
+    },
+    {
+      "investor_name": "Bryan Lawrence",
+      "investor_slug": "bryan-lawrence",
+      "ticker": "GIL",
+      "company_name": "GILDAN ACTIVEWEAR INC",
+      "weight_pct": 18.25,
+      "value_thousands": 42578295.0
+    },
+    {
+      "investor_name": "John Huber",
+      "investor_slug": "john-huber",
+      "ticker": "NRP",
+      "company_name": "NATURAL RESOURCE PARTNERS L",
+      "weight_pct": 18.16,
+      "value_thousands": 21765625.0
+    },
+    {
+      "investor_name": "Bill Ackman",
+      "investor_slug": "bill-ackman",
+      "ticker": "BXDIF",
+      "company_name": "BROOKFIELD CORP",
+      "weight_pct": 18.15,
+      "value_thousands": 2817787754.0
+    },
+    {
+      "investor_name": "Chris Hohn",
+      "investor_slug": "chris-hohn",
+      "ticker": "V",
+      "company_name": "VISA INC",
+      "weight_pct": 18.12,
+      "value_thousands": 9723165755.0
+    },
+    {
+      "investor_name": "Pat Dorsey",
+      "investor_slug": "pat-dorsey",
+      "ticker": "N07059210",
+      "company_name": "ASML HOLDING N V",
+      "weight_pct": 17.89,
+      "value_thousands": 205780082.0
+    },
+    {
+      "investor_name": "Guy Spier",
+      "investor_slug": "guy-spier",
+      "ticker": "CROX",
+      "company_name": "CROCS INC",
+      "weight_pct": 16.9,
+      "value_thousands": 50847626.0
+    },
+    {
+      "investor_name": "John Huber",
+      "investor_slug": "john-huber",
+      "ticker": "31946M103",
+      "company_name": "FIRST CTZNS BANCSHARES INC D",
+      "weight_pct": 16.56,
+      "value_thousands": 19841434.0
+    },
+    {
+      "investor_name": "Leopold Aschenbrenner",
+      "investor_slug": "leopold-aschenbrenner",
+      "ticker": "BE",
+      "company_name": "BLOOM ENERGY CORP",
+      "weight_pct": 16.5,
+      "value_thousands": 911000117.0
+    },
+    {
+      "investor_name": "Pat Dorsey",
+      "investor_slug": "pat-dorsey",
+      "ticker": "DHR",
+      "company_name": "DANAHER CORPORATION",
+      "weight_pct": 16.47,
+      "value_thousands": 189435878.0
+    },
+    {
+      "investor_name": "Li Lu",
+      "investor_slug": "li-lu",
+      "ticker": "BAC",
+      "company_name": "BANK AMER CORP",
+      "weight_pct": 16.08,
+      "value_thousands": 573726285.0
+    },
+    {
+      "investor_name": "Bill Ackman",
+      "investor_slug": "bill-ackman",
+      "ticker": "UBER",
+      "company_name": "UBER TECHNOLOGIES INC",
+      "weight_pct": 15.9,
+      "value_thousands": 2468273945.0
+    },
+    {
+      "investor_name": "Bryan Lawrence",
+      "investor_slug": "bryan-lawrence",
+      "ticker": "GOOG",
+      "company_name": "ALPHABET INC",
+      "weight_pct": 15.9,
+      "value_thousands": 37078922.0
+    },
+    {
+      "investor_name": "Guy Spier",
+      "investor_slug": "guy-spier",
+      "ticker": "PDD",
+      "company_name": "PDD HOLDINGS INC",
+      "weight_pct": 15.64,
+      "value_thousands": 47057304.0
+    },
+    {
+      "investor_name": "Pat Dorsey",
+      "investor_slug": "pat-dorsey",
+      "ticker": "AER",
+      "company_name": "AERCAP",
+      "weight_pct": 15.18,
+      "value_thousands": 174676882.0
+    },
+    {
+      "investor_name": "Chris Hohn",
+      "investor_slug": "chris-hohn",
+      "ticker": "MSFT",
+      "company_name": "MICROSOFT CORP",
+      "weight_pct": 15.13,
+      "value_thousands": 8116088110.0
+    },
+    {
+      "investor_name": "Li Lu",
+      "investor_slug": "li-lu",
+      "ticker": "PDD",
+      "company_name": "PDD HOLDINGS INC",
+      "weight_pct": 14.64,
+      "value_thousands": 522501120.0
+    },
+    {
+      "investor_name": "Christopher Bloomstran",
+      "investor_slug": "christopher-bloomstran",
+      "ticker": "BRK-A",
+      "company_name": "BERKSHIRE HATHAWAY INC DEL",
+      "weight_pct": 14.41,
+      "value_thousands": 125265909.0
+    },
+    {
+      "investor_name": "Bill Ackman",
+      "investor_slug": "bill-ackman",
+      "ticker": "AMZN",
+      "company_name": "AMAZON COM INC",
+      "weight_pct": 14.28,
+      "value_thousands": 2217677936.0
+    },
+    {
+      "investor_name": "Christopher Bloomstran",
+      "investor_slug": "christopher-bloomstran",
+      "ticker": "256677105",
+      "company_name": "DOLLAR GEN CORP NEW",
+      "weight_pct": 14.14,
+      "value_thousands": 122939033.0
+    },
+    {
+      "investor_name": "Bryan Lawrence",
+      "investor_slug": "bryan-lawrence",
+      "ticker": "TDG",
+      "company_name": "TRANSDIGM GROUP INC",
+      "weight_pct": 13.78,
+      "value_thousands": 32142475.0
+    },
+    {
+      "investor_name": "Chuck Akre",
+      "investor_slug": "chuck-akre",
+      "ticker": "BXDIF",
+      "company_name": "BROOKFIELD CORP",
+      "weight_pct": 13.51,
+      "value_thousands": 1231854338.0
+    },
+    {
+      "investor_name": "Leopold Aschenbrenner",
+      "investor_slug": "leopold-aschenbrenner",
+      "ticker": "INTC",
+      "company_name": "INTEL CORP",
+      "weight_pct": 13.5,
+      "value_thousands": 746760097.0
+    },
+    {
+      "investor_name": "Thomas Russo",
+      "investor_slug": "thomas-russo",
+      "ticker": "GOOG",
+      "company_name": "ALPHABET INC",
+      "weight_pct": 13.32,
+      "value_thousands": 1233609619.0
+    },
+    {
+      "investor_name": "Murray Stahl",
+      "investor_slug": "murray-stahl",
+      "ticker": "GBTC",
+      "company_name": "GRAYSCALE BITCOIN TRUST ETF",
+      "weight_pct": 13.05,
+      "value_thousands": 964805217.0
+    },
+    {
+      "investor_name": "Chris Hohn",
+      "investor_slug": "chris-hohn",
+      "ticker": "MCO",
+      "company_name": "MOODYS CORP",
+      "weight_pct": 12.67,
+      "value_thousands": 6798636497.0
+    },
+    {
+      "investor_name": "Li Lu",
+      "investor_slug": "li-lu",
+      "ticker": "BRK-A",
+      "company_name": "BERKSHIRE HATHAWAY INC DEL",
+      "weight_pct": 12.64,
+      "value_thousands": 451253535.0
+    },
+    {
+      "investor_name": "Bill Ackman",
+      "investor_slug": "bill-ackman",
+      "ticker": "GOOG",
+      "company_name": "ALPHABET INC",
+      "weight_pct": 12.46,
+      "value_thousands": 1934222720.0
+    },
+    {
+      "investor_name": "Guy Spier",
+      "investor_slug": "guy-spier",
+      "ticker": "70450Y103",
+      "company_name": "PAYPAL HLDGS INC",
+      "weight_pct": 12.2,
+      "value_thousands": 36715591.0
+    },
+    {
+      "investor_name": "Thomas Russo",
+      "investor_slug": "thomas-russo",
+      "ticker": "BRK-A",
+      "company_name": "BERKSHIRE HATHAWAY INC DEL",
+      "weight_pct": 12.12,
+      "value_thousands": 1123142400.0
+    },
+    {
+      "investor_name": "Prem Watsa",
+      "investor_slug": "prem-watsa",
+      "ticker": "OXY-WT",
+      "company_name": "OCCIDENTAL PETE CORP",
+      "weight_pct": 11.94,
+      "value_thousands": 248732684.0
+    },
+    {
+      "investor_name": "Chris Hohn",
+      "investor_slug": "chris-hohn",
+      "ticker": "SPGI",
+      "company_name": "S&P GLOBAL INC",
+      "weight_pct": 11.48,
+      "value_thousands": 6161498103.0
+    },
+    {
+      "investor_name": "Bill Ackman",
+      "investor_slug": "bill-ackman",
+      "ticker": "META",
+      "company_name": "META PLATFORMS INC",
+      "weight_pct": 11.37,
+      "value_thousands": 1764796161.0
+    },
+    {
+      "investor_name": "Chuck Akre",
+      "investor_slug": "chuck-akre",
+      "ticker": "48251w104",
+      "company_name": "KKR & CO L P DEL",
+      "weight_pct": 11.33,
+      "value_thousands": 1033359070.0
+    },
+    {
+      "investor_name": "Francis Chou",
+      "investor_slug": "francis-chou",
+      "ticker": "GOOG",
+      "company_name": "ALPHABET INC",
+      "weight_pct": 11.27,
+      "value_thousands": 22715982.0
+    },
+    {
+      "investor_name": "David Tepper",
+      "investor_slug": "david-tepper",
+      "ticker": "01609W102",
+      "company_name": "ALIBABA GROUP HLDG LTD",
+      "weight_pct": 10.88,
+      "value_thousands": 753117926.0
+    },
+    {
+      "investor_name": "Robert Goldfarb",
+      "investor_slug": "robert-goldfarb",
+      "ticker": "GOOGL",
+      "company_name": "ALPHABET INC",
+      "weight_pct": 10.63,
+      "value_thousands": 680718973.0
+    },
+    {
+      "investor_name": "Seth Klarman",
+      "investor_slug": "seth-klarman",
+      "ticker": "QSR",
+      "company_name": "RESTAURANT BRANDS INTL INC",
+      "weight_pct": 10.44,
+      "value_thousands": 551325.0
+    },
+    {
+      "investor_name": "Prem Watsa",
+      "investor_slug": "prem-watsa",
+      "ticker": "CVS",
+      "company_name": "CVS Health Corporation",
+      "weight_pct": 10.33,
+      "value_thousands": 215197200.0
+    },
+    {
+      "investor_name": "Chuck Akre",
+      "investor_slug": "chuck-akre",
+      "ticker": "V",
+      "company_name": "VISA INC",
+      "weight_pct": 10.29,
+      "value_thousands": 938720206.0
+    },
+    {
+      "investor_name": "Cliff Sosin",
+      "investor_slug": "cliff-sosin",
+      "ticker": "HGV",
+      "company_name": "HILTON GRAND VACATIONS",
+      "weight_pct": 10.18,
+      "value_thousands": 237952755.0
+    },
+    {
+      "investor_name": "Christopher Bloomstran",
+      "investor_slug": "christopher-bloomstran",
+      "ticker": "BRK-A",
+      "company_name": "BERKSHIRE HATHAWAY INC DEL",
+      "weight_pct": 10.07,
+      "value_thousands": 87556800.0
+    },
+    {
+      "investor_name": "Bill Ackman",
+      "investor_slug": "bill-ackman",
+      "ticker": "QSR",
+      "company_name": "RESTAURANT BRANDS INTL INC",
+      "weight_pct": 10.05,
+      "value_thousands": 1560199922.0
+    },
+    {
+      "investor_name": "Prem Watsa",
+      "investor_slug": "prem-watsa",
+      "ticker": "UA",
+      "company_name": "UNDER ARMOUR INC",
+      "weight_pct": 10.01,
+      "value_thousands": 208535847.0
+    }
+  ]
+}

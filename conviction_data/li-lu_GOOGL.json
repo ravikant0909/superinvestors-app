@@ -1,0 +1,89 @@
+{
+  "investor_slug": "li-lu",
+  "investor_name": "Li Lu",
+  "firm_name": "Himalaya Capital",
+  "ticker": "GOOGL",
+  "company_name": "Alphabet",
+  "weight_pct": 44.0,
+  "value_millions": 1565,
+  "thesis_headline": "Alphabet is the dominant toll-booth of the information age — a Munger-style compounder with an unassailable search moat, an AI-first pivot that extends its advantage for decades, and $73B in free cash flow at just 22x owner earnings.",
+  "thesis_summary": "Li Lu's 44% allocation to Alphabet — split across GOOGL (22.3%) and GOOG (21.6%) share classes — represents the most concentrated single-company bet in his portfolio and signals extraordinary conviction. This is a Munger-school investment: a wonderful business at a fair price with a multi-decade compounding runway. Alphabet owns the infrastructure layer of the internet through Google Search (90%+ market share), YouTube (2.5B monthly users), Google Cloud (growing 30%+ annually), and Android (3B+ devices). Each of these platforms exhibits powerful network effects and switching costs that make competitive displacement effectively impossible.\n\nWhat makes this quintessentially a Li Lu bet is the intersection of quality and price. Alphabet generated $350B in revenue and $100B in net income in 2024, growing at 14-15% annually — yet it traded at roughly 20-22x earnings when Li Lu was building the position, a discount to the S&P 500 despite superior economics. The market was mispricing Alphabet's AI optionality: Google DeepMind and Gemini represent potentially the most valuable AI assets in the world, and the company's $73B in free cash flow funds AI investment without compromising shareholder returns. Li Lu, following Munger's framework of buying great businesses that can reinvest at high rates, sees Alphabet as a knowledge-compounding machine — a business whose competitive advantages grow stronger over time as data, talent, and infrastructure compound.",
+  "why_this_price": "Li Lu sees what the market periodically undervalues: Alphabet is not just an advertising company — it is the infrastructure layer of the digital economy. The market intermittently prices Alphabet as a mature ad business facing disruption from AI chatbots, ignoring that Google itself is the leading AI company. DeepMind/Gemini, Google Cloud's AI services, and the integration of AI into Search represent massive optionality that is valued at zero or near-zero in the stock price. At ~22x trailing earnings, Li Lu is paying a fair price for a business growing at 15% with $73B in FCF, $100B+ in cash, and effectively infinite reinvestment runway in AI — the kind of asymmetric setup Munger taught him to find.",
+  "investor_in_their_own_words": [
+    {
+      "quote": "The way to think about investing is to find something you really understand deeply. And if you understand it deeply enough, you'll know how much it's worth.",
+      "source": "Li Lu, Columbia Business School lecture on value investing",
+      "date": "2010",
+      "url": ""
+    },
+    {
+      "quote": "What really matters in investing is avoiding permanent loss of capital. If you can avoid the losers, the winners take care of themselves.",
+      "source": "Li Lu, conversation with Bruce Greenwald's class at Columbia Business School",
+      "date": "2006",
+      "url": ""
+    },
+    {
+      "quote": "Knowledge compounds. The more you know about a business, the more you can know. And that compounding of knowledge is the real edge in investing. Everything else is noise.",
+      "source": "Li Lu, speech at Columbia Business School",
+      "date": "2012",
+      "url": ""
+    },
+    {
+      "quote": "Charlie taught me that it's far better to buy a wonderful business at a fair price than a fair business at a wonderful price. The key insight is that truly great businesses are rare, and when you find one, you should concentrate.",
+      "source": "Li Lu, referencing Charlie Munger's influence on his investing approach",
+      "date": "2015",
+      "url": ""
+    }
+  ],
+  "valuation_math": {
+    "approach": "Owner Earnings Yield + Growth-Adjusted P/E",
+    "steps": [
+      {"label": "2024 Revenue", "value": "$350B", "note": "Growing 14-15% annually; 2025 TTM revenue already $403B"},
+      {"label": "2024 Net Income", "value": "$100.1B", "note": "32% operating margin across all segments"},
+      {"label": "2024 Free Cash Flow", "value": "$72.8B", "note": "After $52B+ in CapEx (heavy AI investment)"},
+      {"label": "2025 TTM EPS", "value": "$10.80", "note": "34% YoY growth; accelerating from AI momentum"},
+      {"label": "Current Market Cap", "value": "$3.64T", "note": "At ~$301/share"},
+      {"label": "Current P/E Ratio", "value": "27.9x", "note": "On TTM earnings of $10.80; forward P/E 26x"},
+      {"label": "FCF Yield", "value": "~3.5%", "note": "$132B net income on $3.64T market cap = 3.6% earnings yield"},
+      {"label": "5-Year EPS CAGR Assumption", "value": "15%", "note": "Conservative given 34% TTM growth and AI tailwinds"},
+      {"label": "2030 EPS Estimate", "value": "$21.70", "note": "$10.80 compounding at 15% for 5 years"},
+      {"label": "Terminal P/E at Year 5", "value": "22x", "note": "Multiple contraction from 28x to 22x (conservative)"},
+      {"label": "Implied 2030 Price", "value": "$477", "note": "$21.70 x 22 = $477"},
+      {"label": "Implied 5-Year Return", "value": "59%", "note": "From $301 to $477, or ~9.7% CAGR + 0.3% dividend"}
+    ],
+    "target_price": "$477",
+    "current_price": "$301",
+    "implied_return": "59% (5-year total)",
+    "time_horizon": "5 years"
+  },
+  "key_metrics": {
+    "revenue": "$350B (2024); $403B TTM",
+    "net_income": "$100.1B (2024); $132B TTM",
+    "market_cap": "$3.64 trillion",
+    "pe_ratio": "27.9x TTM; 26x forward",
+    "free_cash_flow": "$72.8B (2024)"
+  },
+  "moat_sources": [
+    "Search monopoly: 90%+ global market share, 25+ years of accumulated search data and AI training advantage",
+    "YouTube dominance: 2.5B monthly active users, largest video platform by orders of magnitude, irreplaceable creator ecosystem",
+    "Android ecosystem: 3B+ active devices globally, controlling the mobile operating system layer",
+    "Google Cloud: #3 cloud provider growing 30%+ annually, critical AI/ML infrastructure",
+    "DeepMind/Gemini AI: Arguably the deepest AI research lab in the world, with 15+ years of accumulated research",
+    "Data flywheel: More users generate more data, which improves AI models, which attract more users — a self-reinforcing loop",
+    "Distribution moat: Default search deals (Apple, Samsung, browser makers) lock in distribution that no competitor can match"
+  ],
+  "risks": [
+    {"risk": "AI disruption to Search", "severity": "Medium", "mitigation": "Google is the leading AI company itself; Gemini integration into Search maintains relevance. The 'Google is disrupted by ChatGPT' narrative has not materialized — Google's search market share remains 90%+."},
+    {"risk": "Antitrust/regulatory action", "severity": "Medium-High", "mitigation": "DOJ antitrust case could force structural remedies (e.g., ending default search deals with Apple). However, even without defaults, Google Search is the best product — users would likely choose it anyway. Worst case: $10-15B annual cost savings from not paying for defaults."},
+    {"risk": "Massive AI CapEx with uncertain returns", "severity": "Medium", "mitigation": "CapEx running $50-55B annually, rising. But Alphabet generates $73B+ in FCF even after this spending. AI investment is funded from operations, not debt."},
+    {"risk": "Advertising cyclicality", "severity": "Low-Medium", "mitigation": "Advertising is ~77% of revenue. Digital ad spending has proven resilient through recessions and is taking share from traditional media permanently."}
+  ],
+  "catalysts": [
+    "AI monetization: Gemini integration into Search, Workspace, and Cloud represents potentially $50B+ in incremental revenue opportunity",
+    "Google Cloud inflection: Growing 30%+ to a $40B+ annual run rate, approaching profitability inflection",
+    "Waymo autonomous vehicles: Market leader in self-driving, with 150K+ paid rides per week — potential $100B+ TAM",
+    "Capital return acceleration: $70B buyback authorization, share count declining ~2-3% annually",
+    "YouTube monetization deepening: Connected TV, Shorts monetization, YouTube Premium all expanding ARPU"
+  ],
+  "company_brief": "Alphabet is the parent company of Google and one of the world's most valuable businesses. It operates Google Search (90%+ market share globally), YouTube (the dominant video platform with 2.5B MAU), Google Cloud (third-largest cloud platform), Android (the world's most widely used mobile OS with 3B+ devices), and DeepMind (one of the most advanced AI research labs). In 2024, Alphabet generated $350B in revenue, $100B in net income, and $73B in free cash flow. The company is increasingly pivoting to AI-first, with Gemini models integrated across all products and AI infrastructure investment exceeding $50B annually."
+}

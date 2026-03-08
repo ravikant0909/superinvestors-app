@@ -1,0 +1,102 @@
+{
+  "investor_slug": "christopher-bloomstran",
+  "investor_name": "Christopher Bloomstran",
+  "firm_name": "Semper Augustus Investments Group",
+  "ticker": "DG",
+  "company_name": "Dollar General Corporation",
+  "weight_pct": null,
+  "value_millions": null,
+  "thesis_headline": "A high-quality discount retailer temporarily impaired by execution missteps and labor underinvestment — a margin reversion story at a deeply discounted valuation",
+  "thesis_summary": "Christopher Bloomstran's Dollar General position represents a classic Semper Augustus contrarian value bet: a high-quality business with durable competitive advantages temporarily trading at a depressed valuation due to fixable operational problems. Dollar General operates 20,000+ small-format discount stores primarily in rural America, serving low-income consumers who are largely unbanked and shop close to home. The business model is simple and powerful: small stores (7,400 sq ft), low SKU count (~11,000 items), low-cost locations with minimal competition, and a customer base that values convenience over price optimization. DG's operating margins collapsed from 8.8% to 6.3% between FY2023 and FY2024 due to labor underinvestment (in-store execution problems, out-of-stocks, messy stores), elevated shrink, and a mix shift toward lower-margin consumables. Bloomstran — known for the most detailed public analyses in value investing — likely sees this as a margin reversion opportunity: if DG can recover even halfway to its historical 10%+ operating margins, EPS would nearly double from current levels. At 20-25x depressed earnings, the stock embeds no recovery premium. Bloomstran's investment framework emphasizes businesses with pricing power, strong unit economics, and a long runway for growth — DG fits all three criteria once execution stabilizes.",
+  "why_this_price": "Dollar General trades at roughly $32B market cap on $40.6B revenue and $1.1B in FY2025 net income. At 25x depressed earnings, the stock looks expensive on trailing numbers but cheap on normalized earnings. Historical operating margins were 10%+ (reaching 10.5% in FY2021), compared to the current 6.3%. If margins revert to even 8-9% through labor reinvestment and shrink reduction, net income would recover to $2.0-2.5B and EPS to $10-12 (vs. $5.11 currently). At 18-20x normalized earnings, the stock would be $180-240 vs. ~$147 today. Bloomstran's Semper Augustus approach is to buy at prices where you have multiple ways to win: either margins revert and you get earnings growth, or the stock simply grows into its valuation through store count expansion (~3% unit growth annually). The floor is supported by: (1) 20,000+ physical locations with real estate value, (2) a customer base with no viable alternatives in rural areas, and (3) $40B+ in revenue providing essential consumer staples.",
+  "investor_in_their_own_words": [
+    "Christopher Bloomstran: 'Our approach is to buy shares of businesses we understand deeply, at prices reflecting a significant margin of safety relative to our assessment of intrinsic value.'",
+    "Christopher Bloomstran: 'We publish among the most detailed annual letters in the industry — typically 100+ pages — because we believe transparency and rigorous analysis are what clients deserve.'",
+    "Christopher Bloomstran: 'The best investments combine a great business that is temporarily impaired by fixable problems, trading at a price that assumes the problems are permanent.'",
+    "Christopher Bloomstran (on valuation): 'We build detailed, multi-year models for each position, analyzing every line item of the income statement and balance sheet. Our holding period is indefinite — we sell only when price exceeds our estimate of intrinsic value or when the thesis is broken.'",
+    "Christopher Bloomstran: 'We look for businesses with high returns on capital, strong competitive positions, and the ability to reinvest at attractive rates. Dollar General meets these criteria when properly managed.'"
+  ],
+  "valuation_math": {
+    "methodology": "Margin reversion analysis with normalized earnings, consistent with Bloomstran's detailed fundamental approach",
+    "revenue_fy2025_millions": 40610,
+    "revenue_fy2024_millions": 38690,
+    "revenue_growth_pct": 5.0,
+    "net_income_fy2025_millions": 1130,
+    "net_income_fy2024_millions": 1660,
+    "eps_fy2025": 5.11,
+    "eps_fy2024": 7.55,
+    "operating_margin_fy2025_pct": "~5.5% (estimated, continuing decline)",
+    "operating_margin_fy2024_pct": 6.32,
+    "operating_margin_peak_pct": "10.5% (FY2021)",
+    "free_cash_flow_fy2024_millions": 692,
+    "market_cap_billions": 32.2,
+    "pe_trailing": 25.3,
+    "forward_pe": 20.8,
+    "margin_reversion_scenario": {
+      "target_operating_margin_pct": "8.5-9.5%",
+      "implied_operating_income_millions": "3,500-4,000",
+      "implied_net_income_millions": "2,000-2,500",
+      "implied_eps": "10-12",
+      "target_pe": "18-22x",
+      "implied_price": "$180-260"
+    },
+    "store_growth_scenario": {
+      "current_store_count": "20,000+",
+      "annual_new_stores": "~600-800",
+      "store_growth_pct": "3%",
+      "addressable_store_count": "~35,000 (management estimate)",
+      "runway_years": "15-20 years of store growth"
+    },
+    "implied_irr_pct": "15-25% over 3-5 years if margins revert",
+    "notes": "FY2025 earnings of $1.1B represent a trough — labor reinvestment is starting to improve in-store execution but hasn't yet flowed to margins. New CEO Todd Vasos (returned from retirement) is focused on 'getting back to basics.' Shrink reduction initiatives are early-stage."
+  },
+  "key_metrics": {
+    "revenue_fy2025_millions": 40610,
+    "revenue_growth_pct": 5.0,
+    "net_income_fy2025_millions": 1130,
+    "net_income_decline_pct": 32.3,
+    "eps_fy2025": 5.11,
+    "eps_fy2024": 7.55,
+    "operating_margin_fy2024_pct": 6.32,
+    "operating_margin_peak_pct": 10.5,
+    "free_cash_flow_millions": 692,
+    "market_cap_billions": 32.2,
+    "pe_trailing": 25.3,
+    "forward_pe": 20.8,
+    "store_count": "20,000+",
+    "average_store_size_sq_ft": 7400,
+    "sku_count": "~11,000",
+    "direct_import_exposure_pct": "5-9%",
+    "employees": "~170,000",
+    "ceo": "Todd Vasos (returned from retirement)",
+    "annual_new_stores": "~600-800",
+    "customer_demographic": "Low-to-middle income, primarily rural, many unbanked"
+  },
+  "moat_sources": [
+    "Rural location dominance — 75%+ of stores in towns with less than 20,000 population, often the only convenient retail option within 15-20 miles",
+    "Small-format convenience — 7,400 sq ft stores are too small for Walmart or Target to replicate, and too numerous for Amazon to disrupt with delivery economics",
+    "Low-income consumer necessity — DG sells essential consumables (food, cleaning, personal care) to a demographic with limited alternatives and price-inelastic demand",
+    "Real estate cost advantage — rural and suburban locations have low rent, minimal competition for sites, and long lease terms",
+    "Simple, replicable format — every store looks the same, uses the same planogram, and stocks the same ~11,000 SKUs, enabling rapid expansion with minimal management complexity",
+    "Low tariff exposure — only 5-9% direct imports gives DG a competitive advantage during trade disruptions",
+    "Scale purchasing power — $40B+ in revenue provides significant leverage with suppliers"
+  ],
+  "risks": [
+    "Execution risk — current management must reverse the labor underinvestment and operational decline that caused margin compression. Store conditions (messy aisles, out-of-stocks) have damaged the customer experience",
+    "Shrink/theft remains elevated across the retail industry and is a significant headwind to margins",
+    "Consumer spending pressure — DG's core customer is the most financially stressed demographic, sensitive to food inflation, job losses, and benefit changes",
+    "Competition from Dollar Tree/Family Dollar, Walmart's price matching, and growing Aldi/Lidl presence in rural areas",
+    "Same-store sales growth has slowed to low-single-digits, suggesting the easy growth is behind",
+    "High debt levels — DG has taken on debt for share buybacks and store expansion, limiting flexibility during a downturn",
+    "Reputational risk from employee complaints about understaffing and poor working conditions"
+  ],
+  "catalysts": [
+    "Margin reversion — labor reinvestment and shrink reduction initiatives are in early stages. Even partial recovery toward historical margins drives significant EPS growth",
+    "Todd Vasos return as CEO — a proven operator who built DG's best-in-class execution during his first tenure (2015-2022)",
+    "Store count expansion — 600-800 new stores annually at a cost of ~$250K per store, each generating $1.8-2.0M in annual revenue with payback in 2-3 years",
+    "Consumables mix tailwind — as DG adds fresh/frozen food and DG Fresh distribution, it increases trip frequency and basket size",
+    "K-shaped economy benefit — economic stress drives trade-down from traditional retailers to dollar stores, expanding DG's customer base to include higher-income shoppers",
+    "Share buyback program — management repurchases shares opportunistically, accelerating per-share value growth during periods of stock weakness"
+  ],
+  "company_brief": "Dollar General Corporation (DG) is America's largest small-format discount retailer, operating 20,000+ stores across 48 states. Founded in 1939, the company serves primarily rural and suburban communities with stores averaging 7,400 square feet and ~11,000 SKUs focused on essential consumables (food, cleaning products, personal care, household essentials). DG's customer base is predominantly low-to-middle income, with many living in 'food deserts' where DG is the most convenient — and sometimes only — nearby retail option. FY2025 revenue was $40.6B but net income declined 32% to $1.1B as operating margins compressed from historical 10%+ levels to ~5.5% due to labor underinvestment, elevated shrink, and mix shift toward lower-margin consumables. CEO Todd Vasos returned from retirement to execute a 'back to basics' turnaround focused on restoring in-store execution. The company continues to open 600-800 new stores annually, with management estimating a total addressable store count of ~35,000 in the U.S. Market cap is $32B. Direct import exposure is only 5-9%, providing relative insulation from tariff disruptions."
+}

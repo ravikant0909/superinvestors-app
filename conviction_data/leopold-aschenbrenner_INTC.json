@@ -1,0 +1,116 @@
+{
+  "investor_slug": "leopold-aschenbrenner",
+  "investor_name": "Leopold Aschenbrenner",
+  "firm_name": "Situational Awareness LP",
+  "ticker": "INTC",
+  "company_name": "Intel Corporation",
+  "weight_pct": 13.5,
+  "value_millions": 747,
+  "thesis_headline": "The most contrarian bet in AI -- Aschenbrenner is betting $747M (almost entirely in call options) that Intel's fabs become essential to the AGI buildout America needs",
+  "thesis_summary": "Aschenbrenner's Intel position is perhaps his most intellectually fascinating holding. The $747M position is almost entirely call options -- he holds literally 1 share of Intel equity ($37) and $746.8M in call options on 20.2 million shares. This is a highly leveraged, speculative bet that Intel's stock will appreciate significantly. Given Intel's well-documented struggles (lost process leadership, market share losses to AMD and NVIDIA, CEO transition), this is one of the most contrarian bets in public markets.\n\nBut viewed through the lens of 'Situational Awareness,' the thesis becomes clear. Aschenbrenner's essay frames AGI as a national security imperative comparable to the Manhattan Project. He argues that the U.S. cannot depend on TSMC in Taiwan for the chips that will power superintelligence -- a single earthquake, Chinese invasion, or supply chain disruption could cripple the entire AGI program. Intel is the ONLY company with advanced semiconductor fabs on American soil. Its Intel Foundry Services (IFS) division aims to become a leading-edge contract chip manufacturer, backed by tens of billions in CHIPS Act subsidies. If Aschenbrenner's thesis is correct that the U.S. government will mobilize to secure domestic AI chip production, Intel becomes a strategic national asset -- its fabs are irreplaceable.\n\nThe all-options structure signals that Aschenbrenner views this as a high-risk, high-reward asymmetric bet. If Intel's foundry transformation succeeds and it captures even a fraction of the AI chip manufacturing demand, the stock could multiply several times from its depressed levels. If Intel continues to falter, the options expire worthless -- but the loss is capped at the option premium. This is classic Aschenbrenner: a thesis-driven bet where the downside is bounded but the upside is enormous if AGI plays out as predicted.",
+  "why_this_price": "The position is almost entirely call options ($747M in calls on 20.2M shares vs. 1 share of equity). This structure implies Aschenbrenner sees Intel as a deeply out-of-favor stock with asymmetric upside potential. Intel trades at a fraction of its historical peak valuation, with the market pricing in continued execution failures. But if the U.S. government prioritizes domestic chip manufacturing for national security (as Aschenbrenner's essay argues it must), Intel's CHIPS Act-subsidized fabs could become the backbone of American AI chip production. The options structure limits downside to the premium paid while capturing unlimited upside.",
+  "investor_in_their_own_words": [
+    {
+      "quote": "The national security implications are immense... this is comparable to the Manhattan Project.",
+      "source": "Situational Awareness: The Decade Ahead",
+      "date": "2024-06",
+      "url": "https://situational-awareness.ai"
+    },
+    {
+      "quote": "The fierce scramble to secure every power contract, every GPU allocation, every data center site has only just begun.",
+      "source": "Situational Awareness: The Decade Ahead",
+      "date": "2024-06",
+      "url": "https://situational-awareness.ai"
+    },
+    {
+      "quote": "Hundreds of millions of GPUs will hum across American infrastructure.",
+      "source": "Situational Awareness: The Decade Ahead",
+      "date": "2024-06",
+      "url": "https://situational-awareness.ai"
+    }
+  ],
+  "valuation_math": {
+    "approach": "Asymmetric options bet on Intel foundry transformation + national security premium",
+    "steps": [
+      {
+        "label": "Position structure",
+        "value": "1 share equity ($37) + 20,237,400 shares in call options ($746.8M)",
+        "note": "99.995% of position is call options -- a pure leveraged bet on stock appreciation"
+      },
+      {
+        "label": "Intel's strategic value",
+        "value": "Only advanced fab capacity on U.S. soil",
+        "note": "CHIPS Act: $8.5B direct funding + $11B loans to Intel for domestic fabs"
+      },
+      {
+        "label": "CHIPS Act support",
+        "value": "$19.5B+ in federal support",
+        "note": "Largest CHIPS Act recipient; building fabs in Arizona, Ohio, Oregon"
+      },
+      {
+        "label": "Intel Foundry Services potential",
+        "value": "Target: become a leading-edge contract chip manufacturer",
+        "note": "If IFS captures even 5-10% of foundry market, worth $50B+ standalone"
+      },
+      {
+        "label": "Current market discount",
+        "value": "Trading near multi-decade lows vs. historical valuations",
+        "note": "Market prices in continued failure; Aschenbrenner bets on reversal"
+      }
+    ],
+    "target_price": "Not disclosed (options structure implies significant upside expected)",
+    "current_price": "~$36.90/share implied from 13F (Dec 2025)",
+    "implied_return": "Call options require significant stock appreciation to be profitable; 50-100%+ implied",
+    "time_horizon": "2-4 years (aligned with AGI timeline and fab completion dates)"
+  },
+  "key_metrics": {
+    "revenue": "~$54B (FY2024, declining from peak)",
+    "market_cap": "~$160B",
+    "business_model": "Semiconductor design + manufacturing (IDM model, transitioning to foundry services)",
+    "chips_act_funding": "$8.5B direct + $11B loans from U.S. government",
+    "fab_locations": "Arizona (Fab 52, 62), Ohio (Fab 32, 33), Oregon, Ireland, Israel"
+  },
+  "moat_sources": [
+    "Only advanced semiconductor manufacturer with fabs on U.S. soil -- irreplaceable for national security",
+    "CHIPS Act subsidies create $19.5B+ cost advantage over competitors building greenfield fabs",
+    "x86 architecture installed base -- dominant in server CPUs (data center compute)",
+    "Vertical integration (design + manufacturing) enables custom optimization",
+    "Deep patent portfolio across semiconductor design and manufacturing processes"
+  ],
+  "risks": [
+    {
+      "risk": "Intel Foundry Services fails to reach process competitiveness with TSMC",
+      "severity": "High",
+      "mitigation": "Even without process leadership, national security demand may drive utilization; CHIPS Act reduces financial risk"
+    },
+    {
+      "risk": "Continued market share losses to AMD in server CPUs",
+      "severity": "High",
+      "mitigation": "GPU/accelerator demand is growing faster than CPU; Intel's fabs could manufacture AI chips for others"
+    },
+    {
+      "risk": "Options expire worthless if stock doesn't appreciate sufficiently",
+      "severity": "High",
+      "mitigation": "Loss is capped at option premium; asymmetric bet structure limits downside by design"
+    },
+    {
+      "risk": "Management execution risk -- Intel has missed multiple transition deadlines",
+      "severity": "High",
+      "mitigation": "New CEO and board refocusing on foundry; CHIPS Act provides financial runway"
+    },
+    {
+      "risk": "Geopolitical scenario doesn't escalate (Taiwan remains stable, TSMC access continues)",
+      "severity": "Medium",
+      "mitigation": "Even without crisis, growing domestic chip demand and data sovereignty requirements support Intel's foundry"
+    }
+  ],
+  "catalysts": [
+    "Intel 18A process node reaching production-ready status (expected 2025-2026)",
+    "First major external foundry customer wins for Intel Foundry Services",
+    "U.S. government mandates for domestic chip sourcing in defense/AI applications",
+    "Taiwan geopolitical escalation increasing urgency for domestic fab capacity",
+    "Management turnaround under new leadership",
+    "CHIPS Act funding milestones triggering capital infusions"
+  ],
+  "company_brief": "Intel Corporation (NASDAQ: INTC) is the world's largest integrated device manufacturer (IDM), designing and fabricating semiconductors. Founded in 1968, Intel dominated the PC and server CPU market for decades with its x86 architecture. The company has struggled in recent years, losing process leadership to TSMC and market share to AMD in CPUs and NVIDIA in AI accelerators. Under new leadership, Intel is pursuing a transformation strategy centered on Intel Foundry Services (IFS) -- a contract chip manufacturing business to compete with TSMC and Samsung. The U.S. government has committed $19.5B+ to Intel through the CHIPS Act, recognizing its fabs as the only advanced semiconductor manufacturing capability on American soil. For Aschenbrenner's thesis, Intel represents the national security dimension of AGI: if the U.S. must build trillion-dollar AI compute clusters, it cannot rely solely on fabs in Taiwan. Intel's American fabs, despite their current challenges, may become strategically indispensable."
+}
