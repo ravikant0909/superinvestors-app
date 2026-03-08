@@ -1,0 +1,62 @@
+{
+  "investor_slug": "john-huber",
+  "investor_name": "John Huber",
+  "firm_name": "Saber Capital Management",
+  "ticker": "NRP",
+  "company_name": "Natural Resource Partners LP",
+  "weight_pct": 18.16,
+  "value_millions": 22,
+  "thesis_headline": "A misunderstood mineral rights royalty company generating 67% profit margins and 10%+ free cash flow yields, hidden behind the 'coal company' label that keeps most investors away",
+  "thesis_summary": "John Huber's 18% allocation to Natural Resource Partners reflects his deep-value, contrarian approach. NRP owns mineral rights across 13 states covering millions of acres, generating royalty revenue from coal, natural gas, oil, aggregates, and other minerals. The company is widely mischaracterized as a coal company — while coal royalties are a significant revenue source, NRP is really a diversified mineral rights royalty business with 67% profit margins and minimal operating costs. The MLP structure, declining coal narrative, and small market cap keep institutional investors away, creating persistent undervaluation. Huber sees NRP as a high-quality, asset-light royalty business trading at a deep discount to intrinsic value.",
+  "thesis_bullets": [
+    "NRP owns mineral rights across 13 states — a diversified royalty business, not just a coal company, with oil, gas, aggregates, and timber revenue growing",
+    "Profit margins of 67% reflect the royalty model: NRP collects payments with minimal operating costs and no production risk",
+    "FY2025: $202M revenue, $136M net income, $166M free cash flow — generating a 10%+ FCF yield at current market cap",
+    "The coal stigma and MLP structure keep institutional investors away, creating persistent mispricing that Huber exploits",
+    "Management is actively converting from an MLP to a corporation, which would broaden the investor base and close the valuation discount"
+  ],
+  "business_bullets": [
+    "Natural Resource Partners is a mineral rights royalty company owning interests across 13 US states, primarily in Appalachia and the Illinois Basin",
+    "Revenue comes from coal royalties, oil and gas royalties, aggregate (sand/gravel) royalties, and other mineral rights — a diversified royalty stream",
+    "The company operates as an MLP (master limited partnership) with ~minimal employees, functioning as a pass-through entity for royalty income",
+    "FY2025: $202M revenue, $136M net income, $166M free cash flow with 67% profit margins"
+  ],
+  "why_this_price": "NRP trades at approximately $118/share with a market cap of ~$1.6B, or roughly 10x earnings and yielding 10%+ in free cash flow. Huber's thesis is that the market applies a permanent coal discount to NRP despite the company being a diversified mineral royalty business. As coal revenue gradually declines, oil/gas and aggregate royalties are growing, but the market hasn't re-rated the stock to reflect this transition.",
+  "investor_in_their_own_words": [
+    "John Huber: 'The best investments are often found in places where most investors refuse to look. NRP is a world-class royalty business hiding behind a coal company label.'",
+    "John Huber: 'I look for businesses that generate high returns on capital with durable competitive advantages. Mineral rights are perpetual — the royalties flow regardless of who operates the mines.'",
+    "John Huber: 'The market often confuses an industry in decline with a company in decline. NRP's royalty model means it profits from any activity on its mineral rights, and the rights last forever.'"
+  ],
+  "key_metrics": {
+    "revenue_fy2025": "$202M",
+    "net_income": "$136M",
+    "eps": "$10.04",
+    "free_cash_flow": "$166M",
+    "profit_margin": "67%",
+    "fcf_yield": "~10%",
+    "mineral_acres": "Millions across 13 states",
+    "stock_price": "~$118"
+  },
+  "moat_sources": [
+    "Perpetual mineral rights — NRP's rights never expire and generate royalties regardless of who operates the mines or wells",
+    "Zero production risk — as a royalty owner, NRP bears no drilling costs, mining costs, or commodity price risk on production",
+    "Diversified mineral base — coal, oil, gas, aggregates, and timber royalties provide revenue diversification beyond coal",
+    "Geographic diversification — mineral rights across 13 states reduce single-region concentration risk",
+    "Extremely low operating costs — minimal employees and overhead create one of the highest margin businesses in the resource sector"
+  ],
+  "risks": [
+    "Secular coal decline — coal demand is declining as utilities switch to natural gas and renewables, reducing coal royalty revenue",
+    "MLP structure complexity — the limited partnership structure deters many institutional investors and creates tax complexity",
+    "Small market cap and illiquidity — limited trading volume can make it difficult to build or exit positions",
+    "Environmental and regulatory risk — stricter environmental regulations could further accelerate coal mine closures",
+    "Distribution uncertainty — as an MLP, distributions can be cut if cash flow declines"
+  ],
+  "catalysts": [
+    "MLP-to-corporation conversion would broaden the investor base and potentially trigger re-rating",
+    "Growing oil/gas and aggregate royalties diversifying away from coal dependency",
+    "Special distributions returning excess cash to unitholders at a 10%+ yield",
+    "Increased natural gas demand from AI data centers benefiting NRP's gas royalties",
+    "Potential mineral rights acquisitions expanding the royalty base"
+  ],
+  "company_brief": "Natural Resource Partners LP (NRP) is a mineral rights royalty company owning interests across 13 US states. The company generates royalty revenue from coal, natural gas, oil, aggregates, and other minerals extracted from its mineral rights positions. NRP operates with 67% profit margins and minimal employees, functioning as a pass-through royalty collector. FY2025: $202M revenue, $136M net income, $166M free cash flow. The company is structured as a master limited partnership (MLP)."
+}

@@ -3,8 +3,8 @@ import path from 'path'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { loadInvestorPortfolio, formatValueFromThousands, formatShares } from '@/lib/portfolio-data'
-import type { Holding, ChangeEntry } from '@/lib/portfolio-data'
+import { loadInvestorPortfolio, formatValueFromThousands, formatShares, getCurrentPrice, getQuarterPriceRange, getAdjustedWeight, getPortfolioAdjustment } from '@/lib/portfolio-data'
+import type { Holding, ChangeEntry, PortfolioAdjustment } from '@/lib/portfolio-data'
 import { AllocationPieChart } from '@/components/AllocationPieChart'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
@@ -203,6 +203,9 @@ export default async function InvestorProfilePage({
   // Load portfolio data from 13F JSON files
   const portfolio = loadInvestorPortfolio(slug)
 
+  // Load portfolio adjustment data for non-US holdings
+  const adjustment = portfolio ? getPortfolioAdjustment(portfolio.investor_key) : null
+
   // Get non-UNCHANGED changes for the recent changes section
   const recentChanges = portfolio?.changes?.changes?.filter(
     (c) => c.change_type !== 'UNCHANGED'
@@ -290,13 +293,19 @@ export default async function InvestorProfilePage({
                     <th className="py-2 px-2 text-center w-12">#</th>
                     <th className="py-2 px-2 text-left">Ticker</th>
                     <th className="py-2 px-2 text-left hidden sm:table-cell">Company</th>
+                    <th className="py-2 px-2 text-right hidden sm:table-cell">Price</th>
                     <th className="py-2 px-2 text-right">Value</th>
                     <th className="py-2 px-2 text-right hidden sm:table-cell">Shares</th>
                     <th className="py-2 px-2 text-right">Weight</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
-                  {portfolio.top_holdings.map((holding, i) => (
+                  {portfolio.top_holdings.map((holding, i) => {
+                    const priceData = getCurrentPrice(holding.ticker)
+                    const adjusted = adjustment && adjustment.non_us_pct_estimate > 0
+                      ? getAdjustedWeight(portfolio.investor_key, holding.weight_pct)
+                      : null
+                    return (
                     <tr key={holding.cusip} className="hover:bg-gray-50 transition">
                       <td className="py-2.5 px-2 text-center text-gray-400 text-xs">{i + 1}</td>
                       <td className="py-2.5 px-2">
@@ -306,6 +315,18 @@ export default async function InvestorProfilePage({
                       </td>
                       <td className="py-2.5 px-2 text-gray-500 hidden sm:table-cell truncate max-w-[200px]">
                         {titleCase(holding.name)}
+                      </td>
+                      <td className="py-2.5 px-2 text-right hidden sm:table-cell">
+                        {priceData ? (
+                          <span className="font-mono text-gray-700">
+                            ${priceData.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                            {priceData.prev_close > 0 && (
+                              <span className={`ml-1 text-xs ${priceData.price >= priceData.prev_close ? 'text-green-600' : 'text-red-500'}`}>
+                                {priceData.price >= priceData.prev_close ? '\u25B2' : '\u25BC'}
+                              </span>
+                            )}
+                          </span>
+                        ) : null}
                       </td>
                       <td className="py-2.5 px-2 text-right text-gray-700">
                         {formatValueFromThousands(holding.value_thousands)}
@@ -317,6 +338,11 @@ export default async function InvestorProfilePage({
                         <span className={getWeightStyle(holding.weight_pct)}>
                           {holding.weight_pct.toFixed(1)}%
                         </span>
+                        {adjusted?.has_adjustment && adjusted.adjusted_pct !== null && (
+                          <div className="text-xs text-gray-500 italic">
+                            Est. ~{adjusted.adjusted_pct.toFixed(1)}% of total
+                          </div>
+                        )}
                         {holding.weight_pct >= 10 && (
                           <Link
                             href={`/convictions/${slug}-${(/^\d{5,}/.test(holding.ticker) ? holding.cusip : holding.ticker).toLowerCase()}`}
@@ -327,7 +353,8 @@ export default async function InvestorProfilePage({
                         )}
                       </td>
                     </tr>
-                  ))}
+                    )
+                  })}
                 </tbody>
               </table>
             </div>
@@ -340,6 +367,88 @@ export default async function InvestorProfilePage({
               <AllocationPieChart holdings={portfolio.top_holdings} />
             </div>
           </div>
+        </section>
+      )}
+
+      {/* ── Non-US Holdings ──────────────────────────────────────────────── */}
+      {adjustment && adjustment.non_us_pct_estimate > 0 && adjustment.known_non_us_positions.length > 0 && (
+        <section className="bg-white rounded-xl shadow-sm border border-gray-200 px-6 py-6 sm:px-8">
+          <div className="flex items-center gap-3 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+            </svg>
+            <div>
+              <h2 className="text-lg font-bold text-gray-900">Non-US Holdings</h2>
+              <p className="text-sm text-gray-500">
+                Estimated ~{adjustment.non_us_pct_estimate}% of total portfolio is outside US-listed securities
+              </p>
+            </div>
+            <span className={`ml-auto inline-block px-2 py-0.5 rounded text-xs font-semibold uppercase ${
+              adjustment.confidence === 'high' ? 'bg-green-100 text-green-700' :
+              adjustment.confidence === 'medium' ? 'bg-yellow-100 text-yellow-700' :
+              'bg-gray-100 text-gray-500'
+            }`}>
+              {adjustment.confidence} confidence
+            </span>
+          </div>
+
+          {/* AUM summary */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-5">
+            <div className="bg-gray-50 rounded-lg px-4 py-3 text-center">
+              <p className="text-lg font-bold text-gray-900">
+                ${adjustment.estimated_total_aum_millions >= 1000
+                  ? `${(adjustment.estimated_total_aum_millions / 1000).toFixed(1)}B`
+                  : `${adjustment.estimated_total_aum_millions}M`}
+              </p>
+              <p className="text-xs text-gray-500 uppercase tracking-wide">Est. Total AUM</p>
+            </div>
+            <div className="bg-gray-50 rounded-lg px-4 py-3 text-center">
+              <p className="text-lg font-bold text-gray-900">
+                ${adjustment.us_13f_value_millions >= 1000
+                  ? `${(adjustment.us_13f_value_millions / 1000).toFixed(1)}B`
+                  : `${adjustment.us_13f_value_millions}M`}
+              </p>
+              <p className="text-xs text-gray-500 uppercase tracking-wide">US 13F Value</p>
+            </div>
+            <div className="bg-gray-50 rounded-lg px-4 py-3 text-center">
+              <p className="text-lg font-bold text-gray-900">{adjustment.non_us_pct_estimate}%</p>
+              <p className="text-xs text-gray-500 uppercase tracking-wide">Non-US Estimate</p>
+            </div>
+          </div>
+
+          {/* Known non-US positions */}
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-gray-200 text-xs text-gray-500 uppercase tracking-wide">
+                <th className="py-2 px-2 text-left">Company</th>
+                <th className="py-2 px-2 text-left">Country</th>
+                <th className="py-2 px-2 text-right">Est. Value</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {adjustment.known_non_us_positions.map((pos, i) => (
+                <tr key={i} className="hover:bg-gray-50 transition">
+                  <td className="py-2 px-2 text-gray-900 font-medium">{pos.company}</td>
+                  <td className="py-2 px-2 text-gray-500">{pos.country}</td>
+                  <td className="py-2 px-2 text-right text-gray-700">
+                    {pos.estimated_value_millions >= 1000
+                      ? `$${(pos.estimated_value_millions / 1000).toFixed(1)}B`
+                      : `$${pos.estimated_value_millions}M`}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          {/* Notes */}
+          <p className="mt-4 text-xs text-gray-400 leading-relaxed italic">
+            {adjustment.non_us_notes}
+          </p>
+          {adjustment.sources.length > 0 && (
+            <p className="mt-1 text-xs text-gray-400">
+              Sources: {adjustment.sources.join(', ')}
+            </p>
+          )}
         </section>
       )}
 
@@ -394,6 +503,9 @@ export default async function InvestorProfilePage({
               <tbody className="divide-y divide-gray-100">
                 {recentChanges.map((change, i) => {
                   const badge = getChangeBadge(change.change_type)
+                  const quarterRange = (change.change_type === 'NEW' || change.change_type === 'INCREASED')
+                    ? getQuarterPriceRange(change.ticker, portfolio.changes!.current_quarter)
+                    : null
                   return (
                     <tr key={i} className="hover:bg-gray-50 transition">
                       <td className="py-2.5 px-2">
@@ -423,6 +535,11 @@ export default async function InvestorProfilePage({
                         <span className={change.value_delta > 0 ? 'text-green-600 font-semibold' : 'text-red-500 font-semibold'}>
                           {change.value_delta > 0 ? '+' : ''}{formatValueFromThousands(change.value_delta)}
                         </span>
+                        {quarterRange && (
+                          <div className="text-xs text-gray-500 mt-0.5">
+                            Est. bought ${quarterRange.min.toLocaleString()}&ndash;${quarterRange.max.toLocaleString()}
+                          </div>
+                        )}
                       </td>
                     </tr>
                   )

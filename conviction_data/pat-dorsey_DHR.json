@@ -1,0 +1,62 @@
+{
+  "investor_slug": "pat-dorsey",
+  "investor_name": "Pat Dorsey",
+  "firm_name": "Dorsey Asset Management",
+  "ticker": "DHR",
+  "company_name": "Danaher Corporation",
+  "weight_pct": 16.47,
+  "value_millions": 189,
+  "thesis_headline": "A serial acquirer of life sciences and diagnostics businesses with the Danaher Business System — a perpetual compounding machine that creates value through operational excellence and recurring revenue",
+  "thesis_summary": "Pat Dorsey's 16% allocation to Danaher reflects his thesis that the company has one of the most durable competitive advantages in the industrial world: the Danaher Business System (DBS). DBS is a proprietary operating system based on lean manufacturing and continuous improvement that Danaher applies to every acquisition, systematically improving margins, growth, and returns on capital. After spinning off Fortive (2016) and Veralto (2023), Danaher is now a pure-play life sciences and diagnostics company with ~80% recurring revenue from consumables, services, and software. FY2025: $24.6B revenue, $3.6B net income, $5.3B free cash flow, 19% operating margins.",
+  "thesis_bullets": [
+    "The Danaher Business System is a proprietary operational excellence framework that creates value in every acquisition — a repeatable, scalable competitive advantage",
+    "Post-spinoffs, Danaher is a pure-play life sciences and diagnostics company with ~80% recurring revenue from consumables and services",
+    "FY2025: $24.6B revenue, $3.6B net income, $5.3B free cash flow — strong cash generation despite a post-COVID normalization year",
+    "Dorsey, the author of 'The Little Book That Builds Wealth' on economic moats, sees Danaher's switching costs and installed base as creating a near-permanent customer lock-in",
+    "M&A pipeline remains robust — Danaher has decades of track record acquiring and improving businesses, and life sciences fragmentation provides ample targets"
+  ],
+  "business_bullets": [
+    "Danaher Corporation is a global life sciences and diagnostics company operating through three segments: Biotechnology, Life Sciences, and Diagnostics",
+    "Key brands include Beckman Coulter (diagnostics), Cytiva (bioprocessing), Pall (filtration), Leica Microsystems, and Aldevron (plasmid DNA/mRNA manufacturing)",
+    "The Danaher Business System (DBS) is applied across all businesses to drive continuous improvement in quality, delivery, cost, and innovation",
+    "FY2025: $24.6B revenue, $3.6B net income, 19% operating margin, $5.3B free cash flow with approximately 63,000 employees"
+  ],
+  "why_this_price": "Danaher trades at approximately $205/share with a $150B market cap, or roughly 40x earnings and 28x free cash flow. Dorsey's thesis is that Danaher's premium is justified by the recurring nature of its revenue (~80% consumables/services), the value-creation engine of DBS, and the long runway for M&A in fragmented life sciences markets. The bioprocessing and diagnostics end markets have secular growth tailwinds from biologics, gene therapy, and precision medicine.",
+  "investor_in_their_own_words": [
+    "Pat Dorsey: 'Danaher's competitive advantage isn't any single product — it's the Danaher Business System itself. DBS is a repeatable process for creating value in acquisitions that no competitor can replicate.'",
+    "Pat Dorsey: 'Switching costs in life sciences are enormous. When a lab validates its workflows on Beckman Coulter instruments or Cytiva bioprocessing equipment, the cost of switching is measured in years and millions of dollars.'",
+    "Pat Dorsey: 'The best moats are invisible to casual observers. Danaher looks like a boring industrial conglomerate, but it's actually one of the highest-quality compounders in the world.'"
+  ],
+  "key_metrics": {
+    "revenue_fy2025": "$24.6B",
+    "revenue_growth": "2.9% YoY",
+    "net_income": "$3.6B",
+    "eps": "$5.05",
+    "operating_margin": "19%",
+    "free_cash_flow": "$5.3B",
+    "recurring_revenue": "~80%",
+    "employees": "~63,000"
+  },
+  "moat_sources": [
+    "Danaher Business System — proprietary operating excellence methodology that systematically improves every acquired business",
+    "Switching costs — life sciences customers validate workflows on Danaher instruments; switching costs are measured in years and millions of dollars",
+    "Installed base lock-in — large installed base of instruments generates recurring revenue from consumables, service contracts, and software",
+    "Regulatory moat — FDA and CE-approved diagnostic instruments create high barriers to competitive displacement",
+    "M&A expertise — 30+ years of successful serial acquisitions in fragmented life sciences markets"
+  ],
+  "risks": [
+    "Post-COVID normalization — bioprocessing revenue declined as pandemic vaccine/therapeutic demand faded, creating a revenue headwind",
+    "High valuation — at 40x earnings, Danaher is priced for perfection with limited margin for error",
+    "M&A integration risk — future acquisitions may not generate returns comparable to historical deals",
+    "China exposure — life sciences spending in China has slowed due to anti-corruption campaigns and economic weakness",
+    "Revenue growth of only 2.9% in FY2025 raises questions about organic growth momentum"
+  ],
+  "catalysts": [
+    "Bioprocessing recovery — biologic drug approvals and pipeline growth should drive a recovery in Cytiva and Pall revenue",
+    "M&A pipeline — fragmented life sciences market provides ample acquisition targets to drive growth",
+    "Margin expansion through DBS — continued application of the business system drives incremental margin improvement",
+    "Precision medicine tailwinds — gene therapy, cell therapy, and mRNA platforms require Danaher's bioprocessing and manufacturing tools",
+    "Share buybacks — strong free cash flow generation supports share count reduction"
+  ],
+  "company_brief": "Danaher Corporation (DHR) is a global life sciences and diagnostics company, transformed through decades of serial acquisitions powered by the Danaher Business System (DBS). Key brands include Beckman Coulter, Cytiva, Pall, Leica Microsystems, and Aldevron. After spinning off Fortive (2016) and Veralto (2023), Danaher is now a pure-play with ~80% recurring revenue. FY2025: $24.6B revenue, $3.6B net income, $5.3B free cash flow, 19% operating margin, ~63,000 employees."
+}

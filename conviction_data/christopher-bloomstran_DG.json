@@ -20,7 +20,7 @@
     "methodology": "Margin reversion analysis with normalized earnings, consistent with Bloomstran's detailed fundamental approach",
     "revenue_fy2025_millions": 40610,
     "revenue_fy2024_millions": 38690,
-    "revenue_growth_pct": 5.0,
+    "revenue_growth_pct": 5,
     "net_income_fy2025_millions": 1130,
     "net_income_fy2024_millions": 1660,
     "eps_fy2025": 5.11,
@@ -52,7 +52,7 @@
   },
   "key_metrics": {
     "revenue_fy2025_millions": 40610,
-    "revenue_growth_pct": 5.0,
+    "revenue_growth_pct": 5,
     "net_income_fy2025_millions": 1130,
     "net_income_decline_pct": 32.3,
     "eps_fy2025": 5.11,
@@ -98,5 +98,17 @@
     "K-shaped economy benefit — economic stress drives trade-down from traditional retailers to dollar stores, expanding DG's customer base to include higher-income shoppers",
     "Share buyback program — management repurchases shares opportunistically, accelerating per-share value growth during periods of stock weakness"
   ],
-  "company_brief": "Dollar General Corporation (DG) is America's largest small-format discount retailer, operating 20,000+ stores across 48 states. Founded in 1939, the company serves primarily rural and suburban communities with stores averaging 7,400 square feet and ~11,000 SKUs focused on essential consumables (food, cleaning products, personal care, household essentials). DG's customer base is predominantly low-to-middle income, with many living in 'food deserts' where DG is the most convenient — and sometimes only — nearby retail option. FY2025 revenue was $40.6B but net income declined 32% to $1.1B as operating margins compressed from historical 10%+ levels to ~5.5% due to labor underinvestment, elevated shrink, and mix shift toward lower-margin consumables. CEO Todd Vasos returned from retirement to execute a 'back to basics' turnaround focused on restoring in-store execution. The company continues to open 600-800 new stores annually, with management estimating a total addressable store count of ~35,000 in the U.S. Market cap is $32B. Direct import exposure is only 5-9%, providing relative insulation from tariff disruptions."
+  "company_brief": "Dollar General Corporation (DG) is America's largest small-format discount retailer, operating 20,000+ stores across 48 states. Founded in 1939, the company serves primarily rural and suburban communities with stores averaging 7,400 square feet and ~11,000 SKUs focused on essential consumables (food, cleaning products, personal care, household essentials). DG's customer base is predominantly low-to-middle income, with many living in 'food deserts' where DG is the most convenient — and sometimes only — nearby retail option. FY2025 revenue was $40.6B but net income declined 32% to $1.1B as operating margins compressed from historical 10%+ levels to ~5.5% due to labor underinvestment, elevated shrink, and mix shift toward lower-margin consumables. CEO Todd Vasos returned from retirement to execute a 'back to basics' turnaround focused on restoring in-store execution. The company continues to open 600-800 new stores annually, with management estimating a total addressable store count of ~35,000 in the U.S. Market cap is $32B. Direct import exposure is only 5-9%, providing relative insulation from tariff disruptions.",
+  "thesis_bullets": [
+    "Christopher Bloomstran's Dollar General position represents a classic Semper Augustus contrarian value bet: a high-quality business with durable competitive advantages temporarily trading at a depressed valuation due to fixable operational problems. Dollar General operates 20,000+ small-format discount stores primarily in rural America, serving low-income consumers who are largely unbanked and shop close to home.",
+    "The business model is simple and powerful: small stores (7,400 sq ft), low SKU count (~11,000 items), low-cost locations with minimal competition, and a customer base that values convenience over price optimization. DG's operating margins collapsed from 8.8% to 6.3% between FY2023 and FY2024 due to labor underinvestment (in-store execution problems, out-of-stocks, messy stores), elevated shrink, and a mix shift toward lower-margin consumables.",
+    "Bloomstran — known for the most detailed public analyses in value investing — likely sees this as a margin reversion opportunity: if DG can recover even halfway to its historical 10%+ operating margins, EPS would nearly double from current levels. At 20-25x depressed earnings, the stock embeds no recovery premium.",
+    "Bloomstran's investment framework emphasizes businesses with pricing power, strong unit economics, and a long runway for growth — DG fits all three criteria once execution stabilizes."
+  ],
+  "business_bullets": [
+    "Dollar General Corporation (DG) is America's largest small-format discount retailer, operating 20,000+ stores across 48 states. Founded in 1939, the company serves primarily rural and suburban communities with stores averaging 7,400 square feet and ~11,000 SKUs focused on essential consumables (food, cleaning products, personal care, household essentials).",
+    "DG's customer base is predominantly low-to-middle income, with many living in 'food deserts' where DG is the most convenient — and sometimes only — nearby retail option. FY2025 revenue was $40.6B but net income declined 32% to $1.1B as operating margins compressed from historical 10%+ levels to ~5.5% due to labor underinvestment, elevated shrink, and mix shift toward lower-margin consumables.",
+    "CEO Todd Vasos returned from retirement to execute a 'back to basics' turnaround focused on restoring in-store execution. The company continues to open 600-800 new stores annually, with management estimating a total addressable store count of ~35,000 in the U.S.",
+    "Direct import exposure is only 5-9%, providing relative insulation from tariff disruptions."
+  ]
 }

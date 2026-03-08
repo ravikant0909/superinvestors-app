@@ -23,7 +23,7 @@
     "revenue_growth_pct": 15.7,
     "net_income_fy2024_millions": 88136,
     "net_income_growth_pct": 21.8,
-    "eps_fy2024": 11.80,
+    "eps_fy2024": 11.8,
     "eps_growth_pct": 21.9,
     "operating_margin_pct": 44.6,
     "free_cash_flow_fy2024_millions": 74071,
@@ -49,7 +49,7 @@
     "revenue_growth_pct": 15.7,
     "net_income_fy2024_millions": 88136,
     "net_income_growth_pct": 21.8,
-    "eps_fy2024": 11.80,
+    "eps_fy2024": 11.8,
     "operating_margin_pct": 44.6,
     "free_cash_flow_millions": 74071,
     "gross_margin_pct": "~70%",
@@ -89,5 +89,16 @@
     "Gaming/Activision Blizzard — $69B acquisition provides subscription revenue growth through Game Pass",
     "Share buyback program — Microsoft returns $25B+ annually through buybacks, reducing share count ~1.5% annually"
   ],
-  "company_brief": "Microsoft Corporation (MSFT) is the world's largest software company and second-largest cloud computing provider, founded by Bill Gates and Paul Allen in 1975. The company operates across three segments: Productivity & Business Processes (Microsoft 365, LinkedIn, Dynamics), Intelligent Cloud (Azure, SQL Server, Windows Server), and More Personal Computing (Windows, Xbox, Surface, Search). Microsoft's competitive advantage rests on its dominant position as the enterprise productivity infrastructure standard — Windows, Office, Teams, and Active Directory are deeply embedded in virtually every large organization globally. Azure is growing 30%+ as enterprises migrate to the cloud, accelerated by AI workloads. The $13B OpenAI partnership provides Microsoft exclusive commercial rights to GPT-4/5, integrated across all products as Copilot. FY2024 (June year-end) revenue was $245B (+16%), net income $88B (+22%), operating margin 45%, and free cash flow $74B. Revenue is 95%+ recurring through subscriptions. Market cap exceeds $3 trillion. Microsoft employs ~228,000 people."
+  "company_brief": "Microsoft Corporation (MSFT) is the world's largest software company and second-largest cloud computing provider, founded by Bill Gates and Paul Allen in 1975. The company operates across three segments: Productivity & Business Processes (Microsoft 365, LinkedIn, Dynamics), Intelligent Cloud (Azure, SQL Server, Windows Server), and More Personal Computing (Windows, Xbox, Surface, Search). Microsoft's competitive advantage rests on its dominant position as the enterprise productivity infrastructure standard — Windows, Office, Teams, and Active Directory are deeply embedded in virtually every large organization globally. Azure is growing 30%+ as enterprises migrate to the cloud, accelerated by AI workloads. The $13B OpenAI partnership provides Microsoft exclusive commercial rights to GPT-4/5, integrated across all products as Copilot. FY2024 (June year-end) revenue was $245B (+16%), net income $88B (+22%), operating margin 45%, and free cash flow $74B. Revenue is 95%+ recurring through subscriptions. Market cap exceeds $3 trillion. Microsoft employs ~228,000 people.",
+  "thesis_bullets": [
+    "Chris Hohn's $8.1B Microsoft position (15.1% of TCI) reflects his concentrated ownership of monopoly-quality businesses. Microsoft possesses three compounding moats that are each individually dominant: (1) Windows + Office/Microsoft 365 — an enterprise productivity monopoly with 1.5B+ users generating massive recurring subscription revenue, (2) Azure — the #2 cloud platform (growing 30%+) capturing enterprise IT spending migration, and (3) the OpenAI partnership — a $13B investment giving Microsoft exclusive commercial rights to the most advanced AI models, integrated across every Microsoft product.",
+    "The enterprise software switching costs are arguably the highest of any business in the world: no Fortune 500 company can realistically migrate away from Microsoft's productivity suite, Active Directory, or Azure without years of disruption. Hohn values this durability above all else.",
+    "FY2024 revenue was $245B with 45% operating margins and $74B free cash flow — among the highest-quality earnings streams in corporate history. Azure AI services revenue is growing 100%+ annually, suggesting Microsoft may be the largest winner from the AI capex supercycle.",
+    "At 33-35x earnings, the valuation reflects quality, but Hohn's framework accepts premium multiples for businesses with effectively permanent competitive positions."
+  ],
+  "business_bullets": [
+    "Microsoft Corporation (MSFT) is the world's largest software company and second-largest cloud computing provider, founded by Bill Gates and Paul Allen in 1975. The company operates across three segments: Productivity & Business Processes (Microsoft 365, LinkedIn, Dynamics), Intelligent Cloud (Azure, SQL Server, Windows Server), and More Personal Computing (Windows, Xbox, Surface, Search). Microsoft's competitive advantage rests on its dominant position as the enterprise productivity infrastructure standard — Windows, Office, Teams, and Active Directory are deeply embedded in virtually every large organization globally.",
+    "Azure is growing 30%+ as enterprises migrate to the cloud, accelerated by AI workloads. The $13B OpenAI partnership provides Microsoft exclusive commercial rights to GPT-4/5, integrated across all products as Copilot. FY2024 (June year-end) revenue was $245B (+16%), net income $88B (+22%), operating margin 45%, and free cash flow $74B.",
+    "Revenue is 95%+ recurring through subscriptions. Market cap exceeds $3 trillion. Microsoft employs ~228,000 people."
+  ]
 }

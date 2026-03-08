@@ -25,10 +25,10 @@
     "net_income_growth_pct": 46.7,
     "eps_fy2024": 12.35,
     "eps_growth_pct": 50.1,
-    "operating_margin_fy2024_pct": 39.0,
+    "operating_margin_fy2024_pct": 39,
     "operating_margin_fy2023_pct": 31.9,
     "free_cash_flow_millions": 5565,
-    "fcf_growth_pct": 56.0,
+    "fcf_growth_pct": 56,
     "pe_trailing": "38-40x",
     "fcf_yield_pct": "~3.2%",
     "ihs_markit_merger_cost_synergies_millions": "600+",
@@ -52,7 +52,7 @@
     "net_income_fy2024_millions": 3852,
     "net_income_growth_pct": 46.7,
     "eps_fy2024": 12.35,
-    "operating_margin_pct": 39.0,
+    "operating_margin_pct": 39,
     "free_cash_flow_millions": 5565,
     "segments": "S&P Global Ratings, S&P Global Market Intelligence, S&P Dow Jones Indices, S&P Global Commodity Insights, S&P Global Mobility",
     "ihs_markit_merger_value_billions": 44,
@@ -89,5 +89,16 @@
     "Sustainability/ESG data — growing demand for ESG ratings and sustainability analytics",
     "Emerging market expansion — growing capital markets require ratings, index coverage, and data services"
   ],
-  "company_brief": "S&P Global Inc. (SPGI) is the world's foremost financial information and analytics company, providing credit ratings, benchmarks, analytics, and data to global capital markets. The company operates through five segments: S&P Global Ratings (one of only three NRSROs), S&P Dow Jones Indices (provider of the S&P 500 and 1M+ other indices with $16T+ benchmarked), S&P Global Market Intelligence (financial data and analytics), S&P Global Commodity Insights (Platts — the global benchmark for commodity pricing), and S&P Global Mobility (automotive data, formerly IHS Markit automotive). The company's competitive position was dramatically strengthened by the $44B merger with IHS Markit in 2022, creating the most comprehensive financial data platform in the world. FY2024 revenue was $14.2B (+14%), net income $3.9B (+47%), operating margin 39% (expanding rapidly), and free cash flow $5.6B (+56%). The company employs ~40,000 people across 30+ countries. S&P Global's moat is structural: regulatory requirements mandate credit ratings, trillions in assets are benchmarked to S&P indices, and Platts pricing is embedded in global commodity contracts."
+  "company_brief": "S&P Global Inc. (SPGI) is the world's foremost financial information and analytics company, providing credit ratings, benchmarks, analytics, and data to global capital markets. The company operates through five segments: S&P Global Ratings (one of only three NRSROs), S&P Dow Jones Indices (provider of the S&P 500 and 1M+ other indices with $16T+ benchmarked), S&P Global Market Intelligence (financial data and analytics), S&P Global Commodity Insights (Platts — the global benchmark for commodity pricing), and S&P Global Mobility (automotive data, formerly IHS Markit automotive). The company's competitive position was dramatically strengthened by the $44B merger with IHS Markit in 2022, creating the most comprehensive financial data platform in the world. FY2024 revenue was $14.2B (+14%), net income $3.9B (+47%), operating margin 39% (expanding rapidly), and free cash flow $5.6B (+56%). The company employs ~40,000 people across 30+ countries. S&P Global's moat is structural: regulatory requirements mandate credit ratings, trillions in assets are benchmarked to S&P indices, and Platts pricing is embedded in global commodity contracts.",
+  "thesis_bullets": [
+    "Chris Hohn's $6.2B S&P Global position (11.5% of TCI) complements his Moody's position and reflects his conviction that the financial information infrastructure is one of the most durable monopoly franchises in the world. S&P Global is the parent of S&P Ratings (one of only three NRSROs), S&P Dow Jones Indices (the provider of the S&P 500 and 1M+ other indices), and a massive data/analytics platform that became even more dominant after the $44B IHS Markit merger in 2022.",
+    "The combined entity is the essential data layer of global capital markets: credit ratings, index benchmarks, commodity pricing (Platts), market intelligence, and risk analytics. FY2024 revenue was $14.2B (+14%) with 39% operating margins and $5.6B in free cash flow.",
+    "The merger synergies are driving rapid margin expansion (from 32% to 39% in one year) with significant further room for improvement. Like Moody's, S&P's ratings business is a government-granted oligopoly — issuers must obtain ratings, and investors and regulators reference S&P's indices.",
+    "Hohn owns both Moody's and S&P Global because the oligopoly is durable regardless of which firm gains share within it — owning both is a bet on the permanence of the ratings and index infrastructure itself."
+  ],
+  "business_bullets": [
+    "(SPGI) is the world's foremost financial information and analytics company, providing credit ratings, benchmarks, analytics, and data to global capital markets. The company operates through five segments: S&P Global Ratings (one of only three NRSROs), S&P Dow Jones Indices (provider of the S&P 500 and 1M+ other indices with $16T+ benchmarked), S&P Global Market Intelligence (financial data and analytics), S&P Global Commodity Insights (Platts — the global benchmark for commodity pricing), and S&P Global Mobility (automotive data, formerly IHS Markit automotive).",
+    "The company's competitive position was dramatically strengthened by the $44B merger with IHS Markit in 2022, creating the most comprehensive financial data platform in the world. FY2024 revenue was $14.2B (+14%), net income $3.9B (+47%), operating margin 39% (expanding rapidly), and free cash flow $5.6B (+56%).",
+    "The company employs ~40,000 people across 30+ countries. S&P Global's moat is structural: regulatory requirements mandate credit ratings, trillions in assets are benchmarked to S&P indices, and Platts pricing is embedded in global commodity contracts."
+  ]
 }

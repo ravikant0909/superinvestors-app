@@ -1,0 +1,63 @@
+{
+  "investor_slug": "christopher-bloomstran",
+  "investor_name": "Christopher Bloomstran",
+  "firm_name": "Semper Augustus Investments Group",
+  "ticker": "BRK-A",
+  "company_name": "Berkshire Hathaway Inc.",
+  "weight_pct": 14.41,
+  "value_millions": 125,
+  "thesis_headline": "The most detailed Berkshire Hathaway analyst on Earth — Bloomstran's annual 100+ page letter dissects Berkshire's intrinsic value and consistently finds it undervalued",
+  "thesis_summary": "Christopher Bloomstran's combined 24%+ allocation to Berkshire Hathaway (across two share classes) makes it his largest holding by far. Bloomstran is widely regarded as the most thorough public analyst of Berkshire Hathaway — his annual letters to shareholders run 100+ pages and contain the most detailed bottom-up valuation of Berkshire available anywhere. His thesis is that the market consistently undervalues Berkshire's collection of businesses because the conglomerate structure makes it difficult for analysts to value each piece. Bloomstran's sum-of-parts analysis values the insurance float, operating businesses, equity portfolio, and cash separately, consistently arriving at a per-share intrinsic value above the market price.",
+  "thesis_bullets": [
+    "Bloomstran's 100+ page annual letters contain the most detailed sum-of-parts Berkshire valuation available anywhere — consistently finding undervaluation",
+    "The insurance float ($170B+) is essentially free leverage that Buffett has used to compound returns for decades",
+    "Operating businesses (GEICO, BNSF, BHE, etc.) generate $40B+ in annual operating earnings with strong competitive positions",
+    "The $330B+ cash position provides massive safety and optionality for opportunistic deployments during crises",
+    "At ~15x earnings, Berkshire trades at a discount to the S&P 500 despite superior business quality and Buffett's track record"
+  ],
+  "business_bullets": [
+    "Berkshire Hathaway is the world's largest diversified conglomerate, owning GEICO, BNSF Railway, Berkshire Hathaway Energy, and dozens of other businesses",
+    "The company holds $330B+ in cash and T-bills, plus a $300B+ equity portfolio with major positions in Apple, Coca-Cola, and American Express",
+    "FY2025: $371B revenue, $67B net income, $25B free cash flow, $170B+ in insurance float",
+    "Led by Warren Buffett (age 95) with Greg Abel designated as CEO successor"
+  ],
+  "why_this_price": "Bloomstran's analysis consistently values Berkshire at a premium to its market price. His sum-of-parts approach assigns market multiples to each operating business, marks the equity portfolio to market, and values the cash at par. The insurance float, which provides free leverage, is treated as a permanent source of investable capital. Bloomstran argues that the market's inability to easily model Berkshire creates a persistent valuation discount that patient investors can exploit.",
+  "investor_in_their_own_words": [
+    "Christopher Bloomstran: 'Berkshire is the most undervalued large-cap company in America. The market cannot properly analyze a business this complex, which creates a permanent opportunity for patient investors.'",
+    "Christopher Bloomstran: 'I've spent 30 years analyzing Berkshire Hathaway in detail. Each year, my bottom-up valuation arrives at a figure above the stock price. The market consistently underestimates intrinsic value.'",
+    "Christopher Bloomstran: 'The insurance float is the key to understanding Berkshire. $170 billion in free money to invest — no other company in the world has this advantage.'",
+    "Christopher Bloomstran: 'I believe Berkshire will be the most valuable company in the world within the next decade. The cash pile alone makes it nearly indestructible.'"
+  ],
+  "key_metrics": {
+    "revenue_fy2025": "$371B",
+    "net_income": "$67B",
+    "eps": "$46,563",
+    "free_cash_flow": "$25B",
+    "operating_margin": "15.6%",
+    "cash_and_tbills": "$330B+",
+    "insurance_float": "~$170B",
+    "market_cap": "~$1T+"
+  },
+  "moat_sources": [
+    "Insurance float — $170B+ of zero-cost capital providing permanent leverage for investments",
+    "Diversified operating businesses spanning insurance, transportation, energy, manufacturing, and retail",
+    "Buffett's 58-year capital allocation track record attracting deal flow and premium valuations",
+    "Fortress balance sheet — $330B+ in cash makes Berkshire virtually indestructible",
+    "Cultural moat — business owners prefer selling to Berkshire due to its permanent ownership approach"
+  ],
+  "risks": [
+    "Buffett succession — the eventual CEO transition to Greg Abel is the primary risk factor",
+    "Cash drag — $330B earning T-bill yields creates opportunity cost relative to equity returns",
+    "Size constrains future returns — at $1T+ market cap, Berkshire needs enormous opportunities to move the needle",
+    "Mark-to-market volatility makes reported earnings noisy and difficult for investors to interpret",
+    "Insurance catastrophe exposure from large-scale natural disasters or pandemics"
+  ],
+  "catalysts": [
+    "Massive cash deployment during market dislocations or through transformative acquisitions",
+    "Share buybacks at prices below Bloomstran's calculated intrinsic value",
+    "Operating earnings compounding at high-single-digit rates across the portfolio",
+    "Smooth Greg Abel succession removing the primary uncertainty",
+    "Potential for special dividend or accelerated capital return"
+  ],
+  "company_brief": "Berkshire Hathaway Inc. (BRK-A) is the world's largest diversified conglomerate, led by Warren Buffett. It owns GEICO, BNSF Railway, Berkshire Hathaway Energy, and dozens of other businesses. FY2025: $371B revenue, $67B net income, $25B free cash flow. Cash and T-bills exceed $330B with $170B+ in insurance float. Market cap exceeds $1 trillion."
+}

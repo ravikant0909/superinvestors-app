@@ -7,6 +7,7 @@ import {
   getBestIdeasFromFiles,
   formatValueFromThousands,
   formatShares,
+  getCurrentPrice,
 } from '@/lib/portfolio-data'
 import type { AggregatedChange, BestIdeaData } from '@/lib/portfolio-data'
 
@@ -231,6 +232,20 @@ export default function HomePage() {
                         <span className="font-mono font-bold text-gray-700">
                           {/^\d{5,}/.test(change.ticker) ? titleCase(change.security_name).split(' ').slice(0, 2).join(' ') : change.ticker}
                         </span>
+                        {(() => {
+                          const p = getCurrentPrice(change.ticker)
+                          if (!p) return null
+                          return (
+                            <span className="font-mono text-xs text-gray-600">
+                              ${p.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                              {p.prev_close > 0 && (
+                                <span className={`ml-0.5 ${p.price >= p.prev_close ? 'text-green-600' : 'text-red-500'}`}>
+                                  {p.price >= p.prev_close ? '\u25B2' : '\u25BC'}
+                                </span>
+                              )}
+                            </span>
+                          )
+                        })()}
                         <span className="text-gray-400 truncate">{titleCase(change.security_name)}</span>
                       </div>
                     </div>

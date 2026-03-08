@@ -23,10 +23,10 @@
     "qqq_blended_earnings_growth_pct": "15-20% (driven by AI adoption across top holdings)",
     "top_holdings": {
       "AAPL_weight_pct": 8.6,
-      "MSFT_weight_pct": 8.0,
+      "MSFT_weight_pct": 8,
       "NVDA_weight_pct": 7.5,
       "AMZN_weight_pct": 5.3,
-      "GOOG_weight_pct": 5.0,
+      "GOOG_weight_pct": 5,
       "META_weight_pct": 4.8,
       "AVGO_weight_pct": 4.2,
       "TSLA_weight_pct": 3.5,
@@ -48,7 +48,7 @@
     "etf_name": "Invesco QQQ Trust",
     "tracks": "Nasdaq-100 Index",
     "total_holdings": 100,
-    "expense_ratio_pct": 0.20,
+    "expense_ratio_pct": 0.2,
     "aum_billions": "~260",
     "average_daily_volume": "~$15B",
     "sector_allocation": {
@@ -87,5 +87,17 @@
     "Consumer AI applications — autonomous driving (Tesla, Waymo), AI assistants, personalized recommendations driving user engagement and revenue",
     "Earnings growth exceeding expectations — if top QQQ holdings deliver 25-30% earnings growth, the 30x multiple looks cheap"
   ],
-  "company_brief": "The Invesco QQQ Trust (QQQ) is the largest and most liquid Nasdaq-100 ETF, tracking the 100 biggest non-financial companies listed on the Nasdaq exchange. With ~$260B in assets and ~$15B in average daily trading volume, QQQ is the definitive instrument for gaining exposure to the technology sector and AI beneficiaries. The top 8 holdings (Apple, Microsoft, NVIDIA, Amazon, Alphabet, Meta, Broadcom, Tesla) represent ~47% of the fund and collectively possess some of the strongest competitive moats in business history. These companies are both building and deploying AI at massive scale, with combined AI capex exceeding $300B annually. QQQ trades at approximately 28-30x forward earnings with blended earnings growth of 15-20%, driven by AI adoption across enterprise and consumer markets. The ETF has a 0.20% expense ratio and offers a 0.6% dividend yield. For Gavin Baker, QQQ is not passive exposure but a deliberate, liquid, diversified vehicle to express his macro conviction that the AI infrastructure buildout is a multi-year supercycle that will disproportionately reward the technology companies that dominate the Nasdaq-100."
+  "company_brief": "The Invesco QQQ Trust (QQQ) is the largest and most liquid Nasdaq-100 ETF, tracking the 100 biggest non-financial companies listed on the Nasdaq exchange. With ~$260B in assets and ~$15B in average daily trading volume, QQQ is the definitive instrument for gaining exposure to the technology sector and AI beneficiaries. The top 8 holdings (Apple, Microsoft, NVIDIA, Amazon, Alphabet, Meta, Broadcom, Tesla) represent ~47% of the fund and collectively possess some of the strongest competitive moats in business history. These companies are both building and deploying AI at massive scale, with combined AI capex exceeding $300B annually. QQQ trades at approximately 28-30x forward earnings with blended earnings growth of 15-20%, driven by AI adoption across enterprise and consumer markets. The ETF has a 0.20% expense ratio and offers a 0.6% dividend yield. For Gavin Baker, QQQ is not passive exposure but a deliberate, liquid, diversified vehicle to express his macro conviction that the AI infrastructure buildout is a multi-year supercycle that will disproportionately reward the technology companies that dominate the Nasdaq-100.",
+  "thesis_bullets": [
+    "Gavin Baker's $2.2B QQQ position (26.3% of Atreides's 13F) is not lazy indexing — it is a deliberate, thesis-driven macro bet on the AI supercycle. Baker is one of the most AGI-aware fund managers in public markets, having spent years at Fidelity running technology portfolios before founding Atreides.",
+    "His QQQ position gives him efficient, diversified exposure to the companies building and deploying AI at scale: Apple (8.6%), Microsoft (8.0%), NVIDIA (7.5%), Amazon (5.3%), Alphabet (5.0%), Meta (4.8%), Broadcom (4.2%), Tesla (3.5%). These eight companies alone represent roughly 47% of the Nasdaq-100.",
+    "Baker's thesis is that the AI infrastructure buildout is a multi-year capex supercycle worth $1T+ in cumulative investment, and the primary beneficiaries are the companies that (1) sell the infrastructure (NVIDIA, Broadcom), (2) deploy it at scale (Microsoft, Google, Amazon, Meta), and (3) monetize it through their platforms (Apple, Tesla). By using QQQ rather than individual stock positions, Baker gets diversified exposure to this thesis while maintaining liquidity to size the position large (26% of portfolio).",
+    "This is Baker at his best: using an ETF as a tactical instrument to express a macro conviction about AI's impact on the technology sector."
+  ],
+  "business_bullets": [
+    "The Invesco QQQ Trust (QQQ) is the largest and most liquid Nasdaq-100 ETF, tracking the 100 biggest non-financial companies listed on the Nasdaq exchange. With ~$260B in assets and ~$15B in average daily trading volume, QQQ is the definitive instrument for gaining exposure to the technology sector and AI beneficiaries.",
+    "The top 8 holdings (Apple, Microsoft, NVIDIA, Amazon, Alphabet, Meta, Broadcom, Tesla) represent ~47% of the fund and collectively possess some of the strongest competitive moats in business history. These companies are both building and deploying AI at massive scale, with combined AI capex exceeding $300B annually.",
+    "QQQ trades at approximately 28-30x forward earnings with blended earnings growth of 15-20%, driven by AI adoption across enterprise and consumer markets. The ETF has a 0.20% expense ratio and offers a 0.6% dividend yield.",
+    "For Gavin Baker, QQQ is not passive exposure but a deliberate, liquid, diversified vehicle to express his macro conviction that the AI infrastructure buildout is a multi-year supercycle that will disproportionately reward the technology companies that dominate the Nasdaq-100."
+  ]
 }

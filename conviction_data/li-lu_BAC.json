@@ -32,18 +32,66 @@
   "valuation_math": {
     "approach": "Price-to-Tangible-Book + Normalized Earnings Power",
     "steps": [
-      {"label": "2025 Revenue", "value": "$107.4B", "note": "Net interest income + non-interest income; 7.4% YoY growth"},
-      {"label": "2025 Net Income", "value": "$29.1B", "note": "13.1% YoY growth; ~$3.81 diluted EPS"},
-      {"label": "Current Stock Price", "value": "$49.85", "note": "As of March 5, 2026"},
-      {"label": "Current Market Cap", "value": "$358B", "note": "7.18B shares outstanding"},
-      {"label": "P/E Ratio", "value": "13.1x", "note": "Forward P/E of 11.5x — cheaper than S&P 500 average"},
-      {"label": "Tangible Book Value Per Share (est.)", "value": "~$26", "note": "Price/TBV of ~1.9x; growing 8-10% annually via retained earnings + buybacks"},
-      {"label": "Return on Tangible Common Equity", "value": "~14%", "note": "Well above cost of equity (~10%); implies compounding at above-market rates"},
-      {"label": "Normalized EPS Growth Rate", "value": "10-12%", "note": "Combination of 3-5% NII growth, expense leverage, and 3% annual share count reduction"},
-      {"label": "5-Year EPS Estimate (2030)", "value": "$6.15", "note": "$3.81 compounding at 10% for 5 years"},
-      {"label": "Terminal P/E", "value": "12x", "note": "Conservative — below current 13x"},
-      {"label": "Implied 2030 Price", "value": "$74", "note": "$6.15 x 12 = $73.80"},
-      {"label": "Implied 5-Year Return", "value": "48%", "note": "From $49.85 to $74 + ~2.2% annual dividend yield = ~58% total return"}
+      {
+        "label": "2025 Revenue",
+        "value": "$107.4B",
+        "note": "Net interest income + non-interest income; 7.4% YoY growth"
+      },
+      {
+        "label": "2025 Net Income",
+        "value": "$29.1B",
+        "note": "13.1% YoY growth; ~$3.81 diluted EPS"
+      },
+      {
+        "label": "Current Stock Price",
+        "value": "$49.85",
+        "note": "As of March 5, 2026"
+      },
+      {
+        "label": "Current Market Cap",
+        "value": "$358B",
+        "note": "7.18B shares outstanding"
+      },
+      {
+        "label": "P/E Ratio",
+        "value": "13.1x",
+        "note": "Forward P/E of 11.5x — cheaper than S&P 500 average"
+      },
+      {
+        "label": "Tangible Book Value Per Share (est.)",
+        "value": "~$26",
+        "note": "Price/TBV of ~1.9x; growing 8-10% annually via retained earnings + buybacks"
+      },
+      {
+        "label": "Return on Tangible Common Equity",
+        "value": "~14%",
+        "note": "Well above cost of equity (~10%); implies compounding at above-market rates"
+      },
+      {
+        "label": "Normalized EPS Growth Rate",
+        "value": "10-12%",
+        "note": "Combination of 3-5% NII growth, expense leverage, and 3% annual share count reduction"
+      },
+      {
+        "label": "5-Year EPS Estimate (2030)",
+        "value": "$6.15",
+        "note": "$3.81 compounding at 10% for 5 years"
+      },
+      {
+        "label": "Terminal P/E",
+        "value": "12x",
+        "note": "Conservative — below current 13x"
+      },
+      {
+        "label": "Implied 2030 Price",
+        "value": "$74",
+        "note": "$6.15 x 12 = $73.80"
+      },
+      {
+        "label": "Implied 5-Year Return",
+        "value": "48%",
+        "note": "From $49.85 to $74 + ~2.2% annual dividend yield = ~58% total return"
+      }
     ],
     "target_price": "$74",
     "current_price": "$50",
@@ -66,10 +114,26 @@
     "Brand and distribution: 3,700+ financial centers and 15,000+ ATMs across the U.S., built over 100+ years"
   ],
   "risks": [
-    {"risk": "Credit cycle downturn", "severity": "Medium", "mitigation": "BAC has de-risked dramatically since 2008. CET1 ratio well above minimums, stress test performance consistently strong, and loan book is diversified across consumer, commercial, and mortgage."},
-    {"risk": "Interest rate decline", "severity": "Medium", "mitigation": "Net interest income would compress if rates fall sharply. However, BAC has hedged its rate exposure, and lower rates typically drive mortgage refinancing volume and capital markets activity."},
-    {"risk": "Regulatory capital requirements tightening", "severity": "Low-Medium", "mitigation": "Basel III endgame could increase capital requirements, limiting buyback capacity. But BAC is already well-capitalized and the impact would be industry-wide, not company-specific."},
-    {"risk": "Fintech disruption", "severity": "Low", "mitigation": "BAC's digital platform is best-in-class among traditional banks. Erica AI assistant has 2B+ interactions. Scale advantages in compliance, trust, and FDIC insurance are difficult for fintechs to replicate."}
+    {
+      "risk": "Credit cycle downturn",
+      "severity": "Medium",
+      "mitigation": "BAC has de-risked dramatically since 2008. CET1 ratio well above minimums, stress test performance consistently strong, and loan book is diversified across consumer, commercial, and mortgage."
+    },
+    {
+      "risk": "Interest rate decline",
+      "severity": "Medium",
+      "mitigation": "Net interest income would compress if rates fall sharply. However, BAC has hedged its rate exposure, and lower rates typically drive mortgage refinancing volume and capital markets activity."
+    },
+    {
+      "risk": "Regulatory capital requirements tightening",
+      "severity": "Low-Medium",
+      "mitigation": "Basel III endgame could increase capital requirements, limiting buyback capacity. But BAC is already well-capitalized and the impact would be industry-wide, not company-specific."
+    },
+    {
+      "risk": "Fintech disruption",
+      "severity": "Low",
+      "mitigation": "BAC's digital platform is best-in-class among traditional banks. Erica AI assistant has 2B+ interactions. Scale advantages in compliance, trust, and FDIC insurance are difficult for fintechs to replicate."
+    }
   ],
   "catalysts": [
     "Rising net interest income: Higher-for-longer rate environment directly benefits BAC's enormous deposit franchise",
@@ -78,5 +142,17 @@
     "Digital efficiency gains: Continued shift from branch to digital reduces operating expenses and widens margins",
     "Credit quality normalization: As pandemic-era reserves are released and charge-offs stabilize, earnings power becomes clearer"
   ],
-  "company_brief": "Bank of America is the second-largest bank in the United States by total assets ($3.3T+), serving approximately 69 million consumer and small business clients through 3,700+ financial centers and a digital banking platform with 47M+ active mobile users. The bank operates across four segments: Consumer Banking, Global Wealth & Investment Management (Merrill Lynch, managing $4T+ in client assets), Global Banking, and Global Markets. In 2025, BAC generated $107.4B in revenue and $29.1B in net income, with a return on tangible common equity of approximately 14%."
+  "company_brief": "Bank of America is the second-largest bank in the United States by total assets ($3.3T+), serving approximately 69 million consumer and small business clients through 3,700+ financial centers and a digital banking platform with 47M+ active mobile users. The bank operates across four segments: Consumer Banking, Global Wealth & Investment Management (Merrill Lynch, managing $4T+ in client assets), Global Banking, and Global Markets. In 2025, BAC generated $107.4B in revenue and $29.1B in net income, with a return on tangible common equity of approximately 14%.",
+  "thesis_bullets": [
+    "Li Lu's 16.1% position in Bank of America follows the same pattern that drew Charlie Munger and Warren Buffett to banking franchises: a deeply entrenched deposit-gathering institution with enormous scale advantages, trading at a modest multiple to tangible book value and normalized earnings. Bank of America is the second-largest U.S.",
+    "bank by assets ($3.3T+), with 69 million consumer and small business clients, the largest digital banking platform (47M+ active mobile users), and a deposit base of $1.9T+ that provides one of the lowest funding costs in the industry. What makes this a Li Lu bet specifically is the margin-of-safety calculus.",
+    "BAC trades at roughly 13x earnings and 1.3x tangible book value — cheap for a franchise generating 12-14% return on tangible common equity. The bank survived 2008, passed every stress test since, and carries CET1 capital ratios well above regulatory minimums.",
+    "The downside is protected by tangible book value ($25-26/share), while the upside comes from rising net interest income in a higher-rate environment, wealth management growth (Merrill Lynch manages $4T+), and relentless digital efficiency gains that are widening the cost advantage over smaller banks. Li Lu, trained by Munger to think about the durability of competitive advantages, sees BAC as a toll-booth on the U.S.",
+    "economy — every consumer, business, and institutional transaction that flows through the banking system generates revenue at minimal marginal cost."
+  ],
+  "business_bullets": [
+    "Bank of America is the second-largest bank in the United States by total assets ($3.3T+), serving approximately 69 million consumer and small business clients through 3,700+ financial centers and a digital banking platform with 47M+ active mobile users.",
+    "The bank operates across four segments: Consumer Banking, Global Wealth & Investment Management (Merrill Lynch, managing $4T+ in client assets), Global Banking, and Global Markets.",
+    "In 2025, BAC generated $107.4B in revenue and $29.1B in net income, with a return on tangible common equity of approximately 14%."
+  ]
 }

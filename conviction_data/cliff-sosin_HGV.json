@@ -24,7 +24,7 @@
     "net_income_fy2024_millions": 47,
     "net_income_fy2023_millions": 313,
     "eps_fy2024": 0.45,
-    "eps_fy2023": 2.80,
+    "eps_fy2023": 2.8,
     "ebitda_fy2024_millions": 726,
     "ebitda_fy2023_millions": 826,
     "operating_margin_fy2024_pct": 9.19,
@@ -58,7 +58,7 @@
     "revenue_growth_pct": 25.2,
     "net_income_fy2024_millions": 47,
     "eps_fy2024": 0.45,
-    "eps_fy2023": 2.80,
+    "eps_fy2023": 2.8,
     "ebitda_millions": 726,
     "operating_margin_pct": 9.19,
     "free_cash_flow_millions": 267,
@@ -96,5 +96,18 @@
     "Hilton Honors member conversion — access to 173M+ Hilton loyalty members provides a massive prospecting funnel for new timeshare sales",
     "FY2025 already showing recovery with EPS nearly doubling to $0.89 and margins stabilizing"
   ],
-  "company_brief": "Hilton Grand Vacations (HGV) is the world's largest timeshare company by member count, operating vacation ownership resorts primarily under the Hilton brand. The company develops, sells, finances, and manages timeshare properties across the United States and Europe. HGV's business has two components: (1) Real Estate Sales & Financing — selling vacation ownership interests and providing consumer financing that is subsequently securitized, and (2) Resort Operations & Club Management — collecting recurring annual fees from 720,000+ club members. The Hilton brand is licensed from Hilton Hotels, providing access to the 173M+ Hilton Honors member base. In 2024, HGV completed the acquisition of Bluegreen Vacations, adding 220K+ members and expanding its resort portfolio. FY2024 revenue was $5.0B (+25% from Bluegreen) but net income collapsed to $47M as integration costs, elevated loan losses, and higher interest expenses compressed margins. The forward PE of 13.5x reflects analyst expectations of earnings normalization. Market cap is $3.7B with 22,300 employees."
+  "company_brief": "Hilton Grand Vacations (HGV) is the world's largest timeshare company by member count, operating vacation ownership resorts primarily under the Hilton brand. The company develops, sells, finances, and manages timeshare properties across the United States and Europe. HGV's business has two components: (1) Real Estate Sales & Financing — selling vacation ownership interests and providing consumer financing that is subsequently securitized, and (2) Resort Operations & Club Management — collecting recurring annual fees from 720,000+ club members. The Hilton brand is licensed from Hilton Hotels, providing access to the 173M+ Hilton Honors member base. In 2024, HGV completed the acquisition of Bluegreen Vacations, adding 220K+ members and expanding its resort portfolio. FY2024 revenue was $5.0B (+25% from Bluegreen) but net income collapsed to $47M as integration costs, elevated loan losses, and higher interest expenses compressed margins. The forward PE of 13.5x reflects analyst expectations of earnings normalization. Market cap is $3.7B with 22,300 employees.",
+  "thesis_bullets": [
+    "Cliff Sosin's Hilton Grand Vacations position is his second-largest holding after Carvana, representing 10.2% of his ultra-concentrated portfolio. Sosin — who runs just 2-3 core positions — is a deeply analytical investor who looks for businesses where the market is pricing in permanent impairment for what are actually temporary problems.",
+    "HGV is the world's largest timeshare company by member count, operating under the powerful Hilton brand. The business model has two attractive components: (1) Real Estate Sales & Financing — selling vacation ownership interests and providing consumer financing (which is then securitized), and (2) Resort Operations & Club Management — collecting recurring annual fees from 720,000+ club members.",
+    "The recurring fee income provides a stable, growing base of revenue with high margins. FY2024 net income collapsed 85% to $47M primarily due to integration costs from the Bluegreen Vacations acquisition, elevated loan loss provisioning, and higher interest expenses — but these are transient headwinds.",
+    "The forward PE of 13.5x (vs. trailing 50x) reflects analysts' expectation of earnings normalization.",
+    "Sosin likely sees HGV as dramatically mispriced: at $3.7B market cap, the recurring club management revenue alone could be worth $3-4B, meaning you get the entire real estate sales and financing business essentially for free."
+  ],
+  "business_bullets": [
+    "Hilton Grand Vacations (HGV) is the world's largest timeshare company by member count, operating vacation ownership resorts primarily under the Hilton brand. The company develops, sells, finances, and manages timeshare properties across the United States and Europe.",
+    "HGV's business has two components: (1) Real Estate Sales & Financing — selling vacation ownership interests and providing consumer financing that is subsequently securitized, and (2) Resort Operations & Club Management — collecting recurring annual fees from 720,000+ club members. The Hilton brand is licensed from Hilton Hotels, providing access to the 173M+ Hilton Honors member base.",
+    "In 2024, HGV completed the acquisition of Bluegreen Vacations, adding 220K+ members and expanding its resort portfolio. FY2024 revenue was $5.0B (+25% from Bluegreen) but net income collapsed to $47M as integration costs, elevated loan losses, and higher interest expenses compressed margins.",
+    "The forward PE of 13.5x reflects analyst expectations of earnings normalization. Market cap is $3.7B with 22,300 employees."
+  ]
 }

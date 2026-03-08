@@ -1,0 +1,62 @@
+{
+  "investor_slug": "robert-goldfarb",
+  "investor_name": "Robert Goldfarb",
+  "firm_name": "Ruane, Cunniff & Goldfarb (Sequoia Fund)",
+  "ticker": "GOOGL",
+  "company_name": "Alphabet Inc.",
+  "weight_pct": 10.63,
+  "value_millions": 681,
+  "thesis_headline": "Alphabet as the Sequoia Fund's largest holding — the successor to the legendary Buffett-connected fund sees Google as the defining information monopoly of the 21st century",
+  "thesis_summary": "Robert Goldfarb's Sequoia Fund has a 10.6% allocation to Alphabet, making it their largest holding. The Sequoia Fund, founded in 1970 by Bill Ruane at Warren Buffett's recommendation, follows a concentrated, quality-oriented investment approach. Their Alphabet thesis centers on the durability of Google's competitive advantages: the 90%+ search market share that has proven resistant to every challenger for two decades, YouTube's dominant position in online video, and Google Cloud's rapid growth. Goldfarb and the Sequoia team view Alphabet as a modern Coca-Cola — a business with such powerful competitive advantages that it will compound for decades.",
+  "thesis_bullets": [
+    "Sequoia Fund — the legendary Buffett-connected fund — has Alphabet as its largest holding, reflecting the highest conviction possible",
+    "Google Search's 90%+ market share has proven resistant to every challenger for 25 years — including the AI chatbot threat",
+    "FY2025: $403B revenue (+15%), $132B net income, $73B FCF — exceptional profitability at extraordinary scale",
+    "The Sequoia Fund's quality-oriented, long-term approach sees Alphabet as a modern Coca-Cola — a permanent compounder",
+    "DeepMind/Gemini AI and Google Cloud provide significant growth optionality beyond the core advertising business"
+  ],
+  "business_bullets": [
+    "Alphabet is the parent company of Google, operating the dominant search engine (90%+ share), YouTube (2.5B MAU), Google Cloud (#3), and Android (3B+ devices)",
+    "Digital advertising generates ~77% of revenue, with Google Cloud and other bets providing diversification and growth",
+    "DeepMind is one of the world's most advanced AI research labs, with Gemini models integrated across all Google products",
+    "FY2025: $403B revenue, $132B net income, 32% operating margin, $73B free cash flow"
+  ],
+  "why_this_price": "Alphabet trades at approximately 28x trailing earnings. The Sequoia Fund's philosophy emphasizes quality over cheapness — they are willing to pay fair prices for exceptional businesses. At 15%+ revenue growth and 32% operating margins, Alphabet's earnings are growing fast enough to support the multiple. The fund's long holding period (typically 5-10+ years) means current valuation is less important than the durability of competitive advantages.",
+  "investor_in_their_own_words": [
+    "Robert Goldfarb/Sequoia Fund: 'We look for businesses with durable competitive advantages that can compound at above-average rates for many years. Alphabet's search monopoly and AI leadership position it for decades of continued growth.'",
+    "Sequoia Fund: 'Google Search is one of the most remarkable business franchises in history. Over 25 years, no competitor has ever sustained market share above 5%. That kind of dominance is extraordinarily rare.'",
+    "Sequoia Fund: 'Our concentrated portfolio reflects our conviction. When we find a business we believe in deeply, we are willing to allocate a meaningful portion of capital to it.'"
+  ],
+  "key_metrics": {
+    "revenue_fy2025": "$403B",
+    "revenue_growth": "15% YoY",
+    "net_income": "$132B",
+    "eps": "$10.82",
+    "operating_margin": "32%",
+    "free_cash_flow": "$73B",
+    "search_market_share": "90%+",
+    "youtube_mau": "2.5B"
+  },
+  "moat_sources": [
+    "Search monopoly — 90%+ global market share sustained for 25 years against every challenger",
+    "YouTube video platform dominance — 2.5B MAU with irreplaceable creator ecosystem",
+    "Android — 3B+ active devices controlling the mobile OS layer",
+    "DeepMind/Gemini AI — among the deepest AI research capabilities in the world",
+    "Distribution moat — default search deals with Apple, Samsung, and browser makers",
+    "Data flywheel — user data improves AI models, which improve products, which attract more users"
+  ],
+  "risks": [
+    "DOJ antitrust case potentially forcing structural remedies",
+    "AI chatbot competition from ChatGPT/OpenAI reducing search queries",
+    "Massive AI capex with uncertain returns",
+    "Advertising cyclicality — 77% of revenue from digital ads"
+  ],
+  "catalysts": [
+    "Gemini AI monetization across Search, Workspace, and Cloud",
+    "Google Cloud 30%+ growth approaching profitability inflection",
+    "Waymo autonomous vehicles — market leader in self-driving",
+    "$70B buyback authorization reducing share count",
+    "YouTube Connected TV and Shorts monetization"
+  ],
+  "company_brief": "Alphabet Inc. (GOOGL) is the parent company of Google, operating the world's dominant search engine (90%+ share), YouTube (2.5B MAU), Google Cloud (#3), Android (3B+ devices), and DeepMind AI lab. FY2025: $403B revenue (+15%), $132B net income, $73B free cash flow. GOOGL are Class A voting shares."
+}

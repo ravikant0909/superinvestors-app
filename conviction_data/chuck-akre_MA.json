@@ -87,11 +87,46 @@
       "total_capital_return_yield_pct": 4.1
     },
     "historical_financials": [
-      {"year": 2021, "revenue_billions": 18.9, "net_income_billions": 8.7, "eps_diluted": 8.76, "operating_margin_pct": 53.0, "shares_millions": 993},
-      {"year": 2022, "revenue_billions": 22.2, "net_income_billions": 9.9, "eps_diluted": 10.23, "operating_margin_pct": 54.2, "shares_millions": 968},
-      {"year": 2023, "revenue_billions": 25.1, "net_income_billions": 11.2, "eps_diluted": 11.83, "operating_margin_pct": 55.8, "shares_millions": 946},
-      {"year": 2024, "revenue_billions": 28.2, "net_income_billions": 12.9, "eps_diluted": 13.89, "operating_margin_pct": 56.7, "shares_millions": 925},
-      {"year": 2025, "revenue_billions": 32.8, "net_income_billions": 15.0, "eps_diluted": 16.52, "operating_margin_pct": 57.6, "shares_millions": 905}
+      {
+        "year": 2021,
+        "revenue_billions": 18.9,
+        "net_income_billions": 8.7,
+        "eps_diluted": 8.76,
+        "operating_margin_pct": 53,
+        "shares_millions": 993
+      },
+      {
+        "year": 2022,
+        "revenue_billions": 22.2,
+        "net_income_billions": 9.9,
+        "eps_diluted": 10.23,
+        "operating_margin_pct": 54.2,
+        "shares_millions": 968
+      },
+      {
+        "year": 2023,
+        "revenue_billions": 25.1,
+        "net_income_billions": 11.2,
+        "eps_diluted": 11.83,
+        "operating_margin_pct": 55.8,
+        "shares_millions": 946
+      },
+      {
+        "year": 2024,
+        "revenue_billions": 28.2,
+        "net_income_billions": 12.9,
+        "eps_diluted": 13.89,
+        "operating_margin_pct": 56.7,
+        "shares_millions": 925
+      },
+      {
+        "year": 2025,
+        "revenue_billions": 32.8,
+        "net_income_billions": 15,
+        "eps_diluted": 16.52,
+        "operating_margin_pct": 57.6,
+        "shares_millions": 905
+      }
     ],
     "moat_analysis": {
       "moat_type": "Wide — Network Effect + Scale + Switching Costs + Regulatory Barrier",
@@ -156,7 +191,7 @@
       "price_to_fcf_approx": 31,
       "ev_to_ebitda_approx": 27,
       "fcf_yield_pct": 3.2,
-      "earnings_yield_pct": 3.0
+      "earnings_yield_pct": 3
     },
     "valuation_assessment": "Mastercard trades at a premium (~33x earnings) but this is justified by its growth profile (15-18% EPS CAGR), capital-light model, and wide moat. The FCF yield of ~3.2% plus ~15% earnings growth implies a total return potential of ~18% annually — well above the market's ~10% long-term average. The stock has rarely traded below 25x earnings in the past decade, suggesting the market correctly recognizes this as a superior business. Akre's thesis does not depend on multiple expansion — even with P/E contraction to 25x, if earnings grow at 15% annually, the 10-year return would be ~11% CAGR."
   },
@@ -171,5 +206,7 @@
     ],
     "confidence_level": "high",
     "analyst_notes": "Mastercard is arguably the single best example of Akre's compounding machine philosophy in his entire portfolio. The 18.8% portfolio weight — his largest position — reflects decades of conviction. The business has compounded EPS at ~18% annually for a decade, with the share count declining 2-3% annually through buybacks. Combined with Visa (10.3%), payment networks represent ~29% of Akre's portfolio, underscoring his extraordinary conviction in the cash-to-digital secular theme and the duopoly structure of card networks."
-  }
+  },
+  "thesis_bullets": [],
+  "business_bullets": []
 }

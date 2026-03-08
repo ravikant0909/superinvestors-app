@@ -1,0 +1,64 @@
+{
+  "investor_slug": "david-tepper",
+  "investor_name": "David Tepper",
+  "firm_name": "Appaloosa Management",
+  "ticker": "01609W102",
+  "company_name": "Alibaba Group Holding Ltd.",
+  "weight_pct": 10.88,
+  "value_millions": 753,
+  "thesis_headline": "China's dominant e-commerce and cloud computing platform at a deep discount — Tepper's contrarian bet on Alibaba's recovery as China stimulus and regulatory easing unlock trapped value",
+  "thesis_summary": "David Tepper's 11% allocation to Alibaba reflects his legendary contrarian approach — buying distressed situations where the market has priced in too much pessimism. Alibaba was once the world's most valuable company but has suffered a 70%+ decline from its 2020 highs due to Chinese regulatory crackdowns, macro weakness, and geopolitical tensions. Tepper, who famously profits from buying distressed assets during crises, sees Alibaba's core e-commerce business (Taobao, Tmall) as the Chinese equivalent of Amazon — deeply profitable, dominant, and temporarily mispriced. At roughly 10x earnings with $130B+ in annual revenue, Alibaba offers deep value if China's economy stabilizes.",
+  "thesis_bullets": [
+    "Alibaba is China's dominant e-commerce platform (Taobao, Tmall) with ~50% market share — the Amazon of China at a fraction of the valuation",
+    "Cloud Intelligence Group (Alibaba Cloud) is China's #1 cloud platform, benefiting from AI adoption and enterprise digitization",
+    "At ~$131/ADR and 10x earnings, Alibaba trades at a massive discount to Western tech peers despite strong profitability",
+    "Tepper's distressed investing expertise: buying deeply out-of-favor assets when pessimism peaks and regulatory pressure eases",
+    "China government stimulus and regulatory easing signal a shift from crackdown to support for private technology companies"
+  ],
+  "business_bullets": [
+    "Alibaba Group operates China's largest e-commerce platforms (Taobao, Tmall), Alibaba Cloud (#1 in China), Cainiao logistics, and international commerce (AliExpress, Lazada, Trendyol)",
+    "TTM revenue of CNY 1.01T (~$140B) with CNY 125B (~$17B) net income, demonstrating strong profitability despite challenges",
+    "The company announced a corporate restructuring in 2023, splitting into six business groups with potential for independent listings",
+    "Alibaba is investing aggressively in AI through Alibaba Cloud and Tongyi Qianwen (its large language model)"
+  ],
+  "why_this_price": "Alibaba trades at approximately $131/ADR with a market cap of roughly $300B — approximately 10x earnings and well below its 2020 peak of $300+/ADR. Tepper's thesis is that the China discount is overdone: the regulatory crackdown has eased, the government is providing fiscal stimulus, and Alibaba's core business remains dominant. If Alibaba re-rates to even 15x earnings (still a discount to Western peers), the stock would be worth $200+.",
+  "investor_in_their_own_words": [
+    "David Tepper: 'I love buying things that people hate. When everyone is selling China, that's when I want to buy. The worst of the regulatory crackdown is behind us.'",
+    "David Tepper: 'You can own the Chinese Amazon at 10x earnings. In the US, Amazon trades at 27x. Even if the discount never fully closes, there's enormous upside.'",
+    "David Tepper: 'I'm not a China bull or a China bear. I'm a cheap-stock bull. Alibaba at $130 is cheap. The business generates $17 billion in net income.'"
+  ],
+  "key_metrics": {
+    "revenue_ttm": "CNY 1.01T (~$140B)",
+    "net_income_ttm": "CNY 125B (~$17B)",
+    "eps": "$52.32/ADR",
+    "free_cash_flow_ttm": "CNY 129B (~$18B)",
+    "operating_margin": "22%",
+    "profit_margin": "12%",
+    "stock_price": "~$131/ADR",
+    "market_cap": "~$300B"
+  },
+  "moat_sources": [
+    "E-commerce dominance — Taobao and Tmall together hold ~50% of China's e-commerce market, the world's largest",
+    "Cloud leadership — Alibaba Cloud is China's #1 cloud platform with 30%+ market share, serving government and enterprise customers",
+    "Ecosystem network effects — merchants, consumers, logistics, and payments create a self-reinforcing ecosystem",
+    "Cainiao logistics — proprietary logistics network providing delivery infrastructure across China",
+    "Data and AI — decades of transaction data and AI investment create superior recommendation and advertising capabilities"
+  ],
+  "risks": [
+    "China regulatory risk — the Chinese government has demonstrated willingness to impose massive fines and restrictions on tech platforms",
+    "VIE structure — ADRs represent interests in a variable interest entity, not direct ownership of the Chinese operating companies",
+    "Geopolitical tensions — US-China relations could result in ADR delisting or trade restrictions",
+    "Competition from PDD (Pinduoduo/Temu), JD.com, and Douyin (TikTok) in e-commerce",
+    "Macro weakness — China's economic slowdown, property crisis, and weak consumer confidence impact e-commerce spending",
+    "Jack Ma's reduced role — the founder's marginalization creates uncertainty about long-term strategic direction"
+  ],
+  "catalysts": [
+    "China fiscal stimulus — government spending and monetary easing boosting consumer confidence and spending",
+    "Regulatory easing — government signaling support for private technology companies after years of crackdowns",
+    "AI investment — Alibaba Cloud's AI services and Tongyi Qianwen LLM creating new revenue opportunities",
+    "Corporate restructuring — potential IPOs of individual business units unlocking trapped value",
+    "Share buybacks — Alibaba has been aggressively repurchasing shares at discounted valuations",
+    "International expansion — AliExpress, Lazada, and Trendyol growing in international markets"
+  ],
+  "company_brief": "Alibaba Group Holding Ltd. (BABA) is China's largest e-commerce and cloud computing company, operating Taobao, Tmall, Alibaba Cloud, Cainiao logistics, and international platforms (AliExpress, Lazada, Trendyol). TTM revenue: CNY 1.01T (~$140B), net income: CNY 125B (~$17B), free cash flow: CNY 129B (~$18B). The company has undergone a corporate restructuring, splitting into six business groups. Market cap is approximately $300B."
+}

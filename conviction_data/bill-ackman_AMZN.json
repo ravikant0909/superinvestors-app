@@ -1,0 +1,62 @@
+{
+  "investor_slug": "bill-ackman",
+  "investor_name": "Bill Ackman",
+  "firm_name": "Pershing Square Capital Management",
+  "ticker": "AMZN",
+  "company_name": "Amazon.com Inc.",
+  "weight_pct": 14.28,
+  "value_millions": 2218,
+  "thesis_headline": "The world's most dominant e-commerce and cloud computing platform — Amazon's AWS, advertising, and retail flywheel generate $78B in net income with operating leverage accelerating",
+  "thesis_summary": "Bill Ackman's 14% allocation to Amazon reflects his thesis that the company is the quintessential durable-moat business. Amazon operates the dominant e-commerce marketplace in the US and globally, AWS is the #1 cloud computing platform, and the advertising business has become a $60B+ annual revenue powerhouse. Ackman's framework values Amazon on its multiple competitive advantages: the Prime flywheel (200M+ members), AWS's market leadership (32% share), and the advertising business that monetizes purchase-intent data. FY2025: $717B in revenue (+12%), $78B in net income (+31%), with operating margins expanding to 11%+ as the company leverages its infrastructure at scale.",
+  "thesis_bullets": [
+    "Amazon operates three world-class businesses: e-commerce marketplace (#1 globally), AWS cloud (#1 with 32% share), and advertising (#3 behind Google and Meta)",
+    "FY2025: $717B revenue (+12%), $78B net income (+31%), 11% operating margins — operating leverage is accelerating",
+    "AWS is the profit engine: ~$100B annual run rate with ~30% margins, powering the AI revolution's cloud infrastructure needs",
+    "200M+ Prime members create a subscription flywheel: fast shipping drives loyalty, which drives marketplace volume, which attracts sellers",
+    "The advertising business ($60B+ revenue) monetizes purchase-intent data — the highest-value ad inventory outside of Google Search"
+  ],
+  "business_bullets": [
+    "Amazon.com operates the world's largest e-commerce marketplace, Amazon Web Services (AWS, #1 cloud platform), and a top-3 digital advertising business",
+    "The company's Prime membership program (200M+ members) drives loyalty through free shipping, streaming (Prime Video), and exclusive deals",
+    "AWS provides cloud computing, storage, AI/ML services, and database solutions to millions of customers, generating the majority of operating profits",
+    "FY2025: $717B revenue, $78B net income, 11% operating margin, with 1.5M+ employees globally"
+  ],
+  "why_this_price": "Amazon trades at approximately $200/share with a ~$2.1T market cap, or roughly 27x FY2025 earnings. Ackman sees this as a fair price for a business with Amazon's quality. AWS alone is arguably worth $1T+ as a standalone (30% margins on $100B+ revenue), and the advertising business at $60B+ is worth hundreds of billions. The retail marketplace, while lower margin, generates massive cash flow and provides the data and customer relationships that power advertising. Free cash flow was compressed to $7.7B in FY2025 due to heavy AI/infrastructure capex, but normalized FCF power is $50B+.",
+  "investor_in_their_own_words": [
+    "Bill Ackman: 'Amazon is three great businesses in one. AWS alone would be one of the most valuable companies in the world. The advertising business is growing into a profit machine. And the marketplace generates enormous customer loyalty through Prime.'",
+    "Bill Ackman: 'We look for businesses with wide moats and long runways. Amazon's competitive advantages — scale, data, logistics, cloud infrastructure — are nearly impossible to replicate.'",
+    "Bill Ackman: 'The operating leverage in Amazon's business is finally showing up. As infrastructure investments mature, margins are expanding and the free cash flow potential is enormous.'"
+  ],
+  "key_metrics": {
+    "revenue_fy2025": "$717B",
+    "revenue_growth": "12% YoY",
+    "net_income": "$78B",
+    "eps": "$7.17",
+    "operating_margin": "11.2%",
+    "free_cash_flow": "$7.7B (capex-heavy)",
+    "aws_revenue": "~$100B+ run rate",
+    "prime_members": "200M+"
+  },
+  "moat_sources": [
+    "Prime flywheel — 200M+ subscribers create massive switching costs through shipping, streaming, and shopping convenience",
+    "AWS market leadership — 32% cloud market share with the broadest service portfolio, creating deep customer lock-in",
+    "Logistics infrastructure — $100B+ invested in fulfillment and delivery networks creating same-day/next-day delivery that competitors cannot match",
+    "Marketplace network effects — millions of sellers attract buyers, and more buyers attract more sellers",
+    "Advertising data advantage — purchase-intent data from the marketplace enables highly targeted, high-ROI advertising"
+  ],
+  "risks": [
+    "Heavy capex — $75B+ in annual capital expenditure for cloud, AI, and logistics infrastructure compresses free cash flow",
+    "Regulatory and antitrust risk — FTC lawsuit and global regulatory scrutiny could force structural changes",
+    "AWS competition — Microsoft Azure and Google Cloud are growing faster and gaining share in certain workloads",
+    "Margin pressure in retail — e-commerce margins remain thin and can be squeezed by competition and logistics costs",
+    "Labor relations — 1.5M+ employees face unionization efforts and wage pressure"
+  ],
+  "catalysts": [
+    "AI-driven AWS growth — enterprise AI workloads driving accelerated cloud migration and new AWS services",
+    "Advertising revenue growth — purchase-intent ads growing 20%+ annually with high margins",
+    "Operating leverage — as infrastructure investments mature, margins expanding toward 15%+",
+    "International e-commerce profitability — growing markets in India, Brazil, and other regions approaching profitability inflection",
+    "Free cash flow normalization — as capex intensity moderates, FCF could reach $50B+ annually"
+  ],
+  "company_brief": "Amazon.com Inc. (AMZN) operates the world's largest e-commerce marketplace, Amazon Web Services (#1 cloud computing platform), and a top-3 digital advertising business. The company has 200M+ Prime members and employs 1.5M+ people globally. FY2025: $717B revenue (+12%), $78B net income (+31%), 11% operating margin. CEO Andy Jassy leads the company with a focus on AI, cloud computing, and operational efficiency. Market cap is approximately $2.1 trillion."
+}

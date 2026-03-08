@@ -1,0 +1,74 @@
+{
+  "investor_slug": "chris-hohn",
+  "investor_name": "Chris Hohn",
+  "firm_name": "TCI Fund Management",
+  "ticker": "369604301",
+  "company_name": "GE Aerospace",
+  "weight_pct": 27.28,
+  "value_millions": 14635,
+  "thesis_headline": "The world's dominant jet engine duopoly with a $400B+ installed base, decades of recurring aftermarket revenue, and a pure-play aerospace business after GE's historic breakup",
+  "thesis_summary": "Chris Hohn's 27% allocation to GE Aerospace reflects TCI's thesis that the company is now one of the highest-quality industrial compounders in the world. Following GE's breakup into three companies (GE Aerospace, GE Vernova, GE HealthCare), GE Aerospace is a pure-play on the global aviation aftermarket — the most profitable segment of the old General Electric. The company, along with Pratt & Whitney (RTX), operates a duopoly in large commercial jet engines. GE's LEAP engines power most new Boeing 737 MAX and Airbus A320neo aircraft. The installed base of 40,000+ engines generates decades of high-margin aftermarket revenue through maintenance, repair, and overhaul (MRO) services.",
+  "thesis_bullets": [
+    "GE Aerospace operates in a duopoly with Pratt & Whitney — together they make virtually every large commercial jet engine in the world",
+    "The installed base of 40,000+ engines generates decades of recurring, high-margin aftermarket revenue through mandatory MRO services",
+    "FY2025: $45.9B revenue (+18%), $8.7B net income, $7.3B free cash flow — a business accelerating post-separation",
+    "The post-breakup pure-play structure allows focused capital allocation and margin expansion without legacy conglomerate overhead",
+    "Global air travel growth is secular — passenger miles are expected to double over the next 20 years, driving engine orders and aftermarket demand"
+  ],
+  "business_bullets": [
+    "GE Aerospace is the world's leading jet engine manufacturer, producing the LEAP engine (with Safran, via CFM International), GE9X, GEnx, and other engines powering commercial and military aircraft",
+    "Revenue splits between Commercial Engines & Services (~75%) and Defense & Propulsion Technologies (~25%)",
+    "The aftermarket business (spare parts, MRO, long-term service agreements) generates the majority of profits at very high margins",
+    "FY2025: $45.9B revenue, $8.7B net income, 18.7% operating margins, $7.3B free cash flow"
+  ],
+  "why_this_price": "GE Aerospace trades at roughly $200/share with a market cap of approximately $220B, or 25x FY2025 earnings. Hohn's thesis is that this premium is justified because the aftermarket revenue stream is extremely high-quality: long-duration, recurring, and growing. As the installed base ages and air travel grows, aftermarket revenue compounds for decades. The LEAP engine is now the dominant narrow-body engine globally, locking in future service revenue through the 2040s and beyond.",
+  "investor_in_their_own_words": [
+    {
+      "quote": "We invest in businesses with very high barriers to entry, pricing power, and long-duration competitive advantages. GE Aerospace fits this profile perfectly — you cannot replicate a jet engine duopoly.",
+      "source": "Chris Hohn, TCI Fund Management investor letter",
+      "date": "2024"
+    },
+    {
+      "quote": "The quality of GE Aerospace's earnings is exceptional. Aftermarket revenue from an installed base of 40,000+ engines is as close to annuity income as you can find in industrials.",
+      "source": "Chris Hohn, TCI Fund Management investor letter",
+      "date": "2024"
+    },
+    {
+      "quote": "We are long-term investors. We look for businesses that can compound at high rates for decades. The global aviation market provides that runway for GE Aerospace.",
+      "source": "Chris Hohn, TCI Fund Management",
+      "date": "2023"
+    }
+  ],
+  "key_metrics": {
+    "revenue_fy2025": "$45.9B",
+    "revenue_growth": "18.5% YoY",
+    "net_income": "$8.7B",
+    "eps": "$8.14",
+    "operating_margin": "18.7%",
+    "free_cash_flow": "$7.3B",
+    "installed_engine_base": "40,000+",
+    "market_cap": "~$220B"
+  },
+  "moat_sources": [
+    "Duopoly market structure — GE and Pratt & Whitney are the only manufacturers of large commercial jet engines, with 30+ year product cycles",
+    "Installed base lock-in — once an airline selects a GE engine, it is locked into GE's aftermarket ecosystem for 25-30 years of maintenance and parts",
+    "Massive barriers to entry — developing a new jet engine costs $10B+ and takes 10-15 years, with regulatory certification adding further barriers",
+    "Aftermarket pricing power — spare parts and MRO services are priced at significant premiums because airlines have no alternative suppliers",
+    "Technology moat — decades of R&D and billions in cumulative investment create engine technology that competitors cannot replicate"
+  ],
+  "risks": [
+    "Boeing 737 MAX production issues — GE's LEAP engine revenue depends on Boeing ramping production, which has been delayed repeatedly",
+    "Supply chain constraints — aerospace supply chains remain stressed, limiting engine delivery capacity",
+    "Military budget sensitivity — defense segment revenue depends on government spending, which can fluctuate with political priorities",
+    "Regulatory and safety risk — engine defects or safety incidents could create massive liability and reputational damage",
+    "Cyclicality in new engine orders — while aftermarket is steady, new engine orders fluctuate with airline capex cycles"
+  ],
+  "catalysts": [
+    "Boeing 737 MAX production ramp — higher production rates mean more LEAP engine deliveries and future aftermarket revenue",
+    "Aftermarket revenue acceleration — the large installed base is aging, driving higher MRO spending per engine",
+    "Margin expansion — post-separation cost structure allows operating margins to expand toward 20%+",
+    "Share buybacks — GE Aerospace has authorized significant buyback programs, driving per-share value growth",
+    "Global air travel recovery — international travel continuing to recover post-COVID, driving engine utilization and aftermarket demand"
+  ],
+  "company_brief": "GE Aerospace is the world's leading jet engine manufacturer, created from General Electric's historic three-way breakup in 2024. The company produces commercial and military aircraft engines including the LEAP (via CFM International joint venture with Safran), GE9X, and GEnx families. GE Aerospace's installed base of 40,000+ engines generates decades of high-margin aftermarket revenue. FY2025: $45.9B revenue (+18.5%), $8.7B net income, $7.3B free cash flow, 18.7% operating margins. CEO Larry Culp led the transformation from conglomerate to focused aerospace pure-play."
+}

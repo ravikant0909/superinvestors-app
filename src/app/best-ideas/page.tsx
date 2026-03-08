@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { getBestIdeasFromFiles, formatValueFromThousands } from '@/lib/portfolio-data'
+import { getBestIdeasFromFiles, formatValueFromThousands, getCurrentPrice, loadPortfolioAdjustments } from '@/lib/portfolio-data'
 import type { BestIdeaData } from '@/lib/portfolio-data'
 
 export const metadata: Metadata = {
@@ -142,6 +142,20 @@ export default function BestIdeasPage() {
                         <div className="text-base font-bold text-gray-900">
                           <span className="font-mono">{idea.ticker}</span>
                           <span className="ml-2 text-gray-500 font-normal">{idea.name}</span>
+                          {(() => {
+                            const p = getCurrentPrice(idea.ticker)
+                            if (!p) return null
+                            return (
+                              <span className="ml-3 font-mono text-sm text-gray-700 font-normal">
+                                ${p.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                {p.prev_close > 0 && (
+                                  <span className={`ml-0.5 text-xs ${p.price >= p.prev_close ? 'text-green-600' : 'text-red-500'}`}>
+                                    {p.price >= p.prev_close ? '\u25B2' : '\u25BC'}
+                                  </span>
+                                )}
+                              </span>
+                            )
+                          })()}
                         </div>
                       </div>
 
@@ -202,6 +216,11 @@ export default function BestIdeasPage() {
           most recent 13F filings. Average portfolio weight reflects how much each holder allocates
           to the position. This is not investment advice &mdash; it is a tool for identifying ideas
           that multiple independent, high-quality minds have converged on.
+        </p>
+        <p className="mt-2 text-xs text-gray-400 italic leading-relaxed">
+          Note: 13F filings only cover US-listed securities. Some investors (e.g., Fundsmith, Gardner Russo, TCI Fund, Fairfax Financial)
+          hold significant non-US positions not reflected here. Actual portfolio weights may be lower than shown for these investors.
+          See individual investor pages for estimated non-US holdings.
         </p>
       </div>
     </div>

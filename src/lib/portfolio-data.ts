@@ -228,7 +228,7 @@ export function loadAllPortfolios(): InvestorFilingData[] {
   try {
     const files = fs.readdirSync(OUTPUT_DIR)
     for (const file of files) {
-      if (!file.endsWith('.json') || file.startsWith('summary') || file.startsWith('latest')) continue
+      if (!file.endsWith('.json') || file.startsWith('summary') || file.startsWith('latest') || file.startsWith('prices')) continue
       try {
         const data = JSON.parse(fs.readFileSync(path.join(OUTPUT_DIR, file), 'utf-8')) as InvestorFilingData
         if (data.top_holdings && data.top_holdings.length > 0) {
@@ -377,6 +377,10 @@ export function getSlugForKey(key: string): string {
   return KEY_TO_SLUG[key] || key
 }
 
+export function getKeyForSlug(slug: string): string | null {
+  return SLUG_TO_KEY[slug] || null
+}
+
 export function getManagerForKey(key: string): string {
   return KEY_TO_MANAGER[key] || key
 }
@@ -411,4 +415,210 @@ export function formatShares(shares: number): string {
   if (abs >= 1_000_000) return `${sign}${(shares / 1_000_000).toFixed(1)}M`
   if (abs >= 1_000) return `${sign}${(shares / 1_000).toFixed(0)}K`
   return `${sign}${shares.toLocaleString()}`
+}
+
+// ─── Investor Scores ────────────────────────────────────────────────────────
+
+export interface InvestorScore {
+  combined: number
+  verdict: string
+}
+
+function generateSlug(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .trim()
+}
+
+/**
+ * Load investor scores from all_investors_ranked.json.
+ * Returns a Map of slug -> { combined, verdict }.
+ */
+export function loadInvestorScores(): Map<string, InvestorScore> {
+  const jsonPath = path.resolve(process.cwd(), 'data', 'investors', 'all_investors_ranked.json')
+  const scores = new Map<string, InvestorScore>()
+  try {
+    const raw = JSON.parse(fs.readFileSync(jsonPath, 'utf-8')) as Array<{
+      name: string
+      scores: { combined: number }
+      verdict: string
+    }>
+    for (const inv of raw) {
+      const slug = generateSlug(inv.name)
+      scores.set(slug, { combined: inv.scores.combined, verdict: inv.verdict })
+    }
+  } catch {
+    // file not found or parse error
+  }
+  return scores
+}
+
+// ─── Scored Changes ─────────────────────────────────────────────────────────
+
+export interface ScoredChange extends AggregatedChange {
+  combined_score: number
+  verdict: string
+  weight_impact: number
+  importance_score: number
+}
+
+/**
+ * Get all changes enriched with investor scores, weight impact, and importance.
+ * Sorted by importance_score descending.
+ */
+export function getScoredChanges(): ScoredChange[] {
+  const changes = getAllChanges()
+  const scores = loadInvestorScores()
+  const portfolios = loadAllPortfolios()
+
+  // Build a map of investor_key -> total portfolio value
+  const portfolioValues = new Map<string, number>()
+  for (const p of portfolios) {
+    portfolioValues.set(p.investor_key, p.latest_total_value_thousands)
+  }
+
+  const scored: ScoredChange[] = []
+  // Track max weight impact for normalization
+  let maxWeightImpact = 0
+
+  for (const change of changes) {
+    const slug = change.investor_slug
+    const investorScore = scores.get(slug)
+    const combinedScore = investorScore?.combined ?? 0
+    const verdict = investorScore?.verdict ?? 'SKIP'
+    const totalValue = portfolioValues.get(change.investor_key) || 1
+    const weightImpact = Math.abs(change.value_delta) / totalValue
+
+    if (weightImpact > maxWeightImpact) maxWeightImpact = weightImpact
+
+    scored.push({
+      ...change,
+      combined_score: combinedScore,
+      verdict,
+      weight_impact: weightImpact,
+      importance_score: 0, // computed after normalization
+    })
+  }
+
+  // Normalize weight_impact and compute importance_score
+  const normFactor = maxWeightImpact > 0 ? maxWeightImpact : 1
+  for (const s of scored) {
+    const normalizedWeight = s.weight_impact / normFactor
+    s.importance_score = s.combined_score * normalizedWeight
+  }
+
+  scored.sort((a, b) => b.importance_score - a.importance_score)
+  return scored
+}
+
+// ─── Price Data ──────────────────────────────────────────────────────────────
+
+export interface CurrentPriceData {
+  price: number
+  prev_close: number
+}
+
+export interface QuarterRangeData {
+  min: number
+  max: number
+  avg: number
+}
+
+export interface AllPrices {
+  fetched_at: string
+  current_prices: Record<string, CurrentPriceData>
+  quarter_ranges: Record<string, Record<string, QuarterRangeData>>
+}
+
+let _cachedPrices: AllPrices | null | undefined = undefined
+
+export function loadPrices(): AllPrices | null {
+  if (_cachedPrices !== undefined) return _cachedPrices
+  try {
+    const pricesPath = path.resolve(process.cwd(), 'data', 'output', 'prices.json')
+    const data = JSON.parse(fs.readFileSync(pricesPath, 'utf-8'))
+    _cachedPrices = data as AllPrices
+    return _cachedPrices
+  } catch {
+    _cachedPrices = null
+    return null
+  }
+}
+
+export function getCurrentPrice(ticker: string): CurrentPriceData | null {
+  const prices = loadPrices()
+  if (!prices) return null
+  return prices.current_prices[ticker] || null
+}
+
+export function getQuarterPriceRange(ticker: string, quarter: string): QuarterRangeData | null {
+  const prices = loadPrices()
+  if (!prices) return null
+  return prices.quarter_ranges[quarter]?.[ticker] || null
+}
+
+// ─── Portfolio Adjustments (Non-US Holdings) ────────────────────────────────
+
+export interface NonUsPosition {
+  company: string
+  country: string
+  estimated_value_millions: number
+}
+
+export interface PortfolioAdjustment {
+  estimated_total_aum_millions: number
+  us_13f_value_millions: number
+  non_us_pct_estimate: number
+  non_us_notes: string
+  known_non_us_positions: NonUsPosition[]
+  confidence: string
+  sources: string[]
+  last_updated: string
+}
+
+let _cachedAdjustments: Record<string, PortfolioAdjustment> | null | undefined = undefined
+
+export function loadPortfolioAdjustments(): Record<string, PortfolioAdjustment> {
+  if (_cachedAdjustments !== undefined && _cachedAdjustments !== null) return _cachedAdjustments
+  try {
+    const adjPath = path.resolve(process.cwd(), 'data', 'investors', 'portfolio_adjustments.json')
+    const data = JSON.parse(fs.readFileSync(adjPath, 'utf-8'))
+    _cachedAdjustments = data as Record<string, PortfolioAdjustment>
+    return _cachedAdjustments
+  } catch {
+    _cachedAdjustments = {}
+    return {}
+  }
+}
+
+export function getAdjustedWeight(
+  investorKey: string,
+  usPct: number
+): { adjusted_pct: number | null; has_adjustment: boolean; confidence: string | null } {
+  const adjustments = loadPortfolioAdjustments()
+  const adj = adjustments[investorKey]
+  if (!adj || adj.non_us_pct_estimate === 0) {
+    return { adjusted_pct: null, has_adjustment: false, confidence: null }
+  }
+
+  // If non-US percentage is significant, adjust the weight
+  // The 13F weight represents the position's share of the US-listed portfolio.
+  // The adjusted weight estimates the position's share of the TOTAL portfolio.
+  // adjusted_pct = usPct * (1 - non_us_pct_estimate / 100)
+  const usPortfolioFraction = 1 - adj.non_us_pct_estimate / 100
+  const adjustedPct = usPct * usPortfolioFraction
+
+  return {
+    adjusted_pct: Math.round(adjustedPct * 10) / 10,
+    has_adjustment: true,
+    confidence: adj.confidence,
+  }
+}
+
+export function getPortfolioAdjustment(investorKey: string): PortfolioAdjustment | null {
+  const adjustments = loadPortfolioAdjustments()
+  return adjustments[investorKey] || null
 }

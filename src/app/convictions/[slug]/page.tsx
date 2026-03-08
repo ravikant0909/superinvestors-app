@@ -2,9 +2,8 @@ import fs from 'fs'
 import path from 'path'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import ValuationWaterfall from '@/components/ValuationWaterfall'
-import ValuationFlow from '@/components/ValuationFlow'
 import PortfolioWeightBadge from '@/components/PortfolioWeightBadge'
+import { getCurrentPrice, getAdjustedWeight, getKeyForSlug } from '@/lib/portfolio-data'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -15,12 +14,6 @@ interface NormalizedQuote {
   source?: string
   date?: string
   url?: string
-}
-
-interface ValuationStep {
-  label: string
-  value: string
-  note?: string
 }
 
 interface NormalizedRisk {
@@ -83,7 +76,6 @@ function normalizeRisks(raw: any): NormalizedRisk[] {
   if (!Array.isArray(raw)) return []
   return raw.map((item: any, i: number) => {
     if (typeof item === 'string') {
-      // Assign severity based on position (first risks tend to be most important)
       const severity = i < 2 ? 'high' : i < 4 ? 'medium' : 'low'
       return { risk: item, severity }
     }
@@ -95,87 +87,10 @@ function normalizeRisks(raw: any): NormalizedRisk[] {
   })
 }
 
-function normalizeValuationSteps(valMath: any): ValuationStep[] {
-  if (!valMath) return []
-
-  // If the spec format with steps array exists, use it directly
-  if (valMath.steps && Array.isArray(valMath.steps)) {
-    return valMath.steps.map((s: any) => ({
-      label: s.label || '',
-      value: String(s.value || ''),
-      note: s.note,
-    }))
-  }
-
-  // Otherwise, build steps from the raw financial fields
-  const steps: ValuationStep[] = []
-
-  if (valMath.current_revenue_millions) {
-    steps.push({
-      label: 'Revenue',
-      value: `$${(valMath.current_revenue_millions / 1000).toFixed(1)}B`,
-      note: valMath.revenue_growth_pct ? `Growing ${valMath.revenue_growth_pct}% YoY` : undefined,
-    })
-  }
-  if (valMath.operating_margin_pct) {
-    steps.push({
-      label: 'Operating Margin',
-      value: `${valMath.operating_margin_pct}%`,
-    })
-  }
-  if (valMath.current_net_income_millions) {
-    steps.push({
-      label: 'Net Income',
-      value: `$${valMath.current_net_income_millions}M`,
-    })
-  }
-  if (valMath.current_eps) {
-    steps.push({
-      label: 'Current EPS',
-      value: `$${valMath.current_eps}`,
-    })
-  }
-  if (valMath.free_cash_flow_millions) {
-    steps.push({
-      label: 'Free Cash Flow',
-      value: `$${valMath.free_cash_flow_millions}M`,
-    })
-  }
-  if (valMath.projected_2030_eps || valMath.projected_normalized_eps_2026) {
-    const projEps = valMath.projected_2030_eps || valMath.projected_normalized_eps_2026
-    const label = valMath.projected_2030_eps ? 'Projected 2030 EPS' : 'Projected 2026 EPS'
-    steps.push({
-      label,
-      value: typeof projEps === 'number' ? `$${projEps}` : String(projEps),
-    })
-  }
-  if (valMath.target_pe || valMath.target_2030_pe) {
-    steps.push({
-      label: 'Target P/E',
-      value: String(valMath.target_pe || valMath.target_2030_pe),
-    })
-  }
-  if (valMath.implied_2030_price || valMath.implied_2028_price) {
-    steps.push({
-      label: 'Implied Price',
-      value: String(valMath.implied_2030_price || valMath.implied_2028_price),
-    })
-  }
-  if (valMath.implied_irr_pct) {
-    steps.push({
-      label: 'Implied IRR',
-      value: String(valMath.implied_irr_pct) + (String(valMath.implied_irr_pct).includes('%') ? '' : '%'),
-    })
-  }
-
-  return steps
-}
-
 function normalizeKeyMetrics(raw: any): Record<string, string> {
   if (!raw || typeof raw !== 'object') return {}
   const result: Record<string, string> = {}
 
-  // Pick the most interesting metrics, limited to ~8 for display
   const priorities = [
     'revenue', 'net_income', 'market_cap', 'eps', 'operating_margin',
     'free_cash_flow', 'revenue_growth', 'profit_margin', 'gross_margin',
@@ -184,7 +99,6 @@ function normalizeKeyMetrics(raw: any): Record<string, string> {
 
   const entries = Object.entries(raw)
 
-  // Try priority keys first
   for (const pKey of priorities) {
     const match = entries.find(([k]) => k.toLowerCase().includes(pKey))
     if (match && Object.keys(result).length < 8) {
@@ -192,7 +106,6 @@ function normalizeKeyMetrics(raw: any): Record<string, string> {
     }
   }
 
-  // Fill remaining up to 8 with other entries
   for (const [k, v] of entries) {
     if (Object.keys(result).length >= 8) break
     if (!(k in result)) {
@@ -201,6 +114,95 @@ function normalizeKeyMetrics(raw: any): Record<string, string> {
   }
 
   return result
+}
+
+/** Split a thesis paragraph into bullet points, or use thesis_bullets if available */
+function getThesisBullets(data: any): string[] {
+  if (data.thesis_bullets && Array.isArray(data.thesis_bullets) && data.thesis_bullets.length > 0) {
+    return data.thesis_bullets
+  }
+  // Fall back: split thesis_summary on sentence boundaries
+  if (data.thesis_summary && typeof data.thesis_summary === 'string') {
+    const sentences = data.thesis_summary
+      .split(/(?<=[.!?])\s+/)
+      .map((s: string) => s.trim())
+      .filter((s: string) => s.length > 20)
+    // Group into 3-5 bullet points
+    if (sentences.length <= 5) return sentences
+    // Combine sentences into ~5 bullets
+    const perBullet = Math.ceil(sentences.length / 5)
+    const bullets: string[] = []
+    for (let i = 0; i < sentences.length; i += perBullet) {
+      bullets.push(sentences.slice(i, i + perBullet).join(' '))
+    }
+    return bullets
+  }
+  return []
+}
+
+/** Split company_brief into bullet points, or use business_bullets if available */
+function getBusinessBullets(data: any): string[] {
+  if (data.business_bullets && Array.isArray(data.business_bullets) && data.business_bullets.length > 0) {
+    return data.business_bullets
+  }
+  if (data.company_brief && typeof data.company_brief === 'string') {
+    const sentences = data.company_brief
+      .split(/(?<=[.!?])\s+/)
+      .map((s: string) => s.trim())
+      .filter((s: string) => s.length > 15)
+    if (sentences.length <= 4) return sentences
+    const perBullet = Math.ceil(sentences.length / 4)
+    const bullets: string[] = []
+    for (let i = 0; i < sentences.length; i += perBullet) {
+      bullets.push(sentences.slice(i, i + perBullet).join(' '))
+    }
+    return bullets
+  }
+  return []
+}
+
+/** Extract factual financial metrics from key_metrics and valuation_math */
+function getFinancialMetrics(data: any): Record<string, string> {
+  const metrics: Record<string, string> = {}
+
+  // Start with key_metrics
+  const km = normalizeKeyMetrics(data.key_metrics)
+  Object.assign(metrics, km)
+
+  // Supplement with factual data from valuation_math (only current/actual data, no projections)
+  const vm = data.valuation_math || {}
+  const factualKeys: Record<string, string> = {}
+
+  if (vm.current_revenue_millions && !Object.keys(metrics).some(k => k.toLowerCase().includes('revenue'))) {
+    factualKeys['Revenue'] = vm.current_revenue_millions >= 1000
+      ? `$${(vm.current_revenue_millions / 1000).toFixed(1)}B`
+      : `$${vm.current_revenue_millions}M`
+  }
+  if (vm.revenue_fy2025_billions && !Object.keys(metrics).some(k => k.toLowerCase().includes('revenue'))) {
+    factualKeys['Revenue (FY2025)'] = `$${vm.revenue_fy2025_billions}B`
+  }
+  if (vm.revenue_fy2024_millions && !Object.keys(metrics).some(k => k.toLowerCase().includes('revenue'))) {
+    factualKeys['Revenue (FY2024)'] = vm.revenue_fy2024_millions >= 1000
+      ? `$${(vm.revenue_fy2024_millions / 1000).toFixed(1)}B`
+      : `$${vm.revenue_fy2024_millions}M`
+  }
+  if (vm.operating_margin_pct && !Object.keys(metrics).some(k => k.toLowerCase().includes('margin'))) {
+    factualKeys['Operating Margin'] = `${vm.operating_margin_pct}%`
+  }
+  if (vm.current_net_income_millions && !Object.keys(metrics).some(k => k.toLowerCase().includes('net_income'))) {
+    factualKeys['Net Income'] = `$${vm.current_net_income_millions}M`
+  }
+  if (vm.free_cash_flow_millions && !Object.keys(metrics).some(k => k.toLowerCase().includes('free_cash'))) {
+    factualKeys['Free Cash Flow'] = `$${vm.free_cash_flow_millions}M`
+  }
+
+  // Merge factual supplement (don't exceed 8 total)
+  for (const [k, v] of Object.entries(factualKeys)) {
+    if (Object.keys(metrics).length >= 8) break
+    metrics[k] = v
+  }
+
+  return metrics
 }
 
 // ─── Static Params ────────────────────────────────────────────────────────────
@@ -241,6 +243,7 @@ function severityColor(severity: string): {
     case 'high':
       return { bg: 'bg-red-50', border: 'border-red-200', text: 'text-red-700', dot: 'bg-red-500' }
     case 'medium':
+    case 'medium-high':
       return {
         bg: 'bg-orange-50',
         border: 'border-orange-200',
@@ -248,6 +251,7 @@ function severityColor(severity: string): {
         dot: 'bg-orange-500',
       }
     case 'low':
+    case 'low-medium':
       return {
         bg: 'bg-green-50',
         border: 'border-green-200',
@@ -273,20 +277,15 @@ export default function ConvictionDetailPage({ params }: { params: { slug: strin
     notFound()
   }
 
-  // Normalize all data formats
   const quotes = normalizeQuotes(data.investor_in_their_own_words)
   const risks = normalizeRisks(data.risks)
-  const valuationSteps = normalizeValuationSteps(data.valuation_math)
-  const keyMetrics = normalizeKeyMetrics(data.key_metrics)
   const bestQuote = quotes[0]
-
-  // Extract valuation meta
-  const valMath = data.valuation_math || {}
-  const methodology = valMath.methodology || valMath.approach || ''
-  const targetPrice = valMath.target_price || valMath.implied_2030_price || valMath.implied_2028_price
-  const currentPrice = valMath.current_price
-  const impliedReturn = valMath.implied_return || (valMath.implied_irr_pct ? `IRR: ${valMath.implied_irr_pct}` : undefined)
-  const timeHorizon = valMath.time_horizon
+  const thesisBullets = getThesisBullets(data)
+  const businessBullets = getBusinessBullets(data)
+  const financialMetrics = getFinancialMetrics(data)
+  const priceData = getCurrentPrice(data.ticker)
+  const investorKey = data.investor_slug ? getKeyForSlug(data.investor_slug) : null
+  const adjusted = investorKey ? getAdjustedWeight(investorKey, data.weight_pct) : null
 
   return (
     <div className="space-y-10 pb-8">
@@ -301,21 +300,22 @@ export default function ConvictionDetailPage({ params }: { params: { slug: strin
         </span>
       </nav>
 
-      {/* ── Hero: Thesis Front and Center ──────────────────────────────── */}
+      {/* ── 1. Hero ────────────────────────────────────────────────────── */}
       <section className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
         <div className="px-6 sm:px-8 py-8 sm:py-10">
-          {/* Thesis headline */}
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 leading-tight max-w-3xl">
             {data.thesis_headline}
           </h1>
 
-          {/* Meta row */}
           <div className="mt-5 flex flex-wrap items-center gap-4">
             <div className="flex items-center gap-3">
               <PortfolioWeightBadge weight={data.weight_pct} size="md" />
               <div>
                 <p className="text-sm font-semibold text-gray-900">{data.investor_name}</p>
                 <p className="text-xs text-gray-400">{data.firm_name}</p>
+                {adjusted?.has_adjustment && adjusted.adjusted_pct !== null && (
+                  <p className="text-xs text-gray-500 italic">Est. ~{adjusted.adjusted_pct.toFixed(1)}% of total portfolio</p>
+                )}
               </div>
             </div>
             <div className="h-8 w-px bg-gray-200 hidden sm:block" />
@@ -324,6 +324,16 @@ export default function ConvictionDetailPage({ params }: { params: { slug: strin
                 {data.ticker}
               </span>
               <span className="ml-2 text-sm text-gray-500">{data.company_name}</span>
+              {priceData && (
+                <span className="ml-3 font-mono text-lg text-gray-700">
+                  ${priceData.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  {priceData.prev_close > 0 && (
+                    <span className={`ml-1 text-sm ${priceData.price >= priceData.prev_close ? 'text-green-600' : 'text-red-500'}`}>
+                      {priceData.price >= priceData.prev_close ? '\u25B2' : '\u25BC'}
+                    </span>
+                  )}
+                </span>
+              )}
             </div>
             <div className="h-8 w-px bg-gray-200 hidden sm:block" />
             <div className="text-sm text-gray-500">
@@ -331,7 +341,6 @@ export default function ConvictionDetailPage({ params }: { params: { slug: strin
             </div>
           </div>
 
-          {/* Featured quote */}
           {bestQuote && (
             <blockquote className="mt-6 pl-4 border-l-4 border-purple-300 bg-purple-50/50 rounded-r-lg py-4 pr-4">
               <p className="text-base sm:text-lg text-gray-700 italic leading-relaxed">
@@ -347,17 +356,54 @@ export default function ConvictionDetailPage({ params }: { params: { slug: strin
         </div>
       </section>
 
-      {/* ── Thesis Summary ─────────────────────────────────────────────── */}
-      {data.thesis_summary && (
+      {/* ── 2. The Business ────────────────────────────────────────────── */}
+      {businessBullets.length > 0 && (
+        <section className="bg-gray-50 rounded-xl border border-gray-200 px-6 sm:px-8 py-6">
+          <h2 className="text-lg font-bold text-gray-900 mb-4">The Business</h2>
+          <ul className="space-y-3">
+            {businessBullets.map((bullet, i) => (
+              <li key={i} className="flex items-start gap-3 text-sm text-gray-600 leading-relaxed">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0" />
+                {bullet}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {/* ── 3. Why They Own It ─────────────────────────────────────────── */}
+      {(thesisBullets.length > 0 || bestQuote) && (
         <section className="bg-white rounded-xl shadow-sm border border-gray-200 px-6 sm:px-8 py-6">
-          <h2 className="text-lg font-bold text-gray-900 mb-3">The Thesis</h2>
-          <div className="text-gray-600 leading-relaxed whitespace-pre-line text-sm sm:text-base">
-            {data.thesis_summary}
-          </div>
+          <h2 className="text-lg font-bold text-gray-900 mb-4">Why They Own It</h2>
+
+          {bestQuote && (
+            <blockquote className="mb-5 pl-4 border-l-4 border-purple-400 py-3 pr-4">
+              <p className="text-base text-gray-700 italic leading-relaxed">
+                &ldquo;{bestQuote.quote}&rdquo;
+              </p>
+              <footer className="mt-2 text-sm text-gray-400">
+                &mdash; {data.investor_name}
+                {bestQuote.source && <>, {bestQuote.source}</>}
+                {bestQuote.date && <> ({bestQuote.date})</>}
+              </footer>
+            </blockquote>
+          )}
+
+          {thesisBullets.length > 0 && (
+            <ul className="space-y-3">
+              {thesisBullets.map((bullet, i) => (
+                <li key={i} className="flex items-start gap-3 text-sm text-gray-700 leading-relaxed">
+                  <span className="mt-1.5 w-2 h-2 rounded-full bg-purple-500 flex-shrink-0" />
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+          )}
+
           {data.why_this_price && (
-            <div className="mt-4 p-4 bg-purple-50 rounded-lg border border-purple-100">
+            <div className="mt-5 p-4 bg-purple-50 rounded-lg border border-purple-100">
               <h3 className="text-sm font-semibold text-purple-800 mb-1">
-                What the investor sees at current prices
+                What the investor sees
               </h3>
               <p className="text-sm text-purple-700 leading-relaxed">{data.why_this_price}</p>
             </div>
@@ -365,63 +411,12 @@ export default function ConvictionDetailPage({ params }: { params: { slug: strin
         </section>
       )}
 
-      {/* ── Valuation Math (SVG Diagrams) ──────────────────────────────── */}
-      {valuationSteps.length > 0 && (
-        <section className="bg-white rounded-xl shadow-sm border border-gray-200 px-6 sm:px-8 py-6">
-          <div className="flex items-center gap-3 mb-1">
-            <h2 className="text-lg font-bold text-gray-900">Valuation Math</h2>
-            {methodology && (
-              <span className="inline-block px-2 py-0.5 rounded text-xs font-bold bg-purple-100 text-purple-700">
-                {methodology}
-              </span>
-            )}
-          </div>
-          {timeHorizon && (
-            <p className="text-sm text-gray-400 mb-4">
-              Time horizon: {timeHorizon}
-            </p>
-          )}
-
-          {/* Waterfall chart */}
-          <div className="overflow-x-auto -mx-2 px-2">
-            <ValuationWaterfall
-              steps={valuationSteps}
-              targetPrice={targetPrice}
-              currentPrice={currentPrice}
-              impliedReturn={impliedReturn}
-              timeHorizon={timeHorizon}
-            />
-          </div>
-
-          {/* Valuation notes from raw data */}
-          {valMath.notes && (
-            <p className="mt-4 text-xs text-gray-400 leading-relaxed">{valMath.notes}</p>
-          )}
-
-          {/* Also show flow chart if enough steps */}
-          {valuationSteps.length >= 4 && (
-            <div className="mt-8">
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
-                Logic Flow
-              </h3>
-              <div className="overflow-x-auto -mx-2 px-2">
-                <ValuationFlow
-                  steps={valuationSteps}
-                  targetPrice={targetPrice}
-                  currentPrice={currentPrice}
-                />
-              </div>
-            </div>
-          )}
-        </section>
-      )}
-
-      {/* ── Key Metrics ────────────────────────────────────────────────── */}
-      {Object.keys(keyMetrics).length > 0 && (
+      {/* ── 4. Financial Snapshot ──────────────────────────────────────── */}
+      {Object.keys(financialMetrics).length > 0 && (
         <section>
-          <h2 className="text-lg font-bold text-gray-900 mb-3">Key Metrics</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Financial Snapshot</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {Object.entries(keyMetrics).map(([key, value]) => (
+            {Object.entries(financialMetrics).map(([key, value]) => (
               <div
                 key={key}
                 className="bg-white rounded-xl shadow-sm border border-gray-200 px-4 py-3 text-center"
@@ -436,7 +431,66 @@ export default function ConvictionDetailPage({ params }: { params: { slug: strin
         </section>
       )}
 
-      {/* ── Investor Quotes ────────────────────────────────────────────── */}
+      {/* ── 5. The Moat ────────────────────────────────────────────────── */}
+      {data.moat_sources && data.moat_sources.length > 0 && (
+        <section className="bg-white rounded-xl shadow-sm border border-gray-200 px-6 py-5">
+          <h2 className="text-lg font-bold text-gray-900 mb-3">The Moat</h2>
+          <ul className="space-y-2">
+            {data.moat_sources.map((moat: string, i: number) => (
+              <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0" />
+                {moat}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {/* ── 6. What Could Go Wrong ─────────────────────────────────────── */}
+      {risks.length > 0 && (
+        <section>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">What Could Go Wrong</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {risks.map((risk, i) => {
+              const colors = severityColor(risk.severity)
+              return (
+                <div
+                  key={i}
+                  className={`rounded-xl border ${colors.border} ${colors.bg} px-5 py-4`}
+                >
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className={`w-2 h-2 rounded-full ${colors.dot}`} />
+                    <span className={`text-xs font-bold uppercase tracking-wide ${colors.text}`}>
+                      {risk.severity}
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-800">{risk.risk}</p>
+                  {risk.mitigation && (
+                    <p className="mt-1 text-xs text-gray-500">{risk.mitigation}</p>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </section>
+      )}
+
+      {/* ── 7. Catalysts ───────────────────────────────────────────────── */}
+      {data.catalysts && data.catalysts.length > 0 && (
+        <section className="bg-white rounded-xl shadow-sm border border-gray-200 px-6 py-5">
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Catalysts</h2>
+          <ul className="space-y-2">
+            {data.catalysts.map((cat: string, i: number) => (
+              <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-green-500 flex-shrink-0" />
+                {cat}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {/* ── 8. In Their Own Words ──────────────────────────────────────── */}
       {quotes.length > 1 && (
         <section className="bg-white rounded-xl shadow-sm border border-gray-200 px-6 sm:px-8 py-6">
           <h2 className="text-lg font-bold text-gray-900 mb-4">In Their Own Words</h2>
@@ -471,83 +525,6 @@ export default function ConvictionDetailPage({ params }: { params: { slug: strin
               </blockquote>
             ))}
           </div>
-        </section>
-      )}
-
-      {/* ── Moat & Catalysts (side by side) ────────────────────────────── */}
-      {((data.moat_sources && data.moat_sources.length > 0) ||
-        (data.catalysts && data.catalysts.length > 0)) && (
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {/* Moat */}
-          {data.moat_sources && data.moat_sources.length > 0 && (
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 px-6 py-5">
-              <h2 className="text-lg font-bold text-gray-900 mb-3">Competitive Moat</h2>
-              <ul className="space-y-2">
-                {data.moat_sources.map((moat: string, i: number) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0" />
-                    {moat}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {/* Catalysts */}
-          {data.catalysts && data.catalysts.length > 0 && (
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 px-6 py-5">
-              <h2 className="text-lg font-bold text-gray-900 mb-3">Catalysts</h2>
-              <ul className="space-y-2">
-                {data.catalysts.map((cat: string, i: number) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-green-500 flex-shrink-0" />
-                    {cat}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </section>
-      )}
-
-      {/* ── Risks ──────────────────────────────────────────────────────── */}
-      {risks.length > 0 && (
-        <section>
-          <h2 className="text-lg font-bold text-gray-900 mb-3">Risks</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {risks.map((risk, i) => {
-              const colors = severityColor(risk.severity)
-              return (
-                <div
-                  key={i}
-                  className={`rounded-xl border ${colors.border} ${colors.bg} px-5 py-4`}
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className={`w-2 h-2 rounded-full ${colors.dot}`} />
-                    <span className={`text-xs font-bold uppercase tracking-wide ${colors.text}`}>
-                      {risk.severity}
-                    </span>
-                  </div>
-                  <p className="text-sm text-gray-800">{risk.risk}</p>
-                  {risk.mitigation && (
-                    <p className="mt-1 text-xs text-gray-500">{risk.mitigation}</p>
-                  )}
-                </div>
-              )
-            })}
-          </div>
-        </section>
-      )}
-
-      {/* ── Company Overview (secondary, at bottom) ────────────────────── */}
-      {data.company_brief && (
-        <section className="bg-gray-50 rounded-xl border border-gray-200 px-6 sm:px-8 py-5">
-          <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-            Company Overview
-          </h2>
-          <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-line">
-            {data.company_brief}
-          </p>
         </section>
       )}
 

@@ -55,7 +55,7 @@
     "search_market_share_pct": "90+",
     "google_cloud_revenue_growth_pct": "30+",
     "annual_buyback_billions": "~70",
-    "dividend_per_share": 0.60,
+    "dividend_per_share": 0.6,
     "diluted_shares_billions": 12.4
   },
   "moat_sources": [
@@ -84,5 +84,18 @@
     "Dividend initiation in 2024 signals shift toward shareholder returns",
     "Resolution of DOJ antitrust case could remove uncertainty overhang"
   ],
-  "company_brief": "Alphabet Inc. (GOOG) is the parent company of Google, the dominant global search engine and digital advertising platform. The company generates $350B in annual revenue across Google Search (57%), YouTube (10%), Google Cloud (13%), and other bets (Waymo, Verily, etc.). Google Search commands 90%+ of the global search market and is the most valuable advertising real estate in existence. FY2024 net income was $100B with 32% operating margins and $73B in free cash flow. The company is investing heavily ($70B+ annually) in AI infrastructure and capabilities through DeepMind and Gemini. Google Cloud is growing 30%+ and recently turned profitable. Alphabet returns ~$70B annually through share buybacks and initiated a dividend in 2024. The company faces its most significant regulatory challenge with the DOJ antitrust case, but even adverse outcomes are unlikely to impair the core search business's economics."
+  "company_brief": "Alphabet Inc. (GOOG) is the parent company of Google, the dominant global search engine and digital advertising platform. The company generates $350B in annual revenue across Google Search (57%), YouTube (10%), Google Cloud (13%), and other bets (Waymo, Verily, etc.). Google Search commands 90%+ of the global search market and is the most valuable advertising real estate in existence. FY2024 net income was $100B with 32% operating margins and $73B in free cash flow. The company is investing heavily ($70B+ annually) in AI infrastructure and capabilities through DeepMind and Gemini. Google Cloud is growing 30%+ and recently turned profitable. Alphabet returns ~$70B annually through share buybacks and initiated a dividend in 2024. The company faces its most significant regulatory challenge with the DOJ antitrust case, but even adverse outcomes are unlikely to impair the core search business's economics.",
+  "thesis_bullets": [
+    "Alphabet fits Lawrence's first preferred business category: a two-sided market that creates value for multiple stakeholders.",
+    "Google Search connects advertisers with consumers searching for products and services — the most valuable advertising real estate in human history.",
+    "The business generates $350B in annual revenue with 32% operating margins and $73B in free cash flow.",
+    "Lawrence likely sees Alphabet as a rare combination of: (1) a near-monopoly in search advertising with 90%+ market share, (2) pricing power through auction-based ad pricing that captures more value as advertiser competition increases, (3) massive optionality in AI (Gemini, DeepMind) and cloud computing (Google Cloud growing 30%+), and (4) shareholder-friendly capital allocation with $70B+ in annual buybacks.",
+    "At 16x forward earnings after backing out the cash pile, this is a high-quality compounder at a reasonable price."
+  ],
+  "business_bullets": [
+    "(GOOG) is the parent company of Google, the dominant global search engine and digital advertising platform. The company generates $350B in annual revenue across Google Search (57%), YouTube (10%), Google Cloud (13%), and other bets (Waymo, Verily, etc.).",
+    "Google Search commands 90%+ of the global search market and is the most valuable advertising real estate in existence. FY2024 net income was $100B with 32% operating margins and $73B in free cash flow.",
+    "The company is investing heavily ($70B+ annually) in AI infrastructure and capabilities through DeepMind and Gemini. Google Cloud is growing 30%+ and recently turned profitable.",
+    "Alphabet returns ~$70B annually through share buybacks and initiated a dividend in 2024. The company faces its most significant regulatory challenge with the DOJ antitrust case, but even adverse outcomes are unlikely to impair the core search business's economics."
+  ]
 }

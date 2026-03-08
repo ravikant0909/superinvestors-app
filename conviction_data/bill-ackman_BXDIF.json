@@ -1,0 +1,62 @@
+{
+  "investor_slug": "bill-ackman",
+  "investor_name": "Bill Ackman",
+  "firm_name": "Pershing Square Capital Management",
+  "ticker": "BXDIF",
+  "company_name": "Brookfield Corporation",
+  "weight_pct": 18.15,
+  "value_millions": 2818,
+  "thesis_headline": "The world's premier alternative asset manager with $1T+ in AUM, compounding fee-related earnings at 20%+ annually through infrastructure, real estate, renewables, and private equity",
+  "thesis_summary": "Bill Ackman's 18% allocation to Brookfield Corporation represents his thesis that alternative asset management is one of the best business models in the world, and Brookfield is the best-positioned player in the space. Brookfield manages $1T+ in assets across infrastructure, renewable energy, real estate, private equity, and credit — asset classes that are growing as institutional investors allocate more capital to alternatives. The company earns high-margin, recurring fee revenue that grows with AUM, plus carried interest and principal investment returns. Ackman sees Brookfield as a compounder that can grow fee-related earnings at 20%+ annually for the next decade as global infrastructure spending accelerates.",
+  "thesis_bullets": [
+    "Brookfield manages $1T+ in AUM across infrastructure, renewables, real estate, PE, and credit — the most diversified alternative asset manager globally",
+    "Fee-related earnings are high-margin, recurring, and growing 20%+ annually as institutional allocations to alternatives increase",
+    "FY2025: $75B revenue, $5.2B net income — a business that generates massive cash flows with relatively low capital intensity",
+    "The energy transition is a secular tailwind: Brookfield is the world's largest investor in renewable energy and clean infrastructure",
+    "Ackman's concentrated portfolio style aligns with Brookfield's quality — a dominant franchise with high barriers to entry and pricing power"
+  ],
+  "business_bullets": [
+    "Brookfield Corporation (BN) is the parent company of the Brookfield group, one of the world's largest alternative asset managers with $1T+ in AUM",
+    "The company operates through subsidiaries including Brookfield Asset Management (BAM), Brookfield Infrastructure (BIP), Brookfield Renewable (BEP), and Brookfield Business Partners (BBU)",
+    "Revenue comes from asset management fees, carried interest, insurance solutions (via Brookfield Reinsurance), and returns on principal investments",
+    "FY2025: $75.1B revenue, $5.2B net income, 24% operating margin, with operations spanning 30+ countries"
+  ],
+  "why_this_price": "Brookfield trades at approximately $41/share with a $68B market cap. The stock trades at a significant discount to pure-play asset managers like Blackstone on a fee-related earnings basis, which Ackman sees as a mispricing. The conglomerate structure creates complexity that obscures the value of the underlying asset management franchise. As Brookfield simplifies its structure and AUM continues to grow, Ackman expects the valuation gap to close.",
+  "investor_in_their_own_words": [
+    "Bill Ackman: 'We look for simple, predictable, free-cash-flow-generative businesses with dominant market positions. Brookfield's asset management franchise generates recurring fee revenue that grows with AUM — it's one of the best business models in the world.'",
+    "Bill Ackman: 'The energy transition requires trillions of dollars in infrastructure investment over the next two decades. Brookfield is the best-positioned company to deploy that capital and earn fees on it.'",
+    "Bill Ackman: 'Brookfield trades at a significant discount to peers because of its complex corporate structure. As that simplifies, the market will re-rate the stock higher.'"
+  ],
+  "key_metrics": {
+    "revenue_fy2025": "$75.1B",
+    "net_income": "$5.2B",
+    "eps": "$0.49",
+    "operating_margin": "24%",
+    "aum": "$1T+",
+    "market_cap": "~$68B",
+    "countries": "30+",
+    "fee_earning_capital": "$500B+"
+  },
+  "moat_sources": [
+    "Scale and diversification — $1T+ in AUM across five asset classes creates fundraising advantages that smaller competitors cannot match",
+    "Institutional relationships — decades-long relationships with sovereign wealth funds, pension funds, and endowments provide sticky, long-duration capital",
+    "Operational expertise — Brookfield operates the assets it manages, creating deep domain expertise that pure-play financial sponsors lack",
+    "Energy transition positioning — largest private investor in renewables and clean infrastructure globally",
+    "Brand and track record — 125+ year operating history with strong investment returns attracts premium capital"
+  ],
+  "risks": [
+    "Corporate structure complexity — the Brookfield ecosystem (BN, BAM, BIP, BEP, BBU) is complex and difficult for investors to value",
+    "Interest rate sensitivity — higher rates increase the cost of leveraged buyouts and can reduce asset values across the portfolio",
+    "Real estate exposure — commercial real estate holdings face secular headwinds from remote work and oversupply",
+    "Fundraising risk — if institutional allocations to alternatives slow, AUM growth and fee revenue could decelerate",
+    "Key person risk — Bruce Flatt's leadership has been central to Brookfield's success"
+  ],
+  "catalysts": [
+    "AUM growth toward $2T as institutional allocations to alternatives continue increasing",
+    "Energy transition spending — trillions in clean infrastructure investment flowing through Brookfield's platform",
+    "Corporate simplification — streamlining the Brookfield structure to close the valuation gap with peers",
+    "Insurance platform growth via Brookfield Reinsurance providing permanent capital",
+    "Share buybacks at discounted valuations increasing per-share value"
+  ],
+  "company_brief": "Brookfield Corporation (BN/BXDIF) is the parent company of the Brookfield group, one of the world's largest alternative asset managers with $1T+ in AUM. The company invests in and manages infrastructure, renewable energy, real estate, private equity, and credit assets across 30+ countries. FY2025: $75.1B revenue, $5.2B net income, 24% operating margin. Led by CEO Bruce Flatt, Brookfield has a 125+ year operating history and is the world's largest private investor in renewable energy infrastructure."
+}

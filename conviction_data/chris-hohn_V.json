@@ -20,7 +20,7 @@
     "methodology": "Long-term compounding analysis with monopoly premium, consistent with Hohn's concentrated quality approach",
     "revenue_fy2024_millions": 35930,
     "revenue_fy2023_millions": 32650,
-    "revenue_growth_pct": 10.0,
+    "revenue_growth_pct": 10,
     "net_income_fy2024_millions": 19740,
     "net_income_growth_pct": 14.3,
     "eps_fy2024": 9.73,
@@ -48,7 +48,7 @@
   },
   "key_metrics": {
     "revenue_fy2024_millions": 35930,
-    "revenue_growth_pct": 10.0,
+    "revenue_growth_pct": 10,
     "net_income_fy2024_millions": 19740,
     "net_income_growth_pct": 14.3,
     "eps_fy2024": 9.73,
@@ -87,5 +87,17 @@
     "Share buyback program — Visa returns $15B+ annually through buybacks, reducing share count 2-3% annually",
     "Emerging market penetration — financial inclusion in Africa, Southeast Asia, and Latin America drives new card issuance"
   ],
-  "company_brief": "Visa Inc. (V) is the world's largest electronic payment network, connecting consumers, merchants, financial institutions, and governments across 200+ countries. Founded in 1958 as BankAmericard, Visa processes approximately 230 billion transactions annually with total payment volume of ~$15 trillion. The company operates a pure toll-booth model: it charges a small percentage (~0.14%) on each transaction but bears zero credit risk — the issuing banks take all credit risk. This model produces extraordinary economics: $36B in revenue with 66% operating margins and $19B in free cash flow. Visa has 4.4 billion cards in circulation accepted at 130 million+ merchant locations. FY2024 (September year-end) revenue grew 10% with net income of $19.7B and EPS of $9.73. Visa and Mastercard together form a natural duopoly processing 90%+ of global non-cash consumer payments. The secular shift from cash to digital payments provides a multi-decade growth tailwind, with global cash usage still representing 15-20% of transactions."
+  "company_brief": "Visa Inc. (V) is the world's largest electronic payment network, connecting consumers, merchants, financial institutions, and governments across 200+ countries. Founded in 1958 as BankAmericard, Visa processes approximately 230 billion transactions annually with total payment volume of ~$15 trillion. The company operates a pure toll-booth model: it charges a small percentage (~0.14%) on each transaction but bears zero credit risk — the issuing banks take all credit risk. This model produces extraordinary economics: $36B in revenue with 66% operating margins and $19B in free cash flow. Visa has 4.4 billion cards in circulation accepted at 130 million+ merchant locations. FY2024 (September year-end) revenue grew 10% with net income of $19.7B and EPS of $9.73. Visa and Mastercard together form a natural duopoly processing 90%+ of global non-cash consumer payments. The secular shift from cash to digital payments provides a multi-decade growth tailwind, with global cash usage still representing 15-20% of transactions.",
+  "thesis_bullets": [
+    "Chris Hohn's $9.7B Visa position (18.1% of TCI's portfolio) reflects his signature approach: owning monopoly-quality businesses with the strongest competitive moats in the world. Visa is one of only two global payment networks (alongside Mastercard) that process virtually all non-cash consumer transactions worldwide.",
+    "The business is a pure toll booth: Visa charges a small percentage (~0.14%) on every transaction flowing through its network, generating $36B in revenue with 66% operating margins — but bears zero credit risk. The banks that issue Visa cards take the credit risk; Visa simply processes the transaction.",
+    "This creates what is arguably the best business model in the world: (1) no inventory, (2) no credit risk, (3) no physical assets to maintain, (4) massive network effects (merchants must accept Visa because consumers carry it, consumers carry it because merchants accept it), and (5) a secular tailwind from the cash-to-digital payment shift. Hohn's TCI Fund owns 9 highly concentrated positions — choosing to allocate $9.7B to Visa reflects his conviction that this is one of the most durable monopolies in public markets.",
+    "Visa's payment volume grows at 8-10% annually as cash continues to be displaced globally, and its margins expand with scale."
+  ],
+  "business_bullets": [
+    "(V) is the world's largest electronic payment network, connecting consumers, merchants, financial institutions, and governments across 200+ countries. Founded in 1958 as BankAmericard, Visa processes approximately 230 billion transactions annually with total payment volume of ~$15 trillion.",
+    "The company operates a pure toll-booth model: it charges a small percentage (~0.14%) on each transaction but bears zero credit risk — the issuing banks take all credit risk. This model produces extraordinary economics: $36B in revenue with 66% operating margins and $19B in free cash flow.",
+    "Visa has 4.4 billion cards in circulation accepted at 130 million+ merchant locations. FY2024 (September year-end) revenue grew 10% with net income of $19.7B and EPS of $9.73.",
+    "Visa and Mastercard together form a natural duopoly processing 90%+ of global non-cash consumer payments. The secular shift from cash to digital payments provides a multi-decade growth tailwind, with global cash usage still representing 15-20% of transactions."
+  ]
 }

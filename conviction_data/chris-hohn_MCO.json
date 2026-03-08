@@ -24,7 +24,7 @@
     "net_income_fy2024_millions": 2058,
     "net_income_growth_pct": 28.1,
     "eps_fy2024": 11.26,
-    "eps_growth_pct": 29.0,
+    "eps_growth_pct": 29,
     "operating_margin_pct": 40.6,
     "free_cash_flow_millions": 2521,
     "pe_trailing": "38-40x",
@@ -35,7 +35,7 @@
       "revenue_growth_pct": "10-12%",
       "margin_expansion_pct": "2%",
       "buyback_yield_pct": "1-2%",
-      "dividend_yield_pct": 1.0,
+      "dividend_yield_pct": 1,
       "total_annual_return_pct": "16-17%"
     },
     "projected_2030_eps": "22-28",
@@ -83,5 +83,18 @@
     "Share buyback program — Moody's returns significant capital through buybacks, reducing share count annually",
     "Emerging market debt issuance — growing capital markets in developing economies require credit ratings, expanding the addressable market"
   ],
-  "company_brief": "Moody's Corporation (MCO) is a global financial intelligence company and one of the Big Three credit rating agencies, alongside S&P Global and Fitch Ratings. Founded in 1909 by John Moody, the company operates through two segments: Moody's Investors Service (credit ratings for sovereign, corporate, and structured finance debt, ~58% of revenue) and Moody's Analytics (risk management software, research, data, and SaaS products, ~42% of revenue). Moody's is one of only three Nationally Recognized Statistical Rating Organizations (NRSROs) designated by the SEC — a government-granted oligopoly that guarantees demand as regulatory requirements force debt issuers to obtain ratings. FY2024 revenue was $7.1B (+20%), net income $2.1B (+28%), operating margin 41%, and free cash flow $2.5B (+34%). The company operates in 40+ countries with ~16,000 employees. Moody's has compounded at 15%+ annually since its 2000 spinoff from Dun & Bradstreet. The ratings business generates near-100% incremental margins on new ratings, while Moody's Analytics provides growing, recurring SaaS revenue that stabilizes earnings through credit cycles."
+  "company_brief": "Moody's Corporation (MCO) is a global financial intelligence company and one of the Big Three credit rating agencies, alongside S&P Global and Fitch Ratings. Founded in 1909 by John Moody, the company operates through two segments: Moody's Investors Service (credit ratings for sovereign, corporate, and structured finance debt, ~58% of revenue) and Moody's Analytics (risk management software, research, data, and SaaS products, ~42% of revenue). Moody's is one of only three Nationally Recognized Statistical Rating Organizations (NRSROs) designated by the SEC — a government-granted oligopoly that guarantees demand as regulatory requirements force debt issuers to obtain ratings. FY2024 revenue was $7.1B (+20%), net income $2.1B (+28%), operating margin 41%, and free cash flow $2.5B (+34%). The company operates in 40+ countries with ~16,000 employees. Moody's has compounded at 15%+ annually since its 2000 spinoff from Dun & Bradstreet. The ratings business generates near-100% incremental margins on new ratings, while Moody's Analytics provides growing, recurring SaaS revenue that stabilizes earnings through credit cycles.",
+  "thesis_bullets": [
+    "Chris Hohn's $6.8B Moody's position (12.7% of TCI) exemplifies his philosophy of owning businesses with the strongest competitive positions in the world. Moody's is one of only three Nationally Recognized Statistical Rating Organizations (NRSROs) — along with S&P Global and Fitch — that rate sovereign and corporate debt globally.",
+    "This is not just a competitive advantage, it is a government-granted oligopoly: regulatory requirements force debt issuers to obtain ratings from at least two NRSROs, effectively guaranteeing demand regardless of economic conditions. The business model is extraordinary: Moody's charges issuers a fee to rate their debt (issuer-pays model), with near-zero marginal costs on each rating.",
+    "Revenue was $7.1B in FY2024 (+20%) with 41% operating margins and $2.5B in free cash flow. The business has two segments: Moody's Investors Service (ratings, ~58% of revenue) and Moody's Analytics (data/analytics/research, ~42%).",
+    "The ratings business is the crown jewel — a natural oligopoly with 95%+ incremental margins on new ratings. Moody's Analytics provides a growing, recurring SaaS revenue stream that diversifies and stabilizes earnings.",
+    "Hohn values the structural permanence of this business: as long as debt capital markets exist, issuers will need credit ratings from Moody's."
+  ],
+  "business_bullets": [
+    "Moody's Corporation (MCO) is a global financial intelligence company and one of the Big Three credit rating agencies, alongside S&P Global and Fitch Ratings. Founded in 1909 by John Moody, the company operates through two segments: Moody's Investors Service (credit ratings for sovereign, corporate, and structured finance debt, ~58% of revenue) and Moody's Analytics (risk management software, research, data, and SaaS products, ~42% of revenue).",
+    "Moody's is one of only three Nationally Recognized Statistical Rating Organizations (NRSROs) designated by the SEC — a government-granted oligopoly that guarantees demand as regulatory requirements force debt issuers to obtain ratings. FY2024 revenue was $7.1B (+20%), net income $2.1B (+28%), operating margin 41%, and free cash flow $2.5B (+34%).",
+    "The company operates in 40+ countries with ~16,000 employees. Moody's has compounded at 15%+ annually since its 2000 spinoff from Dun & Bradstreet.",
+    "The ratings business generates near-100% incremental margins on new ratings, while Moody's Analytics provides growing, recurring SaaS revenue that stabilizes earnings through credit cycles."
+  ]
 }

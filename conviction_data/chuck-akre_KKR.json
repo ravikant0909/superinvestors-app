@@ -32,7 +32,7 @@
       "compounding_math": {
         "description": "KKR's management has laid out a plan to grow fee-related earnings from ~$3.6B in 2024 to $4.5-5.0B by 2026 and potentially $7-8B by 2030. Combined with carried interest and balance sheet income, total distributable earnings could reach $15-20 per share by 2030.",
         "base_case_10yr": {
-          "starting_de_per_share": 7.00,
+          "starting_de_per_share": 7,
           "de_growth_rate_pct": 15,
           "year_10_de_per_share": 28.31,
           "terminal_pe_on_de": 18,
@@ -43,7 +43,7 @@
           "note": "Using distributable earnings per share. At 15% DE growth (conservative vs management's targets) and 18x DE multiple, the stock compounds nicely."
         },
         "bull_case_10yr": {
-          "starting_de_per_share": 7.00,
+          "starting_de_per_share": 7,
           "de_growth_rate_pct": 20,
           "year_10_de_per_share": 43.33,
           "terminal_pe_on_de": 22,
@@ -54,7 +54,7 @@
           "note": "If KKR reaches $1.5T AUM by 2034 and the insurance business scales to $500B+, the fee-related earnings alone could justify this price."
         },
         "bear_case_10yr": {
-          "starting_de_per_share": 7.00,
+          "starting_de_per_share": 7,
           "de_growth_rate_pct": 8,
           "year_10_de_per_share": 15.11,
           "terminal_pe_on_de": 12,
@@ -74,7 +74,7 @@
       "aum_total": 638000000000,
       "fee_bearing_capital": 487000000000,
       "fee_related_earnings_est": 3600000000,
-      "distributable_earnings_per_share_est": 7.00,
+      "distributable_earnings_per_share_est": 7,
       "gaap_revenue_ttm": 20505000000,
       "gaap_net_income_ttm": 2252000000,
       "gaap_eps_diluted": 2.34,
@@ -86,10 +86,30 @@
       "note": "GAAP financials are misleading for KKR due to mark-to-market accounting on investments and consolidation of Global Atlantic. The key metrics are fee-related earnings (FRE) and distributable earnings (DE), which better reflect the recurring economics."
     },
     "historical_financials": [
-      {"year": 2021, "aum_billions": 471, "fee_related_earnings_billions": 1.8, "distributable_earnings_billions_est": 4.0},
-      {"year": 2022, "aum_billions": 504, "fee_related_earnings_billions": 2.3, "distributable_earnings_billions_est": 3.8},
-      {"year": 2023, "aum_billions": 553, "fee_related_earnings_billions": 2.9, "distributable_earnings_billions_est": 5.0},
-      {"year": 2024, "aum_billions": 638, "fee_related_earnings_billions": 3.6, "distributable_earnings_billions_est": 6.7}
+      {
+        "year": 2021,
+        "aum_billions": 471,
+        "fee_related_earnings_billions": 1.8,
+        "distributable_earnings_billions_est": 4
+      },
+      {
+        "year": 2022,
+        "aum_billions": 504,
+        "fee_related_earnings_billions": 2.3,
+        "distributable_earnings_billions_est": 3.8
+      },
+      {
+        "year": 2023,
+        "aum_billions": 553,
+        "fee_related_earnings_billions": 2.9,
+        "distributable_earnings_billions_est": 5
+      },
+      {
+        "year": 2024,
+        "aum_billions": 638,
+        "fee_related_earnings_billions": 3.6,
+        "distributable_earnings_billions_est": 6.7
+      }
     ],
     "moat_analysis": {
       "moat_type": "Wide — Scale + Brand + Relationships + Track Record",
@@ -176,5 +196,7 @@
     ],
     "confidence_level": "high",
     "analyst_notes": "KKR and Brookfield together represent ~25% of Akre's portfolio — a massive thematic bet on alternative asset management as a compounding business model. The thesis for KKR is: growing AUM = growing fees = growing distributable earnings per share, with the insurance business adding a Berkshire-like permanent capital engine. KKR's inclusion in the S&P 500 in June 2024 is a catalyst for institutional ownership growth and valuation re-rating."
-  }
+  },
+  "thesis_bullets": [],
+  "business_bullets": []
 }

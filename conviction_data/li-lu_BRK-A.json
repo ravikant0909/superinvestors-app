@@ -32,18 +32,66 @@
   "valuation_math": {
     "approach": "Sum-of-Parts: Cash + Equity Portfolio + Operating Businesses + Float Value",
     "steps": [
-      {"label": "Cash & Treasuries", "value": "$325B+", "note": "~$226,000 per A share; earning 4-5% annually ($13-16B)"},
-      {"label": "Public Equity Portfolio", "value": "$370B+", "note": "~$257,000 per A share; Apple (~$90B), Amex, Coca-Cola, BofA, etc."},
-      {"label": "Operating Earnings (2024)", "value": "$47.4B", "note": "BNSF, Geico, BHE, Precision Castparts, See's, Dairy Queen, etc."},
-      {"label": "Operating Business Value (12x earnings)", "value": "$569B", "note": "$47.4B x 12 = $569B; conservative given quality of businesses"},
-      {"label": "Insurance Float", "value": "~$170B+", "note": "Essentially free leverage — underwriting profit means Berkshire gets paid to hold other people's money"},
-      {"label": "Sum-of-Parts Value", "value": "$1.26T+", "note": "$325B cash + $370B equities + $569B operating = $1.26T before float value"},
-      {"label": "Per A Share Value", "value": "$877,000+", "note": "$1.26T / 1.438M shares = $877K+"},
-      {"label": "Current Price", "value": "$748,265", "note": "As of March 5, 2026"},
-      {"label": "Current Market Cap", "value": "$1.08T", "note": "1.438M Class A shares equivalent"},
-      {"label": "Discount to Sum-of-Parts", "value": "~15%", "note": "Market assigns zero value to float and conglomerate discount"},
-      {"label": "Book Value Growth Rate", "value": "10-12% annually", "note": "Driven by retained operating earnings, equity portfolio appreciation, and treasury income on cash"},
-      {"label": "5-Year Implied Price (at 1.5x book)", "value": "$1.1-1.3M", "note": "If book value compounds at 10-12% and multiple holds at 1.5x"}
+      {
+        "label": "Cash & Treasuries",
+        "value": "$325B+",
+        "note": "~$226,000 per A share; earning 4-5% annually ($13-16B)"
+      },
+      {
+        "label": "Public Equity Portfolio",
+        "value": "$370B+",
+        "note": "~$257,000 per A share; Apple (~$90B), Amex, Coca-Cola, BofA, etc."
+      },
+      {
+        "label": "Operating Earnings (2024)",
+        "value": "$47.4B",
+        "note": "BNSF, Geico, BHE, Precision Castparts, See's, Dairy Queen, etc."
+      },
+      {
+        "label": "Operating Business Value (12x earnings)",
+        "value": "$569B",
+        "note": "$47.4B x 12 = $569B; conservative given quality of businesses"
+      },
+      {
+        "label": "Insurance Float",
+        "value": "~$170B+",
+        "note": "Essentially free leverage — underwriting profit means Berkshire gets paid to hold other people's money"
+      },
+      {
+        "label": "Sum-of-Parts Value",
+        "value": "$1.26T+",
+        "note": "$325B cash + $370B equities + $569B operating = $1.26T before float value"
+      },
+      {
+        "label": "Per A Share Value",
+        "value": "$877,000+",
+        "note": "$1.26T / 1.438M shares = $877K+"
+      },
+      {
+        "label": "Current Price",
+        "value": "$748,265",
+        "note": "As of March 5, 2026"
+      },
+      {
+        "label": "Current Market Cap",
+        "value": "$1.08T",
+        "note": "1.438M Class A shares equivalent"
+      },
+      {
+        "label": "Discount to Sum-of-Parts",
+        "value": "~15%",
+        "note": "Market assigns zero value to float and conglomerate discount"
+      },
+      {
+        "label": "Book Value Growth Rate",
+        "value": "10-12% annually",
+        "note": "Driven by retained operating earnings, equity portfolio appreciation, and treasury income on cash"
+      },
+      {
+        "label": "5-Year Implied Price (at 1.5x book)",
+        "value": "$1.1-1.3M",
+        "note": "If book value compounds at 10-12% and multiple holds at 1.5x"
+      }
     ],
     "target_price": "$1,100,000",
     "current_price": "$748,265",
@@ -66,10 +114,26 @@
     "Tax efficiency: Unrealized gains on equity portfolio ($200B+) benefit from tax deferral — effectively an interest-free loan from the government"
   ],
   "risks": [
-    {"risk": "Post-Buffett succession", "severity": "Medium", "mitigation": "Greg Abel is now CEO and has been running Berkshire Energy and overseeing non-insurance operations for years. Ted Weschler and Todd Combs manage ~$35B each in the equity portfolio. The decentralized operating model means most businesses run themselves. Abel recently bought $15M of BRK with his own salary — strong alignment signal."},
-    {"risk": "Size constrains returns", "severity": "Medium", "mitigation": "At $1.1T, Berkshire is too large for small deals to move the needle. Only 'elephant-sized' acquisitions ($30B+) matter. However, the $325B cash hoard means Berkshire is uniquely positioned for a once-in-a-generation mega-acquisition during the next market downturn."},
-    {"risk": "Apple concentration in equity portfolio", "severity": "Low-Medium", "mitigation": "Apple represents ~25% of the equity portfolio (~$90B). While concentrated, Buffett has been trimming Apple over the past year, and the position is still profitable even after substantial selling."},
-    {"risk": "Conglomerate discount persists", "severity": "Low", "mitigation": "The market may never fully value Berkshire at the sum of its parts. However, this discount is relatively stable and is offset by Berkshire's ability to repurchase shares below intrinsic value."}
+    {
+      "risk": "Post-Buffett succession",
+      "severity": "Medium",
+      "mitigation": "Greg Abel is now CEO and has been running Berkshire Energy and overseeing non-insurance operations for years. Ted Weschler and Todd Combs manage ~$35B each in the equity portfolio. The decentralized operating model means most businesses run themselves. Abel recently bought $15M of BRK with his own salary — strong alignment signal."
+    },
+    {
+      "risk": "Size constrains returns",
+      "severity": "Medium",
+      "mitigation": "At $1.1T, Berkshire is too large for small deals to move the needle. Only 'elephant-sized' acquisitions ($30B+) matter. However, the $325B cash hoard means Berkshire is uniquely positioned for a once-in-a-generation mega-acquisition during the next market downturn."
+    },
+    {
+      "risk": "Apple concentration in equity portfolio",
+      "severity": "Low-Medium",
+      "mitigation": "Apple represents ~25% of the equity portfolio (~$90B). While concentrated, Buffett has been trimming Apple over the past year, and the position is still profitable even after substantial selling."
+    },
+    {
+      "risk": "Conglomerate discount persists",
+      "severity": "Low",
+      "mitigation": "The market may never fully value Berkshire at the sum of its parts. However, this discount is relatively stable and is offset by Berkshire's ability to repurchase shares below intrinsic value."
+    }
   ],
   "catalysts": [
     "Major acquisition: $325B+ in cash positions Berkshire for the largest corporate acquisition in history during the next market dislocation",
@@ -78,5 +142,17 @@
     "Operating earnings growth: BNSF, Geico, and BHE all have pricing power and secular tailwinds (infrastructure, insurance hardening, renewable energy)",
     "Re-rating post-succession clarity: As Greg Abel proves himself, the 'Buffett premium' concern dissipates and the stock re-rates"
   ],
-  "company_brief": "Berkshire Hathaway is a $1.1 trillion conglomerate founded by Warren Buffett and Charlie Munger, comprising 100+ wholly-owned operating businesses (BNSF Railway, Geico, Berkshire Hathaway Energy, Precision Castparts, See's Candies, Dairy Queen, and many more), a $370B+ public equity portfolio, and $325B+ in cash and treasury securities. The company generates approximately $47B in annual operating earnings and holds the largest insurance float in the world (~$170B+). Under new CEO Greg Abel, Berkshire continues its capital allocation framework: owning great businesses permanently, investing in public equities selectively, and accumulating cash when valuations are unattractive."
+  "company_brief": "Berkshire Hathaway is a $1.1 trillion conglomerate founded by Warren Buffett and Charlie Munger, comprising 100+ wholly-owned operating businesses (BNSF Railway, Geico, Berkshire Hathaway Energy, Precision Castparts, See's Candies, Dairy Queen, and many more), a $370B+ public equity portfolio, and $325B+ in cash and treasury securities. The company generates approximately $47B in annual operating earnings and holds the largest insurance float in the world (~$170B+). Under new CEO Greg Abel, Berkshire continues its capital allocation framework: owning great businesses permanently, investing in public equities selectively, and accumulating cash when valuations are unattractive.",
+  "thesis_bullets": [
+    "Li Lu's 12.6% allocation to Berkshire Hathaway is deeply personal — this is the company built by his mentors Charlie Munger and Warren Buffett, the two people who shaped his entire investment philosophy. But the position is not sentimental; it is analytical.",
+    "Berkshire at ~$748,000/share trades at roughly 1.5x book value, which historically has been the level at which Buffett himself has repurchased shares, signaling it represents fair-to-cheap valuation. The company holds $325B+ in cash and short-term treasuries, $370B+ in public equity investments (Apple, Coca-Cola, American Express, etc.), wholly-owned operating businesses generating $40B+ in operating earnings, and the largest insurance float in the world (~$170B+ of essentially free capital).",
+    "For Li Lu, Berkshire represents the floor-price philosophy incarnate: a business where permanent capital loss is virtually impossible. Even if every operating business stopped growing, the cash pile alone represents ~$225,000 per Class A share — 30% of the stock price in liquid assets.",
+    "The equity portfolio adds another ~$257,000 per share. The operating businesses contribute ~$28,000 per share in annual earnings.",
+    "Under CEO Greg Abel, the capital allocation framework continues, with Abel recently investing $15M of his own salary in BRK stock. This is the quintessential Munger bet: a fortress balance sheet, diversified earnings streams, and a valuation that provides margin of safety even in adverse scenarios."
+  ],
+  "business_bullets": [
+    "Berkshire Hathaway is a $1.1 trillion conglomerate founded by Warren Buffett and Charlie Munger, comprising 100+ wholly-owned operating businesses (BNSF Railway, Geico, Berkshire Hathaway Energy, Precision Castparts, See's Candies, Dairy Queen, and many more), a $370B+ public equity portfolio, and $325B+ in cash and treasury securities.",
+    "The company generates approximately $47B in annual operating earnings and holds the largest insurance float in the world (~$170B+).",
+    "Under new CEO Greg Abel, Berkshire continues its capital allocation framework: owning great businesses permanently, investing in public equities selectively, and accumulating cash when valuations are unattractive."
+  ]
 }

@@ -1,0 +1,63 @@
+{
+  "investor_slug": "murray-stahl",
+  "investor_name": "Murray Stahl",
+  "firm_name": "Horizon Kinetics",
+  "ticker": "GBTC",
+  "company_name": "Grayscale Bitcoin Trust ETF",
+  "weight_pct": 13.05,
+  "value_millions": 965,
+  "thesis_headline": "Bitcoin as a monetary revolution — Murray Stahl's Grayscale position reflects his thesis that Bitcoin is a scarce digital asset that will appreciate as fiat currencies debase",
+  "thesis_summary": "Murray Stahl's 13% allocation to the Grayscale Bitcoin Trust ETF reflects his long-held thesis that Bitcoin is a uniquely scarce monetary asset in an era of unlimited fiat currency printing. Stahl was one of the earliest institutional investors in Bitcoin, arguing that its fixed supply of 21 million coins makes it the hardest money ever created. GBTC, now converted to a spot Bitcoin ETF, provides regulated exposure to Bitcoin. Stahl's thesis combines Austrian economics (sound money, concern about currency debasement) with technology analysis (Bitcoin's network effects and security model). He views Bitcoin as a complement to his Texas Pacific Land position — both are scarce, non-reproducible assets.",
+  "thesis_bullets": [
+    "Bitcoin has a fixed supply of 21 million coins — the hardest money ever created, unlike fiat currencies which can be printed without limit",
+    "GBTC (now a spot Bitcoin ETF) provides regulated, institutional-grade exposure to Bitcoin without custody complexity",
+    "Stahl's Austrian economics framework: as central banks expand money supply, scarce assets like Bitcoin and land appreciate in purchasing power terms",
+    "Bitcoin's network effects strengthen over time — more users, more miners, more infrastructure create a more robust and valuable network",
+    "The position complements Stahl's TPL holding — both are scarce, non-reproducible assets that benefit from monetary expansion"
+  ],
+  "business_bullets": [
+    "Grayscale Bitcoin Trust ETF (GBTC) is one of the largest spot Bitcoin ETFs, holding Bitcoin on behalf of shareholders with a 1.5% annual fee",
+    "GBTC was converted from a closed-end trust to a spot ETF in January 2024, eliminating the discount/premium to NAV",
+    "The fund provides exposure to Bitcoin's price movements without requiring investors to custody their own Bitcoin",
+    "Bitcoin trades at approximately $90,000+ per coin with a total market cap exceeding $1.7 trillion"
+  ],
+  "why_this_price": "Stahl's Bitcoin thesis is not based on short-term price predictions but on long-term monetary economics. He argues that Bitcoin's value will increase over time as: (1) fiat currency purchasing power erodes through inflation and money printing, (2) Bitcoin adoption grows globally as a store of value and medium of exchange, and (3) institutional allocation to Bitcoin as an asset class increases from near-zero to meaningful portfolio weights.",
+  "investor_in_their_own_words": [
+    "Murray Stahl: 'Bitcoin is the scarcest monetary asset in human history. Only 21 million will ever exist. In a world of unlimited money printing, scarcity has enormous value.'",
+    "Murray Stahl: 'I think about Bitcoin the same way I think about land. You can't make more of it. And as the supply of dollars increases, the value of scarce assets denominated in dollars goes up.'",
+    "Murray Stahl: 'Most investors don't understand Bitcoin because they think of it as a technology company. It's not. It's a monetary network — the most secure and scarce monetary network ever built.'",
+    "Murray Stahl: 'The institutional adoption of Bitcoin is in its earliest stages. When pension funds and sovereign wealth funds allocate even 1-2% to Bitcoin, the price impact will be enormous.'"
+  ],
+  "key_metrics": {
+    "bitcoin_price": "~$90,000+",
+    "bitcoin_market_cap": ">$1.7T",
+    "total_supply": "21 million (fixed)",
+    "gbtc_fee": "1.5% annual",
+    "halving_cycles": "4 completed",
+    "institutional_adoption": "Growing (ETF flows)",
+    "network_hashrate": "All-time highs",
+    "lightning_network": "Growing layer-2 adoption"
+  },
+  "moat_sources": [
+    "Absolute scarcity — 21 million total supply hardcoded into the protocol, cannot be changed by any authority",
+    "Network effects — the largest, most secure, and most liquid cryptocurrency network with the highest hashrate",
+    "Lindy effect — 15+ years of continuous operation without a successful attack on the base protocol",
+    "Decentralization — no single point of failure, no CEO to lobby, no company to regulate out of existence",
+    "Global liquidity — trades 24/7 globally with deep liquidity across dozens of exchanges and now spot ETFs"
+  ],
+  "risks": [
+    "Extreme volatility — Bitcoin regularly experiences 50-80% drawdowns that test investor conviction",
+    "Regulatory risk — governments could restrict Bitcoin ownership, trading, or mining through legislation",
+    "Competition from other cryptocurrencies or central bank digital currencies (CBDCs)",
+    "Environmental concerns about Bitcoin mining energy consumption, though increasingly renewable",
+    "GBTC's 1.5% fee is high compared to newer spot Bitcoin ETFs (0.2-0.25%), causing fund outflows"
+  ],
+  "catalysts": [
+    "Spot Bitcoin ETF flows — institutional money flowing into Bitcoin through regulated ETF products",
+    "2024 halving effects — reduced new Bitcoin supply historically precedes price appreciation over 12-18 months",
+    "Sovereign adoption — countries and central banks adding Bitcoin to reserves (El Salvador precedent)",
+    "Currency debasement globally — fiscal deficits and money printing increasing demand for hard assets",
+    "Lightning Network growth — improving Bitcoin's utility as a payments network"
+  ],
+  "company_brief": "Grayscale Bitcoin Trust ETF (GBTC) is one of the largest spot Bitcoin ETFs, providing regulated exposure to Bitcoin price movements. The fund was converted from a closed-end trust to a spot ETF in January 2024. GBTC holds physical Bitcoin on behalf of shareholders with a 1.5% annual management fee. Bitcoin is a decentralized digital currency with a fixed supply of 21 million coins, trading at approximately $90,000+ per coin with a market cap exceeding $1.7 trillion."
+}

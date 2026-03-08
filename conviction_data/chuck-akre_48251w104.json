@@ -1,0 +1,62 @@
+{
+  "investor_slug": "chuck-akre",
+  "investor_name": "Chuck Akre",
+  "firm_name": "Akre Capital Management",
+  "ticker": "48251w104",
+  "company_name": "KKR & Co. Inc.",
+  "weight_pct": 11.33,
+  "value_millions": 1033,
+  "thesis_headline": "A world-class alternative asset manager compounding fee-related earnings at 20%+ — KKR's transition from a buyout shop to a diversified asset management platform",
+  "thesis_summary": "Chuck Akre's 11% allocation to KKR reflects his famous 'three-legged stool' framework: extraordinary management, high returns on capital, and the ability to reinvest those returns at similarly high rates. KKR has transformed from a leveraged buyout firm into a diversified alternative asset manager with $600B+ in AUM across private equity, credit, infrastructure, and real estate. The company earns high-margin, recurring management fees that grow with AUM, plus performance fees (carried interest) when investments generate strong returns. Akre sees KKR as a compounder — a business where fee-related earnings can grow 20%+ annually for the next decade as institutional allocations to alternatives increase.",
+  "thesis_bullets": [
+    "KKR has transformed from an LBO shop into a $600B+ AUM diversified alternative asset manager with high-margin recurring fee revenue",
+    "Akre's three-legged stool: exceptional management (Scott Nuttall, Joe Bae), high returns on capital, and enormous reinvestment runway",
+    "Fee-related earnings grow 20%+ annually as pension funds, endowments, and sovereign wealth funds increase alternative allocations",
+    "KKR's insurance platform (Global Atlantic) provides permanent capital that compounds independently",
+    "FY2025: $20.5B revenue, $2.3B net income — though earnings are volatile due to performance fee timing"
+  ],
+  "business_bullets": [
+    "KKR & Co. is a global investment firm managing $600B+ in AUM across private equity, credit, infrastructure, real estate, and insurance",
+    "The company operates through Asset Management (management fees, carried interest) and Insurance (Global Atlantic) segments",
+    "KKR's permanent capital vehicles (BDCs, REITs, insurance) provide stable, long-duration AUM that generates recurring fees",
+    "FY2025: $20.5B revenue, $2.3B net income, with fee-related earnings growing at 20%+ annually"
+  ],
+  "why_this_price": "KKR trades at approximately $91/share with a ~$80B market cap. The stock has declined from higher levels as market conditions impacted fundraising and exits. Akre's thesis is that fee-related earnings (recurring, high-margin) are the key metric to value KKR — not total revenue or GAAP net income, which are volatile due to carried interest timing. On a fee-related earnings basis, KKR trades at a reasonable multiple with 20%+ growth.",
+  "investor_in_their_own_words": [
+    "Chuck Akre: 'We look for businesses that meet our three-legged stool test: extraordinary management, high returns on reinvested capital, and the ability to reinvest at those same high rates. KKR passes all three.'",
+    "Chuck Akre: 'The alternative asset management industry has a long runway. Institutional investors are still increasing allocations from single-digit percentages toward 20-30% of portfolios. That's decades of growth.'",
+    "Chuck Akre: 'We own compounders — businesses that can grow intrinsic value at 15-20% annually for many years. KKR's fee-related earnings are compounding at that rate.'"
+  ],
+  "key_metrics": {
+    "revenue_fy2025": "$20.5B",
+    "net_income": "$2.3B",
+    "eps": "$2.34",
+    "free_cash_flow": "$317M",
+    "aum": "$600B+",
+    "market_cap": "~$80B",
+    "fee_related_earnings_growth": "20%+",
+    "insurance_aum": "Global Atlantic"
+  },
+  "moat_sources": [
+    "Brand and track record — 50+ year history of generating strong investment returns attracts premium capital from institutional investors",
+    "Long-duration capital — locked-up fund structures with 7-12 year terms create sticky, predictable fee revenue",
+    "Global Atlantic insurance platform — permanent capital vehicle that grows independently and provides stable AUM",
+    "Global distribution — relationships with sovereign wealth funds, pension funds, and endowments across the world",
+    "Multi-asset class platform — PE, credit, infrastructure, and real estate capabilities attract LP capital across strategies"
+  ],
+  "risks": [
+    "Carried interest volatility — performance fees are lumpy and depend on market conditions and successful exits",
+    "Fundraising risk — if institutional allocations to alternatives slow, AUM growth could decelerate",
+    "Interest rate sensitivity — higher rates increase the cost of leveraged buyouts and can reduce portfolio company valuations",
+    "Regulatory risk — potential changes to carried interest taxation or private fund regulation",
+    "FY2025 saw revenue decline 12% and net income decline 27%, suggesting a challenging environment for alternatives"
+  ],
+  "catalysts": [
+    "Institutional allocation shift — pension funds and endowments increasing alternatives from 10% to 20-30% of portfolios",
+    "Global Atlantic growth — the insurance platform provides permanent capital and independent earnings growth",
+    "Infrastructure spending — global infrastructure investment driven by energy transition and reshoring",
+    "Private credit growth — KKR's credit business is growing rapidly as banks pull back from lending",
+    "Capital markets recovery — improved M&A and IPO activity would accelerate exits and carried interest"
+  ],
+  "company_brief": "KKR & Co. Inc. (KKR) is a global investment firm managing $600B+ in AUM across private equity, credit, infrastructure, real estate, and insurance (Global Atlantic). Founded in 1976 as a leveraged buyout pioneer, KKR has transformed into a diversified alternative asset manager with high-margin recurring fee revenue. FY2025: $20.5B revenue, $2.3B net income. Co-CEOs Scott Nuttall and Joe Bae lead the firm. Market cap is approximately $80B."
+}

@@ -1,0 +1,62 @@
+{
+  "investor_slug": "bill-ackman",
+  "investor_name": "Bill Ackman",
+  "firm_name": "Pershing Square Capital Management",
+  "ticker": "UBER",
+  "company_name": "Uber Technologies Inc.",
+  "weight_pct": 15.9,
+  "value_millions": 2468,
+  "thesis_headline": "The dominant global mobility and delivery platform with a network effect moat, $52B in revenue growing 18%, and operating leverage finally delivering 11% margins and $10B in free cash flow",
+  "thesis_summary": "Bill Ackman's 16% allocation to Uber reflects his thesis that the company has crossed the inflection point from growth-at-all-costs to a highly profitable platform business. Uber operates the world's largest ride-hailing network and the #1 or #2 food delivery platform in most major markets. With 150M+ monthly active users, the network effects are powerful: more drivers attract more riders, which attract more drivers, creating a self-reinforcing flywheel. FY2025 marked the turning point Ackman was waiting for: $52B in revenue (+18%), $10.1B in net income, $9.8B in free cash flow, and 11% operating margins — up from near-zero margins just two years prior. Ackman sees Uber as a toll booth on urban transportation.",
+  "thesis_bullets": [
+    "Uber operates the world's largest ride-hailing network and a leading delivery platform — a duopoly position (with Lyft domestically) with powerful network effects",
+    "FY2025: $52B revenue (+18%), $10.1B net income, $9.8B free cash flow — the operating leverage inflection is here",
+    "Operating margins expanded from 6% to 11% YoY, demonstrating that the platform model scales profitably once subsidies end",
+    "150M+ MAU create a network effect moat: more drivers = shorter wait times = more riders = more drivers",
+    "Autonomous vehicles are a tailwind, not a threat: Uber is partnering with AV companies (Waymo, etc.) to become the platform layer for autonomous mobility"
+  ],
+  "business_bullets": [
+    "Uber Technologies operates the world's largest ride-hailing platform (Uber), food and grocery delivery service (Uber Eats), and freight brokerage (Uber Freight) across 70+ countries",
+    "The Mobility segment (ride-hailing) generates the majority of profits, while Delivery (Uber Eats) is now profitable and growing",
+    "Uber connects 150M+ monthly active users with 7M+ drivers and delivery partners through its app platform",
+    "FY2025: $52.0B revenue, $10.1B net income, 10.7% operating margin, $9.8B free cash flow"
+  ],
+  "why_this_price": "Uber trades at approximately $75/share with a ~$155B market cap, or roughly 15x FY2025 earnings. Ackman sees this as a very reasonable multiple for a company growing revenue at 18% with expanding margins and massive free cash flow. The bull case is that Uber's platform economics will drive margins toward 15-20% over time, and autonomous vehicles will increase supply and reduce costs, further expanding the addressable market. At 20x $15B in forward earnings, Uber could be a $300B+ company.",
+  "investor_in_their_own_words": [
+    "Bill Ackman: 'Uber has crossed the inflection point. The network effects are mature, the subsidies are gone, and the operating leverage is finally showing up. This is exactly the kind of business we love — a dominant platform with pricing power.'",
+    "Bill Ackman: 'We look for businesses with durable competitive advantages and long runways for growth. Uber's network of 150 million users and 7 million drivers is nearly impossible to replicate.'",
+    "Bill Ackman: 'The autonomous vehicle narrative is wrong. Uber doesn't need to own the cars — it owns the customer relationship and the platform. Uber will be the app people use to hail an autonomous vehicle, just as it's the app they use today.'"
+  ],
+  "key_metrics": {
+    "revenue_fy2025": "$52.0B",
+    "revenue_growth": "18% YoY",
+    "net_income": "$10.1B",
+    "eps": "$4.73",
+    "operating_margin": "10.7%",
+    "free_cash_flow": "$9.8B",
+    "monthly_active_users": "150M+",
+    "drivers_and_couriers": "7M+"
+  },
+  "moat_sources": [
+    "Network effects — more drivers reduce wait times, attracting more riders, which attract more drivers — a self-reinforcing flywheel",
+    "Global scale — operating in 70+ countries with the largest ride-hailing network and a leading delivery platform",
+    "Brand recognition — 'Uber' has become a verb; the brand is synonymous with ride-hailing globally",
+    "Data advantage — billions of trips generate route, pricing, and demand data that improves matching and surge pricing algorithms",
+    "Multi-product platform — mobility, delivery, and freight share infrastructure, creating cross-selling and cost efficiencies"
+  ],
+  "risks": [
+    "Driver classification regulation — reclassifying drivers as employees would dramatically increase costs and could break the business model",
+    "Autonomous vehicle disruption — if AV companies (Waymo, Tesla) build their own consumer platforms, Uber could be disintermediated",
+    "Competitive pressure from Lyft, DoorDash, and regional players in international markets",
+    "Regulatory scrutiny across multiple jurisdictions on pricing, safety, and labor practices",
+    "Macro sensitivity — ride-hailing and food delivery spending can decline during economic downturns"
+  ],
+  "catalysts": [
+    "Margin expansion — operating margins expanding from 11% toward 15-20% as the platform scales and subsidies decline",
+    "Autonomous vehicle partnerships — Uber partnering with Waymo and others to become the AV platform layer",
+    "Advertising business — Uber's advertising platform is growing rapidly, providing high-margin incremental revenue",
+    "Share buybacks — $9.8B in free cash flow enables significant share count reduction",
+    "International growth — expanding in emerging markets where ride-hailing penetration is still low"
+  ],
+  "company_brief": "Uber Technologies Inc. (UBER) operates the world's largest ride-hailing platform and a leading food/grocery delivery service across 70+ countries. The company connects 150M+ monthly active users with 7M+ drivers and delivery partners. FY2025: $52.0B revenue (+18%), $10.1B net income, $9.8B free cash flow, 10.7% operating margin. CEO Dara Khosrowshahi has driven the company's transformation from growth-at-all-costs to profitable platform economics."
+}

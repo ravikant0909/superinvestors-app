@@ -53,7 +53,7 @@
     "revenue_growth_pct": 1.7,
     "net_income_fy2025_billions_cny": 130,
     "net_income_growth_pct": 62.4,
-    "eps_diluted_cny": 53.60,
+    "eps_diluted_cny": 53.6,
     "eps_diluted_usd": 7.35,
     "operating_margin_pct": 14.7,
     "free_cash_flow_fy2025_billions_cny": 77.5,
@@ -93,5 +93,16 @@
     "Margin expansion from cost-cutting and focus on profitability over growth at all costs",
     "Potential return of Jack Ma to a more visible role, signaling government reconciliation with tech sector"
   ],
-  "company_brief": "Alibaba Group Holding (BABA) is China's largest e-commerce company and a leading cloud computing provider, founded by Jack Ma in 1999. The company operates Taobao and Tmall (China's dominant online marketplaces with 900M+ active consumers), Alibaba Cloud (China's #1 cloud provider with ~35% market share), Cainiao (logistics network), AliExpress (international e-commerce), and Ant Financial (33% stake in one of the world's largest fintech companies). FY2025 (March year-end) revenue was 957B CNY (~$132B) with 130B CNY (~$18B) net income. Operating margins have expanded to 14.7% as management prioritizes profitability. Market cap is ~$291B, trading at 17.7x earnings — a significant discount to U.S. tech peers. The company has authorized $25B+ in share buybacks and initiated dividends. BABA faces structural risks from the VIE corporate structure, Chinese regulatory uncertainty, and U.S.-China geopolitical tensions, but the business itself continues to generate strong cash flows from its dominant market position."
+  "company_brief": "Alibaba Group Holding (BABA) is China's largest e-commerce company and a leading cloud computing provider, founded by Jack Ma in 1999. The company operates Taobao and Tmall (China's dominant online marketplaces with 900M+ active consumers), Alibaba Cloud (China's #1 cloud provider with ~35% market share), Cainiao (logistics network), AliExpress (international e-commerce), and Ant Financial (33% stake in one of the world's largest fintech companies). FY2025 (March year-end) revenue was 957B CNY (~$132B) with 130B CNY (~$18B) net income. Operating margins have expanded to 14.7% as management prioritizes profitability. Market cap is ~$291B, trading at 17.7x earnings — a significant discount to U.S. tech peers. The company has authorized $25B+ in share buybacks and initiated dividends. BABA faces structural risks from the VIE corporate structure, Chinese regulatory uncertainty, and U.S.-China geopolitical tensions, but the business itself continues to generate strong cash flows from its dominant market position.",
+  "thesis_bullets": [
+    "David Tepper's Alibaba position is a quintessential Tepper trade: buying a high-quality business when the market is pricing in maximum pessimism. Alibaba is China's dominant e-commerce platform (Taobao/Tmall with 900M+ active consumers) and a leading cloud infrastructure provider, generating $142B in annual revenue with expanding margins.",
+    "Tepper's thesis rests on three pillars: (1) Alibaba is fundamentally cheap at 17-18x earnings with $290B market cap for a business that would trade at 25-30x if it were a U.S. company, (2) Chinese government policy has shifted from cracking down on tech to actively stimulating the economy and supporting innovation, and (3) Alibaba's aggressive share buyback program ($25B+ authorized) and AI cloud investments create a path to re-rating.",
+    "Tepper famously went on CNBC in September 2024 saying he was buying 'everything China' after the government announced aggressive stimulus measures. For Tepper, this is not a permanent holding but a macro-driven asymmetric bet — he buys when governments are printing money and policies are turning favorable."
+  ],
+  "business_bullets": [
+    "Alibaba Group Holding (BABA) is China's largest e-commerce company and a leading cloud computing provider, founded by Jack Ma in 1999. The company operates Taobao and Tmall (China's dominant online marketplaces with 900M+ active consumers), Alibaba Cloud (China's #1 cloud provider with ~35% market share), Cainiao (logistics network), AliExpress (international e-commerce), and Ant Financial (33% stake in one of the world's largest fintech companies).",
+    "FY2025 (March year-end) revenue was 957B CNY (~$132B) with 130B CNY (~$18B) net income. Operating margins have expanded to 14.7% as management prioritizes profitability.",
+    "Market cap is ~$291B, trading at 17.7x earnings — a significant discount to U.S. The company has authorized $25B+ in share buybacks and initiated dividends.",
+    "BABA faces structural risks from the VIE corporate structure, Chinese regulatory uncertainty, and U.S.-China geopolitical tensions, but the business itself continues to generate strong cash flows from its dominant market position."
+  ]
 }

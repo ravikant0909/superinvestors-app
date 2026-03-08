@@ -50,7 +50,7 @@
           "implied_price_year_10": 1410,
           "current_price_approx": 320,
           "total_return_pct": 341,
-          "cagr_pct": 16.0,
+          "cagr_pct": 16,
           "note": "If Visa sustains its historical 16% EPS growth through accelerating cross-border volumes and value-added services, the compounding is exceptional."
         },
         "bear_case_10yr": {
@@ -88,11 +88,47 @@
       "return_on_equity_pct": "45%+ (high due to significant buybacks reducing equity base)"
     },
     "historical_financials": [
-      {"year": "FY2021 (Sep)", "revenue_billions": 24.1, "net_income_billions": 12.3, "eps_diluted": 5.91, "operating_margin_pct": 64.2, "shares_millions": 2089},
-      {"year": "FY2022 (Sep)", "revenue_billions": 29.3, "net_income_billions": 14.9, "eps_diluted": 7.30, "operating_margin_pct": 64.3, "shares_millions": 2050},
-      {"year": "FY2023 (Sep)", "revenue_billions": 32.7, "net_income_billions": 17.3, "eps_diluted": 8.63, "operating_margin_pct": 66.0, "shares_millions": 2008},
-      {"year": "FY2024 (Sep)", "revenue_billions": 35.9, "net_income_billions": 19.7, "eps_diluted": 9.92, "operating_margin_pct": 66.3, "shares_millions": 1980},
-      {"year": "TTM (Dec 2024)", "revenue_billions": 41.4, "net_income_billions": 20.8, "eps_diluted": 10.66, "operating_margin_pct": 59.2, "shares_millions": 1950, "note": "TTM operating margin includes litigation reserve charges that depress the margin vs fiscal year figures"}
+      {
+        "year": "FY2021 (Sep)",
+        "revenue_billions": 24.1,
+        "net_income_billions": 12.3,
+        "eps_diluted": 5.91,
+        "operating_margin_pct": 64.2,
+        "shares_millions": 2089
+      },
+      {
+        "year": "FY2022 (Sep)",
+        "revenue_billions": 29.3,
+        "net_income_billions": 14.9,
+        "eps_diluted": 7.3,
+        "operating_margin_pct": 64.3,
+        "shares_millions": 2050
+      },
+      {
+        "year": "FY2023 (Sep)",
+        "revenue_billions": 32.7,
+        "net_income_billions": 17.3,
+        "eps_diluted": 8.63,
+        "operating_margin_pct": 66,
+        "shares_millions": 2008
+      },
+      {
+        "year": "FY2024 (Sep)",
+        "revenue_billions": 35.9,
+        "net_income_billions": 19.7,
+        "eps_diluted": 9.92,
+        "operating_margin_pct": 66.3,
+        "shares_millions": 1980
+      },
+      {
+        "year": "TTM (Dec 2024)",
+        "revenue_billions": 41.4,
+        "net_income_billions": 20.8,
+        "eps_diluted": 10.66,
+        "operating_margin_pct": 59.2,
+        "shares_millions": 1950,
+        "note": "TTM operating margin includes litigation reserve charges that depress the margin vs fiscal year figures"
+      }
     ],
     "moat_analysis": {
       "moat_type": "Wide — Network Effect + Scale + Switching Costs + Regulatory Barrier",
@@ -183,5 +219,7 @@
     ],
     "confidence_level": "high",
     "analyst_notes": "Visa and Mastercard together represent ~29% of Akre's portfolio — the largest thematic bet in the fund. This is not two separate positions; it is a single bet on the payments infrastructure duopoly. The thesis is straightforward: (1) cash-to-digital is a multi-decade secular tailwind affecting trillions of dollars of payment flows, (2) the Visa/Mastercard duopoly captures a toll on every electronic transaction, (3) the businesses require no capital to grow, enabling all cash flow to be returned to shareholders via buybacks, (4) the network effects create an essentially impregnable competitive position. At ~30x earnings, Visa is not cheap — but Akre's framework is clear: the compounding rate of the business (12-15% EPS growth) matters more than the entry multiple over a 10-20 year horizon."
-  }
+  },
+  "thesis_bullets": [],
+  "business_bullets": []
 }

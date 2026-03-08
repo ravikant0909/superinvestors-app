@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Link from 'next/link'
+import ChatWidget from '@/components/ChatWidget'
 
 export const metadata: Metadata = {
   title: 'SuperInvestors — Track the World\'s Greatest Investors',
@@ -70,6 +71,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <ChatWidget workerUrl="https://superinvestors-chat.workers.dev" />
       </body>
     </html>
   )

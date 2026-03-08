@@ -31,7 +31,7 @@
     "fcf_yield_pct": "~4.5%",
     "buyback_annual_billions": "~70",
     "share_count_reduction_pct": "2-3% annually",
-    "dividend_per_share": 0.60,
+    "dividend_per_share": 0.6,
     "total_return_math": {
       "earnings_growth_pct": "15-20%",
       "buyback_yield_pct": "2-3%",
@@ -62,7 +62,7 @@
     "google_cloud_revenue_growth_pct": "30+",
     "annual_capex_billions": "70+",
     "buyback_annual_billions": "~70",
-    "dividend_per_share": 0.60,
+    "dividend_per_share": 0.6,
     "employees": "~180,000"
   },
   "moat_sources": [
@@ -91,5 +91,16 @@
     "Resolution of DOJ antitrust case could remove the uncertainty overhang",
     "Gemini AI model competing effectively with GPT-4, demonstrating Google's AI capabilities remain world-class"
   ],
-  "company_brief": "Alphabet Inc. (GOOG) is the parent company of Google, the dominant global search engine and digital advertising platform. Founded in 1998, the company generates $350B in annual revenue across Google Search (~57%), YouTube (~10%), Google Cloud (~13%), and Other Bets (Waymo, Verily, etc.). Google Search commands 90%+ of the global search market, representing the most valuable advertising real estate in existence. FY2024 net income was $100B with 32% operating margins and $73B in free cash flow. Alphabet holds ~$100B in net cash and returns ~$70B annually through share buybacks, with a new dividend initiated in 2024 ($0.60/share). The company is investing heavily ($70B+ annually) in AI infrastructure and capabilities. Google Cloud is growing 30%+ and recently turned profitable. Alphabet employs ~180,000 people and its 'capacity to suffer' — the ability to fund massive long-term investments from its dominant core business — is the structural advantage that distinguishes it from competitors."
+  "company_brief": "Alphabet Inc. (GOOG) is the parent company of Google, the dominant global search engine and digital advertising platform. Founded in 1998, the company generates $350B in annual revenue across Google Search (~57%), YouTube (~10%), Google Cloud (~13%), and Other Bets (Waymo, Verily, etc.). Google Search commands 90%+ of the global search market, representing the most valuable advertising real estate in existence. FY2024 net income was $100B with 32% operating margins and $73B in free cash flow. Alphabet holds ~$100B in net cash and returns ~$70B annually through share buybacks, with a new dividend initiated in 2024 ($0.60/share). The company is investing heavily ($70B+ annually) in AI infrastructure and capabilities. Google Cloud is growing 30%+ and recently turned profitable. Alphabet employs ~180,000 people and its 'capacity to suffer' — the ability to fund massive long-term investments from its dominant core business — is the structural advantage that distinguishes it from competitors.",
+  "thesis_bullets": [
+    "Thomas Russo's Alphabet position reflects his signature 'capacity to suffer' framework: the most valuable companies are those with such dominant core businesses that they can afford to invest aggressively in uncertain future bets without jeopardizing the enterprise. Google Search generates $175B+ in annual advertising revenue with 90%+ market share — a near-monopoly that produces enormous free cash flow.",
+    "This cash flow machine funds Google Cloud ($40B+ revenue, growing 30%), Waymo (autonomous driving), DeepMind (frontier AI research), and other moonshots. Russo views this as a structural advantage: while competitors must justify every dollar of investment to impatient shareholders, Alphabet can invest $70B+ annually in AI infrastructure knowing that even if half of it is wasted, the core search business continues to compound.",
+    "This is identical to how Russo has historically invested in Berkshire Hathaway and Nestle — companies with dominant core franchises that provide the financial capacity to invest through downturns and into uncertain but potentially transformative opportunities. At 22x earnings with 14% revenue growth and $73B in free cash flow, Russo likely sees Alphabet as a high-quality compounder at a fair price with decades of reinvestment runway."
+  ],
+  "business_bullets": [
+    "(GOOG) is the parent company of Google, the dominant global search engine and digital advertising platform. Founded in 1998, the company generates $350B in annual revenue across Google Search (~57%), YouTube (~10%), Google Cloud (~13%), and Other Bets (Waymo, Verily, etc.).",
+    "Google Search commands 90%+ of the global search market, representing the most valuable advertising real estate in existence. FY2024 net income was $100B with 32% operating margins and $73B in free cash flow.",
+    "Alphabet holds ~$100B in net cash and returns ~$70B annually through share buybacks, with a new dividend initiated in 2024 ($0.60/share). The company is investing heavily ($70B+ annually) in AI infrastructure and capabilities.",
+    "Google Cloud is growing 30%+ and recently turned profitable. Alphabet employs ~180,000 people and its 'capacity to suffer' — the ability to fund massive long-term investments from its dominant core business — is the structural advantage that distinguishes it from competitors."
+  ]
 }

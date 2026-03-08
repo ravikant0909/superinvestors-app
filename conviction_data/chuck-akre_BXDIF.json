@@ -33,9 +33,9 @@
       "compounding_math": {
         "description": "Brookfield has articulated a plan to compound distributable earnings per share at 25%+ annually over the next 5 years. Even at a more conservative 15-18% growth rate, the compounding math is compelling given the multiple re-rating opportunity as the market better understands the asset-light fee business.",
         "base_case_10yr": {
-          "starting_distributable_eps": 4.50,
+          "starting_distributable_eps": 4.5,
           "eps_growth_rate_pct": 15,
-          "year_10_distributable_eps": 18.20,
+          "year_10_distributable_eps": 18.2,
           "terminal_pe": 18,
           "implied_price_year_10": 328,
           "current_price_approx": 62,
@@ -44,7 +44,7 @@
           "note": "Using distributable earnings (not GAAP, which includes mark-to-market noise). At 15% growth and 18x distributable earnings (modest for an asset manager), the math is very compelling."
         },
         "bull_case_10yr": {
-          "starting_distributable_eps": 4.50,
+          "starting_distributable_eps": 4.5,
           "eps_growth_rate_pct": 20,
           "year_10_distributable_eps": 27.84,
           "terminal_pe": 22,
@@ -55,7 +55,7 @@
           "note": "If Brookfield executes on its 25%+ growth plan even at 20%, and earns a premium multiple as insurance/asset management scales, this becomes a 10-bagger over a decade."
         },
         "bear_case_10yr": {
-          "starting_distributable_eps": 4.50,
+          "starting_distributable_eps": 4.5,
           "eps_growth_rate_pct": 8,
           "year_10_distributable_eps": 9.71,
           "terminal_pe": 12,
@@ -75,9 +75,9 @@
       "revenue_ttm": 75100000000,
       "net_income_ttm": 5200000000,
       "eps_diluted_ttm": 0.49,
-      "operating_margin_pct": 24.0,
+      "operating_margin_pct": 24,
       "profit_margin_pct": 4.3,
-      "distributable_earnings_per_share_est": 4.50,
+      "distributable_earnings_per_share_est": 4.5,
       "aum_total": 1100000000000,
       "fee_bearing_capital": 539000000000,
       "dividend_per_share": 0.24,
@@ -85,10 +85,30 @@
       "note": "GAAP financials are misleading for Brookfield. Revenue includes gross revenue from operating businesses (infrastructure, renewables). The key metric is distributable earnings, which strips out mark-to-market noise and non-cash items. Distributable earnings have been growing 20-25% annually."
     },
     "historical_financials": [
-      {"year": 2021, "distributable_earnings_billions_est": 5.2, "aum_billions": 690, "fee_related_earnings_billions_est": 1.7},
-      {"year": 2022, "distributable_earnings_billions_est": 5.8, "aum_billions": 790, "fee_related_earnings_billions_est": 2.1},
-      {"year": 2023, "distributable_earnings_billions_est": 6.2, "aum_billions": 925, "fee_related_earnings_billions_est": 2.5},
-      {"year": 2024, "distributable_earnings_billions_est": 7.5, "aum_billions": 1100, "fee_related_earnings_billions_est": 3.2}
+      {
+        "year": 2021,
+        "distributable_earnings_billions_est": 5.2,
+        "aum_billions": 690,
+        "fee_related_earnings_billions_est": 1.7
+      },
+      {
+        "year": 2022,
+        "distributable_earnings_billions_est": 5.8,
+        "aum_billions": 790,
+        "fee_related_earnings_billions_est": 2.1
+      },
+      {
+        "year": 2023,
+        "distributable_earnings_billions_est": 6.2,
+        "aum_billions": 925,
+        "fee_related_earnings_billions_est": 2.5
+      },
+      {
+        "year": 2024,
+        "distributable_earnings_billions_est": 7.5,
+        "aum_billions": 1100,
+        "fee_related_earnings_billions_est": 3.2
+      }
     ],
     "moat_analysis": {
       "moat_type": "Wide — Scale + Relationships + Operational Expertise + Brand",
@@ -168,5 +188,7 @@
     ],
     "confidence_level": "high",
     "analyst_notes": "Brookfield is the more complex of Akre's four conviction bets, but the thesis is actually simple: own the platform that manages $1 trillion of institutional capital, earn recurring fees, deploy your own capital alongside at high returns, and use insurance float to turbocharge returns. The Bruce Flatt comparison to Buffett is apt — both use permanent capital (insurance float) to invest in real assets at above-market returns. The discount to intrinsic value provides a margin of safety that the payment network positions (MA, V) at premium multiples do not."
-  }
+  },
+  "thesis_bullets": [],
+  "business_bullets": []
 }
