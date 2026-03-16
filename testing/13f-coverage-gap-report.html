@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SuperInvestors 13F Coverage Gap Report</title>
+  <style>
+    :root {
+      --bg: #f7f7f3;
+      --panel: #ffffff;
+      --ink: #1c1c1c;
+      --muted: #626262;
+      --line: #ddddcf;
+      --accent: #0f766e;
+      --warn: #b45309;
+      --bad: #b91c1c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .wrap {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 32px 24px 56px;
+    }
+    h1, h2 {
+      margin: 0 0 12px;
+      line-height: 1.15;
+    }
+    p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+    .hero, .section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .hero {
+      background: linear-gradient(180deg, #ffffff 0%, #f5fbfa 100%);
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      padding: 16px;
+    }
+    .value {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .label {
+      color: var(--muted);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .callout {
+      border-left: 4px solid var(--bad);
+      background: #fff7f7;
+      padding: 14px 16px;
+      border-radius: 10px;
+      margin-top: 16px;
+      color: #7f1d1d;
+    }
+    .subtle {
+      border-left-color: var(--warn);
+      background: #fffaf0;
+      color: #7c2d12;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+    }
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 10px 12px;
+      border-top: 1px solid var(--line);
+    }
+    th {
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: #fafaf8;
+    }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+    }
+    .meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+    @media (max-width: 900px) {
+      .wrap { padding: 20px 14px 40px; }
+      .hero, .section { padding: 18px; }
+      table, thead, tbody, tr, th, td { display: block; }
+      thead { display: none; }
+      tr {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        margin-bottom: 12px;
+        overflow: hidden;
+        background: #fff;
+      }
+      td {
+        border-top: 1px solid var(--line);
+      }
+      td:first-child {
+        border-top: 0;
+        font-weight: 700;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>SuperInvestors 13F Coverage Gap Report</h1>
+      <p>This report is the honest answer to the “cover all 149 profiles with 13F data” question. The current roster is much broader than the filing pipeline, so full 149-profile 13F coverage is not a small bug fix.</p>
+      <div class="cards">
+        <div class="card">
+          <div class="value">149</div>
+          <div class="label">Profiles</div>
+        </div>
+        
+        <div class="card">
+          <div class="value">60</div>
+          <div class="label">With 13F history</div>
+        </div>
+        
+        <div class="card">
+          <div class="value">60</div>
+          <div class="label">Active with zero 13F</div>
+        </div>
+        
+        <div class="card">
+          <div class="value">84</div>
+          <div class="label">Missing config</div>
+        </div>
+        
+        <div class="card">
+          <div class="value">3</div>
+          <div class="label">Config disabled</div>
+        </div>
+        
+        <div class="card">
+          <div class="value">9</div>
+          <div class="label">Inactive but with filings</div>
+        </div>
+        </div>
+      <div class="callout">
+        Full 149-profile 13F coverage is not a truthful product claim right now. Only 60 profiles have local filing history. 84 profiles are not even present in the filing config, and 3 are explicitly disabled there.
+      </div>
+      <div class="callout subtle">
+        Some zero-filing profiles are not simple omissions. A few share another person’s filing entity, and some may never have individual 13F coverage because they are non-US investors, historical legends, private allocators, or sub-scale managers.
+      </div>
+      <div class="meta">Generated from /Users/ravf/projects/superinvestors-app-deploy/superinvestors.db and /Users/ravf/projects/superinvestors-app-deploy/data/config.py</div>
+    </section>
+
+    <section class="section">
+      <h2>Active Profiles With Zero 13F History</h2>
+      <p>These are the profiles that make the current “149 tracked” roster materially larger than the actual 13F dataset. Most of the remaining data project is here.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Slug</th>
+            <th>Status</th>
+            <th>Filings</th>
+            <th>Bucket</th>
+            <th>Config Key</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Allan Mecham</td><td><code>allan-mecham</code></td><td>Active</td><td>0</td><td>Config present, 13F disabled</td><td><code>arlington_value</code></td><td>Explicitly disabled in config under `arlington_value`.</td></tr>
+<tr><td>Aswath Damodaran</td><td><code>aswath-damodaran</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Barry Sternlicht</td><td><code>barry-sternlicht</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Benjamin Graham</td><td><code>benjamin-graham</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Bill Gurley</td><td><code>bill-gurley</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Bruce Karsh</td><td><code>bruce-karsh</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Cathie Wood</td><td><code>cathie-wood</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Cheah Cheng Hye</td><td><code>cheah-cheng-hye</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Chuck Royce</td><td><code>chuck-royce</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Cliff Asness</td><td><code>cliff-asness</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>David Herro</td><td><code>david-herro</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>David Shaw</td><td><code>david-shaw</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>David Winters</td><td><code>david-winters</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Edouard Carmignac</td><td><code>edouard-carmignac</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Egon Durban</td><td><code>egon-durban</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Francisco Garcia Parames</td><td><code>francisco-garcia-parames</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Guy Spier</td><td><code>guy-spier</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Hamish Douglass</td><td><code>hamish-douglass</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Harris Kupperman (Kuppy)</td><td><code>harris-kupperman-kuppy</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Henry Kravis &amp; George Roberts</td><td><code>henry-kravis-george-roberts</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Howard Marks</td><td><code>howard-marks</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Jake Rosser</td><td><code>jake-rosser</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Jake Taylor</td><td><code>jake-taylor</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Jane Mendillo</td><td><code>jane-mendillo</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Jean-Jacques Durand</td><td><code>jean-jacques-durand</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Jim Rogers</td><td><code>jim-rogers</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Joel Greenblatt</td><td><code>joel-greenblatt</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>John Collison &amp; Patrick Collison</td><td><code>john-collison-patrick-collison</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>John Griffin</td><td><code>john-griffin</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>John Overdeck &amp; David Siegel</td><td><code>john-overdeck-david-siegel</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Julian Baker &amp; Felix Baker</td><td><code>julian-baker-felix-baker</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Ken Griffin</td><td><code>ken-griffin</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Kerr Neilson</td><td><code>kerr-neilson</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Kim Lew</td><td><code>kim-lew</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Kyle Bass</td><td><code>kyle-bass</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Leon Black</td><td><code>leon-black</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Loews Corporation (Tisch family)</td><td><code>loews-corporation-tisch-family</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Marc Andreessen &amp; Ben Horowitz</td><td><code>marc-andreessen-ben-horowitz</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Marc Lasry</td><td><code>marc-lasry</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Mark Cuban</td><td><code>mark-cuban</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Mason Hawkins</td><td><code>mason-hawkins</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Matthew McLennan</td><td><code>matthew-mclennan</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Michael Mauboussin</td><td><code>michael-mauboussin</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Michael Saylor</td><td><code>michael-saylor</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Nick Train</td><td><code>nick-train</code></td><td>Active</td><td>0</td><td>Config present, 13F disabled</td><td><code>lindsell_train</code></td><td>Explicitly disabled in config under `lindsell_train`.</td></tr>
+<tr><td>Orlando Bravo</td><td><code>orlando-bravo</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Paul Tudor Jones</td><td><code>paul-tudor-jones</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Peter Lynch</td><td><code>peter-lynch</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Rajiv Jain</td><td><code>rajiv-jain</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Robert Vinall</td><td><code>robert-vinall</code></td><td>Active</td><td>0</td><td>Config present, 13F disabled</td><td><code>rv_capital</code></td><td>Explicitly disabled in config under `rv_capital`.</td></tr>
+<tr><td>Shuhei Abe</td><td><code>shuhei-abe</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Stephen Schwarzman</td><td><code>stephen-schwarzman</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Steve Cohen</td><td><code>steve-cohen</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Ted Weschler</td><td><code>ted-weschler</code></td><td>Active</td><td>0</td><td>Shares another covered filing entity</td><td><code></code></td><td>Shares Berkshire&#x27;s 13F with Warren Buffett/Todd Combs.</td></tr>
+<tr><td>Tobias Carlisle</td><td><code>tobias-carlisle</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Todd Combs</td><td><code>todd-combs</code></td><td>Active</td><td>0</td><td>Shares another covered filing entity</td><td><code></code></td><td>Shares Berkshire&#x27;s 13F with Warren Buffett/Ted Weschler.</td></tr>
+<tr><td>V-Nee Yeh</td><td><code>v-nee-yeh</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Whitney Tilson</td><td><code>whitney-tilson</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Will Danoff</td><td><code>will-danoff</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+<tr><td>Wong Kok Hoi</td><td><code>wong-kok-hoi</code></td><td>Active</td><td>0</td><td>No filing config entry</td><td><code></code></td><td>No config mapping exists yet.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Inactive Profiles That Already Have Filing History</h2>
+      <p>These are historically useful profiles, but they should not be confused with current live filing coverage.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Slug</th>
+            <th>Status</th>
+            <th>Filings</th>
+            <th>Bucket</th>
+            <th>Config Key</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>George Soros</td><td><code>george-soros</code></td><td>Inactive</td><td>112</td><td>Covered</td><td><code>soros_fund</code></td><td>Mapped to config key `soros_fund`, but the local DB still has zero filings.</td></tr>
+<tr><td>Bruce Berkowitz</td><td><code>bruce-berkowitz</code></td><td>Inactive</td><td>108</td><td>Covered</td><td><code>fairholme_capital</code></td><td>Mapped to config key `fairholme_capital`, but the local DB still has zero filings.</td></tr>
+<tr><td>Mario Gabelli</td><td><code>mario-gabelli</code></td><td>Inactive</td><td>108</td><td>Covered</td><td><code>gamco_investors</code></td><td>Mapped to config key `gamco_investors`, but the local DB still has zero filings.</td></tr>
+<tr><td>Warren Buffett</td><td><code>warren-buffett</code></td><td>Inactive</td><td>108</td><td>Covered</td><td><code>berkshire_hathaway</code></td><td>Mapped to config key `berkshire_hathaway`, but the local DB still has zero filings.</td></tr>
+<tr><td>Arnold Van Den Berg</td><td><code>arnold-van-den-berg</code></td><td>Inactive</td><td>92</td><td>Covered</td><td><code>century_management</code></td><td>Mapped to config key `century_management`, but the local DB still has zero filings.</td></tr>
+<tr><td>Marty Whitman</td><td><code>marty-whitman</code></td><td>Inactive</td><td>85</td><td>Covered</td><td><code>third_avenue</code></td><td>Mapped to config key `third_avenue`, but the local DB still has zero filings.</td></tr>
+<tr><td>Bill Miller</td><td><code>bill-miller</code></td><td>Inactive</td><td>71</td><td>Covered</td><td><code>miller_value</code></td><td>Mapped to config key `miller_value`, but the local DB still has zero filings.</td></tr>
+<tr><td>Stanley Druckenmiller</td><td><code>stanley-druckenmiller</code></td><td>Inactive</td><td>57</td><td>Covered</td><td><code>druckenmiller_duquesne</code></td><td>Mapped to config key `druckenmiller_duquesne`, but the local DB still has zero filings.</td></tr>
+<tr><td>David Poppe</td><td><code>david-poppe</code></td><td>Inactive</td><td>32</td><td>Covered</td><td><code>ruane_cunniff</code></td><td>Mapped to config key `ruane_cunniff`, but the local DB still has zero filings.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Immediate Product Truths</h2>
+      <p>1. The roster can stay at 149 profiles, but the site should keep saying only 60 currently have filing history.</p>
+      <p>2. Reaching “all 149” would require a profile-by-profile decision: add a validated SEC filer mapping, mark it as shared coverage under another entity, or explicitly classify it as non-13F/profile-only.</p>
+      <p>3. The fastest honest next step is not bulk-adding questionable mappings. It is to triage the 84 missing-config profiles into real filer candidates versus permanent profile-only entries.</p>
+      <p>4. The 2 shared-filer profiles should probably display a UI note instead of looking like missing data.</p>
+    </section>
+  </div>
+</body>
+</html>

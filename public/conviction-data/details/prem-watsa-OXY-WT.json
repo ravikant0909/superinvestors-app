@@ -1,0 +1,65 @@
+{
+  "investor_slug": "prem-watsa",
+  "investor_name": "Prem Watsa",
+  "firm_name": "Fairfax Financial Holdings",
+  "ticker": "OXY-WT",
+  "company_name": "Occidental Petroleum Corporation (Warrants)",
+  "weight_pct": 11.94,
+  "value_millions": 249,
+  "thesis_headline": "Leveraged exposure to Occidental Petroleum through warrants \u2014 Watsa's bet on energy security, carbon capture leadership, and a Permian Basin powerhouse backed by Warren Buffett",
+  "thesis_summary": "Prem Watsa's 12% allocation to Occidental Petroleum warrants represents a leveraged bet on the energy sector through warrants that provide amplified upside. Occidental is a major US oil and gas producer with dominant Permian Basin operations and a growing carbon capture business (1PointFive). The warrants provide leveraged exposure: if OXY's stock appreciates, the warrants appreciate at a higher percentage. Watsa's contrarian energy thesis aligns with his view that oil and gas demand will remain robust for decades despite the energy transition. Warren Buffett's large Berkshire Hathaway position in OXY (28%+ stake) provides validation of the fundamental thesis.",
+  "thesis_bullets": [
+    "Warrants provide leveraged exposure to Occidental Petroleum \u2014 amplified upside if OXY stock appreciates",
+    "Occidental is a major Permian Basin producer with strong production growth and declining break-even costs",
+    "Warren Buffett/Berkshire owns 28%+ of OXY \u2014 providing validation of the long-term value thesis",
+    "Carbon capture through 1PointFive (STRATOS plant) positions OXY for the energy transition while maintaining oil production",
+    "FY2025: $21.6B revenue, $1.6B net income, $4.1B free cash flow \u2014 generating strong cash flows at current oil prices"
+  ],
+  "business_bullets": [
+    "Occidental Petroleum is a major US oil and gas producer with dominant operations in the Permian Basin, DJ Basin, and Gulf of Mexico",
+    "The company also operates OxyChem (chemicals), Midstream (pipelines), and 1PointFive (carbon capture and sequestration)",
+    "Occidental completed the acquisition of CrownRock in 2024, adding premium Permian Basin acreage",
+    "FY2025: $21.6B revenue, $1.6B net income, $4.1B free cash flow with focus on debt reduction"
+  ],
+  "why_this_price": "OXY trades at approximately $54/share with a $53B market cap. The warrants provide leveraged exposure at a fraction of the stock price. Watsa's thesis is that oil prices will remain supportive ($70+/bbl) as OPEC+ manages supply and global demand remains robust. At current prices, OXY generates strong free cash flow ($4.1B) for debt reduction and shareholder returns. The carbon capture business provides long-term optionality as regulations around emissions tighten.",
+  "investor_in_their_own_words": [
+    "Prem Watsa: 'We use warrants and options when we have high conviction in a business but want leveraged exposure. Occidental is a world-class energy company backed by Warren Buffett.'",
+    "Prem Watsa: 'The energy transition will take decades. In the meantime, oil and gas production remains essential, and low-cost producers like Occidental will generate enormous cash flows.'",
+    "Prem Watsa: 'At Fairfax, we are comfortable being contrarian. Energy stocks are out of favor with ESG-focused investors, which creates value opportunities for those willing to look past the narrative.'"
+  ],
+  "key_metrics": {
+    "revenue_fy2025": "$21.6B",
+    "net_income": "$1.6B",
+    "eps": "$1.61",
+    "free_cash_flow": "$4.1B",
+    "market_cap": "~$53B",
+    "berkshire_stake": "28%+",
+    "permian_production": "Growing",
+    "carbon_capture": "1PointFive STRATOS plant"
+  },
+  "moat_sources": [
+    "Permian Basin acreage \u2014 low-cost, long-life production assets in the most prolific US oil basin",
+    "Buffett backing \u2014 Berkshire's 28%+ stake provides validation, stability, and potential acquisition support",
+    "Carbon capture leadership \u2014 1PointFive's STRATOS is the world's largest direct air capture facility",
+    "Vertical integration \u2014 OxyChem and midstream operations provide cost advantages and diversified revenue",
+    "CrownRock acquisition added premium Permian acreage, extending the production runway"
+  ],
+  "risks": [
+    "Oil price volatility \u2014 revenue and earnings are highly sensitive to oil and gas prices",
+    "High debt load \u2014 the CrownRock acquisition increased leverage, requiring continued deleveraging",
+    "Warrant time decay \u2014 warrants have expiration dates, adding time risk beyond normal equity exposure",
+    "Carbon capture economics uncertain \u2014 1PointFive's commercial viability depends on regulatory support and carbon credit pricing",
+    "ESG divestment pressure \u2014 institutional investors increasingly avoiding fossil fuel exposure"
+  ],
+  "catalysts": [
+    "Debt reduction \u2014 using free cash flow to rapidly delever the balance sheet after CrownRock acquisition",
+    "Permian production growth at declining break-even costs",
+    "Carbon capture revenue \u2014 1PointFive STRATOS generating revenue from carbon credits and commercial partnerships",
+    "Potential Berkshire acquisition \u2014 Buffett has regulatory approval to buy up to 50% of OXY",
+    "Share buybacks and dividend increases as debt reduction targets are met"
+  ],
+  "company_brief": "Occidental Petroleum Corporation (OXY) is a major US oil and gas producer with dominant Permian Basin operations. The company also operates OxyChem (chemicals) and 1PointFive (carbon capture). Warren Buffett's Berkshire Hathaway owns 28%+ of the company. FY2025: $21.6B revenue, $1.6B net income, $4.1B free cash flow. OXY-WT represents warrants providing leveraged exposure to Occidental's stock price.",
+  "slug": "prem-watsa-OXY-WT",
+  "investor_key": "fairfax_financial",
+  "detail_path": "/conviction-data/details/prem-watsa-OXY-WT.json"
+}

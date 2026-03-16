@@ -1,0 +1,66 @@
+{
+  "investor_slug": "pat-dorsey",
+  "investor_name": "Pat Dorsey",
+  "firm_name": "Dorsey Asset Management",
+  "ticker": "N07059210",
+  "company_name": "ASML Holding NV",
+  "weight_pct": 17.89,
+  "value_millions": 206,
+  "thesis_headline": "The only company on Earth that can make the machines that make advanced semiconductors \u2014 ASML's EUV lithography monopoly is the deepest technology moat in the world",
+  "thesis_summary": "Pat Dorsey's 18% allocation to ASML reflects his thesis as the former head of equity research at Morningstar and the author of 'The Little Book That Builds Wealth' \u2014 ASML has the widest economic moat of any company he has ever analyzed. ASML holds a 100% monopoly on extreme ultraviolet (EUV) lithography machines, the critical equipment needed to manufacture advanced semiconductors below 7nm. Every leading-edge chip from TSMC, Samsung, and Intel requires ASML's EUV systems, which cost $200M+ each. There is no alternative supplier and no realistic path for a competitor to emerge \u2014 the technology took 30 years and tens of billions of dollars to develop.",
+  "thesis_bullets": [
+    "ASML has a 100% monopoly on EUV lithography \u2014 the only technology capable of manufacturing chips below 7nm, which power AI, smartphones, and data centers",
+    "Each EUV machine costs $200M+ and requires thousands of precision components from an exclusive supply chain that took 30 years to build",
+    "FY2025: EUR 32.7B revenue (+16%), EUR 9.6B net income, EUR 11.1B free cash flow \u2014 a business with 35% operating margins and extraordinary cash generation",
+    "Every major chipmaker (TSMC, Samsung, Intel) depends on ASML \u2014 there is no substitute technology and no alternative supplier",
+    "The AI revolution requires exponentially more advanced chips, which requires more ASML EUV and High-NA EUV machines"
+  ],
+  "business_bullets": [
+    "ASML Holding NV is the world's sole manufacturer of extreme ultraviolet (EUV) lithography machines, essential for producing advanced semiconductors",
+    "The company also manufactures deep ultraviolet (DUV) lithography systems used for less advanced chip manufacturing, maintaining ~90% market share in all lithography",
+    "Revenue comes from new system sales (~65%) and installed base management (service, upgrades, spare parts ~35%), providing recurring revenue",
+    "FY2025: EUR 32.7B revenue, EUR 9.6B net income, 35% operating margin, EUR 11.1B free cash flow, headquartered in Veldhoven, Netherlands"
+  ],
+  "why_this_price": "ASML trades at approximately $1,293/share with a ~$503B market cap, or roughly 52x earnings. Dorsey's thesis is that the premium valuation is justified because ASML's monopoly is permanent and growing \u2014 as AI drives demand for more advanced chips, ASML is the sole bottleneck in the semiconductor supply chain. High-NA EUV (next-gen machines at $350M+ each) extends ASML's monopoly for another decade. At 15%+ revenue growth and 35% margins, the earnings growth supports the premium multiple.",
+  "investor_in_their_own_words": [
+    "Pat Dorsey: 'ASML has the widest economic moat I have ever seen in my career. A 100% monopoly in a critical technology with no substitute is as good as it gets.'",
+    "Pat Dorsey: 'The moat at ASML is not just one thing \u2014 it's the combination of 30 years of R&D, exclusive supplier relationships, and the sheer impossibility of replicating the technology. No competitor can catch up.'",
+    "Pat Dorsey: 'I wrote the book on economic moats. ASML is the single best example of a wide moat company in the world \u2014 a monopoly supplier of a product that every technology company on Earth depends on.'",
+    "Pat Dorsey: 'When people ask me what a wide moat looks like, I point to ASML. One hundred percent market share in a technology that took 30 years and tens of billions to develop. That's a moat.'"
+  ],
+  "key_metrics": {
+    "revenue_fy2025": "EUR 32.7B",
+    "revenue_growth": "16% YoY",
+    "net_income": "EUR 9.6B",
+    "eps": "EUR 24.71",
+    "operating_margin": "35%",
+    "free_cash_flow": "EUR 11.1B",
+    "euv_market_share": "100%",
+    "market_cap": "~$503B"
+  },
+  "moat_sources": [
+    "Absolute monopoly in EUV lithography \u2014 100% market share with zero competitors capable of producing EUV systems",
+    "30 years of R&D and tens of billions in cumulative investment create an insurmountable technology barrier",
+    "Exclusive supplier ecosystem \u2014 key components (light sources from Trumpf, optics from Zeiss) are produced exclusively for ASML",
+    "Installed base lock-in \u2014 chipmakers invest billions in ASML-based fabs, creating massive switching costs",
+    "Network effects in knowledge \u2014 ASML's engineers, supply chain relationships, and institutional knowledge compound over decades"
+  ],
+  "risks": [
+    "Geopolitical risk \u2014 US/Netherlands export controls restrict ASML sales to China, its second-largest market",
+    "Semiconductor cycle \u2014 chip industry downturns can delay orders and reduce revenue temporarily",
+    "High-NA EUV adoption risk \u2014 the $350M+ next-gen machines require chipmakers to justify massive capital outlays",
+    "Customer concentration \u2014 TSMC, Samsung, and Intel represent the vast majority of revenue",
+    "Valuation risk \u2014 at 52x earnings, any disappointment in growth expectations could cause significant multiple compression"
+  ],
+  "catalysts": [
+    "AI-driven chip demand \u2014 the explosion in AI workloads requires exponentially more advanced chips, driving EUV demand",
+    "High-NA EUV ramp \u2014 next-generation machines at $350M+ each represent a major revenue growth opportunity",
+    "Installed base management growth \u2014 service and upgrade revenue from the growing installed base provides high-margin recurring income",
+    "New fab construction globally \u2014 TSMC, Intel, Samsung building new fabs in US, Europe, and Asia, each requiring multiple ASML systems",
+    "Advanced packaging demand \u2014 new chip architectures require additional lithography steps, increasing ASML content per chip"
+  ],
+  "company_brief": "ASML Holding NV is the world's sole manufacturer of extreme ultraviolet (EUV) lithography machines, the critical technology required to produce advanced semiconductors. ASML holds 100% market share in EUV and ~90% in all lithography systems. The company's machines are used by every major chipmaker (TSMC, Samsung, Intel) and there is no alternative supplier. FY2025: EUR 32.7B revenue (+16%), EUR 9.6B net income, EUR 11.1B free cash flow, 35% operating margin. Headquartered in Veldhoven, Netherlands.",
+  "slug": "pat-dorsey-N07059210",
+  "investor_key": "dorsey_asset",
+  "detail_path": "/conviction-data/details/pat-dorsey-N07059210.json"
+}

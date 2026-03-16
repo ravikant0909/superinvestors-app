@@ -330,8 +330,8 @@ Examples:
     parser.add_argument(
         "--quarters",
         type=int,
-        default=2,
-        help="Number of quarters to fetch (default: 2)",
+        default=12,
+        help="Number of quarters to fetch (default: 12, ~3 years of history)",
     )
     parser.add_argument(
         "--verbose", "-v",

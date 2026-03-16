@@ -1,0 +1,107 @@
+{
+  "investor_slug": "chris-hohn",
+  "investor_name": "Chris Hohn",
+  "firm_name": "TCI Fund Management",
+  "ticker": "SPGI",
+  "company_name": "S&P Global Inc.",
+  "weight_pct": 11.5,
+  "value_millions": 6200,
+  "thesis_headline": "The data and ratings backbone of global capital markets \u2014 a regulated oligopoly with 39% operating margins, now supercharged by the IHS Markit merger",
+  "thesis_summary": "Chris Hohn's $6.2B S&P Global position (11.5% of TCI) complements his Moody's position and reflects his conviction that the financial information infrastructure is one of the most durable monopoly franchises in the world. S&P Global is the parent of S&P Ratings (one of only three NRSROs), S&P Dow Jones Indices (the provider of the S&P 500 and 1M+ other indices), and a massive data/analytics platform that became even more dominant after the $44B IHS Markit merger in 2022. The combined entity is the essential data layer of global capital markets: credit ratings, index benchmarks, commodity pricing (Platts), market intelligence, and risk analytics. FY2024 revenue was $14.2B (+14%) with 39% operating margins and $5.6B in free cash flow. The merger synergies are driving rapid margin expansion (from 32% to 39% in one year) with significant further room for improvement. Like Moody's, S&P's ratings business is a government-granted oligopoly \u2014 issuers must obtain ratings, and investors and regulators reference S&P's indices. Hohn owns both Moody's and S&P Global because the oligopoly is durable regardless of which firm gains share within it \u2014 owning both is a bet on the permanence of the ratings and index infrastructure itself.",
+  "why_this_price": "At $6.2B and 11.5% of TCI's portfolio, SPGI is Hohn's fifth-largest position. The stock trades at roughly 38-40x trailing EPS of $12.35. Hohn's return math: (1) 10-12% organic revenue growth (ratings issuance + index AUM growth + data subscriptions), (2) 200-400bps of margin expansion from IHS Markit synergies (target: 45%+ operating margins), (3) 1-2% buyback yield, and (4) ~0.8% dividend yield. Total return: 12% revenue growth + 3% margin expansion + 1.5% buyback + 0.8% dividend = 17-18% annual return. The IHS Markit merger creates a unique catalyst: management targets $600M+ in cost synergies and $350M+ in revenue synergies, most of which are still being realized. By 2027-2028, operating margins could reach 45-48%, driving significant EPS growth even with moderate top-line growth.",
+  "investor_in_their_own_words": [
+    "Chris Hohn: 'We invest in businesses with the strongest competitive positions \u2014 companies where we have high confidence the business will be just as dominant in 10-20 years as it is today.'",
+    "Chris Hohn: 'S&P Global and Moody's together represent the essential infrastructure of global debt capital markets. This is as close to a permanent business as exists in public markets.'",
+    "Chris Hohn: 'TCI focuses on a small number of exceptional businesses. Our portfolio of 9 stocks reflects our belief that concentration in the very best companies produces superior long-term returns.'",
+    "Chris Hohn: 'We look for businesses with structural growth, high barriers to entry, and pricing power. The financial data oligopoly has all three.'",
+    "Chris Hohn (TCI Fund): TCI has generated approximately 18-20% CAGR since 2003, achieved through concentrated ownership of monopoly-quality businesses with durable competitive advantages."
+  ],
+  "valuation_math": {
+    "methodology": "Long-term compounding with merger synergy analysis",
+    "revenue_fy2024_millions": 14208,
+    "revenue_fy2023_millions": 12497,
+    "revenue_growth_pct": 13.7,
+    "net_income_fy2024_millions": 3852,
+    "net_income_growth_pct": 46.7,
+    "eps_fy2024": 12.35,
+    "eps_growth_pct": 50.1,
+    "operating_margin_fy2024_pct": 39,
+    "operating_margin_fy2023_pct": 31.9,
+    "free_cash_flow_millions": 5565,
+    "fcf_growth_pct": 56,
+    "pe_trailing": "38-40x",
+    "fcf_yield_pct": "~3.2%",
+    "ihs_markit_merger_cost_synergies_millions": "600+",
+    "ihs_markit_revenue_synergies_millions": "350+",
+    "target_operating_margin_pct": "45-48% (by 2027-2028)",
+    "total_return_projection": {
+      "revenue_growth_pct": "10-12%",
+      "margin_expansion_pct": "3%",
+      "buyback_yield_pct": "1-2%",
+      "dividend_yield_pct": 0.8,
+      "total_annual_return_pct": "17-18%"
+    },
+    "projected_2030_eps": "25-30",
+    "target_2030_pe": "30-35x",
+    "implied_2030_price": "$750-1,050",
+    "notes": "FY2024 EPS growth of 50% was supercharged by IHS Markit synergies and strong credit issuance. Normalized EPS growth is 12-15%. The S&P 500 index franchise alone is worth tens of billions \u2014 trillions of dollars in assets are benchmarked to S&P indices."
+  },
+  "key_metrics": {
+    "revenue_fy2024_millions": 14208,
+    "revenue_growth_pct": 13.7,
+    "net_income_fy2024_millions": 3852,
+    "net_income_growth_pct": 46.7,
+    "eps_fy2024": 12.35,
+    "operating_margin_pct": 39,
+    "free_cash_flow_millions": 5565,
+    "segments": "S&P Global Ratings, S&P Global Market Intelligence, S&P Dow Jones Indices, S&P Global Commodity Insights, S&P Global Mobility",
+    "ihs_markit_merger_value_billions": 44,
+    "ihs_markit_merger_year": 2022,
+    "indices_aum_benchmarked_trillions": "$16+ (including $7.6T directly indexed to S&P 500)",
+    "nrsro_designation": "One of only 3 NRSROs",
+    "platts_commodity_pricing": "Global benchmark for oil, gas, metals, agriculture pricing",
+    "employees": "~40,000"
+  },
+  "moat_sources": [
+    "Government-granted ratings oligopoly \u2014 one of only 3 NRSROs, with regulatory requirements mandating credit ratings for debt issuance",
+    "S&P 500 and Dow Jones index franchise \u2014 $16T+ in assets benchmarked to S&P indices, creating an essential standard that cannot be displaced",
+    "Platts commodity pricing \u2014 the benchmark reference price for oil, gas, and metals trading globally, deeply embedded in contracts and regulations",
+    "IHS Markit data integration \u2014 post-merger entity provides the most comprehensive financial data platform in the world",
+    "Subscription/recurring revenue \u2014 75%+ of revenue is subscription-based with 95%+ retention rates",
+    "Network effects in indices \u2014 as more assets track S&P indices, the indices become more liquid and valuable, attracting more assets",
+    "Regulatory embeddedness \u2014 Basel requirements, investment mandates, and derivative contracts reference S&P ratings and indices"
+  ],
+  "risks": [
+    "Premium valuation (38x+ earnings) creates downside risk if growth decelerates or market sentiment shifts",
+    "Regulatory risk \u2014 post-2008 scrutiny of rating agencies continues, with potential for fee caps or model changes",
+    "IHS Markit integration complexity \u2014 $44B merger brings execution risk in combining cultures, systems, and sales forces",
+    "Index fee compression \u2014 passive investing growth could lead to ETF sponsors negotiating lower licensing fees",
+    "Credit cycle dependency \u2014 ratings revenue declines when debt issuance slows during recessions",
+    "AI disruption potential \u2014 automated credit analysis could reduce demand for traditional ratings over the long term",
+    "Competition from Moody's and Fitch in ratings, MSCI in indices, Bloomberg in data"
+  ],
+  "catalysts": [
+    "IHS Markit synergy realization \u2014 $600M+ cost synergies and $350M+ revenue synergies still being captured, driving margin expansion to 45%+",
+    "Credit issuance recovery \u2014 normalized interest rate environment drives corporate refinancing and new issuance",
+    "Index revenue growth \u2014 passive investing trend drives ETF AUM growth, increasing index licensing fees",
+    "AI/analytics product launches \u2014 integration of AI capabilities into data products creates new revenue opportunities",
+    "Share buyback acceleration \u2014 $5.6B FCF supports substantial capital return",
+    "Sustainability/ESG data \u2014 growing demand for ESG ratings and sustainability analytics",
+    "Emerging market expansion \u2014 growing capital markets require ratings, index coverage, and data services"
+  ],
+  "company_brief": "S&P Global Inc. (SPGI) is the world's foremost financial information and analytics company, providing credit ratings, benchmarks, analytics, and data to global capital markets. The company operates through five segments: S&P Global Ratings (one of only three NRSROs), S&P Dow Jones Indices (provider of the S&P 500 and 1M+ other indices with $16T+ benchmarked), S&P Global Market Intelligence (financial data and analytics), S&P Global Commodity Insights (Platts \u2014 the global benchmark for commodity pricing), and S&P Global Mobility (automotive data, formerly IHS Markit automotive). The company's competitive position was dramatically strengthened by the $44B merger with IHS Markit in 2022, creating the most comprehensive financial data platform in the world. FY2024 revenue was $14.2B (+14%), net income $3.9B (+47%), operating margin 39% (expanding rapidly), and free cash flow $5.6B (+56%). The company employs ~40,000 people across 30+ countries. S&P Global's moat is structural: regulatory requirements mandate credit ratings, trillions in assets are benchmarked to S&P indices, and Platts pricing is embedded in global commodity contracts.",
+  "thesis_bullets": [
+    "Chris Hohn's $6.2B S&P Global position (11.5% of TCI) complements his Moody's position and reflects his conviction that the financial information infrastructure is one of the most durable monopoly franchises in the world. S&P Global is the parent of S&P Ratings (one of only three NRSROs), S&P Dow Jones Indices (the provider of the S&P 500 and 1M+ other indices), and a massive data/analytics platform that became even more dominant after the $44B IHS Markit merger in 2022.",
+    "The combined entity is the essential data layer of global capital markets: credit ratings, index benchmarks, commodity pricing (Platts), market intelligence, and risk analytics. FY2024 revenue was $14.2B (+14%) with 39% operating margins and $5.6B in free cash flow.",
+    "The merger synergies are driving rapid margin expansion (from 32% to 39% in one year) with significant further room for improvement. Like Moody's, S&P's ratings business is a government-granted oligopoly \u2014 issuers must obtain ratings, and investors and regulators reference S&P's indices.",
+    "Hohn owns both Moody's and S&P Global because the oligopoly is durable regardless of which firm gains share within it \u2014 owning both is a bet on the permanence of the ratings and index infrastructure itself."
+  ],
+  "business_bullets": [
+    "(SPGI) is the world's foremost financial information and analytics company, providing credit ratings, benchmarks, analytics, and data to global capital markets. The company operates through five segments: S&P Global Ratings (one of only three NRSROs), S&P Dow Jones Indices (provider of the S&P 500 and 1M+ other indices with $16T+ benchmarked), S&P Global Market Intelligence (financial data and analytics), S&P Global Commodity Insights (Platts \u2014 the global benchmark for commodity pricing), and S&P Global Mobility (automotive data, formerly IHS Markit automotive).",
+    "The company's competitive position was dramatically strengthened by the $44B merger with IHS Markit in 2022, creating the most comprehensive financial data platform in the world. FY2024 revenue was $14.2B (+14%), net income $3.9B (+47%), operating margin 39% (expanding rapidly), and free cash flow $5.6B (+56%).",
+    "The company employs ~40,000 people across 30+ countries. S&P Global's moat is structural: regulatory requirements mandate credit ratings, trillions in assets are benchmarked to S&P indices, and Platts pricing is embedded in global commodity contracts."
+  ],
+  "slug": "chris-hohn-SPGI",
+  "investor_key": "tci_fund",
+  "detail_path": "/conviction-data/details/chris-hohn-SPGI.json"
+}

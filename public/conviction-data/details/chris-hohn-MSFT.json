@@ -1,0 +1,107 @@
+{
+  "investor_slug": "chris-hohn",
+  "investor_name": "Chris Hohn",
+  "firm_name": "TCI Fund Management",
+  "ticker": "MSFT",
+  "company_name": "Microsoft Corporation",
+  "weight_pct": 15.1,
+  "value_millions": 8100,
+  "thesis_headline": "The enterprise software monopoly with the most credible AI strategy \u2014 Azure + OpenAI partnership positions Microsoft as the primary infrastructure provider for the AI era",
+  "thesis_summary": "Chris Hohn's $8.1B Microsoft position (15.1% of TCI) reflects his concentrated ownership of monopoly-quality businesses. Microsoft possesses three compounding moats that are each individually dominant: (1) Windows + Office/Microsoft 365 \u2014 an enterprise productivity monopoly with 1.5B+ users generating massive recurring subscription revenue, (2) Azure \u2014 the #2 cloud platform (growing 30%+) capturing enterprise IT spending migration, and (3) the OpenAI partnership \u2014 a $13B investment giving Microsoft exclusive commercial rights to the most advanced AI models, integrated across every Microsoft product. The enterprise software switching costs are arguably the highest of any business in the world: no Fortune 500 company can realistically migrate away from Microsoft's productivity suite, Active Directory, or Azure without years of disruption. Hohn values this durability above all else. FY2024 revenue was $245B with 45% operating margins and $74B free cash flow \u2014 among the highest-quality earnings streams in corporate history. Azure AI services revenue is growing 100%+ annually, suggesting Microsoft may be the largest winner from the AI capex supercycle. At 33-35x earnings, the valuation reflects quality, but Hohn's framework accepts premium multiples for businesses with effectively permanent competitive positions.",
+  "why_this_price": "At $8.1B and 15.1% of TCI's portfolio, this is Hohn's third-largest position. Microsoft trades at roughly 33-35x FY2024 EPS of $11.80 and roughly 28x consensus FY2026 estimates. Hohn's return math: (1) 14-16% revenue growth (Azure AI acceleration + M365 pricing + LinkedIn + gaming), (2) 100-200bps of margin expansion from Azure scale and AI monetization, (3) 1-2% buyback yield, and (4) 0.7% dividend yield. Total return: 14-16% revenue growth + 1-2% margin expansion + 1.5% buyback + 0.7% dividend = 17-20% expected annual return. By FY2030, EPS could reach $25-30, and at a 25-30x terminal multiple, the stock would be $625-900. The premium multiple is justified by the business quality \u2014 Microsoft's revenue is 95%+ recurring, with gross margins above 70% and the most defensible competitive position in technology.",
+  "investor_in_their_own_words": [
+    "Chris Hohn: 'We invest in businesses with the strongest competitive positions \u2014 companies where we have high confidence the business will be just as dominant in 10-20 years as it is today.'",
+    "Chris Hohn: 'TCI focuses on a small number of exceptional businesses. Our portfolio of 9 stocks reflects our belief that concentration in the very best companies produces superior long-term returns.'",
+    "Chris Hohn: 'We look for businesses with structural growth, high barriers to entry, and pricing power. Microsoft has all three \u2014 it is the infrastructure layer of the global economy.'",
+    "Chris Hohn: 'The quality of the business is what matters most. If you own the right businesses, the price you pay matters less over a long enough time horizon.'",
+    "Chris Hohn (TCI Fund): TCI has generated approximately 18-20% CAGR since 2003 through concentrated ownership of monopoly-quality businesses with durable competitive advantages."
+  ],
+  "valuation_math": {
+    "methodology": "Long-term compounding analysis with monopoly premium",
+    "revenue_fy2024_millions": 245122,
+    "revenue_fy2023_millions": 211915,
+    "revenue_growth_pct": 15.7,
+    "net_income_fy2024_millions": 88136,
+    "net_income_growth_pct": 21.8,
+    "eps_fy2024": 11.8,
+    "eps_growth_pct": 21.9,
+    "operating_margin_pct": 44.6,
+    "free_cash_flow_fy2024_millions": 74071,
+    "pe_trailing": "33-35x",
+    "fcf_yield_pct": "~2.5%",
+    "azure_revenue_growth_pct": "30+ (accelerating with AI)",
+    "azure_ai_revenue_growth_pct": "100+",
+    "m365_commercial_seats_millions": "400+",
+    "total_return_projection": {
+      "revenue_growth_pct": "14-16%",
+      "margin_expansion_pct": "1-2%",
+      "buyback_yield_pct": "1-2%",
+      "dividend_yield_pct": 0.7,
+      "total_annual_return_pct": "17-20%"
+    },
+    "projected_fy2030_eps": "25-30",
+    "target_fy2030_pe": "25-30x",
+    "implied_fy2030_price": "$625-900",
+    "notes": "Microsoft's June fiscal year means FY2024 covers Jul 2023-Jun 2024. Azure AI services revenue exceeded a $10B annual run rate in early 2025. The OpenAI partnership ($13B invested) provides exclusive commercial access to GPT-4/5, integrated across Copilot, Azure, Office, and GitHub."
+  },
+  "key_metrics": {
+    "revenue_fy2024_millions": 245122,
+    "revenue_growth_pct": 15.7,
+    "net_income_fy2024_millions": 88136,
+    "net_income_growth_pct": 21.8,
+    "eps_fy2024": 11.8,
+    "operating_margin_pct": 44.6,
+    "free_cash_flow_millions": 74071,
+    "gross_margin_pct": "~70%",
+    "recurring_revenue_pct": "95+",
+    "azure_revenue_growth_pct": "30+",
+    "m365_commercial_seats_millions": "400+",
+    "linkedin_members_millions": "1,000+",
+    "github_developers_millions": "100+",
+    "xbox_game_pass_subscribers_millions": "34+",
+    "openai_investment_billions": 13,
+    "copilot_monthly_users": "Growing rapidly across enterprise",
+    "employees": "~228,000",
+    "capex_fy2024_billions": "~44"
+  },
+  "moat_sources": [
+    "Enterprise software monopoly \u2014 Windows + Office/M365 are the standard productivity infrastructure for virtually every business in the world. Migration costs are enormous",
+    "Azure cloud platform \u2014 #2 cloud behind AWS with 30%+ growth, accelerated by AI workload demand. Enterprise customers already running on Azure face high switching costs",
+    "OpenAI partnership \u2014 exclusive commercial rights to the most advanced AI models (GPT-4, GPT-5), integrated across every Microsoft product as Copilot",
+    "Developer ecosystem lock-in \u2014 GitHub (100M+ developers), Visual Studio, .NET framework create deep developer platform dependency",
+    "Active Directory/Entra ID \u2014 enterprise identity and security infrastructure that is extremely difficult to replace, creating deep organizational lock-in",
+    "Network effects across the stack \u2014 Teams, SharePoint, Exchange, LinkedIn all interconnect, making the cost of switching any single product much higher",
+    "95%+ recurring revenue \u2014 subscription model provides predictable, growing revenue with annual price increases"
+  ],
+  "risks": [
+    "AI capex intensity \u2014 $44B+ annual capex may not generate proportional returns if AI monetization disappoints",
+    "OpenAI relationship risk \u2014 if OpenAI develops competing distribution or renegotiates commercial terms, Microsoft's AI advantage could erode",
+    "Antitrust/regulatory risk \u2014 EU Digital Markets Act, FTC scrutiny of Activision acquisition, potential cloud computing regulations",
+    "Premium valuation (33x+ earnings) provides minimal downside protection if growth decelerates",
+    "Cloud competition from AWS and Google Cloud \u2014 while Microsoft is growing, so are competitors, and cloud margins face pricing pressure",
+    "Enterprise spending slowdown \u2014 in a recession, companies may delay cloud migration and reduce software spending"
+  ],
+  "catalysts": [
+    "AI Copilot monetization \u2014 Copilot for M365 ($30/user/month) represents a massive upselling opportunity across 400M+ commercial seats",
+    "Azure AI revenue acceleration \u2014 enterprise AI workloads driving 100%+ growth in AI services, with Azure increasingly chosen as the default AI infrastructure",
+    "GitHub Copilot adoption \u2014 developer AI tools generating incremental subscription revenue with 70%+ retention rates",
+    "M365 pricing power \u2014 annual price increases of 10-15% across enterprise licenses with near-zero churn",
+    "Gaming/Activision Blizzard \u2014 $69B acquisition provides subscription revenue growth through Game Pass",
+    "Share buyback program \u2014 Microsoft returns $25B+ annually through buybacks, reducing share count ~1.5% annually"
+  ],
+  "company_brief": "Microsoft Corporation (MSFT) is the world's largest software company and second-largest cloud computing provider, founded by Bill Gates and Paul Allen in 1975. The company operates across three segments: Productivity & Business Processes (Microsoft 365, LinkedIn, Dynamics), Intelligent Cloud (Azure, SQL Server, Windows Server), and More Personal Computing (Windows, Xbox, Surface, Search). Microsoft's competitive advantage rests on its dominant position as the enterprise productivity infrastructure standard \u2014 Windows, Office, Teams, and Active Directory are deeply embedded in virtually every large organization globally. Azure is growing 30%+ as enterprises migrate to the cloud, accelerated by AI workloads. The $13B OpenAI partnership provides Microsoft exclusive commercial rights to GPT-4/5, integrated across all products as Copilot. FY2024 (June year-end) revenue was $245B (+16%), net income $88B (+22%), operating margin 45%, and free cash flow $74B. Revenue is 95%+ recurring through subscriptions. Market cap exceeds $3 trillion. Microsoft employs ~228,000 people.",
+  "thesis_bullets": [
+    "Chris Hohn's $8.1B Microsoft position (15.1% of TCI) reflects his concentrated ownership of monopoly-quality businesses. Microsoft possesses three compounding moats that are each individually dominant: (1) Windows + Office/Microsoft 365 \u2014 an enterprise productivity monopoly with 1.5B+ users generating massive recurring subscription revenue, (2) Azure \u2014 the #2 cloud platform (growing 30%+) capturing enterprise IT spending migration, and (3) the OpenAI partnership \u2014 a $13B investment giving Microsoft exclusive commercial rights to the most advanced AI models, integrated across every Microsoft product.",
+    "The enterprise software switching costs are arguably the highest of any business in the world: no Fortune 500 company can realistically migrate away from Microsoft's productivity suite, Active Directory, or Azure without years of disruption. Hohn values this durability above all else.",
+    "FY2024 revenue was $245B with 45% operating margins and $74B free cash flow \u2014 among the highest-quality earnings streams in corporate history. Azure AI services revenue is growing 100%+ annually, suggesting Microsoft may be the largest winner from the AI capex supercycle.",
+    "At 33-35x earnings, the valuation reflects quality, but Hohn's framework accepts premium multiples for businesses with effectively permanent competitive positions."
+  ],
+  "business_bullets": [
+    "Microsoft Corporation (MSFT) is the world's largest software company and second-largest cloud computing provider, founded by Bill Gates and Paul Allen in 1975. The company operates across three segments: Productivity & Business Processes (Microsoft 365, LinkedIn, Dynamics), Intelligent Cloud (Azure, SQL Server, Windows Server), and More Personal Computing (Windows, Xbox, Surface, Search). Microsoft's competitive advantage rests on its dominant position as the enterprise productivity infrastructure standard \u2014 Windows, Office, Teams, and Active Directory are deeply embedded in virtually every large organization globally.",
+    "Azure is growing 30%+ as enterprises migrate to the cloud, accelerated by AI workloads. The $13B OpenAI partnership provides Microsoft exclusive commercial rights to GPT-4/5, integrated across all products as Copilot. FY2024 (June year-end) revenue was $245B (+16%), net income $88B (+22%), operating margin 45%, and free cash flow $74B.",
+    "Revenue is 95%+ recurring through subscriptions. Market cap exceeds $3 trillion. Microsoft employs ~228,000 people."
+  ],
+  "slug": "chris-hohn-MSFT",
+  "investor_key": "tci_fund",
+  "detail_path": "/conviction-data/details/chris-hohn-MSFT.json"
+}

@@ -1,0 +1,123 @@
+{
+  "investor_slug": "leopold-aschenbrenner",
+  "investor_name": "Leopold Aschenbrenner",
+  "firm_name": "Situational Awareness LP",
+  "ticker": "BE",
+  "company_name": "Bloom Energy Corporation",
+  "weight_pct": 16.5,
+  "value_millions": 911,
+  "thesis_headline": "The power bottleneck breaker -- Bloom Energy's solid oxide fuel cells deliver on-site electricity to data centers that can't wait years for grid connections",
+  "thesis_summary": "Aschenbrenner's $911M Bloom Energy position (16.5% of portfolio) directly addresses the critical bottleneck he identifies in 'Situational Awareness': power. His essay predicts 'American electricity production will have grown tens of percent' by decade's end to support AI infrastructure, but the grid simply cannot scale fast enough. Data centers need power NOW, and utility interconnection queues stretch 3-7 years. Bloom Energy's solid oxide fuel cells provide a solution: on-site, distributed power generation that can be deployed in months rather than years, running on natural gas or hydrogen to produce clean, reliable electricity.\n\nThis position represents Aschenbrenner's understanding that the AGI buildout isn't just about GPUs -- it's about the entire infrastructure stack, with power as the binding constraint. A single modern AI data center can consume 100-500 MW of power, equivalent to a small city. The U.S. needs to add hundreds of gigawatts of capacity for the AI buildout Aschenbrenner envisions. Bloom Energy provides 'bridge power' -- immediate, dispatchable electricity that data center operators can deploy while waiting for utility grid upgrades. The company has already signed agreements with major data center operators.\n\nAschenbrenner holds 10.1M shares ($876M) plus call options ($35M), indicating the position is primarily equity with modest option overlay. This suggests he sees Bloom Energy as a longer-duration, fundamental bet on the power buildout rather than a pure momentum trade.",
+  "why_this_price": "At $911M and 16.5% of portfolio, Bloom Energy is Aschenbrenner's second-largest position. The thesis is straightforward: data centers need power, utilities can't deliver fast enough, Bloom Energy can. The company's solid oxide fuel cell technology provides 200kW-10MW+ modular power units that can be installed on-site at data centers within months. Natural gas fuel is abundant and cheap. Revenue has been growing as data center power demand has exploded. The company is transitioning from a niche commercial fuel cell maker to a critical infrastructure provider for the AI buildout.",
+  "investor_in_their_own_words": [
+    {
+      "quote": "American electricity production will have grown tens of percent... the fierce scramble to secure every power contract has only just begun.",
+      "source": "Situational Awareness: The Decade Ahead",
+      "date": "2024-06",
+      "url": "https://situational-awareness.ai"
+    },
+    {
+      "quote": "Many trillions of dollars will go into GPU, datacenter, and power buildout before the decade is out.",
+      "source": "Situational Awareness: The Decade Ahead",
+      "date": "2024-06",
+      "url": "https://situational-awareness.ai"
+    }
+  ],
+  "valuation_math": {
+    "approach": "Revenue growth driven by data center power demand acceleration",
+    "steps": [
+      {
+        "label": "Position structure",
+        "value": "$876M shares (10.1M) + $35M call options (408K shares)",
+        "note": "Primarily equity, indicating longer-duration conviction"
+      },
+      {
+        "label": "Bloom Energy product",
+        "value": "Solid oxide fuel cells (200kW-10MW+ per site)",
+        "note": "On-site power generation running on natural gas or hydrogen"
+      },
+      {
+        "label": "Data center power gap",
+        "value": "Hundreds of GW needed vs. years-long grid queues",
+        "note": "Bloom provides immediate power -- months to deploy vs. years for utility interconnection"
+      },
+      {
+        "label": "Revenue trajectory",
+        "value": "~$1.3B FY2024 revenue, growing with data center orders",
+        "note": "Data center segment becoming the primary growth driver"
+      },
+      {
+        "label": "Margin expansion potential",
+        "value": "Operating margins improving with scale and data center mix",
+        "note": "Data center deployments are larger, more standardized, higher-margin than commercial"
+      }
+    ],
+    "target_price": "Not disclosed",
+    "current_price": "~$86.87/share implied from 13F (shares value / shares count)",
+    "implied_return": "Significant upside if data center power demand materializes per thesis",
+    "time_horizon": "3-5 years"
+  },
+  "key_metrics": {
+    "revenue": "~$1.3B (FY2024)",
+    "market_cap": "~$18-20B range",
+    "business_model": "Manufacture and sell/lease solid oxide fuel cell systems for on-site power generation",
+    "fuel_cell_efficiency": "~60% electrical efficiency (vs. ~33-40% for gas turbines)",
+    "installed_base": "800+ MW deployed globally"
+  },
+  "moat_sources": [
+    "Proprietary solid oxide fuel cell technology -- 20+ years of R&D and manufacturing scale",
+    "First-mover in distributed power for data centers -- established relationships with major operators",
+    "Manufacturing expertise -- vertically integrated fuel cell production",
+    "Reliability track record -- thousands of systems deployed with high uptime",
+    "Hydrogen-ready -- same platform can transition from natural gas to hydrogen as green H2 scales"
+  ],
+  "risks": [
+    {
+      "risk": "Grid buildout catches up, reducing need for distributed power",
+      "severity": "Medium",
+      "mitigation": "Grid buildout takes 5-10 years; Bloom provides immediate bridge power. Even with grid upgrades, on-site power offers redundancy"
+    },
+    {
+      "risk": "Small modular nuclear reactors (SMRs) become viable alternative",
+      "severity": "Low",
+      "mitigation": "SMRs are 5-10+ years from deployment at scale; Bloom is available today"
+    },
+    {
+      "risk": "Natural gas price spikes increase operating costs",
+      "severity": "Medium",
+      "mitigation": "Long-term fuel contracts available; hydrogen pathway provides diversification"
+    },
+    {
+      "risk": "Competition from traditional gas turbines, batteries, and other distributed generation",
+      "severity": "Medium",
+      "mitigation": "Bloom's efficiency advantage (60% vs. 33-40%) and modularity provide differentiation"
+    },
+    {
+      "risk": "Capital intensity of fuel cell manufacturing",
+      "severity": "Medium",
+      "mitigation": "Improving manufacturing yields and economies of scale reduce costs"
+    }
+  ],
+  "catalysts": [
+    "Major data center power supply contracts with hyperscalers (Microsoft, Google, Amazon, Meta)",
+    "Revenue acceleration from data center segment outpacing legacy commercial business",
+    "Hydrogen fuel cell deployments as green hydrogen costs decline",
+    "Margin expansion from scale and higher-value data center mix",
+    "Policy support for distributed energy and data center power infrastructure"
+  ],
+  "company_brief": "Bloom Energy (NYSE: BE) is a San Jose-based clean energy company that manufactures solid oxide fuel cells for distributed power generation. Founded in 2001, the company's 'Energy Servers' convert natural gas (or hydrogen) to electricity through an electrochemical process at approximately 60% efficiency -- significantly higher than traditional gas turbines. Originally serving commercial and industrial customers (Apple, Google, Walmart), Bloom has become a critical power provider for AI data centers that need immediate, reliable, on-site electricity without waiting years for utility grid connections. The company has deployed over 800 MW globally and is scaling production to meet explosive demand from the AI data center buildout. Bloom's technology is uniquely positioned for the AGI infrastructure thesis: it provides the power that GPU clusters need, it can be deployed in months rather than years, and it has a pathway to zero-emission operation through hydrogen.",
+  "thesis_bullets": [
+    "Aschenbrenner's $911M Bloom Energy position (16.5% of portfolio) directly addresses the critical bottleneck he identifies in 'Situational Awareness': power. His essay predicts 'American electricity production will have grown tens of percent' by decade's end to support AI infrastructure, but the grid simply cannot scale fast enough. Data centers need power NOW, and utility interconnection queues stretch 3-7 years.",
+    "Bloom Energy's solid oxide fuel cells provide a solution: on-site, distributed power generation that can be deployed in months rather than years, running on natural gas or hydrogen to produce clean, reliable electricity. This position represents Aschenbrenner's understanding that the AGI buildout isn't just about GPUs -- it's about the entire infrastructure stack, with power as the binding constraint. A single modern AI data center can consume 100-500 MW of power, equivalent to a small city.",
+    "needs to add hundreds of gigawatts of capacity for the AI buildout Aschenbrenner envisions. Bloom Energy provides 'bridge power' -- immediate, dispatchable electricity that data center operators can deploy while waiting for utility grid upgrades. The company has already signed agreements with major data center operators.",
+    "Aschenbrenner holds 10.1M shares ($876M) plus call options ($35M), indicating the position is primarily equity with modest option overlay. This suggests he sees Bloom Energy as a longer-duration, fundamental bet on the power buildout rather than a pure momentum trade."
+  ],
+  "business_bullets": [
+    "Bloom Energy (NYSE: BE) is a San Jose-based clean energy company that manufactures solid oxide fuel cells for distributed power generation. Founded in 2001, the company's 'Energy Servers' convert natural gas (or hydrogen) to electricity through an electrochemical process at approximately 60% efficiency -- significantly higher than traditional gas turbines.",
+    "Originally serving commercial and industrial customers (Apple, Google, Walmart), Bloom has become a critical power provider for AI data centers that need immediate, reliable, on-site electricity without waiting years for utility grid connections. The company has deployed over 800 MW globally and is scaling production to meet explosive demand from the AI data center buildout.",
+    "Bloom's technology is uniquely positioned for the AGI infrastructure thesis: it provides the power that GPU clusters need, it can be deployed in months rather than years, and it has a pathway to zero-emission operation through hydrogen."
+  ],
+  "slug": "leopold-aschenbrenner-BE",
+  "investor_key": "situational_awareness",
+  "detail_path": "/conviction-data/details/leopold-aschenbrenner-BE.json"
+}

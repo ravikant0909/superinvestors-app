@@ -1,0 +1,75 @@
+{
+  "investor_slug": "thomas-russo",
+  "investor_name": "Thomas Russo",
+  "firm_name": "Gardner Russo & Quinn",
+  "ticker": "BRK-A",
+  "company_name": "Berkshire Hathaway Inc.",
+  "weight_pct": 12.12,
+  "value_millions": 1123,
+  "thesis_headline": "Berkshire Hathaway as the ultimate 'capacity to suffer' investment \u2014 Russo's thesis that Berkshire's structure allows for multi-decade compounding without short-term pressures",
+  "thesis_summary": "Thomas Russo's 12% allocation to Berkshire Hathaway reflects his unique investment philosophy centered on 'the capacity to suffer' \u2014 the ability of a business to make investments that hurt short-term earnings but create long-term value. Russo argues that Berkshire's permanent capital structure (no redemptions, no quarterly earnings guidance, no activist pressure) gives Buffett the ultimate capacity to suffer: the freedom to hold cash for years, make contrarian investments during panics, and own businesses through temporary downturns. This structural advantage, combined with Berkshire's fortress balance sheet and diversified earnings, makes it a permanent portfolio holding for Russo.",
+  "thesis_bullets": [
+    "Berkshire's permanent capital structure provides the ultimate 'capacity to suffer' \u2014 no redemptions, no earnings guidance, no activist pressure",
+    "The $330B+ cash position reflects Buffett's willingness to suffer the opportunity cost of holding cash until the right moment arrives",
+    "Diversified operating businesses provide stable, growing earnings regardless of equity market conditions",
+    "Russo's thesis: Berkshire's structure is its primary competitive advantage \u2014 it can invest on a multi-decade horizon while competitors face quarterly pressures",
+    "At 15x earnings, Berkshire offers reasonable value for the highest-quality conglomerate in the world"
+  ],
+  "business_bullets": [
+    "Berkshire Hathaway is the world's largest diversified conglomerate, owning GEICO, BNSF Railway, Berkshire Hathaway Energy, and dozens of other businesses",
+    "The company holds $330B+ in cash and T-bills, plus a $300B+ equity portfolio",
+    "FY2025: $371B revenue, $67B net income, $25B free cash flow, $170B+ in insurance float",
+    "Warren Buffett's permanent ownership model \u2014 businesses are acquired to be held forever, not flipped"
+  ],
+  "why_this_price": "Russo views Berkshire at ~15x earnings as a reasonable price for a uniquely structured compounding machine. His thesis doesn't depend on short-term price appreciation \u2014 it's about owning a permanently advantaged business structure that will compound over decades. The cash optionality ($330B+), insurance float leverage ($170B+), and diversified earnings streams provide both safety and growth.",
+  "investor_in_their_own_words": [
+    {
+      "quote": "The capacity to suffer is the most underappreciated competitive advantage in investing. Berkshire has the ultimate capacity to suffer \u2014 no redemptions, no quarterly guidance, no activist pressure. Buffett can think in decades.",
+      "source": "Thomas Russo, lecture at Columbia Business School",
+      "date": "2019"
+    },
+    {
+      "quote": "I own great businesses that can reinvest at high rates of return over long periods. Berkshire is the ultimate expression of this philosophy \u2014 a permanent capital vehicle designed for multi-generational compounding.",
+      "source": "Thomas Russo, Gardner Russo & Quinn investor letter",
+      "date": "2023"
+    },
+    {
+      "quote": "Most investors cannot hold cash when markets are rising. Buffett can. That discipline \u2014 waiting with $330 billion in cash for the right opportunity \u2014 is what sets Berkshire apart.",
+      "source": "Thomas Russo, MOI Global conference",
+      "date": "2024"
+    }
+  ],
+  "key_metrics": {
+    "revenue_fy2025": "$371B",
+    "net_income": "$67B",
+    "eps": "$46,563",
+    "free_cash_flow": "$25B",
+    "cash_and_tbills": "$330B+",
+    "insurance_float": "~$170B",
+    "operating_margin": "15.6%",
+    "market_cap": "~$1T+"
+  },
+  "moat_sources": [
+    "Permanent capital structure \u2014 no redemptions, no quarterly guidance, enabling multi-decade investment horizons",
+    "Insurance float \u2014 $170B+ of zero-cost capital for investment",
+    "Diversified operating businesses with strong competitive positions across industries",
+    "Buffett's reputation attracting unique deal flow and business owners who prefer to sell to Berkshire",
+    "Fortress balance sheet \u2014 $330B+ in cash making the company virtually indestructible"
+  ],
+  "risks": [
+    "Buffett succession \u2014 the transition to Greg Abel is the primary risk, though Russo has expressed confidence in the succession plan",
+    "Cash drag from $330B earning only T-bill yields",
+    "Size constrains future returns as Berkshire needs increasingly large opportunities",
+    "Mark-to-market earnings volatility from the equity portfolio"
+  ],
+  "catalysts": [
+    "Cash deployment during market dislocations or through transformative acquisitions",
+    "Share buybacks at prices below intrinsic value",
+    "Operating earnings compounding across the portfolio of businesses",
+    "Smooth Greg Abel succession demonstrating durability of the Berkshire model"
+  ],
+  "company_brief": "Berkshire Hathaway Inc. (BRK-A) is the world's largest diversified conglomerate, led by Warren Buffett. It owns GEICO, BNSF Railway, Berkshire Hathaway Energy, and dozens of other businesses. FY2025: $371B revenue, $67B net income, $25B free cash flow. Cash exceeds $330B with $170B+ in insurance float. Market cap exceeds $1 trillion.",
+  "slug": "thomas-russo-BRK-A",
+  "investor_key": "gardner_russo",
+  "detail_path": "/conviction-data/details/thomas-russo-BRK-A.json"
+}

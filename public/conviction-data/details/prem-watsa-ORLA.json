@@ -1,0 +1,64 @@
+{
+  "investor_slug": "prem-watsa",
+  "investor_name": "Prem Watsa",
+  "firm_name": "Fairfax Financial Holdings",
+  "ticker": "ORLA",
+  "company_name": "Orla Mining Ltd.",
+  "weight_pct": 20.33,
+  "value_millions": 424,
+  "thesis_headline": "A low-cost gold producer with high-grade Mexican assets, exponential revenue growth, and deep value metrics in a rising gold price environment",
+  "thesis_summary": "Prem Watsa's 20% allocation to Orla Mining reflects his contrarian, deep-value approach applied to the gold mining sector. Orla is a growth-stage gold producer operating the Camino Rojo mine in Zacatecas, Mexico \u2014 one of the lowest-cost open-pit gold mines in the Americas. The company's revenue has grown 146% year-over-year as production ramps, and it generates massive free cash flow at current gold prices ($2,000+/oz). Watsa, who has historically been bullish on gold as an inflation hedge and currency debasement protection, sees Orla as a leveraged play on gold prices with the added benefit of production growth. The company also has development-stage projects (South Railroad in Nevada) that provide further upside.",
+  "thesis_bullets": [
+    "Orla operates the Camino Rojo mine in Mexico \u2014 a low-cost, high-margin gold operation in a well-understood geological setting",
+    "Revenue has grown 146% YoY as production ramps, with TTM revenue of $772M and rapidly improving profitability",
+    "Free cash flow of $646M reflects extraordinary cash generation at current gold prices, with an 84% FCF margin",
+    "Watsa's contrarian approach: gold miners are deeply out of favor with growth investors, creating deep value opportunities",
+    "The South Railroad project in Nevada provides a second mine with significant production growth potential"
+  ],
+  "business_bullets": [
+    "Orla Mining is a gold producer operating the Camino Rojo oxide mine in Zacatecas, Mexico, producing gold through heap leach processing",
+    "The company also owns the South Railroad gold project in Nevada's Carlin Trend, which is in the permitting/development stage",
+    "FY2024 net income was $89M with FY2025 TTM revenue of $772M, reflecting rapid production growth",
+    "Orla trades on both the NYSE (ORLA) and TSX, with operations focused on low-cost, politically stable jurisdictions"
+  ],
+  "why_this_price": "Orla trades at roughly $6/share with a market cap of approximately $1.3B. At current gold prices ($2,000+/oz), the company generates enormous free cash flow relative to its market cap. Watsa's thesis is that the stock is priced for historical production levels rather than the current production run rate, and the South Railroad development project represents significant upside not reflected in the share price.",
+  "investor_in_their_own_words": [
+    "Prem Watsa: 'We have always believed in maintaining a hedge against financial calamity. Gold miners provide that hedge with the added benefit of operating leverage to gold prices.'",
+    "Prem Watsa: 'We look for deep value \u2014 situations where the market is pricing in the worst case and ignoring the base case. Orla is a perfect example of this.'",
+    "Prem Watsa: 'At Fairfax, we are willing to be contrarian and patient. We buy when others are fearful and hold until value is recognized.'"
+  ],
+  "key_metrics": {
+    "revenue_ttm": "$772M",
+    "revenue_growth": "146% YoY",
+    "net_income_fy2024": "$89M",
+    "free_cash_flow": "$646M",
+    "fcf_margin": "84%",
+    "market_cap": "~$1.3B",
+    "primary_mine": "Camino Rojo, Mexico",
+    "development_project": "South Railroad, Nevada"
+  },
+  "moat_sources": [
+    "Low-cost production \u2014 Camino Rojo's all-in sustaining costs are among the lowest in the Americas, providing margin protection at lower gold prices",
+    "High-grade ore body \u2014 the Camino Rojo deposit has favorable metallurgy and grade, enabling efficient heap leach processing",
+    "Jurisdictional advantage \u2014 operating in Mexico with a well-understood regulatory environment and existing mining infrastructure",
+    "Growth optionality \u2014 South Railroad project in Nevada's prolific Carlin Trend provides a clear path to production doubling"
+  ],
+  "risks": [
+    "Gold price sensitivity \u2014 revenue and profitability are heavily dependent on gold prices, which can be volatile",
+    "Single-mine concentration \u2014 the majority of current revenue comes from one mine (Camino Rojo), creating operational concentration risk",
+    "Mexican political and regulatory risk \u2014 changes in mining taxes, regulations, or political stability could impact operations",
+    "Development execution risk \u2014 South Railroad project requires significant capex and regulatory approvals to reach production",
+    "Currency risk \u2014 operating costs in Mexican pesos but revenue in US dollars creates FX exposure"
+  ],
+  "catalysts": [
+    "Continued production ramp at Camino Rojo driving revenue and cash flow growth",
+    "South Railroad project advancement through permitting and into construction",
+    "Rising gold prices \u2014 gold above $2,000/oz creates extraordinary margins for low-cost producers",
+    "Potential M&A \u2014 Orla could be an acquisition target for larger gold miners seeking low-cost production growth",
+    "Dividend initiation as free cash flow generation matures"
+  ],
+  "company_brief": "Orla Mining Ltd. (ORLA) is a gold mining company operating the Camino Rojo oxide mine in Zacatecas, Mexico. The company also owns the South Railroad gold development project in Nevada's Carlin Trend. Orla has experienced rapid revenue growth (146% YoY) as its Camino Rojo production ramps, with TTM revenue of $772M, FY2024 net income of $89M, and TTM free cash flow of $646M. The company trades on both NYSE and TSX.",
+  "slug": "prem-watsa-ORLA",
+  "investor_key": "fairfax_financial",
+  "detail_path": "/conviction-data/details/prem-watsa-ORLA.json"
+}

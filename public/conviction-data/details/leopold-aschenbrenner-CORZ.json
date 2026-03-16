@@ -1,0 +1,131 @@
+{
+  "investor_slug": "leopold-aschenbrenner",
+  "investor_name": "Leopold Aschenbrenner",
+  "firm_name": "Situational Awareness LP",
+  "ticker": "CORZ",
+  "company_name": "Core Scientific, Inc.",
+  "weight_pct": 7.6,
+  "value_millions": 419,
+  "thesis_headline": "The 9.4% activist stake -- Aschenbrenner spent $362M building a controlling position in the data center operator he believes will host AGI training clusters",
+  "thesis_summary": "Aschenbrenner's Core Scientific position is unique in his portfolio: it's the only holding with a Schedule 13D filing, indicating >5% ownership and activist intent. He owns 28.8 million shares representing 9.4% of Core Scientific, spending $362.1 million to acquire the stake (per the 13D filing). This is his highest-conviction infrastructure bet -- he's not just buying the stock, he's taking a position large enough to influence the company's direction.\n\nCore Scientific is a former Bitcoin mining company that has pivoted to become a large-scale data center operator for AI/HPC workloads. The company emerged from Chapter 11 bankruptcy in early 2024 and quickly repositioned its massive power and cooling infrastructure -- originally built for crypto mining -- to host AI compute for clients like CoreWeave. Core Scientific operates data centers across multiple U.S. states with significant existing power capacity and land for expansion.\n\nThe fit with Aschenbrenner's thesis is perfect: Core Scientific has (1) existing large-scale power infrastructure (the hardest asset to acquire in the current data center boom), (2) experience managing high-density compute at scale, (3) available capacity that can be converted from Bitcoin mining to AI workloads in months rather than the years it takes to build greenfield data centers, and (4) strategic partnerships with CoreWeave (Aschenbrenner's largest position) for dedicated GPU hosting. The 13D filing states the investment was made 'based on their belief that the Common Stock, when purchased, was undervalued and represented an attractive investment opportunity.'",
+  "why_this_price": "At $419M and 7.6% of portfolio, Core Scientific is significant, but the real story is the 13D filing: 9.4% ownership, $362M invested, activist-level position. The 13D notes Aschenbrenner 'may recommend action to the Issuer's management, board of directors and stockholders' including potential 'mergers, consolidations, sales or acquisitions of assets, changes in control.' This suggests he may push for strategic decisions that accelerate the AI pivot. Core Scientific trades at an implied ~$14.56/share from the 13F. Post-bankruptcy, the company has minimal legacy debt and significant existing power/cooling infrastructure that would cost billions to replicate.",
+  "investor_in_their_own_words": [
+    {
+      "quote": "The reporting persons acquired the Common Stock for investment purposes based on their belief that the Common Stock, when purchased, was undervalued and represented an attractive investment opportunity.",
+      "source": "Schedule 13D filing with SEC (Core Scientific)",
+      "date": "2025-08-19",
+      "url": "https://www.sec.gov/Archives/edgar/data/1839341/000093583625000543/"
+    },
+    {
+      "quote": "The reporting persons may recommend action to the Issuer's management, board of directors and stockholders. Any such actions could involve one or more of the events referred to in clauses (a) through (j) of Item 4 of Schedule 13D, including, potentially, one or more mergers, consolidations, sales or acquisitions of assets.",
+      "source": "Schedule 13D filing with SEC (Core Scientific)",
+      "date": "2025-08-19",
+      "url": "https://www.sec.gov/Archives/edgar/data/1839341/000093583625000543/"
+    },
+    {
+      "quote": "Many trillions of dollars will go into GPU, datacenter, and power buildout before the decade is out. The industrial mobilization will be staggering.",
+      "source": "Situational Awareness: The Decade Ahead",
+      "date": "2024-06",
+      "url": "https://situational-awareness.ai"
+    }
+  ],
+  "valuation_math": {
+    "approach": "Asset-based valuation: existing power/cooling infrastructure repriced for AI data center demand",
+    "steps": [
+      {
+        "label": "Position structure",
+        "value": "28,756,478 shares at ~$14.56/share = $419M",
+        "note": "9.4% ownership per 13D; $362M cost basis; position has appreciated ~16% since acquisition"
+      },
+      {
+        "label": "Total acquisition cost",
+        "value": "$362,121,757.59",
+        "note": "Disclosed in 13D Item 3 -- source of funds: 'working capital of the Fund'"
+      },
+      {
+        "label": "Power infrastructure value",
+        "value": "Hundreds of MW of existing power + cooling capacity",
+        "note": "Bitcoin mining infrastructure repurposed for AI; power capacity is the scarcest data center asset"
+      },
+      {
+        "label": "CoreWeave partnership",
+        "value": "Multi-year hosting agreement for GPU compute",
+        "note": "Core Scientific hosts CoreWeave GPU clusters -- connects Aschenbrenner's #1 and #5 positions"
+      },
+      {
+        "label": "Post-bankruptcy balance sheet",
+        "value": "Minimal legacy debt after Chapter 11 restructuring",
+        "note": "Clean balance sheet allows for growth investment without leverage constraints"
+      },
+      {
+        "label": "Replacement cost analysis",
+        "value": "Building equivalent data center infrastructure would cost billions and take years",
+        "note": "Core Scientific's existing power/cooling infrastructure has significant replacement value"
+      }
+    ],
+    "target_price": "Not disclosed (activist position suggests significant upside expectation)",
+    "current_price": "~$14.56/share implied from 13F (Dec 2025)",
+    "implied_return": "Significant; activist-level position implies belief stock is meaningfully undervalued",
+    "time_horizon": "2-5 years"
+  },
+  "key_metrics": {
+    "revenue": "Growing rapidly from AI/HPC hosting contracts",
+    "market_cap": "~$4.5B (307M shares outstanding per 13D)",
+    "business_model": "Data center operator -- provides power, cooling, and physical space for GPU/ASIC compute",
+    "key_customer": "CoreWeave (multi-year GPU hosting agreement)",
+    "power_capacity": "Hundreds of MW across multiple U.S. sites"
+  },
+  "moat_sources": [
+    "Existing large-scale power infrastructure -- the scarcest and most valuable asset in the current data center boom",
+    "Experience operating high-density compute at scale (from Bitcoin mining operations)",
+    "Post-bankruptcy clean balance sheet enabling growth investment",
+    "Strategic partnership with CoreWeave for long-term GPU hosting",
+    "Multiple U.S. data center sites with power and expansion capacity"
+  ],
+  "risks": [
+    {
+      "risk": "Bitcoin mining legacy -- revenue still partially dependent on BTC price and mining economics",
+      "severity": "Medium",
+      "mitigation": "Actively pivoting to AI/HPC hosting which provides contracted, stable revenue vs. volatile mining"
+    },
+    {
+      "risk": "Execution risk in AI data center transition -- different operational requirements than mining",
+      "severity": "Medium",
+      "mitigation": "CoreWeave partnership validates capability; AI hosting is operationally similar to mining (power + cooling)"
+    },
+    {
+      "risk": "Competition from purpose-built AI data center operators (Vantage, QTS, Digital Realty)",
+      "severity": "Medium",
+      "mitigation": "Core Scientific's existing power infrastructure gives it a time-to-market advantage of 1-3 years"
+    },
+    {
+      "risk": "Activist pushback from other shareholders if Aschenbrenner pushes for strategic changes",
+      "severity": "Low",
+      "mitigation": "Post-bankruptcy shareholder base is likely aligned on maximizing value"
+    }
+  ],
+  "catalysts": [
+    "New AI/HPC hosting contracts with GPU cloud providers and hyperscalers",
+    "Revenue mix shift from Bitcoin mining to higher-margin AI hosting",
+    "Expansion of power capacity through new utility agreements",
+    "CoreWeave contract expansion or renewal at higher rates",
+    "Potential M&A activity (13D signals Aschenbrenner may push for strategic transactions)",
+    "Broader market re-rating of Bitcoin mining companies pivoting to AI data centers"
+  ],
+  "company_brief": "Core Scientific, Inc. (NASDAQ: CORZ) is a large-scale data center operator originally focused on Bitcoin mining infrastructure. Founded in 2017 and headquartered in Austin, Texas, the company filed for Chapter 11 bankruptcy protection in December 2022 amid the crypto downturn but emerged in January 2024 with a restructured balance sheet. Post-bankruptcy, Core Scientific has aggressively pivoted from Bitcoin mining to AI/HPC data center hosting, leveraging its massive existing power and cooling infrastructure -- originally built for mining ASIC chips -- to host GPU clusters for AI workloads. The company has signed a significant hosting agreement with CoreWeave and operates data center facilities across multiple U.S. states. Leopold Aschenbrenner's 9.4% ownership stake (per Schedule 13D) makes Situational Awareness LP one of Core Scientific's largest shareholders, with the fund signaling potential activist involvement in the company's strategic direction.",
+  "thesis_bullets": [
+    "Aschenbrenner's Core Scientific position is unique in his portfolio: it's the only holding with a Schedule 13D filing, indicating >5% ownership and activist intent. He owns 28.8 million shares representing 9.4% of Core Scientific, spending $362.1 million to acquire the stake (per the 13D filing).",
+    "This is his highest-conviction infrastructure bet -- he's not just buying the stock, he's taking a position large enough to influence the company's direction. Core Scientific is a former Bitcoin mining company that has pivoted to become a large-scale data center operator for AI/HPC workloads.",
+    "The company emerged from Chapter 11 bankruptcy in early 2024 and quickly repositioned its massive power and cooling infrastructure -- originally built for crypto mining -- to host AI compute for clients like CoreWeave. Core Scientific operates data centers across multiple U.S.",
+    "states with significant existing power capacity and land for expansion. The fit with Aschenbrenner's thesis is perfect: Core Scientific has (1) existing large-scale power infrastructure (the hardest asset to acquire in the current data center boom), (2) experience managing high-density compute at scale, (3) available capacity that can be converted from Bitcoin mining to AI workloads in months rather than the years it takes to build greenfield data centers, and (4) strategic partnerships with CoreWeave (Aschenbrenner's largest position) for dedicated GPU hosting.",
+    "The 13D filing states the investment was made 'based on their belief that the Common Stock, when purchased, was undervalued and represented an attractive investment opportunity.'"
+  ],
+  "business_bullets": [
+    "Core Scientific, Inc. (NASDAQ: CORZ) is a large-scale data center operator originally focused on Bitcoin mining infrastructure.",
+    "Founded in 2017 and headquartered in Austin, Texas, the company filed for Chapter 11 bankruptcy protection in December 2022 amid the crypto downturn but emerged in January 2024 with a restructured balance sheet. Post-bankruptcy, Core Scientific has aggressively pivoted from Bitcoin mining to AI/HPC data center hosting, leveraging its massive existing power and cooling infrastructure -- originally built for mining ASIC chips -- to host GPU clusters for AI workloads.",
+    "The company has signed a significant hosting agreement with CoreWeave and operates data center facilities across multiple U.S. Leopold Aschenbrenner's 9.4% ownership stake (per Schedule 13D) makes Situational Awareness LP one of Core Scientific's largest shareholders, with the fund signaling potential activist involvement in the company's strategic direction."
+  ],
+  "slug": "leopold-aschenbrenner-CORZ",
+  "investor_key": "situational_awareness",
+  "detail_path": "/conviction-data/details/leopold-aschenbrenner-CORZ.json"
+}

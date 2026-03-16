@@ -1,0 +1,64 @@
+{
+  "investor_slug": "francis-chou",
+  "investor_name": "Francis Chou",
+  "firm_name": "Chou Associates Management",
+  "ticker": "GOOG",
+  "company_name": "Alphabet Inc.",
+  "weight_pct": 11.27,
+  "value_millions": 23,
+  "thesis_headline": "Alphabet at a reasonable valuation \u2014 Francis Chou's bet on the world's most profitable information monopoly with $73B in annual free cash flow",
+  "thesis_summary": "Francis Chou's 11% allocation to Alphabet GOOG shares reflects his deep-value approach to owning high-quality businesses. Chou, who manages from Windsor, Ontario and is known for his patient, contrarian style, sees Alphabet as one of the few large-cap companies that qualifies as genuinely cheap on a cash-flow basis. Google Search's 90%+ market share, YouTube's 2.5B MAU, and Google Cloud's 30%+ growth provide a diversified and growing revenue base. At 28x earnings with $73B in free cash flow, Chou sees a wide margin of safety in a business that the market periodically discounts on AI disruption fears.",
+  "thesis_bullets": [
+    "Alphabet owns the world's most profitable information monopoly \u2014 Google Search with 90%+ global market share",
+    "FY2025: $403B revenue, $132B net income, $73B free cash flow \u2014 extraordinary profitability at scale",
+    "At 28x earnings, Alphabet trades at a reasonable multiple for 15%+ growth with dominant competitive positions",
+    "Chou's value approach: the AI disruption narrative periodically depresses the stock, creating buying opportunities",
+    "DeepMind/Gemini AI assets and Google Cloud growth provide optionality that is undervalued in the current price"
+  ],
+  "business_bullets": [
+    "Alphabet is the parent company of Google, operating Search (90%+ share), YouTube (2.5B MAU), Google Cloud (#3), and Android (3B+ devices)",
+    "Revenue is primarily from digital advertising (~77%), with Google Cloud and other bets providing diversification",
+    "The company operates DeepMind, a leading AI research lab, with Gemini models integrated across products",
+    "FY2025: $403B revenue (+15%), $132B net income (+32%), $73B free cash flow, 32% operating margin"
+  ],
+  "why_this_price": "Chou's value framework looks at normalized free cash flow relative to market cap. At $73B FCF on a ~$2.2T market cap, Alphabet yields roughly 3.3% in free cash flow before growth. With 15%+ revenue growth and expanding margins, the total return potential is attractive. The market periodically prices in AI disruption from ChatGPT, but Chou sees Google as the leading AI company, not a victim of AI disruption.",
+  "investor_in_their_own_words": [
+    "Francis Chou: 'I look for businesses trading at reasonable prices relative to their free cash flow power. Alphabet generates $73 billion in free cash flow \u2014 at this price, you're paying a very reasonable multiple for that.'",
+    "Francis Chou: 'Patience is the most important quality in value investing. I buy wonderful businesses when they're temporarily out of favor and hold them for years.'",
+    "Francis Chou: 'The market overreacts to narratives. The idea that Google will be disrupted by ChatGPT ignores the fact that Google is the world's leading AI company.'"
+  ],
+  "key_metrics": {
+    "revenue_fy2025": "$403B",
+    "revenue_growth": "15% YoY",
+    "net_income": "$132B",
+    "eps": "$10.82",
+    "operating_margin": "32%",
+    "free_cash_flow": "$73B",
+    "search_market_share": "90%+",
+    "youtube_mau": "2.5B"
+  },
+  "moat_sources": [
+    "Search monopoly \u2014 90%+ global share with 25 years of data advantage",
+    "YouTube dominance \u2014 2.5B MAU, irreplaceable creator ecosystem",
+    "Android ecosystem \u2014 3B+ active devices",
+    "DeepMind/Gemini AI leadership",
+    "Data flywheel \u2014 more users generate more data, improving AI models"
+  ],
+  "risks": [
+    "DOJ antitrust case potentially forcing structural remedies",
+    "AI chatbot competition from OpenAI/ChatGPT",
+    "Heavy AI capex ($50B+) with uncertain returns",
+    "Advertising cyclicality \u2014 77% revenue from ads"
+  ],
+  "catalysts": [
+    "Gemini AI monetization across Search and Cloud",
+    "Google Cloud 30%+ growth and profitability inflection",
+    "Waymo autonomous vehicles \u2014 market leader",
+    "$70B buyback authorization reducing share count",
+    "YouTube Connected TV monetization"
+  ],
+  "company_brief": "Alphabet Inc. (GOOG) is the parent company of Google, operating the world's dominant search engine (90%+ share), YouTube (2.5B MAU), Google Cloud (#3 cloud platform), and Android (3B+ devices). FY2025: $403B revenue (+15%), $132B net income, $73B free cash flow, 32% operating margin.",
+  "slug": "francis-chou-GOOG",
+  "investor_key": "chou_associates",
+  "detail_path": "/conviction-data/details/francis-chou-GOOG.json"
+}

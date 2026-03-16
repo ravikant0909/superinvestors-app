@@ -1,0 +1,106 @@
+{
+  "investor_slug": "chris-hohn",
+  "investor_name": "Chris Hohn",
+  "firm_name": "TCI Fund Management",
+  "ticker": "V",
+  "company_name": "Visa Inc.",
+  "weight_pct": 18.1,
+  "value_millions": 9700,
+  "thesis_headline": "The ultimate toll road on global commerce \u2014 a natural monopoly processing $15 trillion in annual payments with 66% operating margins and no credit risk",
+  "thesis_summary": "Chris Hohn's $9.7B Visa position (18.1% of TCI's portfolio) reflects his signature approach: owning monopoly-quality businesses with the strongest competitive moats in the world. Visa is one of only two global payment networks (alongside Mastercard) that process virtually all non-cash consumer transactions worldwide. The business is a pure toll booth: Visa charges a small percentage (~0.14%) on every transaction flowing through its network, generating $36B in revenue with 66% operating margins \u2014 but bears zero credit risk. The banks that issue Visa cards take the credit risk; Visa simply processes the transaction. This creates what is arguably the best business model in the world: (1) no inventory, (2) no credit risk, (3) no physical assets to maintain, (4) massive network effects (merchants must accept Visa because consumers carry it, consumers carry it because merchants accept it), and (5) a secular tailwind from the cash-to-digital payment shift. Hohn's TCI Fund owns 9 highly concentrated positions \u2014 choosing to allocate $9.7B to Visa reflects his conviction that this is one of the most durable monopolies in public markets. Visa's payment volume grows at 8-10% annually as cash continues to be displaced globally, and its margins expand with scale.",
+  "why_this_price": "At $9.7B and 18.1% of TCI's $53.6B portfolio, Visa is Hohn's second-largest position. Visa trades at roughly 30-32x earnings on FY2024 EPS of $9.73. This is a premium multiple, but Hohn's framework values durability of competitive advantage above all else. The math: (1) 10% revenue growth (global payment volume growth + pricing), (2) 200-300bps of margin expansion over time, (3) 2-3% annual share count reduction from buybacks, and (4) growing dividend. Total return: 10% revenue growth + 1-2% margin expansion + 2.5% buyback yield + 0.8% dividend yield = 14-16% annual return. At this return rate, $100 invested today is worth $375-440 in 10 years. Hohn's expected holding period is indefinite \u2014 he holds businesses for decades, not years. The premium multiple is justified because Visa's competitive position is effectively permanent.",
+  "investor_in_their_own_words": [
+    "Chris Hohn: 'We invest in businesses with the strongest competitive positions \u2014 companies where we have high confidence the business will be just as dominant in 10-20 years as it is today.'",
+    "Chris Hohn: 'TCI focuses on a small number of exceptional businesses. Our portfolio of 9 stocks reflects our belief that concentration in the very best companies produces superior long-term returns.'",
+    "Chris Hohn: 'We look for businesses with structural growth, high barriers to entry, and pricing power. We are not traders \u2014 we are long-term owners.'",
+    "Chris Hohn: 'The quality of the business is what matters most. If you own the right businesses, the price you pay matters less over a long enough time horizon.'",
+    "Chris Hohn (TCI Fund): TCI has generated approximately 18-20% CAGR since 2003, one of the best long-term records in the hedge fund industry, achieved through concentrated ownership of monopoly-quality businesses."
+  ],
+  "valuation_math": {
+    "methodology": "Long-term compounding analysis with monopoly premium, consistent with Hohn's concentrated quality approach",
+    "revenue_fy2024_millions": 35930,
+    "revenue_fy2023_millions": 32650,
+    "revenue_growth_pct": 10,
+    "net_income_fy2024_millions": 19740,
+    "net_income_growth_pct": 14.3,
+    "eps_fy2024": 9.73,
+    "eps_fy2023": 8.28,
+    "eps_growth_pct": 17.5,
+    "operating_margin_pct": 65.7,
+    "free_cash_flow_fy2024_millions": 18690,
+    "pe_trailing": "30-32x",
+    "fcf_yield_pct": "~3.5%",
+    "total_payment_volume_trillions": "~15",
+    "transaction_growth_pct": "8-10% annually",
+    "buyback_yield_pct": "2-3%",
+    "dividend_yield_pct": "~0.8%",
+    "total_return_projection": {
+      "revenue_growth_pct": 10,
+      "margin_expansion_pct": "1-2",
+      "buyback_yield_pct": 2.5,
+      "dividend_yield_pct": 0.8,
+      "total_annual_return_pct": "14-16%"
+    },
+    "projected_2030_eps": "18-22",
+    "target_2030_pe": "25-30x",
+    "implied_2030_price": "$450-660",
+    "notes": "Visa's September fiscal year means FY2024 data covers Oct 2023-Sep 2024. The slight FCF decline in FY2024 was due to timing of cash tax payments, not operational weakness. Visa bears zero credit risk \u2014 it earns toll fees on transaction volume."
+  },
+  "key_metrics": {
+    "revenue_fy2024_millions": 35930,
+    "revenue_growth_pct": 10,
+    "net_income_fy2024_millions": 19740,
+    "net_income_growth_pct": 14.3,
+    "eps_fy2024": 9.73,
+    "operating_margin_pct": 65.7,
+    "free_cash_flow_millions": 18690,
+    "total_payment_volume_trillions": "~15",
+    "transactions_processed_annually_billions": "~230",
+    "cards_in_circulation_billions": "~4.4",
+    "merchant_acceptance_locations_millions": "~130",
+    "countries_and_territories": "200+",
+    "credit_risk_borne": "ZERO \u2014 issuing banks bear all credit risk",
+    "employees": "~30,000"
+  },
+  "moat_sources": [
+    "Natural duopoly with Mastercard \u2014 Visa and Mastercard process 90%+ of global non-cash consumer payments. No third network has come close to challenging them",
+    "Network effects \u2014 merchants must accept Visa because consumers carry it; consumers carry it because merchants accept it. This creates an unbreakable circular moat",
+    "Zero credit risk \u2014 Visa is a pure payment processor. Issuing banks bear all credit risk. Visa earns toll fees regardless of whether consumers pay their bills",
+    "Secular tailwind \u2014 cash-to-digital payment shift provides a multi-decade growth driver. Global cash usage is still ~15-20% of transactions, declining every year",
+    "Massive switching costs \u2014 rebuilding a global payment network with 4.4B cards, 130M merchant locations, and 200+ countries would cost tens of billions and take decades",
+    "66% operating margins reflect near-zero marginal costs \u2014 each additional transaction costs Visa almost nothing to process",
+    "Regulatory moat \u2014 payment network licensing and compliance requirements create significant barriers to entry"
+  ],
+  "risks": [
+    "Regulatory/antitrust risk \u2014 DOJ and global regulators periodically scrutinize interchange fees and Visa's market dominance. Fee caps could compress revenue",
+    "Real-time payment systems (FedNow, PIX in Brazil, UPI in India) could bypass card networks for certain transaction types",
+    "Cryptocurrency/blockchain payment alternatives, though adoption remains minimal for consumer payments",
+    "Merchant class-action lawsuits over interchange fees \u2014 Visa settled for $5.6B in 2024 but ongoing litigation risk persists",
+    "Premium valuation (30x+ earnings) leaves little margin for error if growth decelerates",
+    "Geopolitical risk \u2014 sanctions and trade restrictions can reduce cross-border payment volumes (e.g., Russia disconnection from Visa)"
+  ],
+  "catalysts": [
+    "Cash-to-digital secular shift \u2014 15-20% of global payments are still cash, providing a decade+ of conversion tailwind",
+    "Cross-border travel recovery \u2014 international transactions carry higher fees and are growing faster than domestic",
+    "New payment flows \u2014 Visa Direct (B2B, P2P, government disbursements) opens new transaction categories beyond consumer purchases",
+    "Value-added services \u2014 data analytics, fraud prevention, and consulting services growing faster than core payments",
+    "Share buyback program \u2014 Visa returns $15B+ annually through buybacks, reducing share count 2-3% annually",
+    "Emerging market penetration \u2014 financial inclusion in Africa, Southeast Asia, and Latin America drives new card issuance"
+  ],
+  "company_brief": "Visa Inc. (V) is the world's largest electronic payment network, connecting consumers, merchants, financial institutions, and governments across 200+ countries. Founded in 1958 as BankAmericard, Visa processes approximately 230 billion transactions annually with total payment volume of ~$15 trillion. The company operates a pure toll-booth model: it charges a small percentage (~0.14%) on each transaction but bears zero credit risk \u2014 the issuing banks take all credit risk. This model produces extraordinary economics: $36B in revenue with 66% operating margins and $19B in free cash flow. Visa has 4.4 billion cards in circulation accepted at 130 million+ merchant locations. FY2024 (September year-end) revenue grew 10% with net income of $19.7B and EPS of $9.73. Visa and Mastercard together form a natural duopoly processing 90%+ of global non-cash consumer payments. The secular shift from cash to digital payments provides a multi-decade growth tailwind, with global cash usage still representing 15-20% of transactions.",
+  "thesis_bullets": [
+    "Chris Hohn's $9.7B Visa position (18.1% of TCI's portfolio) reflects his signature approach: owning monopoly-quality businesses with the strongest competitive moats in the world. Visa is one of only two global payment networks (alongside Mastercard) that process virtually all non-cash consumer transactions worldwide.",
+    "The business is a pure toll booth: Visa charges a small percentage (~0.14%) on every transaction flowing through its network, generating $36B in revenue with 66% operating margins \u2014 but bears zero credit risk. The banks that issue Visa cards take the credit risk; Visa simply processes the transaction.",
+    "This creates what is arguably the best business model in the world: (1) no inventory, (2) no credit risk, (3) no physical assets to maintain, (4) massive network effects (merchants must accept Visa because consumers carry it, consumers carry it because merchants accept it), and (5) a secular tailwind from the cash-to-digital payment shift. Hohn's TCI Fund owns 9 highly concentrated positions \u2014 choosing to allocate $9.7B to Visa reflects his conviction that this is one of the most durable monopolies in public markets.",
+    "Visa's payment volume grows at 8-10% annually as cash continues to be displaced globally, and its margins expand with scale."
+  ],
+  "business_bullets": [
+    "(V) is the world's largest electronic payment network, connecting consumers, merchants, financial institutions, and governments across 200+ countries. Founded in 1958 as BankAmericard, Visa processes approximately 230 billion transactions annually with total payment volume of ~$15 trillion.",
+    "The company operates a pure toll-booth model: it charges a small percentage (~0.14%) on each transaction but bears zero credit risk \u2014 the issuing banks take all credit risk. This model produces extraordinary economics: $36B in revenue with 66% operating margins and $19B in free cash flow.",
+    "Visa has 4.4 billion cards in circulation accepted at 130 million+ merchant locations. FY2024 (September year-end) revenue grew 10% with net income of $19.7B and EPS of $9.73.",
+    "Visa and Mastercard together form a natural duopoly processing 90%+ of global non-cash consumer payments. The secular shift from cash to digital payments provides a multi-decade growth tailwind, with global cash usage still representing 15-20% of transactions."
+  ],
+  "slug": "chris-hohn-V",
+  "investor_key": "tci_fund",
+  "detail_path": "/conviction-data/details/chris-hohn-V.json"
+}

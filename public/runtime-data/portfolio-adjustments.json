@@ -1,0 +1,698 @@
+{
+  "berkshire_hathaway": {
+    "estimated_total_aum_millions": 300000,
+    "us_13f_value_millions": 274000,
+    "non_us_pct_estimate": 5,
+    "non_us_notes": "Berkshire's 13F covers nearly all public equity holdings. Non-US exposure is minimal in the equity portfolio \u2014 primarily through US-listed ADRs and some BYD shares held via a subsidiary. The vast majority of Berkshire's non-US value comes from wholly-owned operating subsidiaries (not public equities).",
+    "known_non_us_positions": [
+      {
+        "company": "BYD Company (held via subsidiary)",
+        "country": "China",
+        "estimated_value_millions": 6000
+      },
+      {
+        "company": "Various Japanese trading companies (5 sogo shosha)",
+        "country": "Japan",
+        "estimated_value_millions": 23000
+      }
+    ],
+    "confidence": "high",
+    "sources": [
+      "Annual reports",
+      "10-K filings",
+      "Shareholder letters"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "himalaya_capital": {
+    "estimated_total_aum_millions": 20000,
+    "us_13f_value_millions": 3569,
+    "non_us_pct_estimate": 65,
+    "non_us_notes": "Li Lu's Himalaya Capital has a massive position in BYD Company (China) acquired in 2002, now worth an estimated $10-15B+. He also holds Korean equities and other Asian positions. The 13F only captures a fraction of the total portfolio. Li Lu is known to be one of BYD's largest individual shareholders.",
+    "known_non_us_positions": [
+      {
+        "company": "BYD Company",
+        "country": "China",
+        "estimated_value_millions": 12000
+      },
+      {
+        "company": "Various Korean equities",
+        "country": "South Korea",
+        "estimated_value_millions": 1500
+      },
+      {
+        "company": "Other Asian positions",
+        "country": "Asia",
+        "estimated_value_millions": 1000
+      }
+    ],
+    "confidence": "medium",
+    "sources": [
+      "Public interviews",
+      "BYD shareholder disclosures",
+      "Media reports",
+      "Charlie Munger references"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "pabrai_funds": {
+    "estimated_total_aum_millions": 1500,
+    "us_13f_value_millions": 0,
+    "non_us_pct_estimate": 90,
+    "non_us_notes": "Pabrai has largely shifted his portfolio to international markets. Last 13F was filed in 2011. He has invested heavily in Turkey (Atakey, Koc Holding, Turkiye Sise), India (Edelweiss Financial, Rain Industries), South Korea (Korea Zinc, Hyundai), and other emerging markets. His fund AUM is estimated around $1-2B.",
+    "known_non_us_positions": [
+      {
+        "company": "Turkish equities (multiple positions)",
+        "country": "Turkey",
+        "estimated_value_millions": 500
+      },
+      {
+        "company": "Indian equities (Edelweiss, Rain Industries, etc.)",
+        "country": "India",
+        "estimated_value_millions": 400
+      },
+      {
+        "company": "Korean equities (Korea Zinc, etc.)",
+        "country": "South Korea",
+        "estimated_value_millions": 300
+      },
+      {
+        "company": "Other international positions",
+        "country": "Various",
+        "estimated_value_millions": 200
+      }
+    ],
+    "confidence": "medium",
+    "sources": [
+      "Annual meeting talks",
+      "Investor interviews (YouTube)",
+      "Shambles/Dakshana Foundation disclosures"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "baupost_group": {
+    "estimated_total_aum_millions": 25000,
+    "us_13f_value_millions": 5300,
+    "non_us_pct_estimate": 10,
+    "non_us_notes": "Baupost manages ~$25B total but much is in private investments, distressed debt, real estate, and non-public securities. The 13F public equity portfolio (~$5B) is primarily US-listed. Some non-US exposure through ADRs and international distressed situations but the public equity book is heavily US-focused. The large AUM gap is mostly private/illiquid assets, not non-US public equities.",
+    "known_non_us_positions": [],
+    "confidence": "medium",
+    "sources": [
+      "Form ADV",
+      "Investor letters (leaked)",
+      "Media coverage"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "tci_fund": {
+    "estimated_total_aum_millions": 70000,
+    "us_13f_value_millions": 53600,
+    "non_us_pct_estimate": 25,
+    "non_us_notes": "TCI Fund Management (Chris Hohn) is UK-based and runs a concentrated global portfolio. The 13F captures significant US holdings but TCI also holds major non-US positions. Historically held large positions in European infrastructure (Aena, London Stock Exchange Group) and other non-US names. Total AUM estimated at $60-70B+.",
+    "known_non_us_positions": [
+      {
+        "company": "Canadian National Railway / Canadian Pacific",
+        "country": "Canada",
+        "estimated_value_millions": 5000
+      },
+      {
+        "company": "Aena SME (airport operator)",
+        "country": "Spain",
+        "estimated_value_millions": 3000
+      },
+      {
+        "company": "London Stock Exchange Group",
+        "country": "UK",
+        "estimated_value_millions": 2000
+      },
+      {
+        "company": "Other European positions",
+        "country": "Europe",
+        "estimated_value_millions": 3000
+      }
+    ],
+    "confidence": "medium",
+    "sources": [
+      "UK regulatory filings",
+      "Annual report",
+      "13D filings"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "saber_capital": {
+    "estimated_total_aum_millions": 120,
+    "us_13f_value_millions": 120,
+    "non_us_pct_estimate": 0,
+    "non_us_notes": "Saber Capital is a US-based concentrated value fund. The 13F covers essentially 100% of the public equity portfolio. No known significant non-US positions.",
+    "known_non_us_positions": [],
+    "confidence": "high",
+    "sources": [
+      "13F filings",
+      "Investor letters"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "akre_capital": {
+    "estimated_total_aum_millions": 9500,
+    "us_13f_value_millions": 9120,
+    "non_us_pct_estimate": 2,
+    "non_us_notes": "Akre Capital Management focuses almost exclusively on US-listed quality compounders. The 13F captures nearly the entire public equity portfolio. Minimal non-US exposure.",
+    "known_non_us_positions": [],
+    "confidence": "high",
+    "sources": [
+      "13F filings",
+      "Form ADV"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "appaloosa_management": {
+    "estimated_total_aum_millions": 13000,
+    "us_13f_value_millions": 6925,
+    "non_us_pct_estimate": 10,
+    "non_us_notes": "Appaloosa Management (David Tepper) is primarily US-focused. The fund has ~$13B total AUM but includes credit/distressed positions not in the 13F. Some international exposure through US-listed ADRs (e.g., Alibaba historically). The non-equity portion is credit/distressed, not necessarily non-US public equities.",
+    "known_non_us_positions": [],
+    "confidence": "medium",
+    "sources": [
+      "13F filings",
+      "Form ADV",
+      "Media reports"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "pershing_square": {
+    "estimated_total_aum_millions": 18000,
+    "us_13f_value_millions": 15500,
+    "non_us_pct_estimate": 10,
+    "non_us_notes": "Pershing Square (Bill Ackman) runs a concentrated portfolio primarily in US-listed large-cap stocks. The 13F covers most public holdings. Ackman has occasionally held non-US positions (e.g., CP Rail before merger). Pershing Square Tontine and Pershing Square Holdings (Amsterdam-listed) add some complexity but the core equity book is US-centric.",
+    "known_non_us_positions": [],
+    "confidence": "high",
+    "sources": [
+      "13F filings",
+      "Pershing Square Holdings annual reports",
+      "Investor presentations"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "markel_gayner": {
+    "estimated_total_aum_millions": 8000,
+    "us_13f_value_millions": 0,
+    "non_us_pct_estimate": 5,
+    "non_us_notes": "Markel Group (Tom Gayner) runs the equity portfolio for the Markel insurance company. Portfolio is almost entirely US-listed quality compounders. The 13F data in our system is stale (last from 2007 under old CIK). Markel's equity portfolio is disclosed in their 10-K and is ~$8B, primarily US stocks. Minimal non-US exposure.",
+    "known_non_us_positions": [],
+    "confidence": "medium",
+    "sources": [
+      "Markel 10-K annual report",
+      "Investor presentations"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "cas_investment": {
+    "estimated_total_aum_millions": 2400,
+    "us_13f_value_millions": 2337,
+    "non_us_pct_estimate": 0,
+    "non_us_notes": "CAS Investment Partners (Cliff Sosin) runs an ultra-concentrated US portfolio. The 13F covers essentially 100% of public equity holdings. No known non-US positions.",
+    "known_non_us_positions": [],
+    "confidence": "high",
+    "sources": [
+      "13F filings"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "oakcliff_capital": {
+    "estimated_total_aum_millions": 250,
+    "us_13f_value_millions": 233,
+    "non_us_pct_estimate": 0,
+    "non_us_notes": "Oakcliff Capital (Bryan Lawrence) is a concentrated US-focused quality value fund. The 13F captures essentially 100% of public equity holdings.",
+    "known_non_us_positions": [],
+    "confidence": "high",
+    "sources": [
+      "13F filings"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "giverny_capital": {
+    "estimated_total_aum_millions": 4000,
+    "us_13f_value_millions": 3000,
+    "non_us_pct_estimate": 20,
+    "non_us_notes": "Giverny Capital (Francois Rochon) is a Canadian firm that files 13F for US holdings. The fund also holds Canadian-listed equities not captured by 13F. Rochon is known to hold some Canadian banks, TMX Group, and other Canadian names. Total AUM estimated at ~$4B CAD across multiple accounts.",
+    "known_non_us_positions": [
+      {
+        "company": "Canadian equities (banks, TMX Group)",
+        "country": "Canada",
+        "estimated_value_millions": 700
+      }
+    ],
+    "confidence": "medium",
+    "sources": [
+      "13F filings",
+      "Giverny Capital annual letters",
+      "Canadian regulatory filings"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "fundsmith": {
+    "estimated_total_aum_millions": 19000,
+    "us_13f_value_millions": 17100,
+    "non_us_pct_estimate": 32,
+    "non_us_notes": "Fundsmith Equity Fund (Terry Smith) is a UK-based global fund with GBP 14.5B AUM (~$19B). The fund factsheet shows 68.1% US allocation and 31.9% non-US (France 12.1%, UK 7.5%, Denmark 4.7%, Spain 4.2%, Sweden 2.8%, Netherlands 0.6%). Known non-US holdings include L'Oreal, LVMH, Unilever, Novo Nordisk, and other European quality compounders. The 13F only captures US-listed positions.",
+    "known_non_us_positions": [
+      {
+        "company": "L'Oreal",
+        "country": "France",
+        "estimated_value_millions": 1500
+      },
+      {
+        "company": "LVMH",
+        "country": "France",
+        "estimated_value_millions": 800
+      },
+      {
+        "company": "Unilever",
+        "country": "UK",
+        "estimated_value_millions": 900
+      },
+      {
+        "company": "Novo Nordisk",
+        "country": "Denmark",
+        "estimated_value_millions": 600
+      },
+      {
+        "company": "Other European holdings (Amadeus IT, Atlas Copco, etc.)",
+        "country": "Europe",
+        "estimated_value_millions": 2200
+      }
+    ],
+    "confidence": "high",
+    "sources": [
+      "Fundsmith Equity Fund factsheet (Feb 2026)",
+      "Annual report",
+      "Fund holdings disclosures"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "semper_augustus": {
+    "estimated_total_aum_millions": 900,
+    "us_13f_value_millions": 870,
+    "non_us_pct_estimate": 0,
+    "non_us_notes": "Semper Augustus (Christopher Bloomstran) is a US-focused deep value fund. The 13F captures essentially 100% of public equity holdings. Bloomstran's largest position is typically Berkshire Hathaway. No known significant non-US positions.",
+    "known_non_us_positions": [],
+    "confidence": "high",
+    "sources": [
+      "13F filings",
+      "Annual letters"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "dorsey_asset": {
+    "estimated_total_aum_millions": 1200,
+    "us_13f_value_millions": 1150,
+    "non_us_pct_estimate": 0,
+    "non_us_notes": "Dorsey Asset Management (Pat Dorsey) focuses on US-listed wide-moat businesses. The 13F covers essentially 100% of public equity holdings. No known significant non-US positions.",
+    "known_non_us_positions": [],
+    "confidence": "high",
+    "sources": [
+      "13F filings"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "gardner_russo": {
+    "estimated_total_aum_millions": 15000,
+    "us_13f_value_millions": 9260,
+    "non_us_pct_estimate": 35,
+    "non_us_notes": "Gardner Russo & Quinn (Thomas Russo) is one of the most internationally-oriented US-based value managers. Russo is famous for his 'global value' approach and 'capacity to reinvest' thesis. He holds major positions in European consumer companies not captured by 13F, including Nestle, Richemont (Cartier parent), Pernod Ricard, and other global brands. Total AUM estimated at ~$15B with roughly 35% in non-US names.",
+    "known_non_us_positions": [
+      {
+        "company": "Nestle",
+        "country": "Switzerland",
+        "estimated_value_millions": 1500
+      },
+      {
+        "company": "Compagnie Financiere Richemont (Cartier)",
+        "country": "Switzerland",
+        "estimated_value_millions": 1200
+      },
+      {
+        "company": "Pernod Ricard",
+        "country": "France",
+        "estimated_value_millions": 500
+      },
+      {
+        "company": "Heineken",
+        "country": "Netherlands",
+        "estimated_value_millions": 400
+      },
+      {
+        "company": "Other European consumer/luxury positions",
+        "country": "Europe",
+        "estimated_value_millions": 1500
+      }
+    ],
+    "confidence": "medium",
+    "sources": [
+      "Investor presentations (Berkshire shareholders meeting)",
+      "Media interviews",
+      "Form ADV",
+      "13F filings"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "chou_associates": {
+    "estimated_total_aum_millions": 500,
+    "us_13f_value_millions": 202,
+    "non_us_pct_estimate": 50,
+    "non_us_notes": "Chou Associates (Francis Chou) is a Canadian deep value fund. The 13F captures US holdings but the fund also holds significant Canadian and international positions. Chou runs multiple funds (Chou Associates, Chou Bond, Chou Asia, Chou RRSP). The Canadian holdings and international positions are not in the 13F. Known for contrarian, distressed-style investing in Canadian and global markets.",
+    "known_non_us_positions": [
+      {
+        "company": "Canadian equities and bonds",
+        "country": "Canada",
+        "estimated_value_millions": 150
+      },
+      {
+        "company": "Asian equities (via Chou Asia Fund)",
+        "country": "Asia",
+        "estimated_value_millions": 50
+      },
+      {
+        "company": "Other international positions",
+        "country": "Various",
+        "estimated_value_millions": 50
+      }
+    ],
+    "confidence": "low",
+    "sources": [
+      "Chou Funds semi-annual reports",
+      "13F filings",
+      "Canadian regulatory filings"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "harris_associates": {
+    "estimated_total_aum_millions": 90000,
+    "us_13f_value_millions": 79100,
+    "non_us_pct_estimate": 15,
+    "non_us_notes": "Harris Associates (Bill Nygren) manages the Oakmark Funds, including the Oakmark International Fund and Oakmark Global Fund. The 13F captures the US holdings but Harris also manages ~$15-20B in international equities through Oakmark International. The international fund holds European and Japanese stocks. Total firm AUM is ~$90B.",
+    "known_non_us_positions": [
+      {
+        "company": "European equities (Oakmark International Fund)",
+        "country": "Europe",
+        "estimated_value_millions": 7000
+      },
+      {
+        "company": "Japanese equities",
+        "country": "Japan",
+        "estimated_value_millions": 3000
+      },
+      {
+        "company": "Other international positions",
+        "country": "Various",
+        "estimated_value_millions": 3000
+      }
+    ],
+    "confidence": "medium",
+    "sources": [
+      "Oakmark Funds reports",
+      "Harris Associates Form ADV",
+      "Fund prospectuses"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "davis_advisors": {
+    "estimated_total_aum_millions": 25000,
+    "us_13f_value_millions": 22250,
+    "non_us_pct_estimate": 10,
+    "non_us_notes": "Davis Selected Advisers (Chris Davis) runs the Davis Funds including Davis International Fund. The 13F captures the bulk of US holdings. Davis has some international exposure through the Davis International Fund and global mandates, but the flagship Davis New York Venture Fund is primarily US-focused.",
+    "known_non_us_positions": [
+      {
+        "company": "International holdings (via Davis International Fund)",
+        "country": "Various",
+        "estimated_value_millions": 2000
+      }
+    ],
+    "confidence": "medium",
+    "sources": [
+      "Davis Funds reports",
+      "Form ADV",
+      "Annual shareholder letter"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "ruane_cunniff": {
+    "estimated_total_aum_millions": 7000,
+    "us_13f_value_millions": 6400,
+    "non_us_pct_estimate": 5,
+    "non_us_notes": "Ruane, Cunniff & Goldfarb (Sequoia Fund, David Poppe) is primarily US-focused. The 13F captures nearly all public equity holdings. Minimal international exposure, mostly through US-listed companies with global operations.",
+    "known_non_us_positions": [],
+    "confidence": "high",
+    "sources": [
+      "13F filings",
+      "Sequoia Fund reports"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "century_management": {
+    "estimated_total_aum_millions": 450,
+    "us_13f_value_millions": 436,
+    "non_us_pct_estimate": 0,
+    "non_us_notes": "Century Management / Van Den Berg Management (Arnold Van Den Berg) is a US-focused deep value firm. The 13F captures essentially 100% of public equity holdings.",
+    "known_non_us_positions": [],
+    "confidence": "high",
+    "sources": [
+      "13F filings"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "horizon_kinetics": {
+    "estimated_total_aum_millions": 8000,
+    "us_13f_value_millions": 7394,
+    "non_us_pct_estimate": 5,
+    "non_us_notes": "Horizon Kinetics (Murray Stahl) is primarily US-focused but has some exposure to non-US royalty and real asset companies. Most holdings are US-listed. Minor non-US exposure through some international royalty companies and exchange operator stakes.",
+    "known_non_us_positions": [
+      {
+        "company": "International exchange/royalty positions",
+        "country": "Various",
+        "estimated_value_millions": 400
+      }
+    ],
+    "confidence": "medium",
+    "sources": [
+      "13F filings",
+      "Horizon Kinetics quarterly reviews"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "lone_pine": {
+    "estimated_total_aum_millions": 20000,
+    "us_13f_value_millions": 13600,
+    "non_us_pct_estimate": 25,
+    "non_us_notes": "Lone Pine Capital (Stephen Mandel) is a Tiger Cub hedge fund running long/short equity globally. The 13F captures the US long book but Lone Pine also holds non-US longs (especially in tech and consumer) and has a significant short book. Total AUM estimated at ~$20B. Known for holding positions in non-US tech/growth companies not captured by 13F.",
+    "known_non_us_positions": [
+      {
+        "company": "International tech/growth equities",
+        "country": "Various",
+        "estimated_value_millions": 4000
+      },
+      {
+        "company": "European positions",
+        "country": "Europe",
+        "estimated_value_millions": 1500
+      }
+    ],
+    "confidence": "low",
+    "sources": [
+      "Form ADV",
+      "Hedge fund databases",
+      "Media reports"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "fairfax_financial": {
+    "estimated_total_aum_millions": 55000,
+    "us_13f_value_millions": 2083,
+    "non_us_pct_estimate": 85,
+    "non_us_notes": "Fairfax Financial Holdings (Prem Watsa) is a Canadian insurance holding company with a global investment portfolio. The 13F only captures the US equity portion (~$2B), but Fairfax's total investment portfolio is ~$55B including bonds, equities, and subsidiaries globally. Major non-US holdings include Fairfax India Holdings (~$5B), significant Indian equity positions (ICICI Lombard, Quess Corp, CSB Bank, IIFL), Greek bank holdings (Eurobank), Canadian investments, and global insurance operations. The 13F massively understates Fairfax's total investment portfolio.",
+    "known_non_us_positions": [
+      {
+        "company": "Fairfax India Holdings",
+        "country": "India",
+        "estimated_value_millions": 5000
+      },
+      {
+        "company": "Eurobank (Greek bank)",
+        "country": "Greece",
+        "estimated_value_millions": 2000
+      },
+      {
+        "company": "Indian equities (ICICI Lombard, Quess, CSB Bank, IIFL)",
+        "country": "India",
+        "estimated_value_millions": 3000
+      },
+      {
+        "company": "Canadian investments",
+        "country": "Canada",
+        "estimated_value_millions": 5000
+      },
+      {
+        "company": "Bonds and fixed income (global)",
+        "country": "Various",
+        "estimated_value_millions": 30000
+      },
+      {
+        "company": "Other international equities",
+        "country": "Various",
+        "estimated_value_millions": 3000
+      }
+    ],
+    "confidence": "medium",
+    "sources": [
+      "Fairfax Financial annual report",
+      "SEDAR filings",
+      "Fairfax India Holdings reports"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "atreides_management": {
+    "estimated_total_aum_millions": 8500,
+    "us_13f_value_millions": 8184,
+    "non_us_pct_estimate": 5,
+    "non_us_notes": "Atreides Management (Gavin Baker) is a US tech/growth focused fund. The 13F captures nearly all public equity holdings. Primarily invests in US-listed technology companies. Some exposure to non-US tech through US-listed ADRs but the core book is US-centric.",
+    "known_non_us_positions": [],
+    "confidence": "high",
+    "sources": [
+      "13F filings",
+      "Form ADV"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "coatue_management": {
+    "estimated_total_aum_millions": 50000,
+    "us_13f_value_millions": 39960,
+    "non_us_pct_estimate": 15,
+    "non_us_notes": "Coatue Management (Philippe Laffont) is a Tiger Cub tech-focused hedge fund with ~$50B AUM across public and private investments. The 13F captures the US public equity book. Coatue also has private/venture investments and some non-US public equity positions, especially in Asian tech. However, the public equity book is predominantly US-listed.",
+    "known_non_us_positions": [
+      {
+        "company": "Asian tech equities",
+        "country": "Asia",
+        "estimated_value_millions": 2000
+      },
+      {
+        "company": "European tech positions",
+        "country": "Europe",
+        "estimated_value_millions": 1000
+      }
+    ],
+    "confidence": "low",
+    "sources": [
+      "13F filings",
+      "Form ADV",
+      "Media reports"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "punch_card": {
+    "estimated_total_aum_millions": 300,
+    "us_13f_value_millions": 301,
+    "non_us_pct_estimate": 0,
+    "non_us_notes": "Punch Card Management (Norbert Lou) runs an ultra-concentrated US-focused portfolio. The 13F covers essentially 100% of public equity holdings.",
+    "known_non_us_positions": [],
+    "confidence": "high",
+    "sources": [
+      "13F filings"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "situational_awareness": {
+    "estimated_total_aum_millions": 5500,
+    "us_13f_value_millions": 0,
+    "non_us_pct_estimate": 5,
+    "non_us_notes": "Situational Awareness LP (Leopold Aschenbrenner / Carl Shulman) is an AGI-thesis fund focused on AI infrastructure. Primarily invests in US-listed AI/data center/power companies. No 13F data available yet (new fund). The portfolio is expected to be predominantly US-listed given the focus on US AI infrastructure.",
+    "known_non_us_positions": [],
+    "confidence": "low",
+    "sources": [
+      "Fund announcements",
+      "Media coverage"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "rv_capital": {
+    "estimated_total_aum_millions": 500,
+    "us_13f_value_millions": 0,
+    "non_us_pct_estimate": 70,
+    "non_us_notes": "RV Capital (Robert Vinall) is a Swiss-based concentrated quality compounder fund. Files 13F sporadically. Historically held a mix of US and European positions including Constellation Software (Canada), Amazon, and various European mid-caps. The fund is small (~$500M) and the majority of holdings are non-US listed.",
+    "known_non_us_positions": [
+      {
+        "company": "European equities (various quality compounders)",
+        "country": "Europe",
+        "estimated_value_millions": 250
+      },
+      {
+        "company": "Constellation Software",
+        "country": "Canada",
+        "estimated_value_millions": 50
+      }
+    ],
+    "confidence": "low",
+    "sources": [
+      "Annual investor letters",
+      "Sporadic 13F filings"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "lindsell_train": {
+    "estimated_total_aum_millions": 15000,
+    "us_13f_value_millions": 0,
+    "non_us_pct_estimate": 85,
+    "non_us_notes": "Lindsell Train (Nick Train) is a UK-based fund manager with ~GBP 12B AUM. Ultra-low turnover, holds durable franchise businesses. Core holdings include London Stock Exchange Group, Unilever, Diageo, RELX, Mondelez, Nintendo, and other global consumer/financial brands. The majority of holdings are UK/European/Japanese listed. Files 13F but US positions are a minority.",
+    "known_non_us_positions": [
+      {
+        "company": "London Stock Exchange Group",
+        "country": "UK",
+        "estimated_value_millions": 2000
+      },
+      {
+        "company": "Unilever",
+        "country": "UK",
+        "estimated_value_millions": 1500
+      },
+      {
+        "company": "Diageo",
+        "country": "UK",
+        "estimated_value_millions": 1200
+      },
+      {
+        "company": "RELX",
+        "country": "UK",
+        "estimated_value_millions": 1000
+      },
+      {
+        "company": "Nintendo",
+        "country": "Japan",
+        "estimated_value_millions": 800
+      },
+      {
+        "company": "Other UK/European positions",
+        "country": "Various",
+        "estimated_value_millions": 3000
+      }
+    ],
+    "confidence": "medium",
+    "sources": [
+      "Lindsell Train fund reports",
+      "UK FCA filings",
+      "Annual shareholder communications"
+    ],
+    "last_updated": "2026-03-08"
+  },
+  "arlington_value": {
+    "estimated_total_aum_millions": 0,
+    "us_13f_value_millions": 0,
+    "non_us_pct_estimate": 0,
+    "non_us_notes": "Arlington Value Capital (Allan Mecham) returned outside capital around 2020. No longer actively managing external money. Last 13F filed 2020-05-15. INACTIVE.",
+    "known_non_us_positions": [],
+    "confidence": "high",
+    "sources": [
+      "SEC filings",
+      "Media reports on fund closure"
+    ],
+    "last_updated": "2026-03-08"
+  }
+}

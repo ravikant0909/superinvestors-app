@@ -1,0 +1,66 @@
+{
+  "investor_slug": "murray-stahl",
+  "investor_name": "Murray Stahl",
+  "firm_name": "Horizon Kinetics",
+  "ticker": "TPL",
+  "company_name": "Texas Pacific Land Corporation",
+  "weight_pct": 40.14,
+  "value_millions": 2968,
+  "thesis_headline": "A perpetual royalty on the most productive oil basin in the world \u2014 Texas Pacific Land owns 880,000 acres of West Texas surface rights that generate growing cash flows with zero production risk and near-zero operating costs",
+  "thesis_summary": "Murray Stahl's 40% allocation to Texas Pacific Land represents his core thesis that asset-light royalty businesses are the highest-quality compounders in existence. TPL owns approximately 880,000 acres of surface land in the Permian Basin \u2014 the most prolific oil-producing region in the world. Unlike oil producers, TPL bears no drilling costs, no production risk, and no commodity price risk on its royalty income. Revenue comes from oil and gas royalties, water sales and sourcing (critical for fracking operations), easements, and surface leases. The business operates with 74% operating margins and generates massive free cash flow relative to its tiny employee base (~100 people). Stahl has owned TPL for over a decade, arguing that the market consistently undervalues the perpetual, growing nature of these cash flows.",
+  "thesis_bullets": [
+    "TPL owns 880,000 acres of surface rights in the Permian Basin \u2014 a perpetual, irreplaceable asset that generates royalties and water revenue with no production risk",
+    "The business operates at 74% operating margins with ~100 employees, making it one of the most capital-efficient businesses in the world",
+    "Water services revenue is growing rapidly as fracking operations require massive amounts of water \u2014 TPL is the dominant water provider in West Texas",
+    "FY2025: $798M revenue, $481M net income, $450M free cash flow \u2014 a royalty stream that grows with Permian Basin activity",
+    "The land position is irreplaceable \u2014 there are no more 880,000-acre parcels of Permian Basin surface rights available for purchase"
+  ],
+  "business_bullets": [
+    "Texas Pacific Land Corporation owns ~880,000 acres of land in West Texas, primarily in the Permian Basin, making it one of the largest private landowners in the state",
+    "Revenue streams include oil and gas royalties (1/128th to 1/16th overriding royalties on minerals beneath the surface), water sales for hydraulic fracturing operations, easements for pipelines, and surface leases",
+    "The company operates with approximately 100 employees and requires minimal capital expenditure \u2014 it is essentially a toll booth on Permian Basin activity",
+    "FY2025 revenue was $798M with 92% gross margins and 74% operating margins, generating $450M in free cash flow"
+  ],
+  "why_this_price": "TPL trades at roughly $525/share with a $36B market cap, or approximately 75x earnings. The premium valuation reflects the perpetual, growing nature of the royalty streams and the irreplaceability of the land asset. Stahl's thesis is that traditional valuation metrics understate TPL's value because the cash flows are permanent \u2014 they don't require reinvestment, don't deplete, and grow with Permian Basin development. Water revenue is the key growth driver, expanding as producers drill more horizontal wells requiring millions of gallons per completion.",
+  "investor_in_their_own_words": [
+    "Murray Stahl: 'Texas Pacific Land is one of those rare businesses where the competitive advantage is literally built into the land. You cannot replicate 880,000 acres of Permian Basin surface rights.'",
+    "Murray Stahl: 'The beauty of a royalty business is that it has no operating costs, no capital expenditure requirements, and no commodity price risk on the royalty portion. It's as close to a perpetual free cash flow machine as exists.'",
+    "Murray Stahl: 'We look for businesses with infinite duration cash flows. When you own the land, you own the optionality on everything that happens on that land \u2014 forever.'",
+    "Murray Stahl: 'The water business at TPL is vastly underappreciated. Fracking requires 10-15 million gallons per well, and TPL is the dominant water provider in the most active drilling basin in the world.'"
+  ],
+  "key_metrics": {
+    "revenue_fy2025": "$798M",
+    "revenue_growth": "13% YoY",
+    "net_income": "$481M",
+    "eps": "$6.97",
+    "operating_margin": "74%",
+    "gross_margin": "92%",
+    "free_cash_flow": "$450M",
+    "land_acres": "~880,000"
+  },
+  "moat_sources": [
+    "Irreplaceable land position \u2014 880,000 acres of Permian Basin surface rights cannot be replicated by any competitor",
+    "Zero production risk \u2014 TPL collects royalties regardless of commodity prices, drilling costs, or production failures",
+    "Water monopoly \u2014 dominant water provider for Permian Basin fracking operations, with no substitute available at scale",
+    "Near-zero operating costs \u2014 ~100 employees, minimal capex, 74% operating margins",
+    "Perpetual duration \u2014 the land asset does not deplete, does not require reinvestment, and generates cash flows indefinitely"
+  ],
+  "risks": [
+    "Permian Basin activity decline \u2014 if oil prices fall sharply or drilling activity slows, royalty and water revenue would decline",
+    "Extreme valuation \u2014 at 75x earnings, any negative surprise could cause significant multiple compression",
+    "Regulatory risk \u2014 federal or state regulations on fracking, water usage, or drilling could impact TPL's revenue streams",
+    "Concentration risk \u2014 revenue is entirely dependent on one geographic region (Permian Basin, West Texas)",
+    "Climate transition \u2014 long-term shift away from fossil fuels could reduce the value of oil-related royalty streams"
+  ],
+  "catalysts": [
+    "Water revenue growth \u2014 increasing demand for water per well as lateral lengths extend and drilling activity rises",
+    "Share buybacks \u2014 TPL repurchases shares aggressively, reducing share count and increasing per-share value",
+    "Dividend growth \u2014 regular and special dividends increasing with cash flow growth",
+    "New surface lease revenue \u2014 data centers, solar farms, and other uses of West Texas land provide additional revenue optionality",
+    "Permian Basin remains the most economic oil basin globally, ensuring sustained drilling activity even at lower oil prices"
+  ],
+  "company_brief": "Texas Pacific Land Corporation (TPL) is one of the largest private landowners in Texas, owning approximately 880,000 acres of land in West Texas, primarily in the Permian Basin. The company generates revenue from oil and gas royalties, water sales for hydraulic fracturing operations, easements for pipelines and utilities, and surface leases. TPL operates with approximately 100 employees, 92% gross margins, and 74% operating margins. FY2025 revenue was $798M with $481M in net income and $450M in free cash flow. The company was originally created in 1888 as a land trust to manage the assets of the bankrupt Texas and Pacific Railway Company.",
+  "slug": "murray-stahl-TPL",
+  "investor_key": "horizon_kinetics",
+  "detail_path": "/conviction-data/details/murray-stahl-TPL.json"
+}

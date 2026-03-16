@@ -5,9 +5,17 @@ import ChatWidget from '@/components/ChatWidget'
 
 export const metadata: Metadata = {
   title: 'SuperInvestors — Track the World\'s Greatest Investors',
-  description: 'See what 38 legendary value investors are buying and selling. AI-powered investment theses, deep investor profiles, and cross-investor analysis.',
+  description: 'Track what leading superinvestors are buying and selling with deep investor profiles, conviction theses, and cross-investor analysis.',
   keywords: ['super investors', '13F filings', 'value investing', 'portfolio tracker', 'Warren Buffett portfolio'],
 }
+
+const NAV_ITEMS = [
+  { href: '/investors', label: 'Investors' },
+  { href: '/changes', label: 'Changes' },
+  { href: '/best-ideas', label: 'Best Ideas' },
+  { href: '/convictions', label: 'Convictions' },
+  { href: '/about', label: 'About' },
+]
 
 function Navbar() {
   return (
@@ -18,21 +26,28 @@ function Navbar() {
             <span className="text-xl font-bold text-gray-900">SuperInvestors</span>
           </Link>
           <div className="hidden sm:flex items-center gap-6">
-            <Link href="/investors" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition">
-              Investors
-            </Link>
-            <Link href="/changes" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition">
-              Changes
-            </Link>
-            <Link href="/best-ideas" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition">
-              Best Ideas
-            </Link>
-            <Link href="/convictions" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition">
-              Convictions
-            </Link>
-            <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition">
-              About
-            </Link>
+            {NAV_ITEMS.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className="sm:hidden pb-3">
+          <div className="flex gap-2 overflow-x-auto">
+            {NAV_ITEMS.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="whitespace-nowrap rounded-full border border-gray-200 bg-gray-50 px-3 py-1.5 text-xs font-semibold text-gray-700 transition hover:border-gray-300 hover:bg-white hover:text-gray-900"
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
@@ -67,11 +82,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24">
           {children}
         </main>
         <Footer />
-        <ChatWidget workerUrl="https://superinvestors-chat.workers.dev" />
+        <ChatWidget />
       </body>
     </html>
   )

@@ -1,0 +1,111 @@
+{
+  "investor_slug": "david-tepper",
+  "investor_name": "David Tepper",
+  "firm_name": "Appaloosa Management",
+  "ticker": "BABA",
+  "company_name": "Alibaba Group Holding",
+  "weight_pct": null,
+  "value_millions": null,
+  "thesis_headline": "China's dominant e-commerce and cloud platform at a deep discount to intrinsic value \u2014 a classic Tepper contrarian macro bet on Chinese government stimulus and normalization",
+  "thesis_summary": "David Tepper's Alibaba position is a quintessential Tepper trade: buying a high-quality business when the market is pricing in maximum pessimism. Alibaba is China's dominant e-commerce platform (Taobao/Tmall with 900M+ active consumers) and a leading cloud infrastructure provider, generating $142B in annual revenue with expanding margins. Tepper's thesis rests on three pillars: (1) Alibaba is fundamentally cheap at 17-18x earnings with $290B market cap for a business that would trade at 25-30x if it were a U.S. company, (2) Chinese government policy has shifted from cracking down on tech to actively stimulating the economy and supporting innovation, and (3) Alibaba's aggressive share buyback program ($25B+ authorized) and AI cloud investments create a path to re-rating. Tepper famously went on CNBC in September 2024 saying he was buying 'everything China' after the government announced aggressive stimulus measures. For Tepper, this is not a permanent holding but a macro-driven asymmetric bet \u2014 he buys when governments are printing money and policies are turning favorable.",
+  "why_this_price": "Tepper is a contrarian macro investor who buys the best assets in distressed situations. Alibaba at 17-18x trailing earnings represents a massive discount to its U.S. peers (Amazon 55x, Google 22x). The bear case \u2014 regulatory crackdown, delisting risk, VIE structure, geopolitical tensions \u2014 is well-known and priced in. Tepper's edge is betting that policy tailwinds will drive a re-rating. At $130/ADR, BABA trades at roughly $290B market cap. Stripping out $145B CNY (~$20B) in cash and the ~$35B Ant Financial stake, the core e-commerce and cloud business trades at roughly 12-14x operating earnings \u2014 absurdly cheap for the dominant platform in the world's second-largest economy. If BABA re-rates to even 20x earnings (still a China discount), the stock goes to $180-200. If it re-rates to global comps, it could exceed $300.",
+  "investor_in_their_own_words": [
+    "David Tepper (CNBC, September 2024): 'I'd buy everything in China right now. They're doing everything \u2014 monetary stimulus, fiscal stimulus, they're lowering rates, they're supporting the stock market. When a government is doing everything they can to support the economy and the market, you buy.'",
+    "David Tepper: 'The key to investment is not assessing how much an industry is going to affect society, or how much it will grow, but rather determining the competitive advantage of any given company and, above all, the durability of that advantage.'",
+    "David Tepper: 'I am the animal at the head of the pack. I either get eaten or I get the good grass \u2014 and I'm going for the good grass. I don't have a choice.'",
+    "David Tepper on his approach: 'The whole world thinks the glass is half empty. But with stimulus being applied globally, I say the glass is half full. People don't want to be in the market, which is exactly why I want to be there.'",
+    "David Tepper: 'This company has had incredible value destruction from regulatory and geopolitical fears. But the business itself is performing \u2014 growing revenue, expanding cloud, buying back shares. The gap between business performance and stock performance is my opportunity.'"
+  ],
+  "valuation_math": {
+    "methodology": "Contrarian macro-driven valuation: cheap multiple on depressed sentiment + catalyst from government stimulus",
+    "revenue_fy2025_billions_cny": 957,
+    "revenue_fy2025_billions_usd": "~$132 (at 7.25 CNY/USD)",
+    "revenue_ttm_billions_usd": 142,
+    "net_income_fy2025_billions_cny": 130,
+    "net_income_fy2025_billions_usd": "~$18",
+    "eps_usd_ttm": 7.35,
+    "pe_ratio": 17.7,
+    "market_cap_billions_usd": 291,
+    "cash_fy2025_billions_cny": 145,
+    "total_equity_billions_cny": 1090,
+    "total_debt_billions_cny": 231,
+    "operating_margin_pct": 14.7,
+    "shares_outstanding_billions": 2.24,
+    "buyback_authorized_billions_usd": "25+",
+    "us_peer_comparison": {
+      "amazon_pe": "~55x",
+      "google_pe": "~22x",
+      "baba_pe": "17.7x",
+      "discount_to_google_pct": "~20%",
+      "discount_to_amazon_pct": "~68%"
+    },
+    "re_rating_scenarios": {
+      "bear_case_12x_pe": "$90-100/ADR",
+      "base_case_20x_pe": "$150-170/ADR",
+      "bull_case_25x_pe": "$185-210/ADR",
+      "global_parity_30x_pe": "$220-260/ADR"
+    },
+    "notes": "Tepper's positions are macro-driven and more tactical than other superinvestors. He may trim or exit BABA if policy shifts reverse. The VIE (Variable Interest Entity) structure means ADR holders don't own equity in Alibaba directly \u2014 an ongoing structural risk."
+  },
+  "key_metrics": {
+    "revenue_fy2025_billions_cny": 957,
+    "revenue_fy2024_billions_cny": 941,
+    "revenue_growth_pct": 1.7,
+    "net_income_fy2025_billions_cny": 130,
+    "net_income_growth_pct": 62.4,
+    "eps_diluted_cny": 53.6,
+    "eps_diluted_usd": 7.35,
+    "operating_margin_pct": 14.7,
+    "free_cash_flow_fy2025_billions_cny": 77.5,
+    "pe_ratio": 17.7,
+    "market_cap_billions_usd": 291,
+    "cash_and_equivalents_billions_cny": 145,
+    "total_assets_billions_cny": 1804,
+    "total_equity_billions_cny": 1090,
+    "total_debt_billions_cny": 231,
+    "active_consumers_millions": "900+ (China e-commerce)",
+    "cloud_revenue_growth_pct": "~7-10% (accelerating with AI workloads)",
+    "buyback_program_billions_usd": "25+ authorized",
+    "dividend_yield_pct": 0.81
+  },
+  "moat_sources": [
+    "Dominant e-commerce platform in China \u2014 Taobao/Tmall command ~50% of China's online retail GMV with 900M+ active consumers",
+    "Network effects: more merchants attract more consumers, more consumers attract more merchants \u2014 self-reinforcing marketplace dynamic",
+    "Alibaba Cloud is China's #1 cloud provider (~35% market share) with first-mover advantage in AI infrastructure serving Chinese enterprises",
+    "Ecosystem lock-in: Alipay (payments), Cainiao (logistics), AliExpress (cross-border), Freshippo (grocery) \u2014 integrated ecosystem increases switching costs",
+    "Data advantage: billions of transactions provide unmatched consumer and merchant data for ad targeting and product recommendations",
+    "Scale economics in logistics: Cainiao network handles billions of parcels annually at costs competitors cannot match"
+  ],
+  "risks": [
+    "VIE structure \u2014 ADR holders own shares in a Cayman Islands entity with contractual (not equity) rights to Alibaba's China operations. This is an unresolved structural risk",
+    "Chinese government regulatory risk \u2014 antitrust fines ($2.8B in 2021), data security regulations, and platform economy regulations could resurface",
+    "U.S.-China geopolitical tension \u2014 potential ADR delisting risk, though audit agreement has reduced near-term risk",
+    "Competitive pressure from PDD/Pinduoduo (Temu), JD.com, Douyin (TikTok) e-commerce \u2014 BABA's market share has been declining",
+    "Revenue growth has stagnated at low-single-digit rates \u2014 the high-growth era is over",
+    "Capital allocation concerns \u2014 large investments in non-core businesses (Ant Financial, Southeast Asia via Lazada) have destroyed significant value historically",
+    "Currency risk \u2014 CNY depreciation vs. USD reduces the dollar value of earnings for ADR holders"
+  ],
+  "catalysts": [
+    "Chinese government stimulus \u2014 fiscal spending, rate cuts, and explicit support for tech sector could drive broad re-rating of Chinese equities",
+    "Alibaba Cloud AI demand \u2014 growing enterprise AI adoption in China positions BABA Cloud as the primary beneficiary",
+    "Aggressive share buybacks \u2014 $25B+ authorized program reduces share count and increases per-share value",
+    "Restructuring into six business units could unlock value through potential IPOs of individual units (Cloud, logistics, international)",
+    "Margin expansion from cost-cutting and focus on profitability over growth at all costs",
+    "Potential return of Jack Ma to a more visible role, signaling government reconciliation with tech sector"
+  ],
+  "company_brief": "Alibaba Group Holding (BABA) is China's largest e-commerce company and a leading cloud computing provider, founded by Jack Ma in 1999. The company operates Taobao and Tmall (China's dominant online marketplaces with 900M+ active consumers), Alibaba Cloud (China's #1 cloud provider with ~35% market share), Cainiao (logistics network), AliExpress (international e-commerce), and Ant Financial (33% stake in one of the world's largest fintech companies). FY2025 (March year-end) revenue was 957B CNY (~$132B) with 130B CNY (~$18B) net income. Operating margins have expanded to 14.7% as management prioritizes profitability. Market cap is ~$291B, trading at 17.7x earnings \u2014 a significant discount to U.S. tech peers. The company has authorized $25B+ in share buybacks and initiated dividends. BABA faces structural risks from the VIE corporate structure, Chinese regulatory uncertainty, and U.S.-China geopolitical tensions, but the business itself continues to generate strong cash flows from its dominant market position.",
+  "thesis_bullets": [
+    "David Tepper's Alibaba position is a quintessential Tepper trade: buying a high-quality business when the market is pricing in maximum pessimism. Alibaba is China's dominant e-commerce platform (Taobao/Tmall with 900M+ active consumers) and a leading cloud infrastructure provider, generating $142B in annual revenue with expanding margins.",
+    "Tepper's thesis rests on three pillars: (1) Alibaba is fundamentally cheap at 17-18x earnings with $290B market cap for a business that would trade at 25-30x if it were a U.S. company, (2) Chinese government policy has shifted from cracking down on tech to actively stimulating the economy and supporting innovation, and (3) Alibaba's aggressive share buyback program ($25B+ authorized) and AI cloud investments create a path to re-rating.",
+    "Tepper famously went on CNBC in September 2024 saying he was buying 'everything China' after the government announced aggressive stimulus measures. For Tepper, this is not a permanent holding but a macro-driven asymmetric bet \u2014 he buys when governments are printing money and policies are turning favorable."
+  ],
+  "business_bullets": [
+    "Alibaba Group Holding (BABA) is China's largest e-commerce company and a leading cloud computing provider, founded by Jack Ma in 1999. The company operates Taobao and Tmall (China's dominant online marketplaces with 900M+ active consumers), Alibaba Cloud (China's #1 cloud provider with ~35% market share), Cainiao (logistics network), AliExpress (international e-commerce), and Ant Financial (33% stake in one of the world's largest fintech companies).",
+    "FY2025 (March year-end) revenue was 957B CNY (~$132B) with 130B CNY (~$18B) net income. Operating margins have expanded to 14.7% as management prioritizes profitability.",
+    "Market cap is ~$291B, trading at 17.7x earnings \u2014 a significant discount to U.S. The company has authorized $25B+ in share buybacks and initiated dividends.",
+    "BABA faces structural risks from the VIE corporate structure, Chinese regulatory uncertainty, and U.S.-China geopolitical tensions, but the business itself continues to generate strong cash flows from its dominant market position."
+  ],
+  "slug": "david-tepper-BABA",
+  "investor_key": "appaloosa_management",
+  "detail_path": "/conviction-data/details/david-tepper-BABA.json"
+}

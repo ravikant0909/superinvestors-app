@@ -1,0 +1,113 @@
+{
+  "investor_slug": "leopold-aschenbrenner",
+  "investor_name": "Leopold Aschenbrenner",
+  "firm_name": "Situational Awareness LP",
+  "ticker": "IREN",
+  "company_name": "IREN Limited",
+  "weight_pct": 6,
+  "value_millions": 329,
+  "thesis_headline": "Another crypto-to-AI pivot play -- IREN's Bitcoin mining infrastructure provides ready-made data center capacity for the AGI compute buildout",
+  "thesis_summary": "Aschenbrenner's $329M IREN position (6% of portfolio, 8.7M shares) follows the same logic as his Core Scientific bet: Bitcoin mining companies own exactly the infrastructure needed for AI data centers -- large-scale power capacity, cooling systems, and physical facilities designed for high-density compute. IREN Limited (formerly Iris Energy) is an Australian-listed, U.S.-operating Bitcoin miner that has been pivoting toward AI/HPC hosting.\n\nThe thesis is elegant in its simplicity. Building a new AI data center from scratch takes 2-5 years: site selection, permitting, utility interconnection, construction, commissioning. Bitcoin miners have already done all of this. They have megawatts (sometimes hundreds of MW) of energized power capacity in operational facilities. Converting from Bitcoin mining ASICs to AI GPUs requires relatively modest modifications -- the power and cooling infrastructure is already there. For Aschenbrenner, who predicts the AGI buildout needs to happen in the next 2-3 years, these companies offer the fastest path to deployed AI compute.\n\nIREN operates data center facilities in Texas and British Columbia with significant power capacity and is actively expanding its AI/HPC offerings alongside its Bitcoin mining operations. The company provides both self-mining and third-party hosting services, positioning it to capture AI workload demand.",
+  "why_this_price": "At $329M and 6% of portfolio, IREN is a significant position. The stock is valued at ~$37.77/share implied from the 13F. IREN's value proposition is its existing power infrastructure: energized data center capacity that can be repurposed for AI workloads faster than any greenfield development. As AI data center demand outstrips supply, the premium for ready-to-deploy capacity increases. Aschenbrenner is positioning across multiple crypto-to-AI pivot names (CORZ, IREN, CIFR, RIOT, CLSK, BITF, BTDR, HUT), but IREN and Core Scientific are the largest positions, suggesting highest conviction in their execution.",
+  "investor_in_their_own_words": [
+    {
+      "quote": "Many trillions of dollars will go into GPU, datacenter, and power buildout before the decade is out. The industrial mobilization will be staggering.",
+      "source": "Situational Awareness: The Decade Ahead",
+      "date": "2024-06",
+      "url": "https://situational-awareness.ai"
+    },
+    {
+      "quote": "The fierce scramble to secure every power contract, every GPU allocation, every data center site has only just begun.",
+      "source": "Situational Awareness: The Decade Ahead",
+      "date": "2024-06",
+      "url": "https://situational-awareness.ai"
+    }
+  ],
+  "valuation_math": {
+    "approach": "Infrastructure replacement cost + AI pivot revenue potential",
+    "steps": [
+      {
+        "label": "Position structure",
+        "value": "8,700,621 shares at ~$37.77/share = $329M",
+        "note": "All common stock, no options"
+      },
+      {
+        "label": "Power infrastructure",
+        "value": "Significant existing power capacity across U.S. and Canadian sites",
+        "note": "Energized power capacity is the scarcest resource in current data center market"
+      },
+      {
+        "label": "AI pivot opportunity",
+        "value": "Converting mining capacity to GPU hosting at higher margins",
+        "note": "AI hosting contracts provide stable, contracted revenue vs. volatile Bitcoin mining"
+      },
+      {
+        "label": "Portfolio context",
+        "value": "6th largest position; one of 8 Bitcoin miner positions in the fund",
+        "note": "Aschenbrenner is making a basket bet on the crypto-to-AI infrastructure pivot"
+      }
+    ],
+    "target_price": "Not disclosed",
+    "current_price": "~$37.77/share implied from 13F (Dec 2025)",
+    "implied_return": "Significant if AI hosting pivot materializes at scale",
+    "time_horizon": "2-4 years"
+  },
+  "key_metrics": {
+    "revenue": "Growing from Bitcoin mining + emerging AI/HPC hosting",
+    "market_cap": "~$5-6B range",
+    "business_model": "Bitcoin mining + data center hosting for AI/HPC workloads",
+    "power_capacity": "Significant MW capacity across multiple facilities",
+    "locations": "Texas (USA), British Columbia (Canada)"
+  },
+  "moat_sources": [
+    "Existing energized power infrastructure -- 1-3 year time-to-market advantage over greenfield builds",
+    "Experience operating high-density compute at scale (Bitcoin mining)",
+    "Renewable energy access in British Columbia (hydroelectric power)",
+    "Growing operational expertise in AI/HPC hosting"
+  ],
+  "risks": [
+    {
+      "risk": "Bitcoin price decline hurting mining revenue during AI transition period",
+      "severity": "Medium",
+      "mitigation": "AI hosting revenue is contracted and independent of crypto prices"
+    },
+    {
+      "risk": "Execution risk in converting mining infrastructure to AI-grade data centers",
+      "severity": "Medium",
+      "mitigation": "Infrastructure overlap is significant (power, cooling); GPU networking is the main addition"
+    },
+    {
+      "risk": "Competition from other miners making the same AI pivot",
+      "severity": "Medium",
+      "mitigation": "Market is large enough for multiple winners; speed of execution is the differentiator"
+    },
+    {
+      "risk": "Smaller scale than Core Scientific, limiting ability to win large hyperscaler contracts",
+      "severity": "Medium",
+      "mitigation": "Can target mid-tier AI companies and startups; may expand capacity through acquisitions"
+    }
+  ],
+  "catalysts": [
+    "Major AI/HPC hosting contract announcements",
+    "Revenue mix shift from mining to higher-margin AI hosting",
+    "Power capacity expansion through new utility agreements",
+    "Bitcoin price appreciation supporting mining revenue during transition",
+    "Re-rating of Bitcoin miners as AI infrastructure companies"
+  ],
+  "company_brief": "IREN Limited (NASDAQ: IREN, formerly Iris Energy) is a digital infrastructure company that owns and operates data center facilities for Bitcoin mining and increasingly for AI/HPC workloads. Founded in 2019 and headquartered in Sydney, Australia, the company operates facilities in Texas and British Columbia. IREN's facilities leverage renewable energy sources where available and provide large-scale power and cooling infrastructure originally built for Bitcoin mining operations. The company is actively pivoting toward AI/HPC hosting, leveraging its existing data center infrastructure to capture demand from AI companies needing immediate access to powered, cooled compute capacity. For Aschenbrenner, IREN represents the same thesis as Core Scientific: existing power infrastructure is the scarcest asset in the AI data center boom, and companies that already have it hold significant strategic value.",
+  "thesis_bullets": [
+    "Aschenbrenner's $329M IREN position (6% of portfolio, 8.7M shares) follows the same logic as his Core Scientific bet: Bitcoin mining companies own exactly the infrastructure needed for AI data centers -- large-scale power capacity, cooling systems, and physical facilities designed for high-density compute. IREN Limited (formerly Iris Energy) is an Australian-listed, U.S.-operating Bitcoin miner that has been pivoting toward AI/HPC hosting.",
+    "The thesis is elegant in its simplicity. Building a new AI data center from scratch takes 2-5 years: site selection, permitting, utility interconnection, construction, commissioning.",
+    "Bitcoin miners have already done all of this. They have megawatts (sometimes hundreds of MW) of energized power capacity in operational facilities.",
+    "Converting from Bitcoin mining ASICs to AI GPUs requires relatively modest modifications -- the power and cooling infrastructure is already there. For Aschenbrenner, who predicts the AGI buildout needs to happen in the next 2-3 years, these companies offer the fastest path to deployed AI compute.",
+    "IREN operates data center facilities in Texas and British Columbia with significant power capacity and is actively expanding its AI/HPC offerings alongside its Bitcoin mining operations. The company provides both self-mining and third-party hosting services, positioning it to capture AI workload demand."
+  ],
+  "business_bullets": [
+    "IREN Limited (NASDAQ: IREN, formerly Iris Energy) is a digital infrastructure company that owns and operates data center facilities for Bitcoin mining and increasingly for AI/HPC workloads. Founded in 2019 and headquartered in Sydney, Australia, the company operates facilities in Texas and British Columbia.",
+    "IREN's facilities leverage renewable energy sources where available and provide large-scale power and cooling infrastructure originally built for Bitcoin mining operations. The company is actively pivoting toward AI/HPC hosting, leveraging its existing data center infrastructure to capture demand from AI companies needing immediate access to powered, cooled compute capacity.",
+    "For Aschenbrenner, IREN represents the same thesis as Core Scientific: existing power infrastructure is the scarcest asset in the AI data center boom, and companies that already have it hold significant strategic value."
+  ],
+  "slug": "leopold-aschenbrenner-IREN",
+  "investor_key": "situational_awareness",
+  "detail_path": "/conviction-data/details/leopold-aschenbrenner-IREN.json"
+}

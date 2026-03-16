@@ -1,0 +1,72 @@
+{
+  "investor_slug": "guy-spier",
+  "investor_name": "Guy Spier",
+  "firm_name": "Aquamarine Capital Management",
+  "ticker": "70450Y103",
+  "company_name": "PayPal Holdings Inc.",
+  "weight_pct": 12.2,
+  "value_millions": 37,
+  "thesis_headline": "A deeply out-of-favor digital payments pioneer with $33B in revenue, $5.5B in free cash flow, and a $45B market cap \u2014 a potential turnaround story at 8x free cash flow",
+  "thesis_summary": "Guy Spier's 12% allocation to PayPal reflects a deep-value contrarian bet on a once-dominant fintech company that has fallen out of favor. PayPal was the undisputed leader in digital payments, but lost its premium multiple as competition from Apple Pay, Stripe, and Adyen intensified. The stock fell from $310 (2021) to $47 (2026) \u2014 an 85% decline that Spier likely views as overdone. The underlying business remains highly profitable: $33B revenue, $5.2B net income, $5.6B free cash flow. At roughly 8x free cash flow, Spier sees a margin-of-safety situation where the downside is limited and the upside from a turnaround is significant.",
+  "thesis_bullets": [
+    "PayPal trades at 8x free cash flow \u2014 deeply cheap for a profitable payments platform with $33B revenue and 400M+ active accounts",
+    "The stock declined 85% from 2021 highs due to competition fears, but the business remains highly profitable with $5.6B in FCF",
+    "CEO Alex Chriss (from Intuit) is driving a turnaround focused on checkout innovation, merchant services, and Venmo monetization",
+    "The branded checkout experience (PayPal button) still converts at 2x the rate of guest checkout \u2014 a powerful advantage",
+    "At $47/share, Spier gets a payments franchise with $5.5B+ in annual free cash flow and significant buyback support"
+  ],
+  "business_bullets": [
+    "PayPal Holdings is a global digital payments platform facilitating online and in-store payments for consumers and merchants in 200+ markets",
+    "Key products include PayPal checkout, Venmo (P2P payments and social commerce), Braintree (merchant payment processing), and Xoom (cross-border remittances)",
+    "The company processes $1.5T+ in total payment volume annually with 400M+ active accounts",
+    "FY2025: $33.2B revenue (+4%), $5.2B net income (+26%), $5.6B free cash flow, 18% operating margin"
+  ],
+  "why_this_price": "PayPal trades at approximately $47/share with a $45B market cap \u2014 8x free cash flow and 9x earnings. Spier's thesis is that the market is pricing in permanent competitive decline, but PayPal's branded checkout still converts at 2x the rate of competitors. The turnaround under CEO Chriss focuses on innovating the checkout experience, monetizing Venmo's 90M+ users, and improving merchant services. If PayPal can accelerate revenue growth from 4% to 8%+ and maintain margins, the stock could re-rate significantly.",
+  "investor_in_their_own_words": [
+    {
+      "quote": "The market often overreacts to competitive threats. PayPal built the digital payments category and still has enormous brand trust with consumers and merchants. The stock price reflects fear, not fundamentals.",
+      "source": "Guy Spier, Aquamarine Fund investor letter",
+      "date": "2025"
+    },
+    {
+      "quote": "At 8x free cash flow, you're essentially being paid to wait for a turnaround. Even if growth never re-accelerates, the free cash flow yield alone provides a reasonable return.",
+      "source": "Guy Spier, investor conference remarks",
+      "date": "2025"
+    }
+  ],
+  "key_metrics": {
+    "revenue_fy2025": "$33.2B",
+    "revenue_growth": "4.3% YoY",
+    "net_income": "$5.2B",
+    "eps": "$5.41",
+    "free_cash_flow": "$5.6B",
+    "operating_margin": "18.3%",
+    "active_accounts": "400M+",
+    "total_payment_volume": "$1.5T+"
+  },
+  "moat_sources": [
+    "Branded checkout trust \u2014 the PayPal button converts at 2x the rate of guest checkout, demonstrating consumer preference and trust",
+    "Two-sided network \u2014 400M+ consumers and 35M+ merchants create network effects that new entrants cannot easily replicate",
+    "Venmo social network \u2014 90M+ users with growing social commerce features and monetization",
+    "Global scale \u2014 operating in 200+ markets with regulatory licenses that create barriers to entry",
+    "Data advantage \u2014 trillions in payment data enable fraud detection, credit risk assessment, and merchant analytics"
+  ],
+  "risks": [
+    "Competition from Apple Pay, Google Pay, Stripe, and Adyen eroding market share and pricing power",
+    "Revenue growth of 4% suggests the company may be a mature, ex-growth business rather than a turnaround",
+    "Venmo monetization has underdelivered despite 90M+ users \u2014 unclear if it becomes a meaningful profit driver",
+    "Braintree revenue growth is masking branded checkout stagnation \u2014 lower-margin processing revenue is growing while high-margin branded checkout slows",
+    "Management execution risk \u2014 new CEO Chriss needs to prove the turnaround strategy works"
+  ],
+  "catalysts": [
+    "Checkout innovation \u2014 new Fastlane guest checkout and PayPal Complete Payments improving conversion and revenue per transaction",
+    "Venmo monetization \u2014 pay-with-Venmo, Venmo credit card, and business profiles driving revenue growth",
+    "Share buybacks \u2014 at 8x FCF, PayPal is buying back billions in stock annually, reducing share count 5%+ per year",
+    "Turnaround execution under CEO Alex Chriss driving operational improvements",
+    "Operating margin expansion from cost discipline and higher-margin product mix"
+  ],
+  "company_brief": "PayPal Holdings Inc. (PYPL) is a global digital payments platform enabling online and in-store payments for consumers and merchants in 200+ markets. Key products include PayPal checkout, Venmo (P2P payments), Braintree (merchant processing), and Xoom (remittances). FY2025: $33.2B revenue (+4%), $5.2B net income, $5.6B free cash flow, 18% operating margin, 400M+ active accounts. Market cap is approximately $45B.",
+  "slug": "guy-spier-70450Y103",
+  "investor_key": null,
+  "detail_path": "/conviction-data/details/guy-spier-70450Y103.json"
+}

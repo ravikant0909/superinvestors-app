@@ -1,0 +1,112 @@
+{
+  "investor_slug": "leopold-aschenbrenner",
+  "investor_name": "Leopold Aschenbrenner",
+  "firm_name": "Situational Awareness LP",
+  "ticker": "APLD",
+  "company_name": "Applied Digital Corporation",
+  "weight_pct": 5,
+  "value_millions": 278,
+  "thesis_headline": "The next-gen AI data center builder -- Applied Digital is constructing purpose-built GPU-optimized facilities for the compute clusters Aschenbrenner says are coming",
+  "thesis_summary": "Aschenbrenner's $278M Applied Digital position (5% of portfolio, 11.3M shares) targets yet another AI data center operator, but one with a different profile than Core Scientific or IREN. While those companies are pivoting existing Bitcoin mining infrastructure, Applied Digital is building purpose-built, next-generation data centers designed from the ground up for AI/HPC workloads.\n\nApplied Digital operates in three segments: (1) data center hosting for Bitcoin mining, (2) cloud services providing GPU compute access, and (3) development of large-scale data centers specifically designed for AI training clusters. The company is building multi-hundred-MW campuses with the power density, cooling infrastructure, and networking architecture required for next-generation AI workloads.\n\nFor Aschenbrenner's thesis, Applied Digital represents the construction phase of the AGI buildout. While CoreWeave operates the GPU cloud and Core Scientific provides existing capacity, Applied Digital is actively building the next wave of purpose-built AI data centers. The company has announced agreements with major customers for its HPC hosting services and is developing campuses in North Dakota, Texas, and other locations with access to low-cost power.",
+  "why_this_price": "At $278M and 5% of portfolio, Applied Digital is at the threshold of Aschenbrenner's conviction bets. The position is entirely common stock (11.3M shares at ~$24.52/share implied). Applied Digital is a smaller, higher-risk name compared to Core Scientific or CoreWeave, but with potentially higher upside given its greenfield data center development pipeline. The company's value lies in its development pipeline: if completed and leased to AI compute customers, the campuses under construction could generate significant contracted revenue.",
+  "investor_in_their_own_words": [
+    {
+      "quote": "Many trillions of dollars will go into GPU, datacenter, and power buildout before the decade is out. The industrial mobilization will be staggering.",
+      "source": "Situational Awareness: The Decade Ahead",
+      "date": "2024-06",
+      "url": "https://situational-awareness.ai"
+    },
+    {
+      "quote": "The fierce scramble to secure every power contract, every GPU allocation, every data center site has only just begun.",
+      "source": "Situational Awareness: The Decade Ahead",
+      "date": "2024-06",
+      "url": "https://situational-awareness.ai"
+    }
+  ],
+  "valuation_math": {
+    "approach": "Development pipeline valuation -- value of data centers under construction at completion",
+    "steps": [
+      {
+        "label": "Position structure",
+        "value": "11,339,060 shares at ~$24.52/share = $278M",
+        "note": "All common stock"
+      },
+      {
+        "label": "Data center development",
+        "value": "Purpose-built AI/HPC data centers under construction",
+        "note": "Multi-hundred MW campuses designed for high-density GPU compute"
+      },
+      {
+        "label": "Power pipeline",
+        "value": "Securing power in locations with low-cost electricity",
+        "note": "North Dakota, Texas -- access to cheap power is a competitive advantage"
+      },
+      {
+        "label": "Customer agreements",
+        "value": "Long-term hosting contracts with AI compute customers",
+        "note": "Contracted revenue provides financing and visibility"
+      }
+    ],
+    "target_price": "Not disclosed",
+    "current_price": "~$24.52/share implied from 13F (Dec 2025)",
+    "implied_return": "High if development pipeline is completed and leased successfully",
+    "time_horizon": "2-4 years"
+  },
+  "key_metrics": {
+    "revenue": "Growing from hosting + cloud services",
+    "market_cap": "~$4-5B range",
+    "business_model": "AI data center development, hosting, and cloud services",
+    "development_pipeline": "Multi-hundred MW campuses under construction",
+    "locations": "North Dakota, Texas, other U.S. sites"
+  },
+  "moat_sources": [
+    "Secured power contracts in locations with low-cost electricity",
+    "Purpose-built design for AI/HPC workloads (higher power density than legacy data centers)",
+    "Growing track record of building and operating data centers",
+    "Relationships with GPU cloud providers and AI companies"
+  ],
+  "risks": [
+    {
+      "risk": "Construction/development execution risk -- building data centers on time and on budget",
+      "severity": "High",
+      "mitigation": "Experienced development team; contracted customer demand reduces market risk"
+    },
+    {
+      "risk": "Capital intensity -- significant upfront investment required before revenue",
+      "severity": "High",
+      "mitigation": "Long-term hosting contracts provide financing basis; capital markets accessible"
+    },
+    {
+      "risk": "Smaller company with less operational track record than established operators",
+      "severity": "Medium",
+      "mitigation": "First-mover advantage in purpose-built AI data centers; experienced management"
+    },
+    {
+      "risk": "Customer concentration -- dependent on a few large AI compute customers",
+      "severity": "Medium",
+      "mitigation": "Market demand exceeds supply; multiple potential customers available"
+    }
+  ],
+  "catalysts": [
+    "Completion and energization of data center campuses under construction",
+    "New customer contract announcements for AI/HPC hosting",
+    "Revenue acceleration as built capacity comes online and is leased",
+    "Power capacity expansion through additional utility agreements",
+    "Re-rating from 'construction-phase' to 'operational cash-flow' company"
+  ],
+  "company_brief": "Applied Digital Corporation (NASDAQ: APLD) is a data center company designing, building, and operating next-generation digital infrastructure for AI, HPC, and Bitcoin mining applications. Headquartered in Dallas, Texas, the company operates in three segments: data center hosting (providing physical space, power, and cooling for compute equipment), cloud services (GPU compute access), and HPC data center development. Applied Digital is actively constructing purpose-built campuses designed specifically for high-density AI workloads -- facilities with the power density, liquid cooling, and networking infrastructure that next-generation GPU clusters require. The company's development pipeline spans multiple U.S. locations with access to low-cost power. For Aschenbrenner, Applied Digital represents the construction phase of the AGI infrastructure buildout -- the company is building the physical facilities where the 'hundreds of millions of GPUs' he predicts will be deployed.",
+  "thesis_bullets": [
+    "Aschenbrenner's $278M Applied Digital position (5% of portfolio, 11.3M shares) targets yet another AI data center operator, but one with a different profile than Core Scientific or IREN. While those companies are pivoting existing Bitcoin mining infrastructure, Applied Digital is building purpose-built, next-generation data centers designed from the ground up for AI/HPC workloads.",
+    "Applied Digital operates in three segments: (1) data center hosting for Bitcoin mining, (2) cloud services providing GPU compute access, and (3) development of large-scale data centers specifically designed for AI training clusters. The company is building multi-hundred-MW campuses with the power density, cooling infrastructure, and networking architecture required for next-generation AI workloads.",
+    "For Aschenbrenner's thesis, Applied Digital represents the construction phase of the AGI buildout. While CoreWeave operates the GPU cloud and Core Scientific provides existing capacity, Applied Digital is actively building the next wave of purpose-built AI data centers.",
+    "The company has announced agreements with major customers for its HPC hosting services and is developing campuses in North Dakota, Texas, and other locations with access to low-cost power."
+  ],
+  "business_bullets": [
+    "Applied Digital Corporation (NASDAQ: APLD) is a data center company designing, building, and operating next-generation digital infrastructure for AI, HPC, and Bitcoin mining applications. Headquartered in Dallas, Texas, the company operates in three segments: data center hosting (providing physical space, power, and cooling for compute equipment), cloud services (GPU compute access), and HPC data center development.",
+    "Applied Digital is actively constructing purpose-built campuses designed specifically for high-density AI workloads -- facilities with the power density, liquid cooling, and networking infrastructure that next-generation GPU clusters require. The company's development pipeline spans multiple U.S.",
+    "locations with access to low-cost power. For Aschenbrenner, Applied Digital represents the construction phase of the AGI infrastructure buildout -- the company is building the physical facilities where the 'hundreds of millions of GPUs' he predicts will be deployed."
+  ],
+  "slug": "leopold-aschenbrenner-APLD",
+  "investor_key": "situational_awareness",
+  "detail_path": "/conviction-data/details/leopold-aschenbrenner-APLD.json"
+}

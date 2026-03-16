@@ -39,11 +39,11 @@ MANUAL_CUSIP_MAP = {
     "478160104": "JNJ",      # Johnson & Johnson
     "742718109": "PG",       # Procter & Gamble
     "931142103": "WMT",      # Walmart
-    "11135F101": "BRK.B",    # Berkshire Hathaway B
+    "11135F101": "AVGO",     # Broadcom
     "20030N101": "CMCSA",    # Comcast
     "172967424": "C",        # Citigroup
     "88579Y101": "MMM",      # 3M
-    "500754106": "KO",       # Coca-Cola
+    "500754106": "KHC",      # Kraft Heinz
     "713448108": "PEP",      # PepsiCo
     "437076102": "HD",       # Home Depot
     "254687106": "DIS",      # Walt Disney

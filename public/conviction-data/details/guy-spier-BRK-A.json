@@ -1,0 +1,77 @@
+{
+  "investor_slug": "guy-spier",
+  "investor_name": "Guy Spier",
+  "firm_name": "Aquamarine Capital Management",
+  "ticker": "BRK-A",
+  "company_name": "Berkshire Hathaway Inc.",
+  "weight_pct": 36.38,
+  "value_millions": 109,
+  "thesis_headline": "The ultimate compounding machine \u2014 Berkshire Hathaway is a diversified conglomerate with $330B in cash, world-class operating businesses, and a succession plan that preserves Buffett's capital allocation culture",
+  "thesis_summary": "Guy Spier's 36% allocation to Berkshire Hathaway reflects his deep admiration for Warren Buffett's investment philosophy and Berkshire's unique structure. Spier, who famously paid $650,000 at a charity auction for lunch with Buffett, considers Berkshire the safest large-cap investment in the world. The company owns GEICO, BNSF Railway, Berkshire Hathaway Energy, and dozens of other operating businesses generating $40B+ in annual operating earnings, plus a $300B+ equity portfolio and $330B+ in cash and T-bills. Spier's thesis is that Berkshire is a permanent holding \u2014 a business that compounds intrinsic value at 8-10% annually with minimal risk of permanent capital loss.",
+  "thesis_bullets": [
+    "Berkshire is the ultimate diversified compounder \u2014 $371B in revenue from insurance, railroads, energy, and dozens of wholly-owned operating businesses",
+    "Warren Buffett's capital allocation track record is unmatched: 20%+ annual returns over 58 years, building $1T+ in market cap from a textile mill",
+    "The $330B+ cash position provides massive optionality for acquisitions and downside protection during market dislocations",
+    "Succession is de-risked: Greg Abel (CEO designate) and Ted Weschler/Todd Combs (investment managers) have been groomed for years",
+    "At $67B net income and $25B free cash flow, Berkshire trades at roughly 15x earnings \u2014 a fair price for an irreplaceable franchise"
+  ],
+  "business_bullets": [
+    "Berkshire Hathaway is a diversified conglomerate owning GEICO (insurance), BNSF (railroad), BHE (energy), Pilot (truck stops), and dozens of other businesses across manufacturing, retail, and services",
+    "The insurance float (~$170B) provides free leverage for Buffett's investment portfolio, which includes large positions in Apple, Coca-Cola, American Express, and others",
+    "FY2025 revenue was $371B with $67B in net income, though results are volatile due to mark-to-market accounting on the equity portfolio",
+    "The company holds $330B+ in cash and T-bills, providing both safety and optionality for large acquisitions"
+  ],
+  "why_this_price": "Berkshire trades at approximately $750,000/A-share with a $1T+ market cap, or roughly 15x trailing earnings. Spier views this as a fair price for a business with Berkshire's quality, safety, and optionality. The massive cash hoard provides downside protection and the ability to deploy capital aggressively during market panics, as Buffett demonstrated in 2008-2009 and during COVID. The key question is post-Buffett capital allocation, but Spier's conviction reflects his belief that the culture and systems Buffett built will endure.",
+  "investor_in_their_own_words": [
+    {
+      "quote": "Warren Buffett changed my life. After our lunch together, I fundamentally restructured how I think about investing, business, and life. Berkshire is not just an investment \u2014 it's an education in compounding.",
+      "source": "Guy Spier, 'The Education of a Value Investor'",
+      "date": "2014"
+    },
+    {
+      "quote": "I look for businesses that I can hold forever. Berkshire Hathaway is the ultimate forever hold \u2014 a business designed to compound capital across generations.",
+      "source": "Guy Spier, interview on The Investor's Podcast",
+      "date": "2020"
+    },
+    {
+      "quote": "The most important thing I learned from Buffett is that you don't need to be brilliant to be a great investor. You need to be patient, rational, and honest with yourself.",
+      "source": "Guy Spier, Aquamarine Fund letter",
+      "date": "2019"
+    }
+  ],
+  "key_metrics": {
+    "revenue_fy2025": "$371B",
+    "net_income": "$67B",
+    "eps": "$46,563",
+    "free_cash_flow": "$25B",
+    "operating_margin": "15.6%",
+    "cash_and_tbills": "$330B+",
+    "insurance_float": "~$170B",
+    "market_cap": "~$1T+"
+  },
+  "moat_sources": [
+    "Diversified portfolio of monopoly/oligopoly businesses \u2014 GEICO, BNSF, BHE each have strong competitive positions in their industries",
+    "Insurance float \u2014 $170B+ of policyholder funds invested at zero or negative cost, providing free leverage",
+    "Capital allocation culture \u2014 58 years of compounding at 20%+ annually has created a culture and reputation that attracts deal flow",
+    "Scale advantages \u2014 as the largest conglomerate, Berkshire can do deals that no other buyer can (e.g., acquiring entire businesses for $10B+)",
+    "Buffett's reputation \u2014 the 'Berkshire premium' means business owners prefer to sell to Berkshire, providing access to high-quality acquisitions at fair prices"
+  ],
+  "risks": [
+    "Post-Buffett succession risk \u2014 Warren Buffett (age 95) will eventually step down; capital allocation quality may decline under new leadership",
+    "Massive cash position ($330B+) earning only T-bill yields while waiting for acquisitions creates an opportunity cost drag on returns",
+    "Size constraint \u2014 at $1T+ market cap, Berkshire needs very large deals or positions to move the needle, limiting the opportunity set",
+    "Insurance catastrophe risk \u2014 a major natural disaster or series of catastrophes could create large underwriting losses",
+    "Mark-to-market volatility \u2014 GAAP earnings are heavily influenced by unrealized gains/losses on the equity portfolio, creating noisy results"
+  ],
+  "catalysts": [
+    "Cash deployment \u2014 $330B+ in dry powder waiting for market dislocations or large acquisitions",
+    "Share buybacks \u2014 Berkshire has repurchased billions in stock in recent years, increasing per-share intrinsic value",
+    "Operating earnings growth \u2014 underlying businesses continue to compound at high-single-digit rates",
+    "Energy transition \u2014 Berkshire Hathaway Energy is investing heavily in renewables and transmission infrastructure",
+    "Greg Abel succession \u2014 a smooth CEO transition could reduce the 'Buffett premium' discount that some investors apply"
+  ],
+  "company_brief": "Berkshire Hathaway Inc. (BRK-A) is the world's largest diversified conglomerate, led by Warren Buffett since 1965. The company owns GEICO (auto insurance), BNSF Railway, Berkshire Hathaway Energy, Pilot Travel Centers, Dairy Queen, See's Candies, and dozens of other businesses. It also manages a $300B+ equity portfolio with major positions in Apple, Coca-Cola, and American Express. FY2025 revenue was $371B with $67B in net income and $25B in free cash flow. Berkshire holds $330B+ in cash and T-bills, providing massive optionality. Market cap exceeds $1 trillion.",
+  "slug": "guy-spier-BRK-A",
+  "investor_key": null,
+  "detail_path": "/conviction-data/details/guy-spier-BRK-A.json"
+}

@@ -101,7 +101,7 @@ def quarter_to_dates(quarter: str) -> tuple[int, int]:
 # ── Finnhub: Current Prices ───────────────────────────────────────────────────
 
 
-def fetch_current_price(ticker: str) -> dict | None:
+def fetch_current_price(ticker: str):
     """Fetch current price from Finnhub API."""
     try:
         resp = requests.get(
@@ -119,31 +119,24 @@ def fetch_current_price(ticker: str) -> dict | None:
 
 
 def fetch_all_current_prices(tickers: list[str]) -> dict:
-    """Fetch current prices in batches to respect rate limits."""
+    """Fetch current prices sequentially to respect Finnhub free tier rate limits (60/min)."""
     results = {}
-    batches = [tickers[i : i + BATCH_SIZE] for i in range(0, len(tickers), BATCH_SIZE)]
-
-    for batch_idx, batch in enumerate(batches):
-        if batch_idx > 0:
-            time.sleep(BATCH_DELAY)
-
-        print(f"  Batch {batch_idx + 1}/{len(batches)}: {', '.join(batch[:5])}...")
-
-        with ThreadPoolExecutor(max_workers=BATCH_SIZE) as executor:
-            futures = {executor.submit(fetch_current_price, t): t for t in batch}
-            for future in as_completed(futures):
-                ticker = futures[future]
-                result = future.result()
-                if result:
-                    results[ticker] = result
-
+    for i, ticker in enumerate(tickers):
+        if i > 0 and i % 10 == 0:
+            print(f"  Progress: {i}/{len(tickers)} ({', '.join(list(results.keys())[-3:])}...)")
+        if i > 0:
+            time.sleep(1.1)  # ~55 requests/min, safely under 60/min limit
+        result = fetch_current_price(ticker)
+        if result:
+            results[ticker] = result
+    print(f"  Done: {len(results)}/{len(tickers)} tickers with prices")
     return results
 
 
 # ── Yahoo Finance: Historical Quarter Ranges ──────────────────────────────────
 
 
-def fetch_quarter_range(ticker: str, period1: int, period2: int) -> dict | None:
+def fetch_quarter_range(ticker: str, period1: int, period2: int):
     """Fetch historical daily close prices from Yahoo Finance and compute min/max/avg."""
     try:
         resp = requests.get(

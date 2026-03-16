@@ -1,8 +1,48 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
-import type { InvestorCard } from './page'
+import { fetchApiJson } from '@/lib/api'
+
+interface InvestorApiRecord {
+  name: string
+  slug: string
+  firm_name: string | null
+  verdict_follow: string | null
+  verdict_summary: string | null
+  filings_count: number | null
+  latest_report_date: string | null
+  philosophy_score: number | null
+  concentration_score: number | null
+  rationality_score: number | null
+  integrity_score: number | null
+  track_record_score: number | null
+  transparency_score: number | null
+  relevance_score: number | null
+  agi_awareness_score: number | null
+  composite_score: number | null
+}
+
+interface InvestorCard {
+  name: string
+  firm: string
+  combined: number
+  verdict: string
+  one_line_summary: string
+  slug: string
+  has13FData: boolean
+  latestReportDate: string | null
+  scores: {
+    philosophy_alignment: number
+    concentration: number
+    rationality: number
+    integrity: number
+    track_record: number
+    transparency: number
+    relevance: number
+    agi_awareness: number
+  }
+}
 
 type VerdictFilter = 'ALL' | 'FOLLOW' | 'WATCH' | 'SKIP'
 type SortOption = 'score' | 'name'
@@ -67,13 +107,73 @@ function truncate(text: string, maxLen: number): string {
 }
 
 export default function InvestorsClient({
-  investors,
+  initialTrackedCount,
+  initialCoverageCount,
 }: {
-  investors: InvestorCard[]
+  initialTrackedCount: number
+  initialCoverageCount: number
 }) {
+  const [investors, setInvestors] = useState<InvestorCard[]>([])
+  const [loaded, setLoaded] = useState(false)
   const [verdictFilter, setVerdictFilter] = useState<VerdictFilter>('ALL')
   const [sortOption, setSortOption] = useState<SortOption>('score')
   const [searchQuery, setSearchQuery] = useState('')
+
+  useEffect(() => {
+    let cancelled = false
+
+    function mapVerdict(verdictFollow: string | null): string {
+      switch (verdictFollow) {
+        case 'strong_follow':
+        case 'follow':
+          return 'FOLLOW'
+        case 'monitor':
+          return 'WATCH'
+        default:
+          return 'SKIP'
+      }
+    }
+
+    async function load() {
+      try {
+        const data = await fetchApiJson<InvestorApiRecord[]>('/api/investors')
+        if (cancelled) {
+          return
+        }
+
+        setInvestors(data.map((record) => ({
+          name: record.name,
+          firm: record.firm_name ?? 'Unknown firm',
+          combined: record.composite_score ?? 0,
+          verdict: mapVerdict(record.verdict_follow),
+          one_line_summary: record.verdict_summary ?? '',
+          slug: record.slug,
+          has13FData: (record.filings_count ?? 0) > 0,
+          latestReportDate: record.latest_report_date ?? null,
+          scores: {
+            philosophy_alignment: record.philosophy_score ?? 0,
+            concentration: record.concentration_score ?? 0,
+            rationality: record.rationality_score ?? 0,
+            integrity: record.integrity_score ?? 0,
+            track_record: record.track_record_score ?? 0,
+            transparency: record.transparency_score ?? 0,
+            relevance: record.relevance_score ?? 0,
+            agi_awareness: record.agi_awareness_score ?? 0,
+          },
+        })))
+      } finally {
+        if (!cancelled) {
+          setLoaded(true)
+        }
+      }
+    }
+
+    load()
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
   const filtered = useMemo(() => {
     let result = [...investors]
@@ -122,6 +222,11 @@ export default function InvestorsClient({
     }
   }, [investors, searchQuery])
 
+  const trackedCount = loaded ? investors.length : initialTrackedCount
+  const coveredCount = loaded
+    ? investors.filter((investor) => investor.has13FData).length
+    : initialCoverageCount
+
   const filterTabs: { key: VerdictFilter; label: string }[] = [
     { key: 'ALL', label: 'All' },
     { key: 'FOLLOW', label: 'Follow' },
@@ -153,12 +258,11 @@ export default function InvestorsClient({
       {/* Page Header */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900">
-          All Investors ({investors.length})
+          All Investors ({trackedCount})
         </h1>
         <p className="mt-2 text-gray-500 text-sm">
-          Ranked by combined score across philosophy alignment, concentration,
-          rationality, integrity, track record, transparency, relevance, and AGI
-          awareness.
+          {coveredCount} investors currently have 13F filing history in the runtime dataset.
+          The rest are profile-only for now or are not part of the SEC-backed coverage set.
         </p>
       </div>
 
@@ -172,8 +276,13 @@ export default function InvestorsClient({
               onClick={() => setVerdictFilter(tab.key)}
               className={tabStyle(tab.key)}
             >
-              {tab.label}{' '}
-              <span className="ml-1 opacity-70">({counts[tab.key]})</span>
+              {tab.label}
+              {loaded && (
+                <>
+                  {' '}
+                  <span className="ml-1 opacity-70">({counts[tab.key]})</span>
+                </>
+              )}
             </button>
           ))}
         </div>
@@ -224,7 +333,11 @@ export default function InvestorsClient({
       )}
 
       {/* Card Grid */}
-      {filtered.length === 0 ? (
+      {!loaded ? (
+        <div className="text-center py-16 text-gray-400">
+          <p className="text-lg font-medium">Loading investors...</p>
+        </div>
+      ) : filtered.length === 0 ? (
         <div className="text-center py-16 text-gray-400">
           <p className="text-lg font-medium">No investors match your filters.</p>
           <p className="mt-1 text-sm">Try adjusting your search or filter.</p>
@@ -257,17 +370,32 @@ export default function InvestorsClient({
                 </div>
 
                 {/* Verdict Badge */}
-                <div className="mb-3">
+                <div className="mb-3 flex items-center gap-2 flex-wrap">
                   <span
                     className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide ${getVerdictStyle(inv.verdict)}`}
                   >
                     {inv.verdict}
+                  </span>
+                  <span
+                    className={`inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold border ${
+                      inv.has13FData
+                        ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                        : 'bg-gray-100 text-gray-600 border-gray-200'
+                    }`}
+                  >
+                    {inv.has13FData ? '13F Data' : 'Profile Only'}
                   </span>
                 </div>
 
                 {/* Summary */}
                 <p className="text-sm text-gray-600 leading-relaxed mb-4 line-clamp-2">
                   {truncate(inv.one_line_summary, 160)}
+                </p>
+
+                <p className="text-[11px] text-gray-400 mb-4">
+                  {inv.has13FData && inv.latestReportDate
+                    ? `Latest filing: ${inv.latestReportDate}`
+                    : 'No 13F filing data is loaded for this investor yet.'}
                 </p>
 
                 {/* Top Score Dimensions */}

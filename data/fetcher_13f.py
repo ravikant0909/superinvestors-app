@@ -101,7 +101,10 @@ class Fetcher13F:
             if cache_path.exists():
                 logger.debug(f"[{investor_key}] Cache hit: {accession}")
                 with open(cache_path, "r") as f:
-                    results.append(json.load(f))
+                    filing_data = json.load(f)
+                # Normalize cached data: ensure values are in thousands
+                self._normalize_values(filing_data)
+                results.append(filing_data)
                 continue
 
             try:
@@ -122,6 +125,9 @@ class Fetcher13F:
                     "fetched_at": datetime.utcnow().isoformat(),
                 }
 
+                # Normalize values to thousands
+                self._normalize_values(filing_data)
+
                 # Cache the result
                 cache_path.parent.mkdir(parents=True, exist_ok=True)
                 with open(cache_path, "w") as f:
@@ -141,6 +147,40 @@ class Fetcher13F:
                 continue
 
         return results
+
+    @staticmethod
+    def _normalize_values(filing_data: dict):
+        """
+        Ensure filing values are in thousands (SEC 13F standard).
+        Some filers report in full dollars. Detect by computing implied
+        per-share price: in thousands format, value/shares ≈ price/1000
+        (so ~0.01-0.70 for stocks $10-$700). In dollars format,
+        value/shares = actual price ($10-$700). If median > 5, it's dollars.
+        """
+        holdings = filing_data.get("holdings", [])
+        if not holdings:
+            return
+        # Compute value/shares ratios for holdings with both values
+        ratios = []
+        for h in holdings:
+            v = h.get("value", 0)
+            s = h.get("shares", 0)
+            if v > 0 and s > 0:
+                ratios.append(v / s)
+        if not ratios:
+            return
+        ratios.sort()
+        median_ratio = ratios[len(ratios) // 2]
+        # In thousands format: median ratio ≈ 0.01-1.0 (prices $10-$1000)
+        # In dollars format: median ratio ≈ 10-1000 (actual prices)
+        if median_ratio > 5:
+            # Values are in dollars, convert to thousands
+            for h in holdings:
+                h["value"] = round(h.get("value", 0) / 1000)
+            # Recompute total
+            filing_data["total_value_thousands"] = sum(
+                h.get("value", 0) for h in holdings
+            )
 
     def get_latest_two_filings(
         self, cik: str, investor_key: str

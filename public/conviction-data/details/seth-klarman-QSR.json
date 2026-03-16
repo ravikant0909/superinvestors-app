@@ -1,0 +1,104 @@
+{
+  "investor_slug": "seth-klarman",
+  "investor_name": "Seth Klarman",
+  "firm_name": "Baupost Group",
+  "ticker": "QSR",
+  "company_name": "Restaurant Brands International",
+  "weight_pct": null,
+  "value_millions": null,
+  "thesis_headline": "A franchise-model cash flow machine owning four iconic QSR brands \u2014 Burger King, Tim Hortons, Popeyes, and Firehouse Subs \u2014 trading at a reasonable multiple with significant turnaround potential at Burger King",
+  "thesis_summary": "Seth Klarman's RBI position reflects his classic margin-of-safety approach applied to a franchise-model business with predictable cash flows and a depressed brand (Burger King) offering turnaround upside. RBI owns four iconic quick-service restaurant brands operating ~30,000+ locations worldwide. As a franchisor (not operator), RBI earns high-margin royalty fees on system-wide sales with minimal capital requirements \u2014 the franchisees invest the capital and bear the operational risk. RBI generates $8.4B in revenue, $2.7B in EBITDA (32% margin), and $1.3B in free cash flow. The investment thesis centers on Burger King's 'Reclaim the Flame' turnaround plan, which allocates $400M to restaurant modernization, advertising, and menu innovation. Tim Hortons (the cash cow) provides stable earnings growth in Canada, while Popeyes (the growth engine) continues rapid international expansion. Klarman likely sees a business with durable competitive advantages (brand recognition, global franchise network, habitual consumer behavior) trading at a modest premium to its peers with clear catalysts for earnings improvement.",
+  "why_this_price": "RBI trades at roughly 20x trailing EPS of $3.18, which looks reasonable for a capital-light franchise business. However, FY2024 EPS was depressed by integration costs from acquisitions and Burger King turnaround investments. Normalized EPS is closer to $3.50-4.00. At $33.5B market cap, RBI trades at roughly 12.5x EBITDA \u2014 a discount to franchise peers like McDonald's (16x), Yum! Brands (18x), and Domino's (20x). Klarman's margin of safety comes from: (1) the franchise model provides downside protection through asset-light, recurring royalty revenues, (2) Burger King turnaround success would drive significant earnings growth with minimal incremental capital, and (3) the consolidated four-brand portfolio provides diversification across QSR segments. If RBI re-rates to peer multiples (15-16x EBITDA), the stock could be $90-100+ vs ~$73 today.",
+  "investor_in_their_own_words": [
+    "Seth Klarman: 'The most important thing in investing is the margin of safety \u2014 buying at a price that is far enough below your estimate of intrinsic value that even if you're wrong, you're unlikely to lose money.'",
+    "Seth Klarman: 'Value investing is at its core the marriage of a contrarian streak and a calculator.'",
+    "Seth Klarman: 'The best investments are ones where you can identify a specific catalyst that will close the gap between price and value.'",
+    "Seth Klarman: 'I think that most investors are primarily oriented toward return, how much they can make and pay little attention to risk, how much they can lose.'",
+    "Seth Klarman (Margin of Safety): 'The trick of successful investors is to sell when they want to, not when they have to. Investors who may need to sell should not own illiquid securities.'"
+  ],
+  "valuation_math": {
+    "methodology": "Margin-of-safety analysis: normalized earnings yield vs. franchise peer comparables",
+    "revenue_fy2024_millions": 8406,
+    "revenue_fy2023_millions": 7022,
+    "revenue_growth_pct": 19.7,
+    "ebitda_fy2024_millions": 2683,
+    "ebitda_margin_pct": 31.9,
+    "net_income_fy2024_millions": 1021,
+    "eps_diluted_fy2024": 3.18,
+    "free_cash_flow_millions": 1302,
+    "market_cap_billions": 33.5,
+    "ev_ebitda": "~12.5x",
+    "pe_trailing": "~20x",
+    "normalized_eps": "3.50-4.00",
+    "pe_on_normalized": "16-18x",
+    "peer_comparisons": {
+      "mcdonalds_ev_ebitda": "~16x",
+      "yum_brands_ev_ebitda": "~18x",
+      "dominos_ev_ebitda": "~20x",
+      "qsr_ev_ebitda": "~12.5x",
+      "discount_to_peers_pct": "25-35%"
+    },
+    "re_rating_scenario": "At 15x EBITDA (still below MCD), enterprise value = $40B, equity value = $35-37B, price per share = $77-82",
+    "burger_king_turnaround_impact": "If BK comp sales improve from -1% to +3%, adds $200-400M EBITDA = $3-6B enterprise value",
+    "implied_irr_pct": "12-18% (earnings growth + re-rating + 3%+ dividend yield)"
+  },
+  "key_metrics": {
+    "revenue_fy2024_millions": 8406,
+    "revenue_growth_pct": 19.7,
+    "ebitda_fy2024_millions": 2683,
+    "ebitda_margin_pct": 31.9,
+    "net_income_fy2024_millions": 1021,
+    "eps_fy2024": 3.18,
+    "free_cash_flow_millions": 1302,
+    "market_cap_billions": 33.5,
+    "system_wide_sales_growth_pct": 5.3,
+    "total_restaurants": "30,000+",
+    "brands": "Burger King, Tim Hortons, Popeyes Louisiana Kitchen, Firehouse Subs",
+    "franchise_pct": "~99% franchised",
+    "revenue_fy2025_millions": 9430,
+    "revenue_growth_fy2025_pct": 12.2,
+    "dividend_yield_pct": "~3.3%",
+    "shares_outstanding_millions": 456
+  },
+  "moat_sources": [
+    "Global brand recognition \u2014 Burger King and Tim Hortons are among the most recognized QSR brands worldwide with decades of consumer habit formation",
+    "Franchise model \u2014 99% franchised means capital-light, high-margin royalty stream with franchisees bearing capital and operational risk",
+    "Scale advantages \u2014 30,000+ restaurants provide purchasing power, marketing scale, and real estate leverage that independent operators cannot match",
+    "Habitual consumer behavior \u2014 fast food consumption is deeply ingrained, recession-resistant, and grows with population and urbanization",
+    "Multi-brand diversification \u2014 four brands across coffee/breakfast (Tim Hortons), burgers (BK), chicken (Popeyes), and subs (Firehouse) reduce concentration risk",
+    "International expansion runway \u2014 particularly for Popeyes and Burger King in underpenetrated markets"
+  ],
+  "risks": [
+    "Burger King turnaround execution risk \u2014 the brand has underperformed McDonald's and Wendy's for years, and 'Reclaim the Flame' may not reverse the trend",
+    "High leverage \u2014 RBI carries significant debt from the 3G Capital-backed acquisitions, limiting financial flexibility",
+    "Consumer shift toward healthier eating could reduce traffic at traditional QSR brands long-term",
+    "Franchisee financial health \u2014 over-leveraged franchisees unable to invest in restaurant modernization could impair brand quality",
+    "FY2024 net income declined 14% despite 20% revenue growth \u2014 margin pressure from integration and investment costs",
+    "3G Capital's cost-cutting reputation may have damaged brand quality and franchisee relationships, requiring years to rebuild",
+    "Food inflation and labor cost increases squeeze franchisee margins, potentially leading to franchisee pushback on royalty increases"
+  ],
+  "catalysts": [
+    "Burger King 'Reclaim the Flame' turnaround \u2014 $400M+ investment in restaurant remodels, menu innovation, and marketing is beginning to show results",
+    "Popeyes international expansion \u2014 the brand is early in its global rollout with significant white space in international markets",
+    "Tim Hortons stability \u2014 consistent performance in Canada provides reliable cash flow base while international expansion continues",
+    "Margin expansion as Carrols Restaurant Group (recently acquired) is optimized and re-franchised",
+    "Dividend yield of 3.3%+ provides attractive base return while waiting for turnaround and re-rating",
+    "Multiple expansion toward franchise peer group (McDonald's, Yum!) would drive 25-35% upside"
+  ],
+  "company_brief": "Restaurant Brands International (QSR) is one of the world's largest quick-service restaurant companies, owning four iconic brands: Burger King (flame-grilled burgers, ~18,000 locations), Tim Hortons (coffee and baked goods, ~5,700 locations, dominant in Canada), Popeyes Louisiana Kitchen (fried chicken, ~3,700 locations), and Firehouse Subs (sub sandwiches, ~1,200 locations). The company operates a ~99% franchised model, earning high-margin royalty fees on system-wide sales while franchisees invest the capital and bear operational risk. RBI was formed through the 3G Capital-backed merger of Burger King and Tim Hortons in 2014, with Popeyes acquired in 2017 and Firehouse Subs in 2021. FY2024 revenue was $8.4B with $2.7B EBITDA (32% margin) and $1.3B free cash flow. System-wide sales grew 5.3% in 2025, with Burger King U.S. showing signs of recovery under the 'Reclaim the Flame' turnaround plan. The stock trades at ~12.5x EV/EBITDA, a meaningful discount to franchise peers McDonald's (16x) and Yum! Brands (18x), offering margin of safety for value investors.",
+  "thesis_bullets": [
+    "Seth Klarman's RBI position reflects his classic margin-of-safety approach applied to a franchise-model business with predictable cash flows and a depressed brand (Burger King) offering turnaround upside. RBI owns four iconic quick-service restaurant brands operating ~30,000+ locations worldwide.",
+    "As a franchisor (not operator), RBI earns high-margin royalty fees on system-wide sales with minimal capital requirements \u2014 the franchisees invest the capital and bear the operational risk. RBI generates $8.4B in revenue, $2.7B in EBITDA (32% margin), and $1.3B in free cash flow.",
+    "The investment thesis centers on Burger King's 'Reclaim the Flame' turnaround plan, which allocates $400M to restaurant modernization, advertising, and menu innovation. Tim Hortons (the cash cow) provides stable earnings growth in Canada, while Popeyes (the growth engine) continues rapid international expansion.",
+    "Klarman likely sees a business with durable competitive advantages (brand recognition, global franchise network, habitual consumer behavior) trading at a modest premium to its peers with clear catalysts for earnings improvement."
+  ],
+  "business_bullets": [
+    "Restaurant Brands International (QSR) is one of the world's largest quick-service restaurant companies, owning four iconic brands: Burger King (flame-grilled burgers, ~18,000 locations), Tim Hortons (coffee and baked goods, ~5,700 locations, dominant in Canada), Popeyes Louisiana Kitchen (fried chicken, ~3,700 locations), and Firehouse Subs (sub sandwiches, ~1,200 locations). The company operates a ~99% franchised model, earning high-margin royalty fees on system-wide sales while franchisees invest the capital and bear operational risk.",
+    "RBI was formed through the 3G Capital-backed merger of Burger King and Tim Hortons in 2014, with Popeyes acquired in 2017 and Firehouse Subs in 2021. FY2024 revenue was $8.4B with $2.7B EBITDA (32% margin) and $1.3B free cash flow.",
+    "System-wide sales grew 5.3% in 2025, with Burger King U.S. showing signs of recovery under the 'Reclaim the Flame' turnaround plan.",
+    "The stock trades at ~12.5x EV/EBITDA, a meaningful discount to franchise peers McDonald's (16x) and Yum! Brands (18x), offering margin of safety for value investors."
+  ],
+  "slug": "seth-klarman-QSR",
+  "investor_key": "baupost_group",
+  "detail_path": "/conviction-data/details/seth-klarman-QSR.json"
+}

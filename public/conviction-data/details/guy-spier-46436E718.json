@@ -1,0 +1,65 @@
+{
+  "investor_slug": "guy-spier",
+  "investor_name": "Guy Spier",
+  "firm_name": "Aquamarine Capital Management",
+  "ticker": "46436E718",
+  "company_name": "iShares Core S&P 500 ETF",
+  "weight_pct": 18.88,
+  "value_millions": 57,
+  "thesis_headline": "A passive index position providing broad market exposure \u2014 Guy Spier follows Buffett's advice that most investors are best served by a low-cost S&P 500 index fund",
+  "thesis_summary": "Guy Spier's 19% allocation to an iShares S&P 500 ETF reflects his intellectual honesty about index investing. Spier, a self-described Buffett disciple, takes seriously Buffett's repeated advice that most investors \u2014 including many professionals \u2014 would be better off simply buying a low-cost S&P 500 index fund. Rather than viewing this as a contradiction of his value investing approach, Spier sees the index position as providing diversified equity exposure while he concentrates his stock-picking efforts on a small number of high-conviction ideas. The ETF provides exposure to 500 of America's largest companies with near-zero fees and tax efficiency.",
+  "thesis_bullets": [
+    "Spier follows Buffett's advice that a low-cost S&P 500 index fund is the best investment for most people \u2014 and uses it for a portion of his own portfolio",
+    "The iShares position provides diversified equity exposure that complements his concentrated individual stock picks",
+    "Near-zero expense ratio (0.03%) means virtually all market returns flow through to the investor",
+    "The S&P 500 has compounded at ~10% annually over the long term, providing reliable wealth accumulation",
+    "This position reflects intellectual honesty \u2014 even the best stock pickers benefit from passive diversification"
+  ],
+  "business_bullets": [
+    "The iShares Core S&P 500 ETF (IVV) tracks the S&P 500 index, providing exposure to 500 of the largest US-listed companies",
+    "Top holdings include Apple, Microsoft, NVIDIA, Amazon, and Alphabet \u2014 the dominant companies in the US economy",
+    "The fund has an expense ratio of 0.03% and over $500B in assets under management, making it one of the largest ETFs in the world",
+    "It provides instant diversification across all major sectors of the US economy with daily liquidity"
+  ],
+  "why_this_price": "An S&P 500 ETF does not have a traditional 'thesis price.' Spier's allocation reflects a belief that owning the broad US equity market at any given time is a reasonable investment, particularly as a complement to concentrated individual stock positions. The S&P 500's long-term compounding rate of ~10% annually provides a reliable base return.",
+  "investor_in_their_own_words": [
+    {
+      "quote": "Warren Buffett has said repeatedly that a low-cost S&P 500 index fund is the best investment for most people. I take that advice seriously, even as a professional stock picker.",
+      "source": "Guy Spier, 'The Education of a Value Investor'",
+      "date": "2014"
+    },
+    {
+      "quote": "Part of being a good investor is intellectual honesty. Not every dollar needs to be in a concentrated position. Some portion of the portfolio can simply ride the broad market.",
+      "source": "Guy Spier, Aquamarine Fund letter",
+      "date": "2021"
+    }
+  ],
+  "key_metrics": {
+    "expense_ratio": "0.03%",
+    "index_tracked": "S&P 500",
+    "aum": "$500B+",
+    "holdings": "~500 stocks",
+    "top_sector": "Technology (~30%)",
+    "historical_return": "~10% CAGR (long-term)"
+  },
+  "moat_sources": [
+    "S&P 500 companies represent the most profitable businesses in the US economy with strong competitive positions",
+    "Index rebalancing naturally removes weak companies and adds strong ones, creating a self-improving portfolio",
+    "Extreme diversification eliminates single-stock risk while capturing broad economic growth"
+  ],
+  "risks": [
+    "Market-wide drawdowns \u2014 the S&P 500 can decline 30-50% during bear markets and recessions",
+    "Concentration in mega-cap tech \u2014 the top 10 holdings represent ~35% of the index, creating sector concentration",
+    "Passive investment bubble concerns \u2014 massive flows into index funds may distort price discovery",
+    "Currency and geopolitical risks affecting the entire US equity market"
+  ],
+  "catalysts": [
+    "Long-term compounding \u2014 the US economy continues to be the most innovative and productive in the world",
+    "Corporate earnings growth driven by AI, technology, and productivity improvements",
+    "Share buybacks \u2014 S&P 500 companies collectively buy back hundreds of billions in stock annually"
+  ],
+  "company_brief": "The iShares Core S&P 500 ETF (IVV/CUSIP 46436E718) is one of the world's largest ETFs, tracking the S&P 500 index with a 0.03% expense ratio. It provides exposure to approximately 500 of the largest US-listed companies including Apple, Microsoft, NVIDIA, Amazon, and Alphabet. The fund has over $500B in AUM and offers instant diversification across all major sectors of the US economy.",
+  "slug": "guy-spier-46436E718",
+  "investor_key": null,
+  "detail_path": "/conviction-data/details/guy-spier-46436E718.json"
+}

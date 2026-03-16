@@ -1,0 +1,170 @@
+{
+  "investor_slug": "li-lu",
+  "investor_name": "Li Lu",
+  "firm_name": "Himalaya Capital",
+  "ticker": "PDD",
+  "company_name": "PDD Holdings",
+  "weight_pct": 14.6,
+  "value_millions": 523,
+  "thesis_headline": "PDD Holdings is the most capital-efficient e-commerce platform in the world \u2014 a relentless cost-leader generating $17B in free cash flow at 10x earnings, with Temu opening a $500B+ international addressable market that the stock prices at zero.",
+  "thesis_summary": "Li Lu's 14.6% position in PDD Holdings reflects his deep China expertise \u2014 the same edge that led him to discover BYD for Berkshire Hathaway. PDD (parent of Pinduoduo domestically and Temu internationally) is the fastest-growing major e-commerce company in the world, having grown from zero to ~$59B in TTM revenue in under a decade. Pinduoduo dominates value-oriented e-commerce in China with 900M+ annual active buyers, using a gamified, social commerce model that achieved profitability faster than any major e-commerce player in history. Temu, launched in September 2022, has already expanded to 50+ countries and reached hundreds of millions of users globally.\n\nThe Li Lu thesis here is about understanding China's consumer economy better than Western investors, combined with brutal math: PDD trades at 10x trailing earnings and 8x forward earnings \u2014 a valuation that prices in zero value for Temu's international expansion and assumes Pinduoduo's domestic dominance will erode. For a Munger disciple, this is the classic 'wonderful business at a fair price' setup, with the twist that the market's China discount creates the margin of safety. PDD generated RMB 121B (~$17B) in free cash flow in 2024, has no debt, and holds more cash than its market cap implies. The floor is protected by the domestic Pinduoduo business alone, while Temu represents massive asymmetric upside.",
+  "why_this_price": "Li Lu's China advantage is the key. Western investors systematically misprice Chinese companies due to geopolitical risk aversion, VIE structure fears, and regulatory uncertainty. Li Lu, born in China and fluent in both cultures, can distinguish real risk from perception. At 10x earnings, the market is pricing PDD as if Temu will fail and Pinduoduo will face secular decline \u2014 but PDD's domestic business is the lowest-cost e-commerce operator in China with structural advantages in agriculture, factory-direct sourcing, and value-conscious consumers (800M+ users). Temu, meanwhile, is replicating the Pinduoduo playbook internationally, connecting Chinese manufacturers directly to global consumers at prices that incumbents cannot match. The optionality of a $500B+ international e-commerce market is embedded at essentially zero cost in the current stock price.",
+  "investor_in_their_own_words": [
+    {
+      "quote": "The way to think about investing is to find something you really understand deeply. And if you understand it deeply enough, you'll know how much it's worth.",
+      "source": "Li Lu, Columbia Business School lecture on value investing",
+      "date": "2010",
+      "url": ""
+    },
+    {
+      "quote": "I was born in China, grew up in China, I understand the culture, I understand the people, I understand how businesses work there. That's my circle of competence.",
+      "source": "Li Lu, referencing his edge in Chinese investments",
+      "date": "2013",
+      "url": ""
+    },
+    {
+      "quote": "Knowledge compounds. The more you know about a business, the more you can know. And that compounding of knowledge is the real edge in investing.",
+      "source": "Li Lu, speech at Columbia Business School",
+      "date": "2012",
+      "url": ""
+    }
+  ],
+  "valuation_math": {
+    "approach": "Sum-of-Parts: Domestic Pinduoduo + Temu International",
+    "steps": [
+      {
+        "label": "2024 Total Revenue",
+        "value": "RMB 393.8B (~$55B)",
+        "note": "59% YoY growth; TTM revenue $58.8B (12.5% growth, decelerating)"
+      },
+      {
+        "label": "2024 Net Income",
+        "value": "RMB 112.4B (~$15.7B)",
+        "note": "87% YoY growth; operating margin 27.5%"
+      },
+      {
+        "label": "2024 Free Cash Flow",
+        "value": "RMB 121B (~$16.9B)",
+        "note": "FCF exceeds net income \u2014 sign of capital-light model"
+      },
+      {
+        "label": "Current Stock Price",
+        "value": "$100.69",
+        "note": "As of March 5, 2026"
+      },
+      {
+        "label": "Current Market Cap",
+        "value": "$143B",
+        "note": "1.42B shares outstanding (ADS)"
+      },
+      {
+        "label": "P/E Ratio",
+        "value": "10.4x TTM; 8.3x forward",
+        "note": "Cheapest major e-commerce company globally"
+      },
+      {
+        "label": "Domestic Pinduoduo Alone",
+        "value": "$120B+ value",
+        "note": "Conservative 12x on ~$10B domestic profit = $120B, nearly the entire market cap"
+      },
+      {
+        "label": "Temu Implied Value",
+        "value": "~$23B",
+        "note": "Market prices Temu at near-zero; estimated $20-30B+ if valued at even 1x GMV"
+      },
+      {
+        "label": "Net Cash on Balance Sheet",
+        "value": "~$30B+",
+        "note": "Massive cash pile with zero debt \u2014 21% of market cap is cash"
+      },
+      {
+        "label": "5-Year EPS Growth Estimate",
+        "value": "12-15%",
+        "note": "Domestic growth slowing but Temu scaling rapidly; blended growth remains strong"
+      },
+      {
+        "label": "2030 EPS Estimate",
+        "value": "$17-20",
+        "note": "$9.68 compounding at 12-15% for 5 years"
+      },
+      {
+        "label": "Terminal P/E (re-rated)",
+        "value": "15x",
+        "note": "If China discount narrows and Temu proves out, P/E expands from 10x to 15x"
+      },
+      {
+        "label": "Implied 2030 Price",
+        "value": "$255-300",
+        "note": "$17 x 15 = $255 (bear) to $20 x 15 = $300 (bull)"
+      }
+    ],
+    "target_price": "$275",
+    "current_price": "$101",
+    "implied_return": "172% (5-year total)",
+    "time_horizon": "5 years"
+  },
+  "key_metrics": {
+    "revenue": "RMB 393.8B / ~$55B (2024); $58.8B TTM",
+    "net_income": "RMB 112.4B / ~$15.7B (2024); $14.4B TTM",
+    "market_cap": "$143 billion",
+    "pe_ratio": "10.4x TTM; 8.3x forward",
+    "free_cash_flow": "RMB 121B / ~$16.9B (2024)"
+  },
+  "moat_sources": [
+    "Lowest-cost operator: PDD's commission-free merchant model and zero-warehouse approach give it the lowest take rate of any major e-commerce platform, making it structurally cheaper for consumers",
+    "Factory-direct sourcing: Direct connections to Chinese manufacturers eliminate 3-5 layers of middlemen, creating permanent price advantages",
+    "Social commerce flywheel: Gamified group-buying model (team purchase) drives organic user acquisition at near-zero customer acquisition cost",
+    "Agricultural dominance: Largest agricultural e-commerce platform in China, connecting 16M+ farmers directly to consumers \u2014 a market no competitor has matched",
+    "Temu global network: Manufacturing-to-consumer platform operating in 50+ countries, leveraging China's manufacturing base as a structural cost advantage",
+    "Engineering culture: Lean team (~13,000 employees for a $55B revenue business) with exceptional operational efficiency \u2014 revenue per employee exceeds $4M"
+  ],
+  "risks": [
+    {
+      "risk": "China regulatory crackdown",
+      "severity": "High",
+      "mitigation": "PDD has been less targeted than Alibaba/JD by regulators. Government broadly supports e-commerce platforms that serve rural consumers and farmers. However, China tech regulation remains unpredictable."
+    },
+    {
+      "risk": "Temu regulatory backlash internationally",
+      "severity": "Medium-High",
+      "mitigation": "De minimis tariff exemptions are being reconsidered in the U.S. and EU. If eliminated, Temu's cost advantage narrows but doesn't disappear \u2014 factory-direct pricing is structural, not just tax-arbitrage."
+    },
+    {
+      "risk": "VIE structure risk",
+      "severity": "Medium",
+      "mitigation": "PDD is incorporated in the Cayman Islands with VIE contracts to Chinese operating entities. This creates theoretical risk that Chinese government could invalidate the structure. However, no major VIE has been forcibly unwound, and China has economic incentive to maintain foreign capital access."
+    },
+    {
+      "risk": "Growth deceleration",
+      "severity": "Medium",
+      "mitigation": "Domestic Pinduoduo growth is slowing (9% revenue growth in Q3 2025 vs 59% in 2024). However, Temu international is still in early stages and provides the next growth leg."
+    },
+    {
+      "risk": "Geopolitical U.S.-China tensions",
+      "severity": "Medium",
+      "mitigation": "Escalation could force delisting or restrict U.S. investment. However, PDD's core business serves Chinese consumers and is not dependent on U.S. operations."
+    }
+  ],
+  "catalysts": [
+    "Temu profitability inflection: As Temu scales in established markets and reduces customer acquisition spending, margins could expand dramatically",
+    "China consumer recovery: Post-COVID consumer spending normalization in China benefits PDD's value-oriented platform disproportionately",
+    "Multiple re-rating: If China geopolitical fears ease, PDD could re-rate from 10x to 15-20x earnings \u2014 a 50-100% move from valuation alone",
+    "Capital returns: PDD initiated a $10B buyback program; with $30B+ in cash, aggressive buybacks could significantly reduce share count",
+    "Temu expansion into new markets: Continued geographic expansion (Africa, Southeast Asia, Latin America) opens massive new addressable markets"
+  ],
+  "company_brief": "PDD Holdings operates Pinduoduo, China's largest value-oriented e-commerce platform with 900M+ annual active buyers, and Temu, an international e-commerce platform launched in 2022 that has rapidly expanded to 50+ countries. The company's core innovation is connecting Chinese manufacturers directly to consumers, eliminating middlemen and offering products at prices significantly below traditional retail. In 2024, PDD generated RMB 393.8B (~$55B) in revenue with 27.5% operating margins, making it one of the most profitable e-commerce companies in the world on a margin basis.",
+  "thesis_bullets": [
+    "Li Lu's 14.6% position in PDD Holdings reflects his deep China expertise \u2014 the same edge that led him to discover BYD for Berkshire Hathaway. PDD (parent of Pinduoduo domestically and Temu internationally) is the fastest-growing major e-commerce company in the world, having grown from zero to ~$59B in TTM revenue in under a decade.",
+    "Pinduoduo dominates value-oriented e-commerce in China with 900M+ annual active buyers, using a gamified, social commerce model that achieved profitability faster than any major e-commerce player in history. Temu, launched in September 2022, has already expanded to 50+ countries and reached hundreds of millions of users globally.",
+    "The Li Lu thesis here is about understanding China's consumer economy better than Western investors, combined with brutal math: PDD trades at 10x trailing earnings and 8x forward earnings \u2014 a valuation that prices in zero value for Temu's international expansion and assumes Pinduoduo's domestic dominance will erode. For a Munger disciple, this is the classic 'wonderful business at a fair price' setup, with the twist that the market's China discount creates the margin of safety.",
+    "PDD generated RMB 121B (~$17B) in free cash flow in 2024, has no debt, and holds more cash than its market cap implies. The floor is protected by the domestic Pinduoduo business alone, while Temu represents massive asymmetric upside."
+  ],
+  "business_bullets": [
+    "PDD Holdings operates Pinduoduo, China's largest value-oriented e-commerce platform with 900M+ annual active buyers, and Temu, an international e-commerce platform launched in 2022 that has rapidly expanded to 50+ countries.",
+    "The company's core innovation is connecting Chinese manufacturers directly to consumers, eliminating middlemen and offering products at prices significantly below traditional retail.",
+    "In 2024, PDD generated RMB 393.8B (~$55B) in revenue with 27.5% operating margins, making it one of the most profitable e-commerce companies in the world on a margin basis."
+  ],
+  "slug": "li-lu-PDD",
+  "investor_key": "himalaya_capital",
+  "detail_path": "/conviction-data/details/li-lu-PDD.json"
+}

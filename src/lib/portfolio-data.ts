@@ -7,6 +7,7 @@
  */
 import fs from 'fs'
 import path from 'path'
+import { getConvictionLookupKeys } from './conviction-data'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -55,6 +56,25 @@ export interface Changes {
   changes: ChangeEntry[]
 }
 
+export interface FilingHolding {
+  ticker: string
+  name_of_issuer: string
+  cusip: string
+  value: number
+  shares: number
+}
+
+export interface Filing {
+  accession_number: string
+  filing_date: string
+  report_date: string
+  investor_key: string
+  cik: string
+  holdings_count: number
+  total_value_thousands: number
+  holdings: FilingHolding[]
+}
+
 export interface InvestorFilingData {
   investor_key: string
   name: string
@@ -70,6 +90,7 @@ export interface InvestorFilingData {
   latest_total_value_thousands: number
   top_holdings: Holding[]
   changes: Changes | null
+  filings?: Filing[]
 }
 
 // ─── Slug to Investor Key Mapping ────────────────────────────────────────────
@@ -110,6 +131,42 @@ const SLUG_TO_KEY: Record<string, string> = {
   'robert-vinall': 'rv_capital',
   'nick-train': 'lindsell_train',
   'allan-mecham': 'arlington_value',
+  'leopold-aschenbrenner': 'situational_awareness',
+  // New investors
+  'stanley-druckenmiller': 'druckenmiller_duquesne',
+  'henry-ellenbogen': 'durable_capital',
+  'bill-miller': 'miller_value',
+  'wally-weitz': 'weitz_investment',
+  'dennis-hong': 'shawspring',
+  'andrew-brenton': 'turtle_creek',
+  'andreas-halvorsen': 'viking_global',
+  'brad-gerstner': 'altimeter_capital',
+  'karthik-sarma': 'srs_investment',
+  'dan-sundheim': 'd1_capital',
+  'marty-whitman': 'third_avenue',
+  'howard-marks': 'oaktree_capital',
+  'david-einhorn': 'greenlight_capital',
+  'jeff-smith': 'starboard_value',
+  'chase-coleman': 'tiger_global',
+  'dan-loeb': 'third_point',
+  'george-soros': 'soros_fund',
+  'leigh-goehring-adam-rozencwajg': 'goehring_rozencwajg',
+  'leigh-goehring': 'goehring_rozencwajg',
+  'adam-rozencwajg': 'goehring_rozencwajg',
+  'nelson-peltz': 'trian_fund',
+  'paul-singer': 'elliott_investment',
+  'larry-robbins': 'glenview_capital',
+  'lee-ainslie': 'maverick_capital',
+  'michael-burry': 'scion_asset',
+  'bruce-berkowitz': 'fairholme_capital',
+  'ray-dalio': 'bridgewater',
+  'carl-icahn': 'icahn_enterprises',
+  'john-paulson': 'paulson_co',
+  'sardar-biglari': 'biglari_capital',
+  'alex-sacerdote': 'whale_rock',
+  'mario-gabelli': 'gamco_investors',
+  'kevin-tang': 'tang_capital',
+  'samuel-isaly': 'orbimed_advisors',
 }
 
 // Reverse map: investor_key -> slug (for building links in changes/best-ideas pages)
@@ -152,6 +209,38 @@ const KEY_TO_MANAGER: Record<string, string> = {
   'atreides_management': 'Gavin Baker',
   'coatue_management': 'Philippe Laffont',
   'punch_card': 'Norbert Lou',
+  'situational_awareness': 'Leopold Aschenbrenner',
+  'druckenmiller_duquesne': 'Stanley Druckenmiller',
+  'durable_capital': 'Henry Ellenbogen',
+  'miller_value': 'Bill Miller',
+  'weitz_investment': 'Wally Weitz',
+  'shawspring': 'Dennis Hong',
+  'turtle_creek': 'Andrew Brenton',
+  'viking_global': 'Andreas Halvorsen',
+  'altimeter_capital': 'Brad Gerstner',
+  'srs_investment': 'Karthik Sarma',
+  'd1_capital': 'Dan Sundheim',
+  'third_avenue': 'Marty Whitman',
+  'greenlight_capital': 'David Einhorn',
+  'starboard_value': 'Jeff Smith',
+  'tiger_global': 'Chase Coleman',
+  'third_point': 'Dan Loeb',
+  'soros_fund': 'George Soros',
+  'goehring_rozencwajg': 'Leigh Goehring & Adam Rozencwajg',
+  'trian_fund': 'Nelson Peltz',
+  'elliott_investment': 'Paul Singer',
+  'glenview_capital': 'Larry Robbins',
+  'maverick_capital': 'Lee Ainslie',
+  'scion_asset': 'Michael Burry',
+  'fairholme_capital': 'Bruce Berkowitz',
+  'bridgewater': 'Ray Dalio',
+  'icahn_enterprises': 'Carl Icahn',
+  'paulson_co': 'John Paulson',
+  'biglari_capital': 'Sardar Biglari',
+  'whale_rock': 'Alex Sacerdote',
+  'gamco_investors': 'Mario Gabelli',
+  'tang_capital': 'Kevin Tang',
+  'orbimed_advisors': 'Samuel Isaly',
 }
 
 // Key to firm name
@@ -189,11 +278,155 @@ const KEY_TO_FIRM: Record<string, string> = {
 // ─── Data Loading ────────────────────────────────────────────────────────────
 
 const OUTPUT_DIR = path.resolve(process.cwd(), 'data', 'output')
+const CUSIP_TICKER_MAP_PATH = path.resolve(process.cwd(), 'data', 'cusip_ticker_map.json')
+
+interface CUSIPTickerCacheData {
+  cusip_to_ticker?: Record<string, string>
+}
+
+let _cachedCusipTickerMap: Record<string, string> | null | undefined = undefined
+
+function loadCusipTickerMap(): Record<string, string> {
+  if (_cachedCusipTickerMap !== undefined) {
+    return _cachedCusipTickerMap ?? {}
+  }
+
+  try {
+    const raw = JSON.parse(fs.readFileSync(CUSIP_TICKER_MAP_PATH, 'utf-8')) as CUSIPTickerCacheData
+    _cachedCusipTickerMap = raw.cusip_to_ticker ?? {}
+  } catch {
+    _cachedCusipTickerMap = {}
+  }
+
+  return _cachedCusipTickerMap
+}
+
+function normalizeTicker(ticker: string, cusip: string): string {
+  const mappedTicker = loadCusipTickerMap()[cusip]
+  const resolved = (mappedTicker || ticker || '').trim()
+  return resolved ? resolved.toUpperCase() : ticker
+}
+
+function roundPct(value: number): number {
+  return Math.round(value * 100) / 100
+}
+
+function aggregateTopHoldings(holdings: Holding[], totalValueThousands: number): Holding[] {
+  const byKey = new Map<string, Holding>()
+
+  for (const holding of holdings) {
+    const key = holding.cusip || holding.ticker || holding.name
+    const normalizedTicker = normalizeTicker(holding.ticker, holding.cusip)
+    const existing = byKey.get(key)
+
+    if (existing) {
+      existing.value_thousands += holding.value_thousands
+      existing.shares += holding.shares
+      existing.weight_pct += holding.weight_pct
+      if (normalizedTicker) {
+        existing.ticker = normalizedTicker
+      }
+      if (!existing.name && holding.name) {
+        existing.name = holding.name
+      }
+      continue
+    }
+
+    byKey.set(key, {
+      ...holding,
+      ticker: normalizedTicker,
+      value_thousands: holding.value_thousands ?? 0,
+      shares: holding.shares ?? 0,
+      weight_pct: holding.weight_pct ?? 0,
+    })
+  }
+
+  const aggregated = Array.from(byKey.values()).map((holding) => ({
+    ...holding,
+    weight_pct:
+      totalValueThousands > 0
+        ? roundPct((holding.value_thousands / totalValueThousands) * 100)
+        : roundPct(holding.weight_pct),
+  }))
+
+  aggregated.sort((a, b) => b.weight_pct - a.weight_pct || b.value_thousands - a.value_thousands)
+  return aggregated
+}
+
+function aggregateFilingHoldings(holdings: FilingHolding[]): FilingHolding[] {
+  const byKey = new Map<string, FilingHolding>()
+
+  for (const holding of holdings) {
+    const key = holding.cusip || holding.ticker || holding.name_of_issuer
+    const normalizedTicker = normalizeTicker(holding.ticker, holding.cusip)
+    const existing = byKey.get(key)
+
+    if (existing) {
+      existing.value += holding.value
+      existing.shares += holding.shares
+      if (normalizedTicker) {
+        existing.ticker = normalizedTicker
+      }
+      if (!existing.name_of_issuer && holding.name_of_issuer) {
+        existing.name_of_issuer = holding.name_of_issuer
+      }
+      continue
+    }
+
+    byKey.set(key, {
+      ...holding,
+      ticker: normalizedTicker,
+      value: holding.value ?? 0,
+      shares: holding.shares ?? 0,
+    })
+  }
+
+  return Array.from(byKey.values()).sort((a, b) => b.value - a.value)
+}
+
+function normalizeChanges(changes: Changes | null): Changes | null {
+  if (!changes) return null
+
+  return {
+    ...changes,
+    changes: (changes.changes ?? []).map((entry) => ({
+      ...entry,
+      ticker: normalizeTicker(entry.ticker, entry.cusip),
+    })),
+  }
+}
+
+function normalizeInvestorData(raw: InvestorFilingData): InvestorFilingData {
+  const topHoldings = aggregateTopHoldings(
+    raw.top_holdings ?? [],
+    raw.latest_total_value_thousands ?? 0
+  )
+
+  const filings = raw.filings?.map((filing) => {
+    const holdings = aggregateFilingHoldings(filing.holdings ?? [])
+    return {
+      ...filing,
+      holdings_count: holdings.length,
+      holdings,
+    }
+  })
+
+  return {
+    ...raw,
+    top_holdings: topHoldings,
+    latest_holdings_count: topHoldings.length,
+    changes: normalizeChanges(raw.changes),
+    filings,
+  }
+}
 
 function findOutputFile(investorKey: string): string | null {
   try {
     const files = fs.readdirSync(OUTPUT_DIR)
-    const match = files.find(f => f.startsWith(investorKey + '_13f_') && f.endsWith('.json'))
+    const matches = files
+      .filter(f => f.startsWith(investorKey + '_13f_') && f.endsWith('.json'))
+      .sort()
+    const match = matches[matches.length - 1]
     return match ? path.join(OUTPUT_DIR, match) : null
   } catch {
     return null
@@ -214,7 +447,7 @@ export function loadInvestorPortfolio(slug: string): InvestorFilingData | null {
     const raw = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
     // Skip investors with no current holdings
     if (!raw.top_holdings || raw.top_holdings.length === 0) return null
-    return raw as InvestorFilingData
+    return normalizeInvestorData(raw as InvestorFilingData)
   } catch {
     return null
   }
@@ -227,10 +460,21 @@ export function loadAllPortfolios(): InvestorFilingData[] {
   const results: InvestorFilingData[] = []
   try {
     const files = fs.readdirSync(OUTPUT_DIR)
+    const latestByKey = new Map<string, string>()
+
     for (const file of files) {
       if (!file.endsWith('.json') || file.startsWith('summary') || file.startsWith('latest') || file.startsWith('prices')) continue
+      const investorKey = file.split('_13f_')[0]
+      const existing = latestByKey.get(investorKey)
+      if (!existing || file > existing) {
+        latestByKey.set(investorKey, file)
+      }
+    }
+
+    for (const file of Array.from(latestByKey.values()).sort()) {
       try {
-        const data = JSON.parse(fs.readFileSync(path.join(OUTPUT_DIR, file), 'utf-8')) as InvestorFilingData
+        const raw = JSON.parse(fs.readFileSync(path.join(OUTPUT_DIR, file), 'utf-8')) as InvestorFilingData
+        const data = normalizeInvestorData(raw)
         if (data.top_holdings && data.top_holdings.length > 0) {
           results.push(data)
         }
@@ -259,6 +503,8 @@ export interface AggregatedChange {
   share_delta: number
   current_value: number
   previous_value: number
+  current_shares: number
+  previous_shares: number
   current_quarter: string
   previous_quarter: string
 }
@@ -287,6 +533,8 @@ export function getAllChanges(): AggregatedChange[] {
         share_delta: change.share_delta,
         current_value: change.current_value,
         previous_value: change.previous_value,
+        current_shares: change.current_shares,
+        previous_shares: change.previous_shares,
         current_quarter: portfolio.changes.current_quarter,
         previous_quarter: portfolio.changes.previous_quarter,
       })
@@ -468,6 +716,14 @@ export interface ScoredChange extends AggregatedChange {
 /**
  * Get all changes enriched with investor scores, weight impact, and importance.
  * Sorted by importance_score descending.
+ *
+ * Importance Algorithm:
+ * - position_size_score = position value as % of investor's total portfolio (0-1 normalized)
+ * - change_magnitude_score = abs(share_delta) / max(previous_shares, 1) for INCREASED/DECREASED; 1.0 for NEW/SOLD_OUT
+ * - investor_quality_score = investor combined_score / 10 (0-1 normalized)
+ * - importance = (0.4 * position_size_score) + (0.35 * change_magnitude_score) + (0.25 * investor_quality_score)
+ *
+ * This weights: How big is the position? (40%), How big was the change? (35%), How good is the investor? (25%)
  */
 export function getScoredChanges(): ScoredChange[] {
   const changes = getAllChanges()
@@ -481,8 +737,6 @@ export function getScoredChanges(): ScoredChange[] {
   }
 
   const scored: ScoredChange[] = []
-  // Track max weight impact for normalization
-  let maxWeightImpact = 0
 
   for (const change of changes) {
     const slug = change.investor_slug
@@ -490,24 +744,34 @@ export function getScoredChanges(): ScoredChange[] {
     const combinedScore = investorScore?.combined ?? 0
     const verdict = investorScore?.verdict ?? 'SKIP'
     const totalValue = portfolioValues.get(change.investor_key) || 1
-    const weightImpact = Math.abs(change.value_delta) / totalValue
+    const weightImpact = Math.abs(change.current_value) / totalValue
 
-    if (weightImpact > maxWeightImpact) maxWeightImpact = weightImpact
+    // position_size_score: current position value as fraction of total portfolio (0-1)
+    const positionSizeScore = Math.min(weightImpact, 1)
+
+    // change_magnitude_score: for NEW/SOLD_OUT = 1.0, otherwise abs(share_delta) / max(previous_shares, 1)
+    let changeMagnitudeScore: number
+    if (change.change_type === 'NEW' || change.change_type === 'SOLD_OUT') {
+      changeMagnitudeScore = 1.0
+    } else {
+      changeMagnitudeScore = Math.min(
+        Math.abs(change.share_delta) / Math.max(change.previous_shares, 1),
+        1.0
+      )
+    }
+
+    // investor_quality_score: combined_score / 10 (0-1)
+    const investorQualityScore = combinedScore / 10
+
+    const importanceScore = (0.4 * positionSizeScore) + (0.35 * changeMagnitudeScore) + (0.25 * investorQualityScore)
 
     scored.push({
       ...change,
       combined_score: combinedScore,
       verdict,
       weight_impact: weightImpact,
-      importance_score: 0, // computed after normalization
+      importance_score: importanceScore,
     })
-  }
-
-  // Normalize weight_impact and compute importance_score
-  const normFactor = maxWeightImpact > 0 ? maxWeightImpact : 1
-  for (const s of scored) {
-    const normalizedWeight = s.weight_impact / normFactor
-    s.importance_score = s.combined_score * normalizedWeight
   }
 
   scored.sort((a, b) => b.importance_score - a.importance_score)
@@ -621,4 +885,383 @@ export function getAdjustedWeight(
 export function getPortfolioAdjustment(investorKey: string): PortfolioAdjustment | null {
   const adjustments = loadPortfolioAdjustments()
   return adjustments[investorKey] || null
+}
+
+// ─── Historical Position Data ────────────────────────────────────────────────
+
+export interface HistoricalPositionEntry {
+  quarter: string
+  shares: number
+  value_thousands: number
+  weight_pct: number
+}
+
+/**
+ * Extract historical position data for all changed positions across all investors.
+ * Returns a map of "investor_key:ticker" -> array of quarter snapshots.
+ */
+export function getHistoricalPositions(): Record<string, HistoricalPositionEntry[]> {
+  const portfolios = loadAllPortfolios()
+  const result: Record<string, HistoricalPositionEntry[]> = {}
+
+  for (const portfolio of portfolios) {
+    if (!portfolio.filings || portfolio.filings.length === 0) continue
+
+    for (const filing of portfolio.filings) {
+      const reportDate = filing.report_date
+      const quarter = reportDateToQuarter(reportDate)
+      const totalValue = filing.total_value_thousands
+
+      for (const holding of filing.holdings) {
+        const key = `${portfolio.investor_key}:${holding.ticker}`
+        if (!result[key]) result[key] = []
+
+        const weightPct = totalValue > 0 ? (holding.value / totalValue) * 100 : 0
+        result[key].push({
+          quarter,
+          shares: holding.shares,
+          value_thousands: holding.value,
+          weight_pct: Math.round(weightPct * 100) / 100,
+        })
+      }
+    }
+
+    // Deduplicate and sort by quarter for each key
+    for (const key of Object.keys(result)) {
+      if (!key.startsWith(portfolio.investor_key + ':')) continue
+      const entries = result[key]
+      const seen = new Map<string, HistoricalPositionEntry>()
+      for (const entry of entries) {
+        // Keep the latest entry for each quarter
+        seen.set(entry.quarter, entry)
+      }
+      result[key] = Array.from(seen.values()).sort((a, b) => a.quarter.localeCompare(b.quarter))
+    }
+  }
+
+  return result
+}
+
+function reportDateToQuarter(reportDate: string): string {
+  const date = new Date(reportDate)
+  const month = date.getMonth() + 1
+  const year = date.getFullYear()
+  if (month <= 3) return `${year}-Q1`
+  if (month <= 6) return `${year}-Q2`
+  if (month <= 9) return `${year}-Q3`
+  return `${year}-Q4`
+}
+
+// ─── Conviction Data Availability ────────────────────────────────────────────
+
+/**
+ * Get the set of available conviction analysis slugs (investor-slug_ticker format).
+ * Used to determine if a "View Conviction Analysis" link should be shown.
+ */
+export function getConvictionSlugs(): Set<string> {
+  return getConvictionLookupKeys()
+}
+
+// ─── Track Record ────────────────────────────────────────────────────────────
+
+export interface TimelineEntry {
+  quarter: string
+  shares: number
+  value_thousands: number
+  weight_pct: number
+  action: 'NEW' | 'INCREASED' | 'DECREASED' | 'HELD' | 'SOLD_OUT'
+  share_delta: number
+  value_delta: number
+  estimated_price: number | null        // avg price per share that quarter (from prices.json or value/shares)
+  estimated_tx_cost: number | null      // share_delta × estimated_price (cost of this transaction)
+  quarter_price_range: QuarterRangeData | null  // min/max/avg from prices.json if available
+}
+
+export interface InvestmentRecord {
+  ticker: string
+  company_name: string
+  first_seen_quarter: string
+  last_seen_quarter: string
+  is_current: boolean
+  peak_weight_pct: number
+  peak_value_thousands: number
+  current_weight_pct: number | null
+  current_value_thousands: number | null
+  timeline: TimelineEntry[]
+  estimated_entry_price: number | null
+  weighted_avg_entry_price: number | null  // weighted by shares bought at each quarter's price
+  current_price: number | null
+  exit_price: number | null               // estimated price when exited (for sold positions)
+  price_return_pct: number | null
+  holding_period_quarters: number
+  annualized_return_pct: number | null
+}
+
+interface RawFiling {
+  report_date: string
+  filing_date: string
+  holdings_count: number
+  total_value_thousands: number
+  holdings: FilingHolding[]
+}
+
+function loadRawFilingData(investorKey: string): { filings: RawFiling[]; name: string } | null {
+  const filePath = findOutputFile(investorKey)
+  if (!filePath) return null
+  try {
+    const raw = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
+    const normalized = normalizeInvestorData(raw as InvestorFilingData)
+    if (!normalized.filings || normalized.filings.length === 0) return null
+    return { filings: normalized.filings as RawFiling[], name: normalized.name || investorKey }
+  } catch {
+    return null
+  }
+}
+
+export function getInvestorTrackRecord(slug: string): InvestmentRecord[] {
+  const investorKey = SLUG_TO_KEY[slug]
+  if (!investorKey) return []
+
+  const rawData = loadRawFilingData(investorKey)
+  if (!rawData) return []
+
+  const { filings } = rawData
+
+  // Sort filings chronologically (oldest first)
+  const sortedFilings = [...filings].sort(
+    (a, b) => new Date(a.report_date).getTime() - new Date(b.report_date).getTime()
+  )
+
+  // Deduplicate filings by quarter (keep the latest filing_date per quarter)
+  const quarterMap = new Map<string, RawFiling>()
+  for (const filing of sortedFilings) {
+    const quarter = reportDateToQuarter(filing.report_date)
+    const existing = quarterMap.get(quarter)
+    if (!existing || new Date(filing.filing_date) > new Date(existing.filing_date)) {
+      quarterMap.set(quarter, filing)
+    }
+  }
+  const uniqueFilings = Array.from(quarterMap.entries())
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([quarter, filing]) => ({ quarter, filing }))
+
+  if (uniqueFilings.length === 0) return []
+
+  const latestQuarter = uniqueFilings[uniqueFilings.length - 1].quarter
+
+  // Track each ticker across quarters using CUSIP as the stable identifier
+  const positionsByCusip = new Map<string, {
+    ticker: string
+    company_name: string
+    quarters: Map<string, { shares: number; value: number; weight_pct: number }>
+  }>()
+
+  for (const { quarter, filing } of uniqueFilings) {
+    const totalValue = filing.total_value_thousands || 1
+    for (const holding of filing.holdings) {
+      const cusip = holding.cusip
+      let position = positionsByCusip.get(cusip)
+      if (!position) {
+        position = {
+          ticker: holding.ticker,
+          company_name: titleCase(holding.name_of_issuer),
+          quarters: new Map(),
+        }
+        positionsByCusip.set(cusip, position)
+      }
+      if (!/^\d{5,}/.test(holding.ticker)) {
+        position.ticker = holding.ticker
+      }
+      const weight = (holding.value / totalValue) * 100
+      position.quarters.set(quarter, {
+        shares: holding.shares,
+        value: holding.value,
+        weight_pct: Math.round(weight * 100) / 100,
+      })
+    }
+  }
+
+  const allQuarters = uniqueFilings.map(f => f.quarter)
+  const prices = loadPrices()
+
+  const records: InvestmentRecord[] = []
+
+  for (const position of Array.from(positionsByCusip.values())) {
+    const { ticker, company_name, quarters } = position
+
+    const timeline: TimelineEntry[] = []
+    let prevShares = 0
+    let prevValue = 0
+    let firstQuarter = ''
+    let lastQuarter = ''
+    let peakWeight = 0
+    let peakValue = 0
+
+    for (const quarter of allQuarters) {
+      const data = quarters.get(quarter)
+      if (!data && prevShares === 0) continue
+
+      // Get quarter price data if available
+      const qpr = prices?.quarter_ranges[quarter]?.[ticker] || null
+
+      if (data) {
+        if (!firstQuarter) firstQuarter = quarter
+        lastQuarter = quarter
+
+        const shareDelta = data.shares - prevShares
+        const valueDelta = data.value - prevValue
+        let action: 'NEW' | 'INCREASED' | 'DECREASED' | 'HELD' | 'SOLD_OUT'
+        if (prevShares === 0) {
+          action = 'NEW'
+        } else if (shareDelta > 0) {
+          action = 'INCREASED'
+        } else if (shareDelta < 0) {
+          action = 'DECREASED'
+        } else {
+          action = 'HELD'
+        }
+
+        // Estimate per-share price: prefer quarter range avg, fallback to value/shares
+        // Values are in thousands, so multiply by 1000 to get dollars
+        const estimatedPrice = qpr
+          ? qpr.avg
+          : (data.shares > 0 ? (data.value * 1000) / data.shares : null)
+        const estimatedTxCost = (estimatedPrice && shareDelta !== 0)
+          ? Math.abs(shareDelta) * estimatedPrice
+          : null
+
+        timeline.push({
+          quarter,
+          shares: data.shares,
+          value_thousands: data.value,
+          weight_pct: data.weight_pct,
+          action,
+          share_delta: shareDelta,
+          value_delta: valueDelta,
+          estimated_price: estimatedPrice,
+          estimated_tx_cost: estimatedTxCost,
+          quarter_price_range: qpr,
+        })
+
+        if (data.weight_pct > peakWeight) peakWeight = data.weight_pct
+        if (data.value > peakValue) peakValue = data.value
+
+        prevShares = data.shares
+        prevValue = data.value
+      } else if (prevShares > 0) {
+        lastQuarter = quarter
+        timeline.push({
+          quarter,
+          shares: 0,
+          value_thousands: 0,
+          weight_pct: 0,
+          action: 'SOLD_OUT',
+          share_delta: -prevShares,
+          value_delta: -prevValue,
+          estimated_price: qpr ? qpr.avg : null,
+          estimated_tx_cost: null,
+          quarter_price_range: qpr,
+        })
+        prevShares = 0
+        prevValue = 0
+      }
+    }
+
+    if (timeline.length === 0) continue
+
+    const isCurrent = quarters.has(latestQuarter)
+    const latestData = quarters.get(latestQuarter)
+
+    // Simple entry price: first quarter's avg price from prices.json
+    let estimatedEntryPrice: number | null = null
+    if (prices?.quarter_ranges[firstQuarter]?.[ticker]) {
+      estimatedEntryPrice = prices.quarter_ranges[firstQuarter][ticker].avg
+    }
+
+    // Weighted avg entry price: weighted by shares added at each buy quarter
+    let weightedAvgEntryPrice: number | null = null
+    {
+      let totalSharesBought = 0
+      let totalCostEstimate = 0
+      for (const t of timeline) {
+        if ((t.action === 'NEW' || t.action === 'INCREASED') && t.share_delta > 0 && t.estimated_price) {
+          totalSharesBought += t.share_delta
+          totalCostEstimate += t.share_delta * t.estimated_price
+        }
+      }
+      if (totalSharesBought > 0) {
+        weightedAvgEntryPrice = totalCostEstimate / totalSharesBought
+      }
+    }
+
+    // Use weighted avg if available, fallback to simple entry
+    const effectiveEntryPrice = weightedAvgEntryPrice ?? estimatedEntryPrice
+
+    let currentPrice: number | null = null
+    if (prices?.current_prices[ticker]) {
+      currentPrice = prices.current_prices[ticker].price
+    }
+
+    // Exit price for sold positions
+    let exitPriceEstimate: number | null = null
+    if (!isCurrent && timeline.length >= 2) {
+      const lastHeld = timeline.filter(t => t.shares > 0)
+      if (lastHeld.length > 0) {
+        const last = lastHeld[lastHeld.length - 1]
+        if (last.shares > 0) {
+          // Values are in thousands, multiply by 1000 for dollars
+          exitPriceEstimate = (last.value_thousands * 1000) / last.shares
+        }
+      }
+    }
+
+    let priceReturnPct: number | null = null
+    let annualizedReturnPct: number | null = null
+    const holdingPeriodQuarters = timeline.length
+
+    if (effectiveEntryPrice && effectiveEntryPrice > 0) {
+      const comparePrice = isCurrent ? currentPrice : exitPriceEstimate
+
+      if (comparePrice && comparePrice > 0) {
+        priceReturnPct = ((comparePrice - effectiveEntryPrice) / effectiveEntryPrice) * 100
+        if (holdingPeriodQuarters > 0) {
+          const totalReturn = comparePrice / effectiveEntryPrice
+          if (totalReturn > 0) {
+            annualizedReturnPct = (Math.pow(totalReturn, 4 / holdingPeriodQuarters) - 1) * 100
+          }
+        }
+      }
+    }
+
+    records.push({
+      ticker,
+      company_name,
+      first_seen_quarter: firstQuarter,
+      last_seen_quarter: lastQuarter,
+      is_current: isCurrent,
+      peak_weight_pct: Math.round(peakWeight * 100) / 100,
+      peak_value_thousands: peakValue,
+      current_weight_pct: latestData ? latestData.weight_pct : null,
+      current_value_thousands: latestData ? latestData.value : null,
+      timeline,
+      estimated_entry_price: estimatedEntryPrice,
+      weighted_avg_entry_price: weightedAvgEntryPrice != null ? Math.round(weightedAvgEntryPrice * 100) / 100 : null,
+      current_price: currentPrice,
+      exit_price: exitPriceEstimate != null ? Math.round(exitPriceEstimate * 100) / 100 : null,
+      price_return_pct: priceReturnPct != null ? Math.round(priceReturnPct * 100) / 100 : null,
+      holding_period_quarters: holdingPeriodQuarters,
+      annualized_return_pct: annualizedReturnPct != null ? Math.round(annualizedReturnPct * 100) / 100 : null,
+    })
+  }
+
+  records.sort((a, b) => {
+    if (a.is_current && !b.is_current) return -1
+    if (!a.is_current && b.is_current) return 1
+    if (a.is_current && b.is_current) {
+      return (b.current_value_thousands ?? 0) - (a.current_value_thousands ?? 0)
+    }
+    return b.peak_value_thousands - a.peak_value_thousands
+  })
+
+  return records
 }

@@ -1,0 +1,64 @@
+{
+  "investor_slug": "francis-chou",
+  "investor_name": "Francis Chou",
+  "firm_name": "Chou Associates Management",
+  "ticker": "BRK-A",
+  "company_name": "Berkshire Hathaway Inc.",
+  "weight_pct": 32.21,
+  "value_millions": 65,
+  "thesis_headline": "Berkshire Hathaway as a permanent core holding \u2014 a fortress balance sheet, diversified earnings streams, and $330B in cash waiting for the next crisis to deploy",
+  "thesis_summary": "Francis Chou's 32% allocation to Berkshire Hathaway reflects the deep-value investor's appreciation for safety, quality, and compounding. Chou, who manages money from Windsor, Ontario and is known for his contrarian, patient approach, sees Berkshire as the ultimate margin-of-safety investment. The company's $330B cash position means it is virtually indestructible, while its diversified operating businesses generate $40B+ in annual operating earnings. Chou views Berkshire as a bond substitute with equity upside \u2014 a position he can hold through any market environment without worrying about permanent capital loss.",
+  "thesis_bullets": [
+    "Berkshire's fortress balance sheet ($330B+ in cash) provides unmatched safety \u2014 it is virtually impossible to permanently impair this business",
+    "Diversified operating earnings from insurance, railroads, energy, and manufacturing provide stable, growing cash flows",
+    "At 15x earnings, Berkshire offers reasonable value for a business with Buffett's capital allocation track record",
+    "The cash optionality is worth significant value \u2014 Berkshire can deploy $100B+ during a market crisis at distressed prices",
+    "Chou's deep-value philosophy aligns perfectly with owning the world's best capital allocator at a fair price"
+  ],
+  "business_bullets": [
+    "Berkshire Hathaway is a diversified conglomerate with operating businesses spanning insurance (GEICO), railroads (BNSF), energy (BHE), and dozens of manufacturing and retail companies",
+    "The company holds $330B+ in cash and T-bills, plus a $300B+ equity portfolio with positions in Apple, Coca-Cola, American Express, and others",
+    "FY2025 revenue was $371B with $67B in net income and an insurance float of approximately $170B",
+    "Warren Buffett (age 95) remains chairman and CEO, with Greg Abel designated as successor"
+  ],
+  "why_this_price": "Berkshire trades at roughly 15x trailing earnings with a $1T+ market cap. Chou's value-oriented approach values the cash position ($330B+) at par, the operating businesses at 10-12x earnings, and the equity portfolio at market. On a sum-of-parts basis, Berkshire's intrinsic value exceeds its current market price, particularly when accounting for the optionality embedded in the cash hoard.",
+  "investor_in_their_own_words": [
+    "Francis Chou: 'I look for businesses where I can sleep well at night. Berkshire Hathaway is the best sleep-well-at-night stock in existence.'",
+    "Francis Chou: 'The margin of safety in Berkshire comes from multiple layers: the cash, the insurance float, the diversified earnings, and Buffett's judgment. No other company has all four.'",
+    "Francis Chou: 'I don't try to get rich quick. I try to get rich slowly and safely. Berkshire embodies that approach perfectly.'"
+  ],
+  "key_metrics": {
+    "revenue_fy2025": "$371B",
+    "net_income": "$67B",
+    "eps": "$46,563",
+    "free_cash_flow": "$25B",
+    "operating_margin": "15.6%",
+    "cash_and_tbills": "$330B+",
+    "insurance_float": "~$170B",
+    "market_cap": "~$1T+"
+  },
+  "moat_sources": [
+    "Diversified earnings \u2014 dozens of operating businesses across insurance, transportation, energy, and manufacturing reduce single-point-of-failure risk",
+    "Insurance float \u2014 $170B+ of zero-cost capital provides permanent leverage for investments",
+    "Capital allocation excellence \u2014 Buffett's 58-year track record of deploying capital at high returns",
+    "Fortress balance sheet \u2014 $330B+ in cash makes Berkshire nearly indestructible",
+    "Reputation moat \u2014 business owners prefer selling to Berkshire, providing unique deal flow"
+  ],
+  "risks": [
+    "Succession risk \u2014 Buffett's eventual departure could impact capital allocation quality",
+    "Cash drag \u2014 $330B earning T-bill yields while equity markets compound at higher rates",
+    "Size limits opportunity set \u2014 at $1T+, meaningful acquisitions are increasingly rare",
+    "Regulatory risk on insurance businesses \u2014 GEICO and other insurers face changing regulatory environments",
+    "Mark-to-market earnings volatility obscures underlying business performance"
+  ],
+  "catalysts": [
+    "Massive cash deployment during the next market downturn",
+    "Continued share buybacks at prices below intrinsic value",
+    "Operating earnings growth across the portfolio of businesses",
+    "Smooth CEO succession to Greg Abel removing uncertainty discount"
+  ],
+  "company_brief": "Berkshire Hathaway Inc. (BRK-A) is the world's largest diversified conglomerate, led by Warren Buffett. It owns GEICO, BNSF Railway, Berkshire Hathaway Energy, and dozens of other businesses. FY2025 revenue was $371B with $67B in net income. The company holds $330B+ in cash and manages a $300B+ equity portfolio. Market cap exceeds $1 trillion.",
+  "slug": "francis-chou-BRK-A",
+  "investor_key": "chou_associates",
+  "detail_path": "/conviction-data/details/francis-chou-BRK-A.json"
+}

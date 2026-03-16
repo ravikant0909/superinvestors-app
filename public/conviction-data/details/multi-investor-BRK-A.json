@@ -1,0 +1,105 @@
+{
+  "investor_slug": "multi-investor",
+  "investor_name": "Multiple SuperInvestors",
+  "firm_name": "Norbert Lou (Punch Card), Francis Chou (Chou Associates), Christopher Bloomstran (Semper Augustus), Li Lu (Himalaya Capital), Thomas Russo (Gardner Russo & Quinn)",
+  "ticker": "BRK-A",
+  "company_name": "Berkshire Hathaway Inc.",
+  "weight_pct": null,
+  "value_millions": null,
+  "thesis_headline": "The ultimate compounder: $334B cash fortress, $298B stock portfolio, $170B+ free insurance float, and the best capital allocator in history \u2014 all trading at a discount to sum-of-parts intrinsic value",
+  "thesis_summary": "Five of our tracked superinvestors hold significant positions in Berkshire Hathaway, making it the most widely-held conviction bet in the portfolio. The consensus thesis is remarkably consistent: Berkshire is a unique conglomerate that combines (1) the world's largest property/casualty insurance operation generating $170B+ of free float, (2) a $298B public equity portfolio including Apple, Amex, Coca-Cola, and Bank of America, (3) wholly-owned operating businesses (BNSF railroad, Berkshire Hathaway Energy, Precision Castparts, GEICO, See's Candies) generating $40B+ in annual operating earnings, and (4) $334B in cash and short-term investments \u2014 the largest corporate cash pile in history. Christopher Bloomstran of Semper Augustus has published the most detailed public analysis, consistently arguing that Berkshire's intrinsic value exceeds $900,000 per A share using a sum-of-parts methodology. The critical question for all five investors is succession: with Greg Abel confirmed as CEO and Ajit Jain running insurance, they believe the culture and capital allocation framework Buffett built will persist. Li Lu, mentored directly by Charlie Munger, views BRK as the safest compounding vehicle in public markets. Thomas Russo sees Berkshire's 'capacity to suffer' \u2014 its ability to invest through downturns using its insurance float and cash reserves \u2014 as an unmatched structural advantage.",
+  "why_this_price": "At roughly $750,000-800,000 per A share (early 2026), Berkshire trades at approximately 1.5-1.7x book value of $451,665. This is historically cheap \u2014 Buffett himself authorized buybacks at 1.2x book in 2018 and has been buying back shares actively above 1.3x. The sum-of-parts math: $334B cash + $298B stock portfolio + operating businesses worth $350-500B (at 12-15x operating earnings) = $982B-$1.13T in intrinsic value, vs. ~$1.08T market cap. The cash alone is 31% of market cap. Each of the five investors sees this as a 'heads I win, tails I don't lose much' situation \u2014 the downside is protected by tangible assets, while the upside comes from Berkshire deploying $334B of cash into acquisitions or buybacks.",
+  "investor_in_their_own_words": [
+    "Christopher Bloomstran (Semper Augustus): 'Berkshire's intrinsic value is best computed as the sum of its investment portfolio, the earnings power of its operating businesses, and its insurance float, with adjustments for deferred taxes on unrealized gains.' He publishes a 100+ page annual letter with the most detailed public Berkshire valuation analysis.",
+    "Thomas Russo (Gardner Russo): 'I look for companies with the capacity to suffer \u2014 the ability to invest through downturns and sacrifice short-term profits for long-term value. Berkshire is the ultimate expression of this. They can deploy capital when others are forced sellers.'",
+    "Li Lu (Himalaya Capital): Mentored by Charlie Munger, Li Lu views Berkshire as a compounding machine with permanent capital advantages. Munger called Li Lu 'the Chinese Warren Buffett.' His BRK position reflects deep conviction in the durability of Berkshire's culture.",
+    "Norbert Lou (Punch Card Capital): Runs an ultra-concentrated portfolio named after Buffett's 'punch card' metaphor \u2014 the idea that you'd make better decisions if you could only make 20 investments in your lifetime. Holding BRK is the logical endpoint of Buffett's own teaching.",
+    "Francis Chou (Chou Associates): A self-taught value investor who built his career studying Buffett and Graham. His Berkshire position is a cornerstone holding reflecting his deep-value orientation and conviction that book value understates intrinsic value."
+  ],
+  "valuation_math": {
+    "methodology": "Sum-of-parts intrinsic value analysis (Bloomstran methodology)",
+    "book_value_per_a_share": 451665,
+    "market_price_per_a_share_approx": "750,000-800,000",
+    "price_to_book": "1.5-1.7x",
+    "sum_of_parts": {
+      "cash_and_equivalents_billions": 334,
+      "public_equity_portfolio_billions": 298,
+      "operating_businesses_value_billions": "350-500 (at 12-15x ~$40B operating earnings)",
+      "insurance_float_value_billions": "170+ (essentially zero-cost leverage)",
+      "deferred_tax_liability_adjustment_billions": "-50 to -70",
+      "total_intrinsic_value_billions": "982-1,130",
+      "intrinsic_value_per_a_share": "680,000-780,000",
+      "notes": "Bloomstran's more detailed analysis arrives at ~$900,000+ per A share by valuing each operating subsidiary individually rather than using aggregate operating earnings"
+    },
+    "revenue_fy2024_billions": 371,
+    "net_income_fy2024_billions": 89,
+    "operating_earnings_fy2024_billions": "~47 (estimated, excludes investment gains/losses)",
+    "total_assets_billions": 1154,
+    "total_equity_billions": 652,
+    "total_debt_billions": 125,
+    "insurance_float_billions": "170+",
+    "buffett_buyback_threshold": "1.2x book value (historical floor, now uses intrinsic value framework)",
+    "implied_irr_pct": "8-12% (cash deployment + operating earnings growth + float growth)"
+  },
+  "key_metrics": {
+    "revenue_fy2024_billions": 371,
+    "net_income_fy2024_billions": 89,
+    "operating_earnings_fy2024_billions": "~47",
+    "eps_class_a_fy2024": 61900,
+    "book_value_per_a_share": 451665,
+    "cash_and_equivalents_billions": 334,
+    "public_equity_portfolio_billions": 298,
+    "total_assets_billions": 1154,
+    "total_equity_billions": 652,
+    "total_debt_billions": 125,
+    "insurance_float_billions": "170+",
+    "market_cap_trillions": "~1.08",
+    "employees": "~396,000",
+    "number_of_operating_subsidiaries": "60+",
+    "major_subsidiaries": "BNSF Railroad, Berkshire Hathaway Energy, GEICO, Precision Castparts, Lubrizol, Markel, Dairy Queen, See's Candies, Fruit of the Loom",
+    "top_equity_holdings": "Apple (~$75B), Bank of America (~$35B), American Express (~$35B), Coca-Cola (~$25B), Chevron (~$18B)",
+    "ceo_successor": "Greg Abel (confirmed)",
+    "insurance_ceo": "Ajit Jain"
+  },
+  "moat_sources": [
+    "Insurance float: $170B+ of essentially zero-cost capital that Berkshire can invest \u2014 this is like having a $170B interest-free loan that never gets called",
+    "Scale and reputation: Berkshire is the acquirer of choice for business owners who want their legacy preserved \u2014 they get deal flow no one else sees",
+    "Permanent capital structure: No activist pressure, no quarterly earnings guidance, no pressure to distribute capital \u2014 allows truly long-term thinking",
+    "Diversification across uncorrelated businesses: insurance, railroads, energy, manufacturing, retail \u2014 reduces overall earnings volatility",
+    "Tax efficiency: unrealized capital gains on equity portfolio compound tax-deferred; wholly-owned subsidiaries can redistribute cash internally without tax friction",
+    "Culture: decentralized management with owner-operator mentality at each subsidiary \u2014 creates accountability without bureaucracy",
+    "Cash fortress: $334B provides 'elephant gun' optionality to make massive acquisitions during crises when others cannot"
+  ],
+  "risks": [
+    "Succession risk: Warren Buffett (age 95) \u2014 while Greg Abel is confirmed and respected, the transition from the greatest capital allocator in history creates uncertainty",
+    "Cash drag: $334B in T-bills earning 4-5% could be deployed more productively, but Buffett's conservative nature means it may sit idle for years",
+    "BNSF railroad faces long-term disruption risk from autonomous trucking and potential rail deregulation",
+    "Berkshire Hathaway Energy faces regulatory risk from utility commissions and clean energy transition costs",
+    "Concentration in Apple (~$75B) creates single-stock risk in the equity portfolio",
+    "Insurance catastrophe risk: a mega-catastrophe (major hurricane, earthquake) could create large underwriting losses",
+    "Complexity premium discount: as a conglomerate, BRK may always trade at a discount to sum-of-parts value because investors prefer pure-play businesses"
+  ],
+  "catalysts": [
+    "Major acquisition: Berkshire has $334B to deploy \u2014 a single 'elephant' deal could immediately unlock value and demonstrate that capital allocation excellence persists under Abel",
+    "Accelerated share buybacks: if stock remains below intrinsic value, buybacks are the highest-return use of excess cash",
+    "Succession clarity: Greg Abel taking full operational control demonstrates continuity and may reduce succession discount",
+    "Insurance hard market: rising premiums increase both underwriting profits and float growth",
+    "Interest rates: even at 4-5%, $334B in cash generates ~$15B in annual interest income \u2014 a significant earnings stream",
+    "Potential S&P 500 weight increase as market cap grows, forcing index fund buying"
+  ],
+  "company_brief": "Berkshire Hathaway (BRK-A/BRK-B) is a diversified conglomerate led by Warren Buffett (Chairman) with Greg Abel as CEO-designate. The company operates through four main segments: (1) Insurance (GEICO, Berkshire Hathaway Reinsurance, General Re) generating $170B+ of float, (2) BNSF Railroad, one of North America's largest freight railroads, (3) Berkshire Hathaway Energy, a major utility and renewable energy company, and (4) Manufacturing/Service/Retail (Precision Castparts, Lubrizol, Dairy Queen, See's Candies, and dozens more). BRK also holds a $298B public equity portfolio (Apple, Bank of America, American Express, Coca-Cola, Chevron) and $334B in cash \u2014 the largest corporate cash pile in history. FY2024 revenue was $371B with $89B net income and ~$47B in operating earnings. Book value per A share is $451,665. Total assets exceed $1.15 trillion. The company employs ~396,000 people across 60+ subsidiaries. Berkshire's unique advantage is its permanent capital structure: no analyst coverage pressure, no quarterly guidance, and insurance float that provides zero-cost leverage for investments.",
+  "thesis_bullets": [
+    "Five of our tracked superinvestors hold significant positions in Berkshire Hathaway, making it the most widely-held conviction bet in the portfolio. The consensus thesis is remarkably consistent: Berkshire is a unique conglomerate that combines (1) the world's largest property/casualty insurance operation generating $170B+ of free float, (2) a $298B public equity portfolio including Apple, Amex, Coca-Cola, and Bank of America, (3) wholly-owned operating businesses (BNSF railroad, Berkshire Hathaway Energy, Precision Castparts, GEICO, See's Candies) generating $40B+ in annual operating earnings, and (4) $334B in cash and short-term investments \u2014 the largest corporate cash pile in history.",
+    "Christopher Bloomstran of Semper Augustus has published the most detailed public analysis, consistently arguing that Berkshire's intrinsic value exceeds $900,000 per A share using a sum-of-parts methodology. The critical question for all five investors is succession: with Greg Abel confirmed as CEO and Ajit Jain running insurance, they believe the culture and capital allocation framework Buffett built will persist.",
+    "Li Lu, mentored directly by Charlie Munger, views BRK as the safest compounding vehicle in public markets. Thomas Russo sees Berkshire's 'capacity to suffer' \u2014 its ability to invest through downturns using its insurance float and cash reserves \u2014 as an unmatched structural advantage."
+  ],
+  "business_bullets": [
+    "Berkshire Hathaway (BRK-A/BRK-B) is a diversified conglomerate led by Warren Buffett (Chairman) with Greg Abel as CEO-designate. The company operates through four main segments: (1) Insurance (GEICO, Berkshire Hathaway Reinsurance, General Re) generating $170B+ of float, (2) BNSF Railroad, one of North America's largest freight railroads, (3) Berkshire Hathaway Energy, a major utility and renewable energy company, and (4) Manufacturing/Service/Retail (Precision Castparts, Lubrizol, Dairy Queen, See's Candies, and dozens more).",
+    "BRK also holds a $298B public equity portfolio (Apple, Bank of America, American Express, Coca-Cola, Chevron) and $334B in cash \u2014 the largest corporate cash pile in history. FY2024 revenue was $371B with $89B net income and ~$47B in operating earnings.",
+    "Book value per A share is $451,665. Total assets exceed $1.15 trillion.",
+    "The company employs ~396,000 people across 60+ subsidiaries. Berkshire's unique advantage is its permanent capital structure: no analyst coverage pressure, no quarterly guidance, and insurance float that provides zero-cost leverage for investments."
+  ],
+  "slug": "multi-investor-BRK-A",
+  "investor_key": null,
+  "detail_path": "/conviction-data/details/multi-investor-BRK-A.json"
+}

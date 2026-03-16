@@ -22,39 +22,150 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent
 DB_PATH = BASE_DIR / "superinvestors.db"
 OUTPUT_DIR = BASE_DIR / "data" / "output"
+CUSIP_MAP_PATH = BASE_DIR / "data" / "cusip_ticker_map.json"
 
 # Manual mapping: investor_key from JSON -> investor slug in DB
 # Built by matching CIK/firm_name/manager between JSON files and DB records
 INVESTOR_KEY_TO_SLUG = {
-    "berkshire_hathaway": "warren-buffett",
-    "himalaya_capital": "li-lu",
-    "pabrai_funds": "mohnish-pabrai",
-    "baupost_group": "seth-klarman",
-    "tci_fund": "chris-hohn",
-    "saber_capital": "john-huber",
     "akre_capital": "chuck-akre",
+    "altimeter_capital": "brad-gerstner",
     "appaloosa_management": "david-tepper",
-    "pershing_square": "bill-ackman",
-    "markel_gayner": "tom-gayner",
-    "cas_investment": "cliff-sosin",
-    "oakcliff_capital": "bryan-lawrence",
-    "giverny_capital": "francois-rochon",
-    "fundsmith": "terry-smith",
-    "semper_augustus": "christopher-bloomstran",
-    "dorsey_asset": "pat-dorsey",
-    "gardner_russo": "thomas-russo",
-    "chou_associates": "francis-chou",
-    "harris_associates": "bill-nygren",
-    "davis_advisors": "chris-davis",
-    "ruane_cunniff": "robert-goldfarb",
-    "century_management": "arnold-van-den-berg",
-    "horizon_kinetics": "murray-stahl",
-    "lone_pine": "stephen-mandel",
-    "fairfax_financial": "prem-watsa",
+    "arlington_value": "allan-mecham",
     "atreides_management": "gavin-baker",
+    "baupost_group": "seth-klarman",
+    "berkshire_hathaway": "warren-buffett",
+    "biglari_capital": "sardar-biglari",
+    "bridgewater": "ray-dalio",
+    "cas_investment": "cliff-sosin",
+    "century_management": "arnold-van-den-berg",
+    "chou_associates": "francis-chou",
     "coatue_management": "philippe-laffont",
-    "punch_card": "guy-spier",
+    "d1_capital": "dan-sundheim",
+    "davis_advisors": "chris-davis",
+    "dorsey_asset": "pat-dorsey",
+    "druckenmiller_duquesne": "stanley-druckenmiller",
+    "durable_capital": "henry-ellenbogen",
+    "elliott_investment": "paul-singer",
+    "fairfax_financial": "prem-watsa",
+    "fairholme_capital": "bruce-berkowitz",
+    "fundsmith": "terry-smith",
+    "gamco_investors": "mario-gabelli",
+    "gardner_russo": "thomas-russo",
+    "giverny_capital": "francois-rochon",
+    "glenview_capital": "larry-robbins",
+    "goehring_rozencwajg": "leigh-goehring-adam-rozencwajg",
+    "greenlight_capital": "david-einhorn",
+    "harris_associates": "bill-nygren",
+    "himalaya_capital": "li-lu",
+    "horizon_kinetics": "murray-stahl",
+    "icahn_enterprises": "carl-icahn",
+    "lindsell_train": "nick-train",
+    "lone_pine": "stephen-mandel",
+    "markel_gayner": "tom-gayner",
+    "maverick_capital": "lee-ainslie",
+    "miller_value": "bill-miller",
+    "oakcliff_capital": "bryan-lawrence",
+    "oaktree_capital": "howard-marks",
+    "orbimed_advisors": "samuel-isaly",
+    "pabrai_funds": "mohnish-pabrai",
+    "paulson_co": "john-paulson",
+    "pershing_square": "bill-ackman",
+    "punch_card": "norbert-lou",
+    "ruane_cunniff": "david-poppe",
+    "rv_capital": "robert-vinall",
+    "saber_capital": "john-huber",
+    "scion_asset": "michael-burry",
+    "semper_augustus": "christopher-bloomstran",
+    "shawspring": "dennis-hong",
+    "situational_awareness": "leopold-aschenbrenner",
+    "soros_fund": "george-soros",
+    "srs_investment": "karthik-sarma",
+    "starboard_value": "jeff-smith",
+    "tang_capital": "kevin-tang",
+    "tci_fund": "chris-hohn",
+    "third_avenue": "marty-whitman",
+    "third_point": "dan-loeb",
+    "tiger_global": "chase-coleman",
+    "trian_fund": "nelson-peltz",
+    "turtle_creek": "andrew-brenton",
+    "viking_global": "andreas-halvorsen",
+    "weitz_investment": "wally-weitz",
+    "whale_rock": "alex-sacerdote",
 }
+
+_CUSIP_TO_TICKER = None
+
+
+def load_cusip_ticker_map():
+    """Load the cached CUSIP -> ticker map once."""
+    global _CUSIP_TO_TICKER
+    if _CUSIP_TO_TICKER is not None:
+        return _CUSIP_TO_TICKER
+
+    try:
+        with open(CUSIP_MAP_PATH) as f:
+            data = json.load(f)
+        _CUSIP_TO_TICKER = data.get("cusip_to_ticker", {})
+    except Exception:
+        _CUSIP_TO_TICKER = {}
+
+    return _CUSIP_TO_TICKER
+
+
+def normalize_ticker(cusip, ticker):
+    """Prefer the cached CUSIP map over whatever stale ticker was embedded in the JSON."""
+    mapped = load_cusip_ticker_map().get(cusip or "")
+    return (mapped or ticker or "").strip().upper()
+
+
+def normalize_holdings_list(holdings_list):
+    """Aggregate duplicate holdings by CUSIP before loading them into the DB."""
+    aggregated = {}
+
+    for holding in holdings_list:
+        cusip = holding.get("cusip", "")
+        key = (cusip, holding.get("put_call"))
+        normalized = aggregated.get(key)
+
+        name = holding.get("name_of_issuer", holding.get("name", "Unknown"))
+        ticker = normalize_ticker(cusip, holding.get("ticker", ""))
+        value = holding.get("value", holding.get("value_thousands", 0)) or 0
+        shares = holding.get("shares", 0) or 0
+
+        if normalized:
+            normalized["value"] += value
+            normalized["shares"] += shares
+            if ticker:
+                normalized["ticker"] = ticker
+            if not normalized["name_of_issuer"] and name:
+                normalized["name_of_issuer"] = name
+            continue
+
+        aggregated[key] = {
+            "ticker": ticker,
+            "name_of_issuer": name,
+            "cusip": cusip,
+            "value": value,
+            "shares": shares,
+            "put_call": holding.get("put_call"),
+            "investment_discretion": holding.get("investment_discretion", "SOLE"),
+        }
+
+    return sorted(
+        aggregated.values(),
+        key=lambda item: item.get("value", 0),
+        reverse=True,
+    )
+
+
+def clear_stale_cik_assignments(cur):
+    """Undo the two known bad slug mappings from earlier DB loads."""
+    cur.execute(
+        "UPDATE investors SET cik = NULL, updated_at = strftime('%Y-%m-%dT%H:%M:%SZ', 'now') WHERE slug = 'guy-spier' AND cik = '1631664'"
+    )
+    cur.execute(
+        "UPDATE investors SET cik = NULL, updated_at = strftime('%Y-%m-%dT%H:%M:%SZ', 'now') WHERE slug = 'robert-goldfarb' AND cik = '1720792'"
+    )
 
 
 def parse_quarter(quarter_str):
@@ -179,12 +290,15 @@ def load_investor_file(cur, filepath):
 
     # Update CIK on investor record
     if cik:
-        cik_padded = cik.lstrip("0")
-        cik_formatted = f"0{cik}" if not cik.startswith("0") else cik
-        cur.execute(
-            "UPDATE investors SET cik = ?, updated_at = strftime('%Y-%m-%dT%H:%M:%SZ', 'now') WHERE id = ? AND (cik IS NULL OR cik = '')",
-            (cik, investor_id),
-        )
+        cur.execute("SELECT slug FROM investors WHERE cik = ? AND id != ?", (cik, investor_id))
+        conflict = cur.fetchone()
+        if conflict:
+            print(f"  WARN: CIK {cik} already assigned to {conflict[0]}; skipping investor CIK update")
+        else:
+            cur.execute(
+                "UPDATE investors SET cik = ?, updated_at = strftime('%Y-%m-%dT%H:%M:%SZ', 'now') WHERE id = ? AND (cik IS NULL OR cik = '')",
+                (cik, investor_id),
+            )
 
     filings = data.get("filings", [])
     if not filings:
@@ -207,13 +321,16 @@ def load_investor_file(cur, filepath):
         report_date = filing.get("report_date", "")
         filing_date = filing.get("filing_date", "")
         total_value = filing.get("total_value_thousands", 0)
-        holdings_list = filing.get("holdings", [])
-
         year = int(report_date[:4]) if report_date else 0
         month = int(report_date[5:7]) if report_date else 0
         quarter = (month - 1) // 3 + 1 if month else 0
 
         is_latest = (report_date == latest_report_date)
+
+        holdings_list = filing.get("holdings", [])
+        if is_latest and not holdings_list and data.get("top_holdings"):
+            holdings_list = data.get("top_holdings", [])
+        holdings_list = normalize_holdings_list(holdings_list)
 
         # Track current quarter holdings for change computation
         current_holdings = {}
@@ -221,7 +338,7 @@ def load_investor_file(cur, filepath):
         for rank, holding in enumerate(holdings_list, 1):
             cusip = holding.get("cusip", "")
             h_name = holding.get("name_of_issuer", holding.get("name", "Unknown"))
-            h_ticker = holding.get("ticker", "")
+            h_ticker = normalize_ticker(cusip, holding.get("ticker", ""))
             h_value = holding.get("value", holding.get("value_thousands", 0))
             h_shares = holding.get("shares", 0)
             put_call = holding.get("put_call")
@@ -362,7 +479,7 @@ def load_investor_file(cur, filepath):
             for change in change_list:
                 cusip = change.get("cusip", "")
                 ch_name = change.get("name_of_issuer", "")
-                ch_ticker = change.get("ticker", "")
+                ch_ticker = normalize_ticker(cusip, change.get("ticker", ""))
                 ch_type = change.get("change_type", "").lower()
 
                 if ch_type not in ("new", "increased", "decreased", "sold_out"):
@@ -397,49 +514,129 @@ def load_investor_file(cur, filepath):
     print(f"  Loaded {investor_key} -> {slug} (investor_id={investor_id})")
 
 
-def generate_conviction_index(cur):
-    """Generate conviction_data/index.json for positions >= 10% of portfolio."""
-    cur.execute("""
-        SELECT
-            h.pct_of_portfolio as weight,
-            h.value,
-            h.shares,
-            sec.ticker, sec.name as company_name, sec.cusip,
-            i.name as investor_name, i.slug as investor_slug
-        FROM holdings h
-        JOIN securities sec ON h.security_id = sec.id
-        JOIN investors i ON h.investor_id = i.id
-        WHERE h.pct_of_portfolio >= 10.0
-        ORDER BY h.pct_of_portfolio DESC
-    """)
-    rows = cur.fetchall()
-    cols = [d[0] for d in cur.description]
-
-    conviction_bets = []
-    for row in rows:
-        r = dict(zip(cols, row))
-        conviction_bets.append({
-            "investor_name": r["investor_name"],
-            "investor_slug": r["investor_slug"],
-            "ticker": r["ticker"] or r["cusip"],
-            "company_name": r["company_name"],
-            "weight_pct": round(r["weight"], 2),
-            "value_thousands": r["value"],
-        })
-
+def generate_conviction_index(_cur=None):
+    """Generate conviction indexes plus fetchable static assets for runtime page loading."""
     output_dir = BASE_DIR / "conviction_data"
     output_dir.mkdir(exist_ok=True)
+    public_conviction_dir = BASE_DIR / "public" / "conviction-data"
+    public_conviction_detail_dir = public_conviction_dir / "details"
+    public_runtime_dir = BASE_DIR / "public" / "runtime-data"
+    public_conviction_detail_dir.mkdir(parents=True, exist_ok=True)
+    public_runtime_dir.mkdir(parents=True, exist_ok=True)
+
+    for stale_file in public_conviction_detail_dir.glob("*.json"):
+        stale_file.unlink()
+
+    conviction_bets = []
+    slug_to_key = {slug: key for key, slug in INVESTOR_KEY_TO_SLUG.items()}
+    for filepath in sorted(output_dir.glob("*.json")):
+        if filepath.name == "index.json":
+            continue
+
+        try:
+            with open(filepath) as f:
+                raw = json.load(f)
+        except Exception:
+            continue
+
+        investor = raw.get("investor", {}) or {}
+        position = raw.get("position", {}) or {}
+        thesis = raw.get("thesis", {}) or {}
+
+        investor_slug = raw.get("investor_slug") or investor.get("slug")
+        investor_name = raw.get("investor_name") or investor.get("name")
+        firm_name = raw.get("firm_name") or investor.get("firm")
+        ticker = raw.get("ticker") or position.get("ticker")
+        company_name = raw.get("company_name") or position.get("company")
+        weight_pct = raw.get("weight_pct")
+        if weight_pct is None:
+            weight_pct = position.get("pct_of_portfolio")
+
+        value_thousands = raw.get("value_thousands")
+        if not isinstance(value_thousands, (int, float)):
+                value_millions = raw.get("value_millions")
+                if isinstance(value_millions, (int, float)):
+                    value_thousands = round(value_millions * 1000)
+                else:
+                    market_value = position.get("market_value")
+                    value_thousands = round(market_value / 1000) if isinstance(market_value, (int, float)) else 0
+                    value_millions = round((value_thousands or 0) / 1000, 3)
+        else:
+            value_millions = round((value_thousands or 0) / 1000, 3)
+
+        if not investor_slug or not ticker:
+            continue
+
+        thesis_headline = raw.get("thesis_headline") or thesis.get("title")
+        if not thesis_headline:
+            thesis_headline = f"{investor_name or 'Unknown'} on {company_name or ticker}"
+
+        page_slug = f"{investor_slug}-{ticker}"
+        detail_path = f"/conviction-data/details/{page_slug}.json"
+
+        public_payload = dict(raw)
+        public_payload["slug"] = page_slug
+        public_payload["investor_key"] = slug_to_key.get(investor_slug)
+        public_payload["detail_path"] = detail_path
+
+        with open(public_conviction_detail_dir / f"{page_slug}.json", "w") as f:
+            json.dump(public_payload, f, indent=2)
+
+        conviction_bets.append({
+            "investor_name": investor_name or "Unknown",
+            "investor_slug": investor_slug,
+            "investor_key": slug_to_key.get(investor_slug),
+            "firm_name": firm_name or "",
+            "ticker": ticker,
+            "company_name": company_name or ticker,
+            "weight_pct": round(weight_pct, 2) if isinstance(weight_pct, (int, float)) else None,
+            "value_thousands": int(value_thousands or 0),
+            "value_millions": round(value_millions or 0, 3),
+            "thesis_headline": thesis_headline,
+            "slug": page_slug,
+            "detail_path": detail_path,
+        })
+
+    conviction_bets.sort(
+        key=lambda item: (
+            -(item["weight_pct"] or 0),
+            item["investor_slug"],
+            item["ticker"],
+        )
+    )
+    payload = {
+        "generated_at": __import__("datetime").datetime.now().isoformat(),
+        "total_conviction_bets": len(conviction_bets),
+        "threshold_pct": None,
+        "source": "published_conviction_detail_files",
+        "bets": conviction_bets,
+    }
+
     output_path = output_dir / "index.json"
-
     with open(output_path, "w") as f:
-        json.dump({
-            "generated_at": __import__("datetime").datetime.now().isoformat(),
-            "total_conviction_bets": len(conviction_bets),
-            "threshold_pct": 10.0,
-            "bets": conviction_bets,
-        }, f, indent=2)
+        json.dump(payload, f, indent=2)
 
-    print(f"\nConviction index: {len(conviction_bets)} positions >= 10% written to {output_path}")
+    public_index_path = public_conviction_dir / "index.json"
+    with open(public_index_path, "w") as f:
+        json.dump(payload, f, indent=2)
+
+    runtime_asset_sources = {
+        BASE_DIR / "data" / "output" / "prices.json": public_runtime_dir / "prices.json",
+        BASE_DIR / "data" / "investors" / "portfolio_adjustments.json": public_runtime_dir / "portfolio-adjustments.json",
+    }
+    for source_path, target_path in runtime_asset_sources.items():
+        if not source_path.exists():
+            continue
+        try:
+            with open(source_path) as f:
+                runtime_payload = json.load(f)
+            with open(target_path, "w") as f:
+                json.dump(runtime_payload, f, indent=2)
+        except Exception:
+            continue
+
+    print(f"\nConviction index: {len(conviction_bets)} published analyses written to {output_path}")
+    print(f"Static conviction assets: {public_index_path} + {len(conviction_bets)} detail files")
 
 
 def main():
@@ -460,6 +657,9 @@ def main():
     conn.execute("PRAGMA journal_mode = WAL")
     conn.execute("PRAGMA foreign_keys = ON")
     cur = conn.cursor()
+
+    clear_stale_cik_assignments(cur)
+    conn.commit()
 
     # Clear existing data (fresh load)
     print("Clearing existing data...")

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SuperInvestors Migration Report</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #ffffff;
+      --panel: #f8fafc;
+      --border: #dbe3ee;
+      --text: #142033;
+      --muted: #526179;
+      --ok: #0f8a5f;
+      --warn: #b26b00;
+      --bad: #c2410c;
+      --accent: #1d4ed8;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+    }
+    h1, h2 { margin: 0 0 12px; line-height: 1.2; }
+    h1 { font-size: 34px; }
+    h2 { font-size: 20px; margin-top: 32px; }
+    p { margin: 0 0 12px; color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin: 20px 0 28px;
+    }
+    .card, .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
+    }
+    .value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+    li { margin: 8px 0; }
+    .status {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .ok { background: #e7f8f0; color: var(--ok); }
+    .warn { background: #fff4de; color: var(--warn); }
+    .bad { background: #fff0eb; color: var(--bad); }
+    code {
+      background: #eef2f7;
+      border-radius: 6px;
+      padding: 2px 6px;
+      color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>SuperInvestors Migration Report</h1>
+    <p>Generated on 2026-03-15 in <code>/Users/ravf/projects/superinvestors-app-deploy</code>.</p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="value">149</div>
+        <div class="label">Tracked Profiles</div>
+      </div>
+      <div class="card">
+        <div class="value">60</div>
+        <div class="label">13F Filers Loaded</div>
+      </div>
+      <div class="card">
+        <div class="value">4,044</div>
+        <div class="label">13F Filings</div>
+      </div>
+      <div class="card">
+        <div class="value">204,909</div>
+        <div class="label">History Rows</div>
+      </div>
+      <div class="card">
+        <div class="value">194,868</div>
+        <div class="label">Change Rows</div>
+      </div>
+    </div>
+
+    <section class="panel">
+      <h2>Status</h2>
+      <p><span class="status ok">Code Complete</span> The frontend migration is now runtime API-backed for the main 13F pages.</p>
+      <p><span class="status ok">Local Verified</span> Local build passed and the unified worker served the updated API correctly.</p>
+      <p><span class="status warn">Deploy Blocked</span> Cloudflare auth is missing locally. <code>npx wrangler whoami</code> returns unauthenticated.</p>
+    </section>
+
+    <section class="panel">
+      <h2>What Changed</h2>
+      <ul>
+        <li>The database was reloaded from the full March 14 output set, increasing runtime coverage from the stale partial DB to the full configured 60-filer dataset.</li>
+        <li>The API now exposes filing coverage metadata so the UI can distinguish profile-only investors from investors with 13F history.</li>
+        <li>The homepage and investors list now state coverage honestly: 149 tracked profiles, 60 with 13F filing history.</li>
+        <li>Investor profiles now surface when an investor has no 13F data loaded instead of silently looking broken.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>Important Limitation</h2>
+      <p>The site roster contains 149 investor profiles, but the 13F pipeline currently defines and fetches 60 SEC filers. That means the migration is complete for the existing 13F dataset, but full 13F coverage across the entire 149-profile roster is still a separate data-expansion project.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Next Step To Go Live</h2>
+      <p>Authenticate Cloudflare in this environment, then deploy the worker and refreshed D1 data from <code>/Users/ravf/projects/superinvestors-app-deploy</code>.</p>
+    </section>
+  </main>
+</body>
+</html>

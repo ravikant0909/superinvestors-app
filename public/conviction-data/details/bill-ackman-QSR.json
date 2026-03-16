@@ -1,0 +1,111 @@
+{
+  "investor_slug": "bill-ackman",
+  "investor_name": "Bill Ackman",
+  "firm_name": "Pershing Square Capital Management",
+  "ticker": "QSR",
+  "company_name": "Restaurant Brands International",
+  "weight_pct": null,
+  "value_millions": null,
+  "thesis_headline": "Ackman's original activist investment \u2014 a capital-light franchise compounder with four global QSR brands and a massive international expansion runway",
+  "thesis_summary": "Restaurant Brands International is Bill Ackman's legacy investment \u2014 he was instrumental in creating the company through the 3G Capital-backed merger of Burger King and Tim Hortons in 2014. Pershing Square's continued ownership reflects deep conviction in the franchise model's compounding power. RBI owns Burger King (18,000+ locations), Tim Hortons (5,700+ locations), Popeyes Louisiana Kitchen (3,700+ locations), and Firehouse Subs (1,200+ locations) \u2014 four iconic QSR brands operating 30,000+ restaurants in 100+ countries. Ackman's thesis has always been about the franchise model: RBI earns high-margin royalty fees (4-5% of franchisee revenue) with minimal capital investment, creating a cash flow machine that can return capital through dividends and buybacks while investing in brand improvement. The 'Reclaim the Flame' turnaround at Burger King, Popeyes' international expansion, and the Carrols re-franchising are all catalysts for earnings growth. Unlike Klarman's margin-of-safety approach to the same stock, Ackman views RBI as a permanent compounder \u2014 a business he helped build and continues to influence through board representation.",
+  "why_this_price": "Ackman has held RBI since its formation in 2014 and maintains board influence. At $33.5B market cap, RBI trades at 12.5x EBITDA \u2014 a 25-35% discount to franchise peers (McDonald's 16x, Yum! 18x, Domino's 20x). Ackman's thesis is that this discount will close as: (1) Burger King turnaround delivers comp sales improvement, (2) Carrols (recently acquired largest BK franchisee) is re-franchised and optimized, (3) Popeyes international expansion accelerates, and (4) Tim Hortons continues stable Canadian earnings growth. The franchise model generates $1.3B+ in annual free cash flow with minimal capex, supporting the 3.3% dividend yield and potential buybacks. If RBI re-rates to even 15x EBITDA, the stock moves from ~$73 to ~$90 \u2014 a 25% return before the dividend. Ackman's long-term view is that RBI can grow system-wide sales at 5-7% annually through unit growth and comp sales improvement, driving 10-12% annual earnings growth that compounds over decades.",
+  "investor_in_their_own_words": [
+    "Bill Ackman: 'We look for simple, predictable, free-cash-flow-generative businesses with dominant market positions and strong barriers to entry. The franchise model is the purest form of this.'",
+    "Bill Ackman: 'Restaurant Brands International is a business we helped create. We have deep conviction in the management team, the strategy, and the long-term value of these four brands.'",
+    "Bill Ackman: 'The franchise model is beautiful because the franchisor earns high-margin royalties while the franchisee invests the capital and bears the operational risk. It is the ultimate capital-light business.'",
+    "Bill Ackman: 'Burger King has underperformed its potential for years. The Reclaim the Flame plan is a multi-year investment in restaurant modernization, menu innovation, and advertising. We are confident it will work.'",
+    "Bill Ackman: 'Our concentrated portfolio of 8-12 positions reflects our conviction that deep research on a small number of businesses produces better returns than shallow analysis of many.'"
+  ],
+  "valuation_math": {
+    "methodology": "Franchise compounder analysis with re-rating catalyst, reflecting Ackman's permanent ownership approach",
+    "revenue_fy2024_millions": 8406,
+    "revenue_growth_pct": 19.7,
+    "ebitda_fy2024_millions": 2683,
+    "ebitda_margin_pct": 31.9,
+    "net_income_fy2024_millions": 1021,
+    "eps_fy2024": 3.18,
+    "free_cash_flow_millions": 1302,
+    "market_cap_billions": 33.5,
+    "ev_ebitda": "~12.5x",
+    "dividend_yield_pct": 3.3,
+    "system_wide_sales_growth_pct": 5.3,
+    "total_restaurants": "30,000+",
+    "countries": "100+",
+    "franchise_pct": "~99%",
+    "peer_comparison": {
+      "mcd_ev_ebitda": "~16x",
+      "yum_ev_ebitda": "~18x",
+      "dpz_ev_ebitda": "~20x",
+      "qsr_ev_ebitda": "~12.5x",
+      "discount_to_mcd_pct": "~22%"
+    },
+    "re_rating_scenario": "At 15x EBITDA = $40B EV = $80-85/share (from ~$73)",
+    "long_term_compounding": {
+      "system_sales_growth_pct": "5-7% annually",
+      "earnings_growth_pct": "10-12% annually",
+      "dividend_yield_pct": 3.3,
+      "total_return_pct": "13-15% annually"
+    },
+    "burger_king_turnaround": "Reclaim the Flame: $400M+ investment in remodels, menu, marketing. Early results show improving U.S. comp sales.",
+    "notes": "Ackman was on the RBI board and helped engineer the 3G Capital deal that created the company. His holding period is indefinite \u2014 this is a permanent position, not a trade."
+  },
+  "key_metrics": {
+    "revenue_fy2024_millions": 8406,
+    "revenue_growth_pct": 19.7,
+    "ebitda_millions": 2683,
+    "ebitda_margin_pct": 31.9,
+    "net_income_millions": 1021,
+    "eps_fy2024": 3.18,
+    "free_cash_flow_millions": 1302,
+    "market_cap_billions": 33.5,
+    "ev_ebitda": "~12.5x",
+    "system_wide_sales_growth_pct": 5.3,
+    "total_restaurants": "30,000+",
+    "countries": "100+",
+    "franchise_pct": "~99%",
+    "dividend_yield_pct": 3.3,
+    "brands": "Burger King, Tim Hortons, Popeyes Louisiana Kitchen, Firehouse Subs",
+    "revenue_fy2025_millions": 9430
+  },
+  "moat_sources": [
+    "Four iconic global QSR brands with decades of consumer recognition and habitual purchasing behavior",
+    "Franchise model \u2014 99% franchised means capital-light, high-margin royalty streams with franchisees bearing capital and operational risk",
+    "Scale \u2014 30,000+ restaurants in 100+ countries provide purchasing power, marketing efficiency, and real estate leverage",
+    "Habitual consumer behavior \u2014 fast food consumption is deeply ingrained, recession-resistant, and grows with urbanization globally",
+    "International expansion runway \u2014 Popeyes has massive white space internationally, Burger King continues adding markets",
+    "Tim Hortons Canadian dominance \u2014 effectively a monopoly in Canadian coffee with 80%+ share in hot beverages"
+  ],
+  "risks": [
+    "Burger King U.S. turnaround execution risk \u2014 brand has underperformed MCD and Wendy's for years despite multiple reinvention attempts",
+    "High leverage from 3G Capital-era acquisitions limits financial flexibility during downturns",
+    "Consumer health trends could reduce QSR traffic long-term as preferences shift toward healthier options",
+    "Franchisee financial health \u2014 over-leveraged franchisees unable to invest in modernization could impair brand quality",
+    "3G Capital cost-cutting reputation may have permanently damaged franchisee relationships and brand quality",
+    "Food inflation and labor costs squeezing franchisee margins, potentially leading to pushback on royalty increases",
+    "FY2024 net income declined 14% despite 20% revenue growth \u2014 cost pressures from acquisitions and turnaround investments"
+  ],
+  "catalysts": [
+    "Burger King 'Reclaim the Flame' \u2014 $400M+ investment showing early results with improving U.S. comp sales",
+    "Popeyes international expansion \u2014 the brand is early in its global rollout with significant white space",
+    "Carrols re-franchising \u2014 optimizing the largest BK franchisee and returning to franchise-only model",
+    "Tim Hortons stability \u2014 reliable cash flow while management pursues international growth",
+    "Multiple expansion toward franchise peers \u2014 closing the 25-35% EV/EBITDA discount to McDonald's/Yum!",
+    "Dividend yield of 3.3% provides attractive base return",
+    "System-wide sales growth of 5.3% driven by both unit growth and improving comparable sales"
+  ],
+  "company_brief": "Restaurant Brands International (QSR) is one of the world's largest quick-service restaurant companies, owning Burger King (~18,000 locations), Tim Hortons (~5,700 locations), Popeyes Louisiana Kitchen (~3,700 locations), and Firehouse Subs (~1,200 locations). The company was created in 2014 through the 3G Capital-backed merger of Burger King and Tim Hortons, with Popeyes acquired in 2017 and Firehouse Subs in 2021. RBI operates a ~99% franchised model, earning high-margin royalty fees while franchisees invest capital and bear operational risk. FY2024 revenue was $8.4B with $2.7B EBITDA (32% margin), $1.0B net income, and $1.3B free cash flow. System-wide sales grew 5.3% in 2025 across 100+ countries. The stock trades at ~12.5x EV/EBITDA \u2014 a 25-35% discount to franchise peers McDonald's (16x) and Yum! Brands (18x). Burger King U.S. is undergoing a multi-year turnaround ('Reclaim the Flame') with $400M+ in investment. Ackman's Pershing Square helped create RBI and maintains board influence, viewing it as a permanent compounding investment.",
+  "thesis_bullets": [
+    "Restaurant Brands International is Bill Ackman's legacy investment \u2014 he was instrumental in creating the company through the 3G Capital-backed merger of Burger King and Tim Hortons in 2014. Pershing Square's continued ownership reflects deep conviction in the franchise model's compounding power.",
+    "RBI owns Burger King (18,000+ locations), Tim Hortons (5,700+ locations), Popeyes Louisiana Kitchen (3,700+ locations), and Firehouse Subs (1,200+ locations) \u2014 four iconic QSR brands operating 30,000+ restaurants in 100+ countries. Ackman's thesis has always been about the franchise model: RBI earns high-margin royalty fees (4-5% of franchisee revenue) with minimal capital investment, creating a cash flow machine that can return capital through dividends and buybacks while investing in brand improvement.",
+    "The 'Reclaim the Flame' turnaround at Burger King, Popeyes' international expansion, and the Carrols re-franchising are all catalysts for earnings growth. Unlike Klarman's margin-of-safety approach to the same stock, Ackman views RBI as a permanent compounder \u2014 a business he helped build and continues to influence through board representation."
+  ],
+  "business_bullets": [
+    "Restaurant Brands International (QSR) is one of the world's largest quick-service restaurant companies, owning Burger King (~18,000 locations), Tim Hortons (~5,700 locations), Popeyes Louisiana Kitchen (~3,700 locations), and Firehouse Subs (~1,200 locations). The company was created in 2014 through the 3G Capital-backed merger of Burger King and Tim Hortons, with Popeyes acquired in 2017 and Firehouse Subs in 2021.",
+    "RBI operates a ~99% franchised model, earning high-margin royalty fees while franchisees invest capital and bear operational risk. FY2024 revenue was $8.4B with $2.7B EBITDA (32% margin), $1.0B net income, and $1.3B free cash flow.",
+    "System-wide sales grew 5.3% in 2025 across 100+ countries. The stock trades at ~12.5x EV/EBITDA \u2014 a 25-35% discount to franchise peers McDonald's (16x) and Yum!",
+    "is undergoing a multi-year turnaround ('Reclaim the Flame') with $400M+ in investment. Ackman's Pershing Square helped create RBI and maintains board influence, viewing it as a permanent compounding investment."
+  ],
+  "slug": "bill-ackman-QSR",
+  "investor_key": "pershing_square",
+  "detail_path": "/conviction-data/details/bill-ackman-QSR.json"
+}

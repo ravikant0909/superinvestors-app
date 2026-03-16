@@ -1,0 +1,72 @@
+{
+  "investor_slug": "guy-spier",
+  "investor_name": "Guy Spier",
+  "firm_name": "Aquamarine Capital Management",
+  "ticker": "CROX",
+  "company_name": "Crocs Inc.",
+  "weight_pct": 16.9,
+  "value_millions": 51,
+  "thesis_headline": "A brand-driven footwear company with pricing power and cult-like consumer loyalty, now diversified through the HEYDUDE acquisition and generating massive free cash flow despite near-term margin pressure",
+  "thesis_summary": "Guy Spier's 17% allocation to Crocs reflects his thesis that the company has built an enduring consumer brand with pricing power and strong unit economics. Crocs transformed from a single-product joke brand into a genuine fashion phenomenon with celebrity collaborations, limited-edition drops, and strong DTC (direct-to-consumer) channels. The 2022 acquisition of HEYDUDE added a fast-growing casual footwear brand, though integration has created near-term margin pressure. FY2025 saw revenue decline slightly to $4.0B with a net loss due to non-cash charges, but free cash flow remained strong at $659M. Spier likely sees the current weakness as temporary, with the Crocs brand stronger than ever and HEYDUDE's turnaround underway.",
+  "thesis_bullets": [
+    "Crocs has built a brand with cult-like consumer loyalty \u2014 celebrity collaborations and limited-edition drops drive pricing power and 60%+ gross margins on the Crocs brand",
+    "Free cash flow remains strong at $659M despite near-term margin pressure from the HEYDUDE integration \u2014 the core business generates enormous cash",
+    "At ~$86/share and $4.7B market cap, Crocs trades at just 7x free cash flow \u2014 deeply cheap if margins normalize",
+    "The Crocs brand has proven durability across multiple fashion cycles, consistently growing through DTC channels",
+    "HEYDUDE provides diversification and growth potential once the brand stabilizes, roughly doubling the company's addressable market"
+  ],
+  "business_bullets": [
+    "Crocs Inc. designs, manufactures, and markets casual footwear under the Crocs brand (iconic clogs, sandals) and HEYDUDE brand (casual slip-on shoes)",
+    "The Crocs brand has ~60% gross margins with strong DTC sales, celebrity collaborations, and limited-edition product drops driving premium pricing",
+    "HEYDUDE was acquired in 2022 for $2.5B and is being integrated with shared distribution and marketing infrastructure",
+    "FY2025: $4.0B revenue, $659M free cash flow, but reported a net loss of $81M due to non-cash charges and integration costs"
+  ],
+  "why_this_price": "Crocs trades at approximately $86/share with a $4.7B market cap \u2014 just 7x free cash flow and a depressed P/E due to one-time charges. Spier's value thesis centers on the gap between reported earnings (depressed by integration costs and write-downs) and underlying cash generation ($659M FCF). If operating margins normalize from 3.7% back toward 20%+ (historical levels), EPS could recover to $10-15, implying the stock is worth $120-180.",
+  "investor_in_their_own_words": [
+    {
+      "quote": "I look for businesses with strong brands and pricing power that the market temporarily misprices. Crocs has built one of the most recognizable brands in footwear.",
+      "source": "Guy Spier, Aquamarine Fund investor letter",
+      "date": "2023"
+    },
+    {
+      "quote": "The best investments are often businesses that look terrible on the surface but have strong underlying economics. You have to look past the headlines.",
+      "source": "Guy Spier, interview on The Investor's Podcast",
+      "date": "2022"
+    }
+  ],
+  "key_metrics": {
+    "revenue_fy2025": "$4.0B",
+    "net_income": "-$81M (charges)",
+    "free_cash_flow": "$659M",
+    "operating_margin": "3.7% (depressed)",
+    "gross_margin": "~57%",
+    "market_cap": "~$4.7B",
+    "crocs_brand_revenue": "~$2.8B",
+    "heydude_revenue": "~$1.2B"
+  },
+  "moat_sources": [
+    "Brand loyalty \u2014 Crocs has achieved cult-like status with consumers through celebrity collaborations, limited editions, and social media virality",
+    "Pricing power \u2014 60%+ gross margins on the Crocs brand demonstrate strong pricing power and consumer willingness to pay premium prices",
+    "DTC channel strength \u2014 direct-to-consumer sales through crocs.com provide higher margins and direct customer relationships",
+    "Product simplicity \u2014 the clog format requires minimal design changes yet supports endless customization through Jibbitz charms and collaborations",
+    "Global brand recognition \u2014 Crocs is sold in 90+ countries with strong brand awareness across demographics"
+  ],
+  "risks": [
+    "Fashion risk \u2014 Crocs has experienced boom-bust cycles before; the current fashion relevance could fade",
+    "HEYDUDE integration challenges \u2014 the $2.5B acquisition has depressed margins and may not deliver expected returns",
+    "FY2025 net loss and operating margin collapse (3.7% vs. 25% historical) raises questions about underlying profitability",
+    "Competition from Nike, Birkenstock, and other casual footwear brands in the comfort/casual segment",
+    "Tariff and supply chain risks from manufacturing concentrated in Vietnam and China"
+  ],
+  "catalysts": [
+    "Margin normalization \u2014 as HEYDUDE integration costs roll off and operating margin recovers toward 20%+, EPS could recover dramatically",
+    "HEYDUDE brand turnaround \u2014 stabilizing and growing HEYDUDE revenue would validate the acquisition thesis",
+    "Share buybacks \u2014 at 7x FCF, aggressive buybacks are highly accretive to per-share value",
+    "International expansion \u2014 growing DTC presence in Europe and Asia provides new revenue growth",
+    "Jibbitz and personalization \u2014 high-margin customization accessories drive repeat purchases and brand engagement"
+  ],
+  "company_brief": "Crocs Inc. (CROX) designs and markets casual footwear under the Crocs brand (iconic clogs, sandals) and HEYDUDE brand (casual slip-on shoes). The Crocs brand has achieved cult-like consumer loyalty through celebrity collaborations and limited-edition products. FY2025: $4.0B revenue, $659M free cash flow, though reported a net loss due to non-cash charges. The company operates in 90+ countries with strong DTC channels. Market cap is approximately $4.7B.",
+  "slug": "guy-spier-CROX",
+  "investor_key": null,
+  "detail_path": "/conviction-data/details/guy-spier-CROX.json"
+}

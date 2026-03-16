@@ -1,0 +1,131 @@
+{
+  "investor_slug": "leopold-aschenbrenner",
+  "investor_name": "Leopold Aschenbrenner",
+  "firm_name": "Situational Awareness LP",
+  "ticker": "CRWV",
+  "company_name": "CoreWeave, Inc.",
+  "weight_pct": 22,
+  "value_millions": 1211,
+  "thesis_headline": "The hyperscaler for the AGI era -- CoreWeave is the GPU cloud that will host the trillion-dollar training clusters Aschenbrenner predicts are coming by 2027",
+  "thesis_summary": "Leopold Aschenbrenner's $1.2B CoreWeave position (22% of his $5.5B portfolio) is his single largest bet and sits at the direct intersection of his 'Situational Awareness' thesis. His essay predicts 'trillions of dollars' will flow into GPU clusters, data centers, and power infrastructure as AI labs race to build AGI by 2027. CoreWeave is purpose-built for this moment: a GPU-cloud provider originally founded in 2017 as a crypto mining operation that pivoted to become NVIDIA's preferred cloud partner for AI workloads. Unlike traditional hyperscalers (AWS, Azure, GCP) that offer general-purpose compute, CoreWeave is purpose-built for GPU-intensive workloads -- AI training, inference, and rendering. The company IPO'd in 2025 and has rapidly signed multi-billion dollar contracts with AI labs and enterprises needing dedicated GPU compute capacity.\n\nAschenbrenner holds both shares ($437M) and call options ($774M) on CoreWeave, meaning his total exposure includes significant leveraged upside. The call options amplify his bet: if CoreWeave's stock rises substantially, the options magnify returns. This is consistent with his thesis of explosive, non-linear demand growth for GPU compute. CoreWeave is the purest public equity play on the 'compute bottleneck' thesis from Situational Awareness -- if AGI training runs require hundreds of thousands to millions of GPUs, the companies that can provision and operate these clusters at scale will capture enormous value.",
+  "why_this_price": "At $1.2B and 22% of portfolio, CoreWeave is Aschenbrenner's largest conviction bet. His thesis implies that current GPU cloud capacity is dramatically insufficient for the AGI buildout ahead. CoreWeave has contracted revenue visibility through long-term GPU lease agreements (often 3-5 year commitments with hyperscalers and AI labs). The company's capital expenditure-heavy model means current financials understate the future cash flow potential of infrastructure already deployed. Aschenbrenner's use of call options ($774M, roughly 64% of the position) suggests he expects the stock to appreciate significantly from current levels, consistent with his AGI timeline of 2027.",
+  "investor_in_their_own_words": [
+    {
+      "quote": "Many trillions of dollars will go into GPU, datacenter, and power buildout before the decade is out. The industrial mobilization will be staggering.",
+      "source": "Situational Awareness: The Decade Ahead",
+      "date": "2024-06",
+      "url": "https://situational-awareness.ai"
+    },
+    {
+      "quote": "Hundreds of millions of GPUs will hum across American infrastructure... American electricity production will have grown tens of percent.",
+      "source": "Situational Awareness: The Decade Ahead",
+      "date": "2024-06",
+      "url": "https://situational-awareness.ai"
+    },
+    {
+      "quote": "The fierce scramble to secure every power contract, every GPU allocation, every data center site has only just begun.",
+      "source": "Situational Awareness: The Decade Ahead",
+      "date": "2024-06",
+      "url": "https://situational-awareness.ai"
+    }
+  ],
+  "valuation_math": {
+    "approach": "Revenue growth + contracted backlog analysis (consistent with thesis-driven infrastructure buildout)",
+    "steps": [
+      {
+        "label": "Position structure",
+        "value": "$437M shares + $774M call options",
+        "note": "Call options provide leveraged upside exposure, suggesting high conviction in stock appreciation"
+      },
+      {
+        "label": "Shares held",
+        "value": "6,098,812 shares + 10,814,500 call options",
+        "note": "Total exposure to ~16.9M share-equivalents"
+      },
+      {
+        "label": "CoreWeave thesis",
+        "value": "GPU cloud = the picks-and-shovels play",
+        "note": "If trillions flow into compute, GPU cloud providers capture recurring revenue from leasing GPU capacity"
+      },
+      {
+        "label": "Revenue growth trajectory",
+        "value": "Rapidly growing from contracted GPU leases",
+        "note": "Multi-year, take-or-pay GPU lease contracts provide visibility into future revenue"
+      },
+      {
+        "label": "AGI compute requirement",
+        "value": "$100B-$1T training clusters by 2027-2030",
+        "note": "Per Aschenbrenner's thesis, current compute is orders of magnitude below what AGI requires"
+      }
+    ],
+    "target_price": "Not disclosed",
+    "current_price": "N/A (position valued at $71.59/share implied from 13F as of Dec 2025)",
+    "implied_return": "Significant upside implied by large call option overlay",
+    "time_horizon": "2-5 years (aligned with AGI timeline of 2027)"
+  },
+  "key_metrics": {
+    "revenue": "Rapidly growing (exact figures vary by quarter)",
+    "market_cap": "~$25-30B range (post-IPO 2025)",
+    "business_model": "GPU cloud infrastructure -- lease GPU compute capacity to AI labs and enterprises",
+    "key_customers": "AI labs, hyperscalers, enterprises needing GPU compute",
+    "contracted_backlog": "Multi-billion dollar long-term GPU lease commitments"
+  },
+  "moat_sources": [
+    "NVIDIA preferred partner status -- early and deep relationship with NVIDIA for GPU allocation",
+    "Purpose-built GPU infrastructure -- not retrofitted from general-purpose cloud like AWS/Azure",
+    "Long-term contracted revenue -- multi-year take-or-pay GPU lease agreements provide stability",
+    "Operational expertise in GPU cluster management -- cooling, networking, reliability at scale",
+    "First-mover in dedicated GPU cloud -- established before demand explosion in 2023-2024"
+  ],
+  "risks": [
+    {
+      "risk": "AGI timeline does not materialize by 2027-2030",
+      "severity": "High",
+      "mitigation": "Demand for GPU compute is growing regardless of AGI timing; AI inference demand alone is massive"
+    },
+    {
+      "risk": "Competition from hyperscalers (AWS, Azure, GCP) who build their own GPU clouds",
+      "severity": "High",
+      "mitigation": "CoreWeave's purpose-built infrastructure may maintain performance/cost advantages; dedicated GPU cloud is different from general cloud"
+    },
+    {
+      "risk": "Capital intensity -- massive capex required to build data centers",
+      "severity": "Medium",
+      "mitigation": "Contracted revenue provides financing visibility; debt markets available for infrastructure assets"
+    },
+    {
+      "risk": "NVIDIA concentration risk -- dependent on GPU supply allocation",
+      "severity": "Medium",
+      "mitigation": "Deep NVIDIA partnership; CoreWeave is strategically important to NVIDIA's ecosystem"
+    },
+    {
+      "risk": "Technology shift -- new chip architectures could reduce demand for NVIDIA GPUs",
+      "severity": "Low",
+      "mitigation": "CoreWeave can adapt to new hardware; the infrastructure (power, cooling, networking) is hardware-agnostic"
+    }
+  ],
+  "catalysts": [
+    "New multi-billion dollar GPU lease contracts with AI labs",
+    "Revenue acceleration as contracted capacity comes online",
+    "Expansion into inference workloads (higher utilization, recurring revenue)",
+    "NVIDIA next-generation GPU launches (Blackwell, Rubin) driving upgrade cycle",
+    "Government/sovereign AI compute contracts",
+    "Potential acquisition target for hyperscalers wanting GPU capacity"
+  ],
+  "company_brief": "CoreWeave is a specialized GPU cloud infrastructure provider founded in 2017, headquartered in Livingston, New Jersey. Originally a crypto mining operation, the company pivoted to become NVIDIA's preferred cloud partner for GPU-intensive AI workloads. CoreWeave builds and operates data centers optimized for GPU compute -- AI model training, inference, rendering, and high-performance computing. The company IPO'd in 2025 and has rapidly scaled revenue through long-term GPU lease contracts with AI labs and enterprises. CoreWeave's infrastructure is purpose-built for the AI era, differentiating it from general-purpose cloud providers. The company is the purest public equity play on the thesis that AGI development will require massive, sustained investment in GPU compute infrastructure.",
+  "thesis_bullets": [
+    "Leopold Aschenbrenner's $1.2B CoreWeave position (22% of his $5.5B portfolio) is his single largest bet and sits at the direct intersection of his 'Situational Awareness' thesis. His essay predicts 'trillions of dollars' will flow into GPU clusters, data centers, and power infrastructure as AI labs race to build AGI by 2027.",
+    "CoreWeave is purpose-built for this moment: a GPU-cloud provider originally founded in 2017 as a crypto mining operation that pivoted to become NVIDIA's preferred cloud partner for AI workloads. Unlike traditional hyperscalers (AWS, Azure, GCP) that offer general-purpose compute, CoreWeave is purpose-built for GPU-intensive workloads -- AI training, inference, and rendering.",
+    "The company IPO'd in 2025 and has rapidly signed multi-billion dollar contracts with AI labs and enterprises needing dedicated GPU compute capacity. Aschenbrenner holds both shares ($437M) and call options ($774M) on CoreWeave, meaning his total exposure includes significant leveraged upside.",
+    "The call options amplify his bet: if CoreWeave's stock rises substantially, the options magnify returns. This is consistent with his thesis of explosive, non-linear demand growth for GPU compute.",
+    "CoreWeave is the purest public equity play on the 'compute bottleneck' thesis from Situational Awareness -- if AGI training runs require hundreds of thousands to millions of GPUs, the companies that can provision and operate these clusters at scale will capture enormous value."
+  ],
+  "business_bullets": [
+    "CoreWeave is a specialized GPU cloud infrastructure provider founded in 2017, headquartered in Livingston, New Jersey. Originally a crypto mining operation, the company pivoted to become NVIDIA's preferred cloud partner for GPU-intensive AI workloads.",
+    "CoreWeave builds and operates data centers optimized for GPU compute -- AI model training, inference, rendering, and high-performance computing. The company IPO'd in 2025 and has rapidly scaled revenue through long-term GPU lease contracts with AI labs and enterprises.",
+    "CoreWeave's infrastructure is purpose-built for the AI era, differentiating it from general-purpose cloud providers. The company is the purest public equity play on the thesis that AGI development will require massive, sustained investment in GPU compute infrastructure."
+  ],
+  "slug": "leopold-aschenbrenner-CRWV",
+  "investor_key": "situational_awareness",
+  "detail_path": "/conviction-data/details/leopold-aschenbrenner-CRWV.json"
+}

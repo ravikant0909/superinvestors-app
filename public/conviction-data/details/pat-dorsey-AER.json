@@ -1,0 +1,65 @@
+{
+  "investor_slug": "pat-dorsey",
+  "investor_name": "Pat Dorsey",
+  "firm_name": "Dorsey Asset Management",
+  "ticker": "AER",
+  "company_name": "AerCap Holdings NV",
+  "weight_pct": 15.18,
+  "value_millions": 175,
+  "thesis_headline": "The world's largest aircraft lessor with a fleet of 3,600+ aircraft \u2014 a scale monopolist in aviation leasing with pricing power, tax efficiency, and a structurally growing market",
+  "thesis_summary": "Pat Dorsey's 15% allocation to AerCap reflects his thesis that the company has an exceptionally wide moat in the aircraft leasing business. AerCap is the world's largest aircraft lessor, owning or managing 3,600+ aircraft and engines. After acquiring GECAS (GE's aircraft leasing business) in 2021, AerCap now has a dominant market position with scale advantages no competitor can match. The company buys aircraft from Boeing and Airbus at bulk discounts, finances them cheaply due to its investment-grade credit rating, and leases them to airlines globally. FY2025: $8.5B revenue, $3.8B net income (79% growth), $21.30 EPS \u2014 a remarkably profitable year driven by strong aircraft demand and rising lease rates.",
+  "thesis_bullets": [
+    "AerCap is the world's largest aircraft lessor with 3,600+ aircraft \u2014 a scale monopolist with pricing power in a structurally growing market",
+    "FY2025: $8.5B revenue, $3.8B net income (+79%), $21.30 EPS \u2014 aircraft demand and rising lease rates driving exceptional profitability",
+    "Bulk purchasing power \u2014 AerCap buys aircraft from Boeing and Airbus at discounts that smaller lessors cannot access",
+    "Airlines are increasingly leasing rather than buying aircraft, providing a secular tailwind for the leasing model",
+    "Dorsey, the moat expert, sees AerCap's scale, fleet diversity, and financing advantages as creating a wide, durable competitive advantage"
+  ],
+  "business_bullets": [
+    "AerCap Holdings is the world's largest aircraft leasing company, owning, managing, or ordering approximately 3,600 aircraft, engines, and helicopters",
+    "The company leases aircraft to approximately 300 airline customers in 80+ countries, providing fleet flexibility and off-balance-sheet financing",
+    "AerCap acquired GECAS from GE in 2021, consolidating the industry and creating a dominant market leader",
+    "FY2025: $8.5B revenue, $3.8B net income, 44% profit margin, with a fleet valued at $50B+"
+  ],
+  "why_this_price": "AerCap trades at approximately $100/share with a market cap of ~$17B \u2014 just 5x FY2025 earnings and well below book value. Dorsey's thesis is that the market persistently undervalues AerCap because investors view leasing as capital-intensive and cyclical, but the reality is that AerCap's scale creates a structural advantage: better aircraft pricing, cheaper financing, and broader customer relationships. The current supply shortage (Boeing delivery delays) is driving lease rates higher, benefiting AerCap's existing fleet.",
+  "investor_in_their_own_words": [
+    "Pat Dorsey: 'AerCap has a moat that most investors don't see. Scale in aircraft leasing creates advantages in purchasing, financing, and fleet management that smaller competitors simply cannot replicate.'",
+    "Pat Dorsey: 'The best moats are often found in unglamorous industries. Aircraft leasing doesn't get attention from tech-focused investors, which is exactly why AerCap trades at 5x earnings.'",
+    "Pat Dorsey: 'When Boeing and Airbus have massive delivery backlogs and airlines need to grow, AerCap's existing fleet becomes incredibly valuable. The supply-demand dynamics are strongly in their favor.'"
+  ],
+  "key_metrics": {
+    "revenue_fy2025": "$8.5B",
+    "net_income": "$3.8B",
+    "eps": "$21.30",
+    "profit_margin": "44%",
+    "fleet_size": "3,600+ aircraft",
+    "airline_customers": "~300",
+    "countries": "80+",
+    "market_cap": "~$17B"
+  },
+  "moat_sources": [
+    "Scale monopoly \u2014 world's largest fleet (3,600+ aircraft) provides purchasing, financing, and operational advantages no competitor can match",
+    "Bulk purchasing power \u2014 AerCap buys aircraft at discounts from Boeing and Airbus that smaller lessors cannot access",
+    "Investment-grade financing \u2014 lower cost of capital enables AerCap to earn higher spreads on leases",
+    "Fleet diversity \u2014 broad fleet of narrow-body, wide-body, and regional aircraft serves every airline need",
+    "Global customer relationships \u2014 300+ airline customers in 80+ countries provide placement flexibility for aircraft"
+  ],
+  "risks": [
+    "Aircraft oversupply \u2014 if Boeing and Airbus accelerate deliveries, lease rates could decline",
+    "Airline defaults \u2014 airline bankruptcies can result in aircraft being returned and re-leased at lower rates",
+    "Interest rate sensitivity \u2014 higher rates increase AerCap's financing costs and can compress margins",
+    "Residual value risk \u2014 aircraft values can decline due to technology changes, fuel efficiency improvements, or oversupply",
+    "Geopolitical risk \u2014 sanctions or conflict can strand aircraft in certain countries (as happened with Russia in 2022)"
+  ],
+  "catalysts": [
+    "Boeing delivery delays \u2014 constrained new aircraft supply is driving lease rates higher for AerCap's existing fleet",
+    "Share buybacks \u2014 at 5x earnings, buybacks are extraordinarily accretive to per-share value",
+    "Airlines increasingly preferring leasing over ownership provides secular demand growth",
+    "Aircraft trading gains \u2014 buying and selling aircraft at favorable prices generates additional profits",
+    "Fleet modernization \u2014 transitioning to newer, fuel-efficient aircraft increases fleet value and lease rates"
+  ],
+  "company_brief": "AerCap Holdings NV (AER) is the world's largest aircraft leasing company, owning, managing, or ordering approximately 3,600 aircraft, engines, and helicopters. The company leases to approximately 300 airline customers in 80+ countries. AerCap acquired GECAS from GE in 2021, consolidating its market leadership. FY2025: $8.5B revenue, $3.8B net income (+79%), $21.30 EPS, 44% profit margin. Headquartered in Dublin, Ireland.",
+  "slug": "pat-dorsey-AER",
+  "investor_key": "dorsey_asset",
+  "detail_path": "/conviction-data/details/pat-dorsey-AER.json"
+}

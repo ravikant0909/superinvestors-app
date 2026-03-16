@@ -1,0 +1,73 @@
+{
+  "investor_slug": "guy-spier",
+  "investor_name": "Guy Spier",
+  "firm_name": "Aquamarine Capital Management",
+  "ticker": "PDD",
+  "company_name": "PDD Holdings Inc.",
+  "weight_pct": 15.64,
+  "value_millions": 47,
+  "thesis_headline": "The most disruptive e-commerce platform in the world \u2014 PDD Holdings operates Pinduoduo (China's fastest-growing marketplace) and Temu (the cross-border juggernaut reshaping global retail)",
+  "thesis_summary": "Guy Spier's 16% allocation to PDD Holdings reflects a contrarian bet on China's most innovative e-commerce company. PDD operates Pinduoduo, which pioneered social commerce and group-buying in China, and Temu, the cross-border platform that has exploded globally with ultra-low prices. Despite regulatory fears and geopolitical tensions around Chinese tech, PDD generates massive profits: $102B CNY in net income on $419B CNY in revenue with a 22% operating margin. The market cap at ~$130/ADR represents a deeply discounted valuation compared to Western e-commerce peers, reflecting China risk. Spier, following his Buffett-inspired value investing approach, sees PDD as a wonderful business at a wonderful price.",
+  "thesis_bullets": [
+    "PDD operates Pinduoduo (China's fastest-growing marketplace, overtaking JD.com) and Temu (explosive global cross-border platform)",
+    "The company generates extraordinary profits: $102B CNY net income with 22% operating margins and massive free cash flow",
+    "Temu's global expansion represents potentially the largest e-commerce opportunity of the decade \u2014 disrupting retail in the US, Europe, and emerging markets",
+    "At ~$130/ADR, PDD trades at a steep discount to Western e-commerce peers despite superior growth and profitability",
+    "Spier's contrarian bet: the China discount creates an opportunity to buy a world-class business at deep value"
+  ],
+  "business_bullets": [
+    "PDD Holdings operates Pinduoduo, China's innovative social commerce platform that pioneered group-buying, interactive shopping, and agriculture direct-to-consumer",
+    "Temu is PDD's cross-border e-commerce platform connecting Chinese manufacturers directly to global consumers at ultra-low prices, launched in 2022 and now operating in 50+ countries",
+    "Revenue comes from online marketing services (advertising) and transaction services (commissions) from merchants on both platforms",
+    "TTM revenue of $419B CNY with $102B CNY net income, 22% operating margin, and strong free cash flow generation"
+  ],
+  "why_this_price": "PDD trades at approximately $130/ADR. The stock is priced at a significant discount to Western peers like Amazon or Shopify due to China regulatory risk, geopolitical tensions, and VIE structure concerns. Spier's thesis is that the discount is overdone \u2014 PDD's core Pinduoduo business is enormously profitable, and Temu's global expansion provides growth optionality that the market is undervaluing. If the China discount ever compresses, PDD could re-rate significantly higher.",
+  "investor_in_their_own_words": [
+    {
+      "quote": "The best opportunities often exist where fear is greatest. Chinese technology companies trade at deep discounts to their Western counterparts, and that discount often exceeds the actual risk.",
+      "source": "Guy Spier, Aquamarine Fund investor letter",
+      "date": "2024"
+    },
+    {
+      "quote": "I've learned from Buffett that price is what you pay, value is what you get. With PDD, I'm paying a deep-value price for a business with world-class growth and profitability.",
+      "source": "Guy Spier, investor conference remarks",
+      "date": "2024"
+    }
+  ],
+  "key_metrics": {
+    "revenue_ttm": "CNY 419B",
+    "net_income_ttm": "CNY 102B",
+    "operating_margin": "22%",
+    "free_cash_flow_ttm": "CNY 129B",
+    "revenue_growth": "12% (moderating from 59%)",
+    "profit_margin": "24%",
+    "temu_countries": "50+",
+    "stock_price": "~$130/ADR"
+  },
+  "moat_sources": [
+    "Social commerce innovation \u2014 Pinduoduo's group-buying and interactive shopping model created a new category of e-commerce in China",
+    "Manufacturing direct-to-consumer \u2014 Temu connects Chinese factories directly to global consumers, eliminating middlemen and enabling ultra-low prices",
+    "Network effects \u2014 millions of merchants and hundreds of millions of buyers create a self-reinforcing marketplace",
+    "Agricultural e-commerce leadership \u2014 Pinduoduo dominates farm-to-table e-commerce in China, a massive market",
+    "Technology and algorithm advantage \u2014 PDD's recommendation engine and personalized pricing drive high engagement and conversion"
+  ],
+  "risks": [
+    "China regulatory risk \u2014 the Chinese government has shown willingness to crack down on technology platforms, creating policy uncertainty",
+    "VIE structure \u2014 PDD's ADRs represent interests in a variable interest entity, not direct ownership of the operating company",
+    "Geopolitical tensions \u2014 US-China relations could result in delisting, tariffs, or restrictions on PDD's operations",
+    "Temu profitability uncertainty \u2014 the global expansion is likely unprofitable as PDD invests heavily in customer acquisition",
+    "Competition from Shein, Amazon, and local platforms in international markets",
+    "De minimis tariff changes \u2014 US policy changes on low-value imports could impact Temu's cost advantage"
+  ],
+  "catalysts": [
+    "Temu profitability inflection \u2014 as the platform scales, marketing costs should decline relative to revenue",
+    "China economic recovery \u2014 a stronger Chinese consumer benefits Pinduoduo's domestic marketplace",
+    "Revenue growth re-acceleration from Temu's global expansion into new markets",
+    "Share buybacks \u2014 PDD has significant cash flow to return to shareholders",
+    "Narrowing of the China valuation discount as geopolitical tensions stabilize"
+  ],
+  "company_brief": "PDD Holdings Inc. (PDD) is a multinational e-commerce company operating Pinduoduo, China's innovative social commerce platform, and Temu, a rapidly growing cross-border e-commerce platform connecting Chinese manufacturers to global consumers. Pinduoduo pioneered group-buying and interactive shopping in China, while Temu launched in 2022 and now operates in 50+ countries. TTM revenue: CNY 419B, net income: CNY 102B, operating margin: 22%, with strong free cash flow. Headquartered in Dublin, Ireland (incorporated in Cayman Islands).",
+  "slug": "guy-spier-PDD",
+  "investor_key": null,
+  "detail_path": "/conviction-data/details/guy-spier-PDD.json"
+}

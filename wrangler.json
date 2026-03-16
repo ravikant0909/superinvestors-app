@@ -1,0 +1,9 @@
+{
+  "name": "superinvestors",
+  "main": "worker/src/index.js",
+  "compatibility_date": "2024-01-01",
+  "assets": { "directory": "./out" },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "superinvestors", "database_id": "2fe76c32-78e9-4542-af53-cdddd18b0d39" }
+  ]
+}
