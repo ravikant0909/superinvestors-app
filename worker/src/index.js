@@ -1,8 +1,8 @@
 // =============================================================================
-// SuperInvestors — Unified Cloudflare Worker
+// SuperInvestors API Worker
 // =============================================================================
-// Serves static assets (Next.js export) + D1 API endpoints + Claude chat proxy.
-// Modeled on the family-app worker pattern.
+// Serves D1-backed API endpoints and the Claude chat proxy.
+// Static assets are served by Cloudflare Pages.
 // =============================================================================
 
 // ─── Chat Configuration ─────────────────────────────────────────────────────
@@ -772,39 +772,14 @@ export default {
         return response;
       }
 
-      // ── Static Asset Serving ────────────────────────────────────────────
-
-      // SPA routing: /investor/<slug> serves investor/[slug]/index.html
-      // Next.js static export generates /investor/[slug]/index.html
-      if (path.startsWith('/investor/') && !path.includes('.') && path !== '/investor/') {
-        const slug = path.replace('/investor/', '').replace(/\/$/, '');
-        if (slug) {
-          const rewrittenUrl = new URL(request.url);
-          rewrittenUrl.pathname = `/investor/${slug}/index.html`;
-          const response = await env.ASSETS.fetch(new Request(rewrittenUrl, request));
-          if (response.status !== 404) return response;
-          // Fallback to /investor/index.html for client-side routing
-          rewrittenUrl.pathname = '/investor/index.html';
-          return env.ASSETS.fetch(new Request(rewrittenUrl, request));
-        }
+      if (path === '/') {
+        return jsonResponse({
+          service: 'superinvestors-api',
+          pages_origin: 'https://superinvestors-app.pages.dev',
+        });
       }
 
-      // Directory index resolution
-      if (path.endsWith('/')) {
-        const rewrittenUrl = new URL(request.url);
-        rewrittenUrl.pathname = path + 'index.html';
-        return env.ASSETS.fetch(new Request(rewrittenUrl, request));
-      }
-
-      // Try serving the asset directly; if 404 and no extension, try as directory
-      const directResponse = await env.ASSETS.fetch(request);
-      if (directResponse.status === 404 && !path.includes('.')) {
-        const rewrittenUrl = new URL(request.url);
-        rewrittenUrl.pathname = path + '/index.html';
-        const indexResponse = await env.ASSETS.fetch(new Request(rewrittenUrl, request));
-        if (indexResponse.status !== 404) return indexResponse;
-      }
-      return directResponse;
+      return errorResponse('Not found', 404);
     } catch (error) {
       return new Response(JSON.stringify({ error: error.message }), {
         status: 500,

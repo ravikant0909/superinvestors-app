@@ -6,7 +6,9 @@ site/
 __pycache__/
 *.pyc
 data/cache/
+data/output/
 data/pipeline.log
+superinvestors.db
 *.db-shm
 *.db-wal
 .DS_Store

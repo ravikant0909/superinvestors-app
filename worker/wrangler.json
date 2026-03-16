@@ -1,8 +1,0 @@
-{
-  "name": "superinvestors-chat",
-  "main": "src/index.js",
-  "compatibility_date": "2024-01-01",
-  "d1_databases": [
-    { "binding": "DB", "database_name": "superinvestors-chat", "database_id": "4ca6d983-e26f-40a1-9fde-2a17d7a3c969" }
-  ]
-}

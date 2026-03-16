@@ -10,7 +10,7 @@
 
 - Next.js 14 still builds as a static export via `next.config.js` with `output: 'export'`.
 - Cloudflare Pages serves the public site at `https://superinvestors-app.pages.dev/`.
-- The Cloudflare Worker at `https://superinvestors.ravikant0909.workers.dev/` serves `/api/*` from D1 and can also serve the built assets from `out/`.
+- The Cloudflare Worker at `https://superinvestors.ravikant0909.workers.dev/` is API-only and serves `/api/*` from D1.
 - The product is not fully database-rendered on the fly. It ships static HTML shells and fetches runtime data from either the Worker API (`/api/*`) or generated static JSON assets under `public/`.
 
 ## Git Worktrees
@@ -34,8 +34,7 @@
 - `load_13f_to_db.py`: loads local JSON into `superinvestors.db`
 - `public/conviction-data/`: generated runtime JSON assets for conviction pages
 - `public/runtime-data/`: generated static runtime helpers such as `prices.json` and `portfolio-adjustments.json`
-- `wrangler.json`: live unified app config
-- `worker/wrangler.json`: stale old `superinvestors-chat` config; do not use for live deploys
+- `wrangler.json`: live Worker API config
 
 ## Cloudflare Auth
 
@@ -73,11 +72,10 @@ npx wrangler deploy
 npx wrangler pages deploy out --project-name superinvestors-app --branch main --commit-dirty=true
 ```
 
-- `npx wrangler deploy` updates `https://superinvestors.ravikant0909.workers.dev/` and the Worker-side asset bundle.
+- `npx wrangler deploy` updates the API Worker at `https://superinvestors.ravikant0909.workers.dev/`.
 - `npx wrangler pages deploy out --project-name superinvestors-app --branch main --commit-dirty=true` updates production `https://superinvestors-app.pages.dev/` from a worktree.
 - The plain `npx wrangler pages deploy out --project-name superinvestors-app` command can create only a preview deployment instead of updating production.
 - Both deploys are needed when the public Pages site and the Worker API both changed.
-- Do not deploy from `/Users/ravf/projects/superinvestors-app-deploy/worker`. That directory still points at the stale `superinvestors-chat` config.
 
 ### Data changes
 
@@ -139,6 +137,7 @@ curl https://superinvestors.ravikant0909.workers.dev/api/best-ideas
 - The investor roster is broader than the filing coverage. Profiles without filings should be labeled honestly as profile-only coverage.
 - Current product copy should reflect the real filing coverage, not marketing language.
 - Conviction pages are AI research and are not guaranteed to cover every holding or every investor.
+- `superinvestors.db` and `data/output/` are local pipeline artifacts and should not be recommitted to Git.
 
 ## Design and Product Notes
 

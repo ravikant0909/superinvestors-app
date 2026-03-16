@@ -270,11 +270,12 @@ SuperInvestors is a web application that tracks the portfolios of ~40 legendary 
 |-------|-----------|-----------|
 | Frontend | Next.js 14+ (App Router) | SSR for SEO, React for interactivity |
 | Styling | Tailwind CSS | Utility-first, fast development |
-| Database | SQLite (better-sqlite3) | Simple, no server, fast reads. Migrate to Postgres later |
-| ORM | Drizzle | Type-safe, lightweight, SQLite + Postgres support |
+| Database | Cloudflare D1 | Live runtime data for API endpoints on Cloudflare |
+| Pipeline DB | Local SQLite | Intermediate build artifact before syncing refreshed data to D1 |
+| ORM | None in runtime app | The current app reads D1 from the Worker and does not use a TypeScript ORM layer |
 | Data Pipeline | Python | Existing EDGAR fetchers, XML parsing |
 | AI Theses | Claude API | Best quality for financial analysis |
-| Deployment | Vercel | Zero-config Next.js hosting |
+| Deployment | Cloudflare Pages + Worker + D1 | Static Pages frontend plus API Worker backed by D1 |
 | Design | Light/white background | Clean, professional, user preference |
 
 ---

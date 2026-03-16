@@ -10,18 +10,6 @@ export function getApiBaseUrl(): string {
     return trimTrailingSlash(configured)
   }
 
-  if (typeof window !== 'undefined') {
-    const { origin, hostname } = window.location
-    if (
-      hostname === 'superinvestors-app.pages.dev' ||
-      hostname === 'localhost' ||
-      hostname === '127.0.0.1'
-    ) {
-      return DEFAULT_API_ORIGIN
-    }
-    return trimTrailingSlash(origin)
-  }
-
   return DEFAULT_API_ORIGIN
 }
 

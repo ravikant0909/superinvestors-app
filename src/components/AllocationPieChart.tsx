@@ -3,7 +3,10 @@
  * Top 10 positions individually labeled, rest grouped as "Other".
  */
 
-import type { Holding } from '@/lib/portfolio-data'
+interface Holding {
+  ticker: string
+  weight_pct: number
+}
 
 // Professional color palette for pie slices
 const COLORS = [
