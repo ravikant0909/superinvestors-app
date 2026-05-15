@@ -26,6 +26,15 @@
 - **Node**: `v24.12.0`
 - **Node path**: `/Users/ravf/.nvm/versions/node/v24.12.0/bin`
 - **Cloudflare auth file**: `/Users/ravf/.cloudflare_token`
+- **Finnhub auth file**: `/Users/ravf/.finnhub_token` (sources `FINNHUB_API_KEY`, used by `data/update_prices.sh` and `data/fetch_prices.py`)
+
+## Local-Only Backups
+
+- `superinvestors.db` is gitignored. Periodic backups are kept in Google Drive at:
+  `My Drive/Backup/superinvestors-db/superinvestors-YYYYMMDD-HHMMSS.db`
+- The historical `superinvestors.db.bak-2026-03-15-codex` snapshot is in the same folder.
+- A full pre-history-rewrite tarball of this repo (May 2026) is at:
+  `My Drive/Backup/superinvestors-app-stale-local/superinvestors-app-pre-reset-*.tar.gz`
 
 ## Key Files
 
