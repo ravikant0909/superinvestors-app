@@ -46,3 +46,18 @@ body {
 .badge-sold {
   @apply inline-block px-2 py-0.5 rounded text-xs font-bold bg-red-100 text-red-700;
 }
+
+/* Mobile (≤768px): the layout is Tailwind-responsive, but enforce sane phone
+   defaults explicitly — readable base size, no iOS auto-zoom, and smooth
+   horizontal scrolling for the wide data tables (stocks, overlap, holdings). */
+@media (max-width: 768px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    font-size: 15px;
+  }
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+  }
+}
