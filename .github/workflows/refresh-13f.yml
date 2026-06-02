@@ -1,0 +1,80 @@
+name: Refresh 13F data
+
+# Autonomous quarterly refresh: fetch the latest 13F filings from SEC EDGAR,
+# reload, and sync to the production D1 database. The sync is idempotent
+# (--if-changed) so off-quarter runs are safe no-ops with zero downtime.
+# This reuses the existing, tested Python pipeline (no JS reimplementation) and
+# runs in GitHub's cloud, so it is machine-portable and does not need the Mac.
+
+on:
+  workflow_dispatch: {}          # manual "Run workflow" button
+  schedule:
+    # 07:00 UTC daily on the 14th–21st of Feb/May/Aug/Nov — the windows when
+    # quarterly 13Fs are filed (45 days after quarter end). --if-changed makes
+    # any run before a new quarter actually lands a cheap no-op.
+    - cron: '0 7 14-21 2,5,8,11 *'
+
+concurrency:
+  group: refresh-13f
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install -g wrangler@4
+
+      - name: Fetch latest 13F filings (SEC EDGAR)
+        run: cd data && python run_pipeline.py --all
+
+      - name: Load into local SQLite
+        run: python load_13f_to_db.py
+
+      - name: Regenerate stock index
+        run: python data/gen_stocks_index.py
+
+      - name: Sync to remote D1 (only if a new quarter landed)
+        id: sync
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          set -o pipefail
+          python data/sync_d1_remote.py --execute --if-changed --skip-backup | tee /tmp/sync.out
+          if grep -q "skipping sync" /tmp/sync.out; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No new quarter — remote already current."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Rebuild & deploy Pages (only when data changed)
+        if: steps.sync.outputs.changed == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          npm ci
+          npm run build
+          wrangler pages deploy out --project-name superinvestors-app --branch main --commit-dirty=true
+
+      - name: Commit refreshed artifacts (only when data changed)
+        if: steps.sync.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/cusip_ticker_map.json data/stocks_index.json conviction_data/index.json public/conviction-data/index.json 2>/dev/null || true
+          git commit -m "Auto-refresh 13F data artifacts [skip ci]" || echo "nothing to commit"
+          git push || true

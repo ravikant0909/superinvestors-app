@@ -83,11 +83,15 @@ export default function HomeClient({
   const [changes, setChanges] = useState<ChangeEntry[]>([])
   const [prices, setPrices] = useState<Record<string, PriceEntry>>({})
   const [changesLoaded, setChangesLoaded] = useState(false)
+  const [freshness, setFreshness] = useState<{ latest_quarter: string | null; last_refresh: { completed_at: string } | null } | null>(null)
 
   useEffect(() => {
     let cancelled = false
 
     async function load() {
+      fetchApiJson<{ latest_quarter: string | null; last_refresh: { completed_at: string } | null }>('/api/health')
+        .then((h) => { if (!cancelled) setFreshness(h) })
+        .catch(() => {})
       try {
         const [investors, latestChanges] = await Promise.all([
           fetchApiJson<InvestorSummary[]>('/api/investors'),
@@ -147,6 +151,14 @@ export default function HomeClient({
           We track {investorCount} investors. 13F filing history is currently available
           for {coverageCount} SEC filers, and we&apos;re expanding from there.
         </p>
+        {freshness?.latest_quarter && (
+          <p className="mt-3 inline-flex items-center gap-2 text-sm text-gray-400">
+            <span className="inline-block w-2 h-2 rounded-full bg-green-500" />
+            Latest 13F data: <span className="font-semibold text-gray-600">{freshness.latest_quarter}</span>
+            {freshness.last_refresh?.completed_at &&
+              ` · refreshed ${new Date(freshness.last_refresh.completed_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}`}
+          </p>
+        )}
         <p className="mt-4 text-lg text-gray-500 leading-relaxed">
           For the covered investors, we track not just <em>what</em> they own, but
           how positions change over time. Selected holdings also get AI-generated

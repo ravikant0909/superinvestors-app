@@ -972,6 +972,36 @@ async function handleAPI(path, request, env) {
     }
   }
 
+  // ── Health / freshness ──────────────────────────────────────────────────
+
+  // GET /api/health — data freshness + counts (powers the site freshness badge)
+  if (path === '/api/health' && method === 'GET') {
+    try {
+      const latest = await env.DB.prepare(
+        'SELECT MAX(report_date) AS d FROM holdings'
+      ).first();
+      const inv = await env.DB.prepare('SELECT COUNT(*) AS n FROM investors').first();
+      const cov = await env.DB.prepare(
+        'SELECT COUNT(DISTINCT investor_id) AS n FROM filings_13f'
+      ).first();
+      const run = await env.DB.prepare(
+        "SELECT year, quarter, completed_at FROM pipeline_runs WHERE run_type = 'full_refresh' AND status = 'completed' ORDER BY id DESC LIMIT 1"
+      ).first();
+      const d = latest?.d || null;
+      const quarter = d ? `${d.slice(0, 4)}-Q${Math.floor((parseInt(d.slice(5, 7), 10) - 1) / 3) + 1}` : null;
+      return jsonResponse({
+        latest_report_date: d,
+        latest_quarter: quarter,
+        investors: inv?.n || 0,
+        investors_with_filings: cov?.n || 0,
+        last_refresh: run ? { year: run.year, quarter: run.quarter, completed_at: run.completed_at } : null,
+      });
+    } catch (err) {
+      console.error('Error fetching health:', err);
+      return errorResponse('Failed to fetch health');
+    }
+  }
+
   // ── Chat (Claude API proxy) ─────────────────────────────────────────────
 
   // POST /api/chat — streaming Claude chat proxy

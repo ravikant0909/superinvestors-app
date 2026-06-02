@@ -33,7 +33,7 @@ import json
 import os
 import subprocess
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(BASE_DIR)
@@ -165,9 +165,43 @@ def wipe_remote(table):
         )
 
 
+def local_max_report_date():
+    import sqlite3
+    conn = sqlite3.connect(DB_PATH)
+    row = conn.execute("SELECT MAX(report_date) FROM holdings").fetchone()
+    conn.close()
+    return row[0] if row and row[0] else None
+
+
+def log_pipeline_run(report_date, holdings_count):
+    y = q = "NULL"
+    if report_date and len(report_date) >= 7:
+        y = int(report_date[:4])
+        q = (int(report_date[5:7]) - 1) // 3 + 1
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    remote_exec(
+        "INSERT INTO pipeline_runs (run_type, year, quarter, status, records_processed, completed_at) "
+        f"VALUES ('full_refresh', {y}, {q}, 'completed', {holdings_count}, '{now}');",
+        False, "log pipeline_run",
+    )
+
+
 def main():
     execute = "--execute" in sys.argv
     skip_backup = "--skip-backup" in sys.argv
+    if_changed = "--if-changed" in sys.argv
+
+    # Idempotency guard: skip the whole wipe+reload when the remote is already at
+    # (or ahead of) the local latest quarter. Makes scheduled runs safe no-ops
+    # with zero downtime until a genuinely new quarter has been loaded locally.
+    if execute and if_changed:
+        local_date = local_max_report_date()
+        remote_date = remote_query_scalar("SELECT MAX(report_date) AS d FROM holdings;")
+        print(f"--if-changed: local latest={local_date}  remote latest={remote_date}")
+        if remote_date and local_date and str(remote_date) >= str(local_date):
+            print("Remote already current; skipping sync (no changes).")
+            return
+
     print("Generating chunked SQL from local DB...")
     chunks = generate()
     print(f"\nGenerated {len(chunks)} chunk files in {OUT_DIR}")
@@ -196,8 +230,12 @@ def main():
         remote_exec(path, True, f"import {os.path.basename(path)}")
 
     print("\nVerifying remote counts:")
+    counts = {}
     for table in DATA_TABLES:
-        print(f"  {table}: {remote_query_scalar(f'SELECT COUNT(*) AS n FROM {table};')}")
+        counts[table] = remote_query_scalar(f"SELECT COUNT(*) AS n FROM {table};")
+        print(f"  {table}: {counts[table]}")
+
+    log_pipeline_run(local_max_report_date(), counts.get("holdings", 0))
     print("Done. Remote D1 refreshed from local DB.")
 
 
