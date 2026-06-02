@@ -115,8 +115,10 @@ INVESTORS = {
         "description": "Activist investor. 8-12 concentrated positions.",
     },
     "markel_gayner": {
-        "name": "Markel Gayner Asset Management Corp",
-        "cik": "1034180",
+        "name": "Markel Group Inc.",
+        # FIXED 2026-06-01: old CIK 1034180 ("Markel-Gayner Asset Management LLC")
+        # stopped filing in 2007. The active 13F filer is Markel Group Inc.
+        "cik": "1096343",
         "manager": "Tom Gayner",
         "style": "Quality Value",
         "description": "Insurance company with Berkshire-like equity portfolio.",
@@ -366,6 +368,10 @@ INVESTORS = {
     },
     "greenlight_capital": {
         "name": "Greenlight Capital, Inc.",
+        # NEEDS REVIEW 2026-06-01: CIK 1079114 is correct ("GREENLIGHT CAPITAL INC")
+        # but SEC shows no 13F-HR from this CIK since 2024-02-14 (Q4 2023). Verify
+        # whether Greenlight stopped filing, dropped below the $100M threshold, or
+        # now files under a different entity before relying on this filer's data.
         "cik": "1079114",
         "manager": "David Einhorn",
         "style": "Value / Activist",
