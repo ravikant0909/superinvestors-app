@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { VERDICT_COUNTS } from '@/lib/static-investors'
 
 export const metadata: Metadata = {
   title: 'About & Methodology — SuperInvestors',
@@ -77,8 +78,7 @@ const verdicts = [
     label: 'FOLLOW',
     color: 'bg-green-100 text-green-800 border-green-200',
     dotColor: 'bg-green-500',
-    count: 38,
-    scoreRange: '7.5+',
+    count: VERDICT_COUNTS.FOLLOW ?? 0,
     description:
       'High-conviction investors whose 13F filings are worth studying in detail every quarter. Their new positions and significant increases are potential idea sources. These investors have demonstrated strong alignment with concentrated, long-term value investing and have the track records to back it up.',
   },
@@ -86,8 +86,7 @@ const verdicts = [
     label: 'WATCH',
     color: 'bg-yellow-100 text-yellow-800 border-yellow-200',
     dotColor: 'bg-yellow-500',
-    count: 56,
-    scoreRange: '5.0 - 7.4',
+    count: VERDICT_COUNTS.WATCH ?? 0,
     description:
       'Interesting investors worth monitoring but with meaningful gaps in our scoring criteria. They may have excellent track records but low concentration, or great philosophy but short history. Their 13F filings provide useful context but are not primary idea sources.',
   },
@@ -95,8 +94,7 @@ const verdicts = [
     label: 'SKIP',
     color: 'bg-red-100 text-red-800 border-red-200',
     dotColor: 'bg-red-500',
-    count: 51,
-    scoreRange: 'Below 5.0',
+    count: VERDICT_COUNTS.SKIP ?? 0,
     description:
       'Investors who do not meet our criteria for tracking. They may be quantitative/algorithmic, excessively diversified, have integrity concerns, or follow strategies that produce low-signal 13F filings. Included in our database for completeness but not actively monitored.',
   },
@@ -278,9 +276,6 @@ export default function AboutPage() {
               <div className="flex items-center gap-3 mb-3">
                 <span className={`w-3 h-3 rounded-full ${v.dotColor}`} />
                 <h3 className="text-lg font-bold">{v.label}</h3>
-                <span className="text-sm font-mono opacity-75">
-                  Score {v.scoreRange}
-                </span>
                 <span className="text-sm opacity-75 ml-auto">
                   {v.count} investors
                 </span>

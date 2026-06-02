@@ -51,6 +51,14 @@ function fmtPrice(price: number): string {
   return `$${price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
 }
 
+// Show a portfolio weight only when it is real. A 0/null weight (e.g. the
+// "before" side of a NEW position, the "after" side of an exit, or missing
+// pipeline data) renders as an em dash instead of a misleading "0.0%".
+function fmtWeight(weight: number | null | undefined): string {
+  if (weight == null || weight <= 0) return '—'
+  return `${weight.toFixed(1)}%`
+}
+
 function titleCase(text: string): string {
   return text.toLowerCase().split(' ').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
 }
@@ -177,8 +185,6 @@ export default function ChangesClient() {
       ? titleCase(change.security_name).split(' ').slice(0, 3).join(' ')
       : change.ticker
     const convictionHref = getConvictionHref(change.investor_slug, change.ticker)
-    const previousWeight = change.pct_of_portfolio_before ?? 0
-    const currentWeight = change.pct_of_portfolio_after ?? 0
     const estimatedTradePrice = change.shares_change !== 0
       ? (Math.abs(change.value_change) * 1000) / Math.abs(change.shares_change)
       : null
@@ -243,8 +249,8 @@ export default function ChangesClient() {
 
         <div className="grid grid-cols-3 gap-3 text-xs">
           <Metric label="Value delta" value={`${change.value_change > 0 ? '+' : ''}${fmtValue(change.value_change)}`} valueClass={change.value_change > 0 ? 'text-green-600' : 'text-red-500'} />
-          <Metric label="Before" value={`${previousWeight.toFixed(1)}%`} />
-          <Metric label="After" value={`${currentWeight.toFixed(1)}%`} />
+          <Metric label="Before" value={fmtWeight(change.pct_of_portfolio_before)} />
+          <Metric label="After" value={fmtWeight(change.pct_of_portfolio_after)} />
         </div>
       </div>
     )

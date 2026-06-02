@@ -7,28 +7,51 @@
 
 // ─── Chat Configuration ─────────────────────────────────────────────────────
 
-const SYSTEM_PROMPT = `You are a helpful assistant for SuperInvestors (superinvestors-app.pages.dev), a website tracking ~150 legendary value investors' SEC 13F portfolio holdings, position changes, cross-investor overlap, and conviction bet analyses.
+const CHAT_MODEL = 'claude-haiku-4-5-20251001';
 
-You help users understand:
-- Investor portfolios and strategies
-- Position changes and what they might signal
-- Investment theses for conviction bets
-- Value investing concepts
+const SYSTEM_PROMPT = `You are the research assistant for SuperInvestors (superinvestors-app.pages.dev), a site tracking ~150 legendary value investors' SEC 13F portfolio holdings, position changes, cross-investor overlap, and conviction analyses. The data reflects the most recently loaded 13F quarter and carries the standard ~45-day filing delay.
+
+You have tools that query the LIVE SuperInvestors database. You MUST use them to answer any factual question about who owns a stock, an investor's holdings, recent position changes, or consensus ("best") ideas.
+
+Hard rules on grounding:
+- NEVER state a holder, holding, share count, weight, or number from your own memory. Only report what a tool actually returned.
+- If a tool returns no matching rows, say so plainly (e.g. "None of the tracked investors report holding X in the latest 13F data") and do NOT invent or guess holders.
+- Do not claim the database lacks data without first calling the relevant tool.
 
 Current page context: {context}
 
-Rules:
-- Be factual, cite data from the site where possible
-- Do not give investment advice or buy/sell recommendations
-- If the user is suggesting a site improvement, acknowledge it warmly and note it has been logged
-- Keep responses concise but helpful`;
+Other rules:
+- Cite the data when you use it ("According to the latest 13F data...").
+- Do not give investment advice or buy/sell recommendations.
+- Remember 13F data is long US-equity only, quarterly, and ~45 days delayed; note this limitation when relevant.
+- If the user suggests a site improvement, acknowledge it warmly and note it has been logged.
+- Be concise.`;
 
 const RATE_LIMIT_MAX = 10;
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
 const rateLimitMap = new Map();
 
-function isRateLimited(sessionId) {
+// KV-backed rate limit when env.CACHE is bound; falls back to per-isolate memory.
+async function isRateLimited(sessionId, env) {
   const now = Date.now();
+  if (env && env.CACHE) {
+    try {
+      const key = `rl:${sessionId}`;
+      const raw = await env.CACHE.get(key);
+      const entry = raw ? JSON.parse(raw) : null;
+      const ttl = Math.ceil(RATE_LIMIT_WINDOW_MS / 1000);
+      if (!entry || now - entry.windowStart > RATE_LIMIT_WINDOW_MS) {
+        await env.CACHE.put(key, JSON.stringify({ count: 1, windowStart: now }), { expirationTtl: ttl });
+        return false;
+      }
+      if (entry.count >= RATE_LIMIT_MAX) return true;
+      entry.count++;
+      await env.CACHE.put(key, JSON.stringify(entry), { expirationTtl: ttl });
+      return false;
+    } catch (err) {
+      console.error('KV rate-limit error, falling back to memory:', err);
+    }
+  }
   const entry = rateLimitMap.get(sessionId);
   if (!entry) {
     rateLimitMap.set(sessionId, { count: 1, windowStart: now });
@@ -41,6 +64,202 @@ function isRateLimited(sessionId) {
   if (entry.count >= RATE_LIMIT_MAX) return true;
   entry.count++;
   return false;
+}
+
+// ─── Chat Tools (D1-grounded) ─────────────────────────────────────────────────
+
+const CHAT_TOOLS = [
+  {
+    name: 'get_holders',
+    description: 'List the tracked superinvestors who currently report holding a given stock (by ticker), with each position\'s portfolio weight and value. Use for "who owns X" / "which investors hold X" questions.',
+    input_schema: {
+      type: 'object',
+      properties: { ticker: { type: 'string', description: 'US stock ticker symbol, e.g. AMZN, META, BRK-A' } },
+      required: ['ticker'],
+    },
+  },
+  {
+    name: 'get_investor',
+    description: 'Look up one investor by name or slug and return their profile (firm, verdict, composite score, latest filing date) plus their largest current holdings.',
+    input_schema: {
+      type: 'object',
+      properties: { query: { type: 'string', description: 'Investor name or slug, e.g. "warren buffett" or "warren-buffett"' } },
+      required: ['query'],
+    },
+  },
+  {
+    name: 'get_changes',
+    description: 'Return the most significant recent position changes (buys/sells/new/exit) across all tracked investors, most recent quarter first. Optionally filter to a single stock by ticker.',
+    input_schema: {
+      type: 'object',
+      properties: { ticker: { type: 'string', description: 'Optional ticker to filter changes to one stock' } },
+      required: [],
+    },
+  },
+  {
+    name: 'get_best_ideas',
+    description: 'Return the top consensus stock ideas held by multiple tracked superinvestors, ranked by number of holders and average portfolio weight.',
+    input_schema: {
+      type: 'object',
+      properties: { limit: { type: 'number', description: 'How many to return (default 15)' } },
+      required: [],
+    },
+  },
+];
+
+function slugifyQuery(q) {
+  return String(q || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .trim();
+}
+
+async function executeChatTool(name, input, env) {
+  try {
+    if (name === 'get_holders') {
+      const ticker = String(input?.ticker || '').trim().toUpperCase();
+      if (!ticker) return { error: 'ticker is required' };
+      const { results } = await env.DB.prepare(`
+        SELECT i.name AS investor, i.firm_name AS firm, i.slug,
+               h.pct_of_portfolio AS portfolio_pct, h.value AS value_thousands, h.report_date
+        FROM holdings h
+        JOIN securities sec ON h.security_id = sec.id
+        JOIN investors i ON h.investor_id = i.id
+        WHERE UPPER(sec.ticker) = ?
+        ORDER BY h.pct_of_portfolio DESC
+      `).bind(ticker).all();
+      return {
+        ticker,
+        holder_count: results.length,
+        holders: results,
+        note: results.length === 0
+          ? `No tracked investor reports holding ${ticker} in the latest 13F data.`
+          : undefined,
+      };
+    }
+
+    if (name === 'get_investor') {
+      const raw = String(input?.query || '').trim();
+      if (!raw) return { error: 'query is required' };
+      const slug = slugifyQuery(raw);
+      const like = `%${raw.toLowerCase()}%`;
+      const investor = await env.DB.prepare(`
+        SELECT i.id, i.name, i.slug, i.firm_name, i.verdict_follow, i.verdict_summary,
+               s.composite_score,
+               (SELECT MAX(report_date) FROM filings_13f f WHERE f.investor_id = i.id) AS latest_report_date,
+               (SELECT COUNT(*) FROM filings_13f f WHERE f.investor_id = i.id) AS filings_count
+        FROM investors i
+        LEFT JOIN investor_scores s ON i.id = s.investor_id
+        WHERE i.slug = ? OR LOWER(i.name) LIKE ?
+        ORDER BY (i.slug = ?) DESC
+        LIMIT 1
+      `).bind(slug, like, slug).first();
+      if (!investor) return { found: false, note: `No tracked investor matches "${raw}".` };
+      const { results: holdings } = await env.DB.prepare(`
+        SELECT sec.ticker, sec.name AS security, h.pct_of_portfolio AS portfolio_pct, h.value AS value_thousands
+        FROM holdings h
+        JOIN securities sec ON h.security_id = sec.id
+        WHERE h.investor_id = ?
+        ORDER BY h.pct_of_portfolio DESC
+        LIMIT 15
+      `).bind(investor.id).all();
+      return { found: true, investor, top_holdings: holdings };
+    }
+
+    if (name === 'get_changes') {
+      const ticker = String(input?.ticker || '').trim().toUpperCase();
+      const base = `
+        SELECT UPPER(pc.change_type) AS action, i.name AS investor, i.slug AS investor_slug,
+               sec.ticker, sec.name AS security,
+               pc.value_change AS value_change_thousands, pc.pct_of_portfolio_after AS portfolio_pct_after,
+               pc.year, pc.quarter, pc.report_date
+        FROM position_changes pc
+        JOIN investors i ON pc.investor_id = i.id
+        JOIN securities sec ON pc.security_id = sec.id
+      `;
+      const order = ` ORDER BY pc.year DESC, pc.quarter DESC, ABS(COALESCE(pc.value_change, 0)) DESC LIMIT 25`;
+      const stmt = ticker
+        ? env.DB.prepare(base + ` WHERE UPPER(sec.ticker) = ?` + order).bind(ticker)
+        : env.DB.prepare(base + order);
+      const { results } = await stmt.all();
+      return { ticker: ticker || null, count: results.length, changes: results };
+    }
+
+    if (name === 'get_best_ideas') {
+      const limit = Math.min(Math.max(parseInt(input?.limit, 10) || 15, 1), 50);
+      const { results } = await env.DB.prepare(`
+        SELECT sec.ticker, sec.name AS security,
+               COUNT(DISTINCT h.investor_id) AS holder_count,
+               AVG(h.pct_of_portfolio) AS avg_weight,
+               SUM(h.value) AS total_value_thousands
+        FROM holdings h
+        JOIN securities sec ON h.security_id = sec.id
+        JOIN investors i ON h.investor_id = i.id
+        WHERE sec.ticker IS NOT NULL
+        GROUP BY sec.id
+        HAVING holder_count >= 2
+        ORDER BY holder_count DESC, avg_weight DESC
+        LIMIT ?
+      `).bind(limit).all();
+      return { count: results.length, ideas: results };
+    }
+
+    return { error: `Unknown tool: ${name}` };
+  } catch (err) {
+    console.error(`Tool ${name} error:`, err);
+    return { error: `Tool ${name} failed: ${err.message}` };
+  }
+}
+
+// Runs the Claude tool-use loop and returns the final grounded answer text.
+async function runGroundedChat(messages, systemPrompt, env) {
+  for (let round = 0; round < 5; round++) {
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': env.ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01',
+      },
+      body: JSON.stringify({
+        model: CHAT_MODEL,
+        max_tokens: 1024,
+        system: systemPrompt,
+        tools: CHAT_TOOLS,
+        messages,
+      }),
+    });
+
+    if (!resp.ok) {
+      const text = await resp.text();
+      throw new Error(`Anthropic API ${resp.status}: ${text}`);
+    }
+
+    const data = await resp.json();
+    const blocks = Array.isArray(data.content) ? data.content : [];
+    const toolUses = blocks.filter((b) => b.type === 'tool_use');
+
+    if (data.stop_reason === 'tool_use' && toolUses.length > 0) {
+      messages.push({ role: 'assistant', content: blocks });
+      const toolResults = [];
+      for (const tu of toolUses) {
+        const result = await executeChatTool(tu.name, tu.input, env);
+        toolResults.push({
+          type: 'tool_result',
+          tool_use_id: tu.id,
+          content: JSON.stringify(result).slice(0, 8000),
+        });
+      }
+      messages.push({ role: 'user', content: toolResults });
+      continue;
+    }
+
+    const text = blocks.filter((b) => b.type === 'text').map((b) => b.text).join('');
+    return text || "I'm not sure how to answer that from the data.";
+  }
+  return "I looked but couldn't pull that together from the data right now. Try rephrasing?";
 }
 
 // ─── Finnhub Price Fetching ─────────────────────────────────────────────────
@@ -361,11 +580,14 @@ async function handleAPI(path, request, env) {
           i.firm_name AS investor_firm,
           s.composite_score AS investor_score,
           sec.ticker, sec.name AS security_name, sec.slug AS security_slug,
-          -- importance_score: position size + change magnitude + investor quality
+          -- importance_score: resulting position weight + dollar magnitude + investor quality.
+          -- Deliberately NOT driven by shares_change_pct, which explodes to +50000%
+          -- for tiny-base positions and used to dominate the feed with noise.
+          -- value is in thousands of USD, so /1e6 expresses the move in $B.
           (
             COALESCE(pc.pct_of_portfolio_after, 0) +
-            COALESCE(ABS(pc.shares_change_pct), 0) / 10.0 +
-            COALESCE(s.composite_score, 0)
+            COALESCE(ABS(pc.value_change), 0) / 1000000.0 +
+            COALESCE(s.composite_score, 0) * 2.0
           ) AS importance_score
         FROM position_changes pc
         JOIN investors i ON pc.investor_id = i.id
@@ -629,7 +851,7 @@ async function handleChat(request, env) {
   if (!sessionId) {
     return errorResponse('sessionId is required', 400);
   }
-  if (isRateLimited(sessionId)) {
+  if (await isRateLimited(sessionId, env)) {
     return errorResponse('Rate limit exceeded. Try again later.', 429);
   }
 
@@ -638,121 +860,105 @@ async function handleChat(request, env) {
   const messages = [];
   if (Array.isArray(history)) {
     for (const msg of history.slice(-10)) {
-      if (msg.role && msg.content) {
+      if (msg.role && typeof msg.content === 'string' && msg.content.trim()) {
         messages.push({ role: msg.role, content: msg.content });
       }
     }
   }
   messages.push({ role: 'user', content: message });
 
-  try {
-    const anthropicResponse = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': env.ANTHROPIC_API_KEY,
-        'anthropic-version': '2023-06-01',
-      },
-      body: JSON.stringify({
-        model: 'claude-haiku-4-5-20251001',
-        max_tokens: 1024,
-        system: systemPrompt,
-        messages,
-        stream: true,
-      }),
-    });
+  // The grounded tool-loop runs to completion first, then we stream the final
+  // answer back in chunks so the existing SSE frontend keeps working unchanged.
+  const { readable, writable } = new TransformStream();
+  const writer = writable.getWriter();
+  const encoder = new TextEncoder();
 
-    if (!anthropicResponse.ok) {
-      const errorText = await anthropicResponse.text();
-      console.error('Anthropic API error:', anthropicResponse.status, errorText);
-      return errorResponse('AI service error', 502);
-    }
-
-    const { readable, writable } = new TransformStream();
-    const writer = writable.getWriter();
-    const encoder = new TextEncoder();
+  (async () => {
     let fullResponse = '';
-
-    const streamPromise = (async () => {
-      const reader = anthropicResponse.body.getReader();
-      const decoder = new TextDecoder();
-      let buffer = '';
-
+    try {
+      fullResponse = await runGroundedChat(messages, systemPrompt, env);
+      const CHUNK = 60;
+      for (let i = 0; i < fullResponse.length; i += CHUNK) {
+        await writer.write(
+          encoder.encode(`data: ${JSON.stringify({ text: fullResponse.slice(i, i + CHUNK) })}\n\n`)
+        );
+      }
+      await writer.write(encoder.encode('data: [DONE]\n\n'));
+      await writer.close();
+    } catch (err) {
+      console.error('Chat handler error:', err);
       try {
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-
-          buffer += decoder.decode(value, { stream: true });
-          const lines = buffer.split('\n');
-          buffer = lines.pop() || '';
-
-          for (const line of lines) {
-            if (line.startsWith('data: ')) {
-              const data = line.slice(6);
-              if (data === '[DONE]') continue;
-              try {
-                const parsed = JSON.parse(data);
-                if (parsed.type === 'content_block_delta' && parsed.delta?.text) {
-                  fullResponse += parsed.delta.text;
-                  await writer.write(
-                    encoder.encode(`data: ${JSON.stringify({ text: parsed.delta.text })}\n\n`)
-                  );
-                }
-              } catch {
-                // Skip unparseable chunks
-              }
-            }
-          }
-        }
-
+        await writer.write(
+          encoder.encode(`data: ${JSON.stringify({ text: 'Sorry — I hit an error pulling that from the data. Please try again.' })}\n\n`)
+        );
         await writer.write(encoder.encode('data: [DONE]\n\n'));
         await writer.close();
-      } catch (err) {
-        console.error('Stream processing error:', err);
-        await writer.abort(err);
+      } catch {
+        // stream already torn down
       }
+    }
 
-      // Log to D1
-      try {
-        const isSuggestion = /suggest|improve|feature|add|change.*site/i.test(message) ? 1 : 0;
-        await env.DB.prepare(
-          'INSERT INTO chat_logs (session_id, page_context, question, response, is_suggestion) VALUES (?, ?, ?, ?, ?)'
-        ).bind(sessionId, context || null, message, fullResponse, isSuggestion).run();
-      } catch (err) {
-        console.error('D1 logging error:', err);
-      }
-    })();
+    // Log to D1 (best-effort)
+    try {
+      const isSuggestion = /suggest|improve|feature|add|change.*site/i.test(message) ? 1 : 0;
+      await env.DB.prepare(
+        'INSERT INTO chat_logs (session_id, page_context, question, response, is_suggestion) VALUES (?, ?, ?, ?, ?)'
+      ).bind(sessionId, context || null, message, fullResponse, isSuggestion).run();
+    } catch (err) {
+      console.error('D1 logging error:', err);
+    }
+  })();
 
-    // Return the streaming response — CORS headers will be added by the main handler
-    return new Response(readable, {
-      headers: {
-        'Content-Type': 'text/event-stream',
-        'Cache-Control': 'no-cache',
-        'Connection': 'keep-alive',
-      },
-    });
-  } catch (err) {
-    console.error('Chat handler error:', err);
-    return errorResponse('Internal server error');
-  }
+  return new Response(readable, {
+    headers: {
+      'Content-Type': 'text/event-stream',
+      'Cache-Control': 'no-cache',
+      'Connection': 'keep-alive',
+    },
+  });
 }
 
 // =============================================================================
 // Entry Point
 // =============================================================================
 
+const CANONICAL_ORIGIN = 'https://superinvestors-app.pages.dev';
+
+function isAllowedOrigin(origin) {
+  if (!origin) return false;
+  try {
+    const host = new URL(origin).hostname;
+    return (
+      host === 'superinvestors-app.pages.dev' ||
+      host.endsWith('.superinvestors-app.pages.dev') || // Pages preview deploys
+      host === 'superinvestors.ravikant0909.workers.dev' ||
+      host === 'ravikant.dev' ||
+      host.endsWith('.ravikant.dev') ||
+      host === 'localhost' ||
+      host === '127.0.0.1'
+    );
+  } catch {
+    return false;
+  }
+}
+
+function buildCorsHeaders(request) {
+  const origin = request.headers.get('Origin') || '';
+  return {
+    'Access-Control-Allow-Origin': isAllowedOrigin(origin) ? origin : CANONICAL_ORIGIN,
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Vary': 'Origin',
+  };
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const path = url.pathname;
 
-    // CORS headers
-    const corsHeaders = {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
-    };
+    // CORS headers — restricted to the SuperInvestors origins (was wildcard).
+    const corsHeaders = buildCorsHeaders(request);
 
     // Handle preflight requests
     if (request.method === 'OPTIONS') {
