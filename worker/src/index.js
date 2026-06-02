@@ -731,6 +731,157 @@ async function handleAPI(path, request, env) {
     }
   }
 
+  // ── Stocks ────────────────────────────────────────────────────────────────
+
+  // GET /api/stocks — every stock held by tracked investors, aggregated
+  if (path === '/api/stocks' && method === 'GET') {
+    try {
+      const { results } = await env.DB.prepare(`
+        SELECT
+          sec.id AS security_id, sec.ticker, sec.name, sec.slug AS security_slug,
+          sec.sector, sec.cusip,
+          COUNT(DISTINCT h.investor_id) AS holder_count,
+          SUM(h.value) AS total_value,
+          AVG(h.pct_of_portfolio) AS avg_weight,
+          MAX(h.pct_of_portfolio) AS max_weight,
+          MAX(h.report_date) AS latest_report_date
+        FROM holdings h
+        JOIN securities sec ON h.security_id = sec.id
+        JOIN investors i ON h.investor_id = i.id
+        GROUP BY sec.id
+        ORDER BY holder_count DESC, total_value DESC
+      `).all();
+      return jsonResponse(results);
+    } catch (err) {
+      console.error('Error fetching stocks:', err);
+      return errorResponse('Failed to fetch stocks');
+    }
+  }
+
+  // GET /api/stocks/:ticker — one stock: who owns it + consensus + recent changes
+  const stockMatch = path.match(/^\/api\/stocks\/([^/]+)$/);
+  if (stockMatch && method === 'GET') {
+    const ticker = decodeURIComponent(stockMatch[1]).toUpperCase();
+    try {
+      const security = await env.DB.prepare(`
+        SELECT id, ticker, name, slug, sector, industry, cusip, security_type, country
+        FROM securities
+        WHERE UPPER(ticker) = ?
+        LIMIT 1
+      `).bind(ticker).first();
+      if (!security) return errorResponse('Stock not found', 404);
+
+      const { results: holders } = await env.DB.prepare(`
+        SELECT
+          i.name AS investor_name, i.slug AS investor_slug, i.firm_name AS investor_firm,
+          i.verdict_follow, s.composite_score AS investor_score,
+          h.shares, h.value, h.pct_of_portfolio, h.position_rank, h.report_date
+        FROM holdings h
+        JOIN investors i ON h.investor_id = i.id
+        LEFT JOIN investor_scores s ON i.id = s.investor_id
+        WHERE h.security_id = ?
+        ORDER BY h.pct_of_portfolio DESC
+      `).bind(security.id).all();
+
+      const { results: recentChanges } = await env.DB.prepare(`
+        SELECT
+          UPPER(pc.change_type) AS change_type,
+          pc.shares_change, pc.value_change, pc.shares_change_pct,
+          pc.pct_of_portfolio_before, pc.pct_of_portfolio_after,
+          pc.year, pc.quarter, pc.report_date,
+          i.name AS investor_name, i.slug AS investor_slug
+        FROM position_changes pc
+        JOIN investors i ON pc.investor_id = i.id
+        WHERE pc.security_id = ?
+        ORDER BY pc.year DESC, pc.quarter DESC, ABS(COALESCE(pc.value_change, 0)) DESC
+        LIMIT 40
+      `).bind(security.id).all();
+
+      const holderCount = holders.length;
+      const totalValue = holders.reduce((sum, h) => sum + (h.value || 0), 0);
+      const avgWeight = holderCount
+        ? holders.reduce((sum, h) => sum + (h.pct_of_portfolio || 0), 0) / holderCount
+        : 0;
+
+      return jsonResponse({
+        ...security,
+        holder_count: holderCount,
+        total_value: totalValue,
+        avg_weight: avgWeight,
+        holders,
+        recent_changes: recentChanges,
+      });
+    } catch (err) {
+      console.error('Error fetching stock:', err);
+      return errorResponse('Failed to fetch stock');
+    }
+  }
+
+  // ── Overlap (cross-investor matrix) ─────────────────────────────────────────
+
+  // GET /api/overlap?limit=40 — most-held stocks + investor×stock weight cells
+  if (path === '/api/overlap' && method === 'GET') {
+    const limit = Math.min(Math.max(parseInt(url.searchParams.get('limit') || '40', 10), 5), 80);
+    try {
+      const { results: topStocks } = await env.DB.prepare(`
+        SELECT sec.id AS security_id, sec.ticker, sec.name, sec.slug AS security_slug, sec.sector,
+               COUNT(DISTINCT h.investor_id) AS holder_count,
+               SUM(h.value) AS total_value
+        FROM holdings h
+        JOIN securities sec ON h.security_id = sec.id
+        WHERE sec.ticker IS NOT NULL
+        GROUP BY sec.id
+        HAVING holder_count >= 2
+        ORDER BY holder_count DESC, total_value DESC
+        LIMIT ?
+      `).bind(limit).all();
+
+      if (!topStocks.length) {
+        return jsonResponse({ stocks: [], investors: [], cells: [] });
+      }
+
+      const ids = topStocks.map((s) => s.security_id);
+      const placeholders = ids.map(() => '?').join(', ');
+      const { results: cellRows } = await env.DB.prepare(`
+        SELECT h.security_id, i.slug AS investor_slug, i.name AS investor_name,
+               s.composite_score AS investor_score, h.pct_of_portfolio
+        FROM holdings h
+        JOIN investors i ON h.investor_id = i.id
+        LEFT JOIN investor_scores s ON i.id = s.investor_id
+        WHERE h.security_id IN (${placeholders})
+      `).bind(...ids).all();
+
+      const invMap = new Map();
+      for (const c of cellRows) {
+        if (!invMap.has(c.investor_slug)) {
+          invMap.set(c.investor_slug, {
+            slug: c.investor_slug,
+            name: c.investor_name,
+            score: c.investor_score,
+            holdings: 0,
+          });
+        }
+        invMap.get(c.investor_slug).holdings += 1;
+      }
+      const investors = Array.from(invMap.values()).sort(
+        (a, b) => (b.score || 0) - (a.score || 0),
+      );
+
+      return jsonResponse({
+        stocks: topStocks,
+        investors,
+        cells: cellRows.map((c) => ({
+          security_id: c.security_id,
+          investor_slug: c.investor_slug,
+          weight: c.pct_of_portfolio,
+        })),
+      });
+    } catch (err) {
+      console.error('Error fetching overlap:', err);
+      return errorResponse('Failed to fetch overlap');
+    }
+  }
+
   // ── Prices (Finnhub proxy with cache) ───────────────────────────────────
 
   // GET /api/prices?symbols=AAPL,GOOGL

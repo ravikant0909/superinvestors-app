@@ -11,8 +11,10 @@ export const metadata: Metadata = {
 
 const NAV_ITEMS = [
   { href: '/investors', label: 'Investors' },
+  { href: '/stocks', label: 'Stocks' },
   { href: '/changes', label: 'Changes' },
   { href: '/best-ideas', label: 'Best Ideas' },
+  { href: '/overlap', label: 'Overlap' },
   { href: '/convictions', label: 'Convictions' },
   { href: '/about', label: 'About' },
 ]
