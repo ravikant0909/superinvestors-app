@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { fetchApiJson, fetchPriceMap } from '@/lib/api'
 import { getConvictionHref } from '@/lib/conviction-index'
+import { getStockReport, type StockReport } from '@/lib/static-reports'
 
 interface Holder {
   investor_name: string
@@ -110,6 +111,8 @@ export default function StockDetailClient({ ticker }: { ticker: string }) {
     return () => { cancelled = true }
   }, [ticker])
 
+  const report = getStockReport(ticker)
+
   if (!loaded) {
     return <div className="bg-white rounded-xl border border-gray-200 px-5 py-8 text-center text-sm text-gray-400">Loading {ticker}…</div>
   }
@@ -121,8 +124,17 @@ export default function StockDetailClient({ ticker }: { ticker: string }) {
           <span className="mx-2">/</span>
           <span className="text-gray-900 font-medium">{ticker}</span>
         </nav>
+        {report && (
+          <div>
+            <h1 className="text-3xl font-extrabold text-gray-900 font-mono mb-1">{ticker}</h1>
+            <p className="text-gray-600 mb-4">{report.name}</p>
+            <DeepDiveCard report={report} />
+          </div>
+        )}
         <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 text-sm text-amber-800">
-          No tracked investor reports holding <span className="font-mono font-semibold">{ticker}</span> in the latest 13F data.
+          {report
+            ? <>Not currently held by any tracked investor — but we have the deep-dive research report above.</>
+            : <>No tracked investor reports holding <span className="font-mono font-semibold">{ticker}</span> in the latest 13F data.</>}
         </div>
       </div>
     )
@@ -158,6 +170,8 @@ export default function StockDetailClient({ ticker }: { ticker: string }) {
           <Stat label="Avg weight" value={`${stock.avg_weight.toFixed(1)}%`} sub="of portfolio" />
         </div>
       </div>
+
+      {report && <DeepDiveCard report={report} />}
 
       {/* Who owns it */}
       <section>
@@ -244,6 +258,29 @@ export default function StockDetailClient({ ticker }: { ticker: string }) {
         Based on the latest loaded SEC 13F filings (long US equity only, ~45-day delay). Not investment advice.
       </p>
     </div>
+  )
+}
+
+function DeepDiveCard({ report }: { report: StockReport }) {
+  return (
+    <a
+      href={report.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block bg-indigo-50 border border-indigo-200 rounded-xl p-4 hover:bg-indigo-100 transition"
+    >
+      <div className="flex items-center gap-3">
+        <span className="text-2xl" aria-hidden>📄</span>
+        <div className="min-w-0 flex-1">
+          <div className="font-semibold text-indigo-900">
+            Deep-dive research report{report.version === 'V2' ? ' · facts-only (V2)' : ''} &rarr;
+          </div>
+          <div className="text-sm text-indigo-700">
+            Future demand vs supply, and the price you pay now — plain-English, money-in/money-out. Opens in a new tab.
+          </div>
+        </div>
+      </div>
+    </a>
   )
 }
 

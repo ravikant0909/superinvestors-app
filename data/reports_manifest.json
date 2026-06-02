@@ -1,0 +1,1542 @@
+[
+{
+"ticker": "ABSI",
+"name": "Absci Corporation",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ABSI"
+},
+{
+"ticker": "ACCO",
+"name": "ACCO Brands Corporation",
+"sector": "Industrials / Consumer Cyclical",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ACCO"
+},
+{
+"ticker": "ACTG",
+"name": "Acacia Research Corp",
+"sector": "Financial Services / Holding Company",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ACTG"
+},
+{
+"ticker": "ADV",
+"name": "Advantage Solutions Inc.",
+"sector": "Communication Services / Business Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ADV"
+},
+{
+"ticker": "AEC",
+"name": "Anfield Energy Inc.",
+"sector": "Energy",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/AEC"
+},
+{
+"ticker": "AEO",
+"name": "American Eagle Outfitters, Inc.",
+"sector": "Consumer Cyclical",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/AEO"
+},
+{
+"ticker": "AGCC",
+"name": "Agencia Comercial Spirits Ltd.",
+"sector": "Consumer Defensive",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/AGCC"
+},
+{
+"ticker": "AGCO",
+"name": "AGCO Corporation",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/AGCO"
+},
+{
+"ticker": "AGL",
+"name": "agilon health, inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/AGL"
+},
+{
+"ticker": "AII",
+"name": "American Integrity Insurance Group, Inc.",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/AII"
+},
+{
+"ticker": "ALAB",
+"name": "Astera Labs, Inc.",
+"sector": "Information Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ALAB"
+},
+{
+"ticker": "ALCO",
+"name": "Alico, Inc.",
+"sector": "Consumer Defensive",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ALCO"
+},
+{
+"ticker": "ALGT",
+"name": "Allegiant Travel Company",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ALGT"
+},
+{
+"ticker": "ALIT",
+"name": "Alight, Inc.",
+"sector": "Technology / Business Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ALIT"
+},
+{
+"ticker": "AMCX",
+"name": "AMC Networks Inc.",
+"sector": "Communication Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/AMCX"
+},
+{
+"ticker": "AMKR",
+"name": "Amkor Technology, Inc.",
+"sector": "Information Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/AMKR"
+},
+{
+"ticker": "AMPY",
+"name": "Amplify Energy Corp.",
+"sector": "Energy",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/AMPY"
+},
+{
+"ticker": "AMRN",
+"name": "Amarin Corporation plc",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/AMRN"
+},
+{
+"ticker": "AMWL",
+"name": "American Well Corporation",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/AMWL"
+},
+{
+"ticker": "ANGI",
+"name": "Angi Inc.",
+"sector": "Communication Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ANGI"
+},
+{
+"ticker": "ANGX",
+"name": "Angel Studios, Inc.",
+"sector": "Communication Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ANGX"
+},
+{
+"ticker": "ANL",
+"name": "Adlai Nortye Ltd.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ANL"
+},
+{
+"ticker": "APLD",
+"name": "Applied Digital Corporation",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/APLD"
+},
+{
+"ticker": "APOG",
+"name": "Apogee Enterprises, Inc.",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/APOG"
+},
+{
+"ticker": "APPS",
+"name": "Digital Turbine, Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/APPS"
+},
+{
+"ticker": "APWC",
+"name": "Asia Pacific Wire & Cable Corp Ltd",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/APWC"
+},
+{
+"ticker": "ARKO",
+"name": "ARKO Corp.",
+"sector": "Consumer Cyclical",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ARKO"
+},
+{
+"ticker": "ASAN",
+"name": "Asana, Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ASAN"
+},
+{
+"ticker": "ASGN",
+"name": "ASGN Incorporated (rebranding to Everforth)",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ASGN"
+},
+{
+"ticker": "ASO",
+"name": "Academy Sports & Outdoors, Inc.",
+"sector": "Consumer Cyclical",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ASO"
+},
+{
+"ticker": "ASX",
+"name": "ASE Technology Holding Co., Ltd.",
+"sector": "Information Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ASX"
+},
+{
+"ticker": "ASYS",
+"name": "Amtech Systems, Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ASYS"
+},
+{
+"ticker": "ATEN",
+"name": "A10 Networks, Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ATEN"
+},
+{
+"ticker": "AUBN",
+"name": "Auburn National Bancorporation, Inc.",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/AUBN"
+},
+{
+"ticker": "AURE",
+"name": "Aurelion Inc.",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/AURE"
+},
+{
+"ticker": "AZZ",
+"name": "AZZ Inc",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/AZZ"
+},
+{
+"ticker": "BALY",
+"name": "Bally's Corporation",
+"sector": "Consumer Cyclical",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/BALY"
+},
+{
+"ticker": "BCML",
+"name": "BayCom Corp",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/BCML"
+},
+{
+"ticker": "BCYC",
+"name": "Bicycle Therapeutics PLC",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/BCYC"
+},
+{
+"ticker": "BDC",
+"name": "Belden Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/BDC"
+},
+{
+"ticker": "BE",
+"name": "Bloom Energy Corporation",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/BE"
+},
+{
+"ticker": "BH",
+"name": "Biglari Holdings Inc.",
+"sector": "Consumer Cyclical",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/BH"
+},
+{
+"ticker": "BILL",
+"name": "BILL Holdings, Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/BILL"
+},
+{
+"ticker": "BKD",
+"name": "Brookdale Senior Living Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/BKD"
+},
+{
+"ticker": "BKE",
+"name": "The Buckle, Inc.",
+"sector": "Consumer Discretionary",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/BKE"
+},
+{
+"ticker": "BLBD",
+"name": "Blue Bird Corporation",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/BLBD"
+},
+{
+"ticker": "BLMN",
+"name": "Bloomin' Brands, Inc.",
+"sector": "Consumer Cyclical",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/BLMN"
+},
+{
+"ticker": "BMBL",
+"name": "Bumble Inc.",
+"sector": "Communication Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/BMBL"
+},
+{
+"ticker": "BOOM",
+"name": "DMC Global Inc.",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/BOOM"
+},
+{
+"ticker": "BTBT",
+"name": "Bit Digital, Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/BTBT"
+},
+{
+"ticker": "BTDR",
+"name": "Bitdeer Technologies Group",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/BTDR"
+},
+{
+"ticker": "BUI",
+"name": "BlackRock Utilities, Infrastructure & Power Opportunities Trust",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/BUI"
+},
+{
+"ticker": "BW",
+"name": "Babcock & Wilcox Enterprises, Inc.",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/BW"
+},
+{
+"ticker": "BXC",
+"name": "BlueLinx Holdings Inc.",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/BXC"
+},
+{
+"ticker": "BXMT",
+"name": "Blackstone Mortgage Trust Inc",
+"sector": "Real Estate",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/BXMT"
+},
+{
+"ticker": "CABO",
+"name": "Cable One, Inc.",
+"sector": "Communication Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CABO"
+},
+{
+"ticker": "CAPL",
+"name": "CrossAmerica Partners LP",
+"sector": "Energy",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CAPL"
+},
+{
+"ticker": "CATO",
+"name": "The Cato Corporation",
+"sector": "Consumer Discretionary",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CATO"
+},
+{
+"ticker": "CATY",
+"name": "Cathay General Bancorp",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CATY"
+},
+{
+"ticker": "CBAT",
+"name": "CBAK Energy Technology, Inc.",
+"sector": "Industrials / Cleantech",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CBAT"
+},
+{
+"ticker": "CBLL",
+"name": "Ceribell, Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CBLL"
+},
+{
+"ticker": "CBT",
+"name": "Cabot Corporation",
+"sector": "Basic Materials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CBT"
+},
+{
+"ticker": "CCBG",
+"name": "Capital City Bank Group Inc",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CCBG"
+},
+{
+"ticker": "CCRN",
+"name": "Cross Country Healthcare, Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CCRN"
+},
+{
+"ticker": "CCU",
+"name": "Compa\u00f1\u00eda Cervecer\u00edas Unidas S.A.",
+"sector": "Consumer Defensive",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CCU"
+},
+{
+"ticker": "CEG",
+"name": "Constellation Energy Corporation",
+"sector": "Utilities",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CEG"
+},
+{
+"ticker": "CEPT",
+"name": "Cantor Equity Partners II, Inc.",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CEPT"
+},
+{
+"ticker": "CGC",
+"name": "Canopy Growth Corp",
+"sector": "Consumer Defensive",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CGC"
+},
+{
+"ticker": "CHPT",
+"name": "ChargePoint Holdings, Inc.",
+"sector": "Consumer Cyclical",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CHPT"
+},
+{
+"ticker": "CIFR",
+"name": "Cipher Mining Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CIFR"
+},
+{
+"ticker": "CLAR",
+"name": "Clarus Corporation",
+"sector": "Consumer Cyclical",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CLAR"
+},
+{
+"ticker": "CLSK",
+"name": "CleanSpark, Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CLSK"
+},
+{
+"ticker": "CMCO",
+"name": "Columbus McKinnon Corporation",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CMCO"
+},
+{
+"ticker": "CNDT",
+"name": "Conduent Inc.",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CNDT"
+},
+{
+"ticker": "CNL",
+"name": "Collective Mining Ltd.",
+"sector": "Basic Materials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CNL"
+},
+{
+"ticker": "CNVS",
+"name": "Cineverse Corp.",
+"sector": "Communication Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CNVS"
+},
+{
+"ticker": "COHN",
+"name": "Cohen & Company Inc.",
+"sector": "Financials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/COHN"
+},
+{
+"ticker": "CORZ",
+"name": "Core Scientific, Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CORZ"
+},
+{
+"ticker": "COUR",
+"name": "Coursera, Inc.",
+"sector": "Consumer Defensive",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/COUR"
+},
+{
+"ticker": "CPBI",
+"name": "Central Plains Bancshares, Inc.",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CPBI"
+},
+{
+"ticker": "CPS",
+"name": "Cooper-Standard Holdings Inc.",
+"sector": "Consumer Cyclical",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CPS"
+},
+{
+"ticker": "CRMT",
+"name": "America's Car-Mart, Inc.",
+"sector": "Consumer Cyclical / Auto Retail",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CRMT"
+},
+{
+"ticker": "CRON",
+"name": "Cronos Group Inc.",
+"sector": "Consumer Defensive",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CRON"
+},
+{
+"ticker": "CRVL",
+"name": "CorVel Corporation",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CRVL"
+},
+{
+"ticker": "CRWV",
+"name": "CoreWeave, Inc.",
+"sector": "Information Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CRWV"
+},
+{
+"ticker": "CSTL",
+"name": "Castle Biosciences, Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CSTL"
+},
+{
+"ticker": "CYRX",
+"name": "Cryoport, Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/CYRX"
+},
+{
+"ticker": "DCGO",
+"name": "DocGo Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/DCGO"
+},
+{
+"ticker": "DH",
+"name": "Definitive Healthcare Corp.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/DH"
+},
+{
+"ticker": "DIN",
+"name": "Dine Brands Global, Inc.",
+"sector": "Consumer Discretionary",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/DIN"
+},
+{
+"ticker": "DK",
+"name": "Delek US Holdings, Inc.",
+"sector": "Energy",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/DK"
+},
+{
+"ticker": "DMLP",
+"name": "Dorchester Minerals, L.P.",
+"sector": "Energy",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/DMLP"
+},
+{
+"ticker": "DOLE",
+"name": "Dole plc",
+"sector": "Consumer Defensive",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/DOLE"
+},
+{
+"ticker": "DV",
+"name": "DoubleVerify Holdings, Inc.",
+"sector": "Communication Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/DV"
+},
+{
+"ticker": "DYN",
+"name": "Dyne Therapeutics, Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/DYN"
+},
+{
+"ticker": "EBF",
+"name": "Ennis, Inc.",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/EBF"
+},
+{
+"ticker": "ECPG",
+"name": "Encore Capital Group Inc",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ECPG"
+},
+{
+"ticker": "EFSI",
+"name": "Eagle Financial Services, Inc.",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/EFSI"
+},
+{
+"ticker": "EFXT",
+"name": "Enerflex Ltd.",
+"sector": "Energy",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/EFXT"
+},
+{
+"ticker": "EGBN",
+"name": "Eagle Bancorp Inc",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/EGBN"
+},
+{
+"ticker": "EHTH",
+"name": "eHealth, Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/EHTH"
+},
+{
+"ticker": "ELTK",
+"name": "Eltek Ltd",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ELTK"
+},
+{
+"ticker": "ELVN",
+"name": "Enliven Therapeutics, Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ELVN"
+},
+{
+"ticker": "EXFY",
+"name": "Expensify, Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/EXFY"
+},
+{
+"ticker": "FF",
+"name": "FutureFuel Corp.",
+"sector": "Basic Materials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/FF"
+},
+{
+"ticker": "FHB",
+"name": "First Hawaiian, Inc.",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/FHB"
+},
+{
+"ticker": "FHI",
+"name": "Federated Hermes, Inc.",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/FHI"
+},
+{
+"ticker": "FLGT",
+"name": "Fulgent Genetics, Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/FLGT"
+},
+{
+"ticker": "FONR",
+"name": "FONAR Corporation",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/FONR"
+},
+{
+"ticker": "FORR",
+"name": "Forrester Research, Inc.",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/FORR"
+},
+{
+"ticker": "FPH",
+"name": "Five Point Holdings, LLC",
+"sector": "Real Estate",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/FPH"
+},
+{
+"ticker": "FSK",
+"name": "FS KKR Capital Corp",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/FSK"
+},
+{
+"ticker": "FTLF",
+"name": "FitLife Brands, Inc.",
+"sector": "Consumer Defensive",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/FTLF"
+},
+{
+"ticker": "GAMB",
+"name": "Gambling.com Group Ltd",
+"sector": "Consumer Cyclical",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/GAMB"
+},
+{
+"ticker": "GASS",
+"name": "StealthGas Inc.",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/GASS"
+},
+{
+"ticker": "GDOT",
+"name": "Green Dot Corp",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/GDOT"
+},
+{
+"ticker": "GFS",
+"name": "GlobalFoundries Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/GFS"
+},
+{
+"ticker": "GRWG",
+"name": "GrowGeneration Corp.",
+"sector": "Consumer Discretionary",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/GRWG"
+},
+{
+"ticker": "HBI",
+"name": "Hanesbrands Inc (DELISTED)",
+"sector": "Consumer Defensive",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/HBI"
+},
+{
+"ticker": "HCAT",
+"name": "Health Catalyst, Inc.",
+"sector": "Healthcare / Health Information Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/HCAT"
+},
+{
+"ticker": "HIVE",
+"name": "HIVE Digital Technologies",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/HIVE"
+},
+{
+"ticker": "HMY",
+"name": "Harmony Gold Mining Company Limited (ADR)",
+"sector": "Materials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/HMY"
+},
+{
+"ticker": "HNVR",
+"name": "Hanover Bancorp, Inc. /MD",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/HNVR"
+},
+{
+"ticker": "HTCO",
+"name": "High-Trend International Group",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/HTCO"
+},
+{
+"ticker": "HURC",
+"name": "Hurco Companies, Inc.",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/HURC"
+},
+{
+"ticker": "HUT",
+"name": "Hut 8 Corp",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/HUT"
+},
+{
+"ticker": "INVE",
+"name": "Identiv Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/INVE"
+},
+{
+"ticker": "IREN",
+"name": "IREN Limited",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/IREN"
+},
+{
+"ticker": "JBGS",
+"name": "JBG SMITH Properties",
+"sector": "Real Estate",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/JBGS"
+},
+{
+"ticker": "JBLU",
+"name": "JetBlue Airways",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/JBLU"
+},
+{
+"ticker": "JRVR",
+"name": "James River Group Holdings",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/JRVR"
+},
+{
+"ticker": "KEEL",
+"name": "Keel Infrastructure Corp",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/KEEL"
+},
+{
+"ticker": "KELYB",
+"name": "Kelly Services Inc (Class B)",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/KELYB"
+},
+{
+"ticker": "KMX",
+"name": "CarMax Inc",
+"sector": "Consumer Cyclical",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/KMX"
+},
+{
+"ticker": "KOPN",
+"name": "Kopin Corporation",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/KOPN"
+},
+{
+"ticker": "KROS",
+"name": "Keros Therapeutics, Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/KROS"
+},
+{
+"ticker": "KZR",
+"name": "Kezar Life Sciences, Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/KZR"
+},
+{
+"ticker": "LSE",
+"name": "Leishen Energy Holding Co., Ltd.",
+"sector": "Energy",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/LSE"
+},
+{
+"ticker": "MB",
+"name": "MasterBeef Group",
+"sector": "Consumer Cyclical",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/MB"
+},
+{
+"ticker": "MBLY",
+"name": "Mobileye Global Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/MBLY"
+},
+{
+"ticker": "MBWM",
+"name": "Mercantile Bank Corp",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/MBWM"
+},
+{
+"ticker": "MED",
+"name": "Medifast Inc.",
+"sector": "Consumer Defensive",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/MED"
+},
+{
+"ticker": "MGRT",
+"name": "Mega Fortune Company Limited",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/MGRT"
+},
+{
+"ticker": "MGX",
+"name": "Metagenomi, Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/MGX"
+},
+{
+"ticker": "MLAB",
+"name": "Mesa Laboratories Inc",
+"sector": "Healthcare / Life Sciences",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/MLAB"
+},
+{
+"ticker": "MNRO",
+"name": "Monro, Inc.",
+"sector": "Consumer Discretionary",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/MNRO"
+},
+{
+"ticker": "MNTN",
+"name": "MNTN, Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/MNTN"
+},
+{
+"ticker": "MU",
+"name": "Micron Technology, Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/MU"
+},
+{
+"ticker": "MVBF",
+"name": "MVB Financial Corp",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/MVBF"
+},
+{
+"ticker": "MVIS",
+"name": "MicroVision, Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/MVIS"
+},
+{
+"ticker": "MYFW",
+"name": "First Western Financial Inc",
+"sector": "Financials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/MYFW"
+},
+{
+"ticker": "NBIS",
+"name": "Nebius Group N.V.",
+"sector": null,
+"version": "V2",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/NBIS"
+},
+{
+"ticker": "NEN",
+"name": "New England Realty Associates Limited Partnership",
+"sector": "Real Estate",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/NEN"
+},
+{
+"ticker": "NLOP",
+"name": "Net Lease Office Properties",
+"sector": "Real Estate / REIT",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/NLOP"
+},
+{
+"ticker": "NMRA",
+"name": "Neumora Therapeutics, Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/NMRA"
+},
+{
+"ticker": "NPB",
+"name": "Northpointe Bancshares, Inc.",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/NPB"
+},
+{
+"ticker": "NVDA",
+"name": "NVIDIA Corp.",
+"sector": "Information Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/NVDA"
+},
+{
+"ticker": "NVST",
+"name": "Envista Holdings Corporation",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/NVST"
+},
+{
+"ticker": "NX",
+"name": "Quanex Building Products Corporation",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/NX"
+},
+{
+"ticker": "OCC",
+"name": "Owner's Dossier",
+"sector": null,
+"version": "V2",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/OCC"
+},
+{
+"ticker": "OM",
+"name": "Outset Medical, Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/OM"
+},
+{
+"ticker": "ONIT",
+"name": "Onity Group Inc.",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ONIT"
+},
+{
+"ticker": "OPBK",
+"name": "OP Bancorp",
+"sector": "Financials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/OPBK"
+},
+{
+"ticker": "OPHC",
+"name": "OptimumBank Holdings, Inc.",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/OPHC"
+},
+{
+"ticker": "OPY",
+"name": "Oppenheimer Holdings Inc.",
+"sector": "Financials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/OPY"
+},
+{
+"ticker": "ORMP",
+"name": "Oramed Pharmaceuticals Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ORMP"
+},
+{
+"ticker": "OSG",
+"name": "Octave Specialty Group, Inc. (formerly Ambac Financial Group)",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/OSG"
+},
+{
+"ticker": "OSUR",
+"name": "OraSure Technologies, Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/OSUR"
+},
+{
+"ticker": "OVLY",
+"name": "Oak Valley Bancorp",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/OVLY"
+},
+{
+"ticker": "PARA",
+"name": "Paramount Global (now Paramount Skydance Corporation)",
+"sector": "Communication Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/PARA"
+},
+{
+"ticker": "PCB",
+"name": "PCB Bancorp",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/PCB"
+},
+{
+"ticker": "PLAY",
+"name": "Dave & Buster's Entertainment, Inc.",
+"sector": "Consumer Discretionary",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/PLAY"
+},
+{
+"ticker": "PLSE",
+"name": "Pulse Biosciences, Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/PLSE"
+},
+{
+"ticker": "PODC",
+"name": "PodcastOne, Inc.",
+"sector": "Communication Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/PODC"
+},
+{
+"ticker": "POET",
+"name": "POET Technologies, Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/POET"
+},
+{
+"ticker": "PRCH",
+"name": "Porch Group, Inc.",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/PRCH"
+},
+{
+"ticker": "PSIX",
+"name": "Power Solutions International, Inc.",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/PSIX"
+},
+{
+"ticker": "PZZA",
+"name": "Papa John's International, Inc.",
+"sector": "Consumer Cyclical",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/PZZA"
+},
+{
+"ticker": "QTRX",
+"name": "Quanterix Corporation",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/QTRX"
+},
+{
+"ticker": "RBB",
+"name": "RBB Bancorp",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/RBB"
+},
+{
+"ticker": "REPL",
+"name": "Replimune Group, Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/REPL"
+},
+{
+"ticker": "RGP",
+"name": "Resources Connection, Inc.",
+"sector": "Industrials / Business Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/RGP"
+},
+{
+"ticker": "RIOT",
+"name": "Riot Platforms, Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/RIOT"
+},
+{
+"ticker": "RLYB",
+"name": "Rallybio Corp",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/RLYB"
+},
+{
+"ticker": "ROMA",
+"name": "Roma Green Finance Ltd",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ROMA"
+},
+{
+"ticker": "RPAY",
+"name": "Repay Holdings Corp",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/RPAY"
+},
+{
+"ticker": "SAGA",
+"name": "Saga Communications, Inc.",
+"sector": "Communication Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/SAGA"
+},
+{
+"ticker": "SBOW",
+"name": "SilverBow Resources (acquired by Crescent Energy July 2024)",
+"sector": "Energy",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/SBOW"
+},
+{
+"ticker": "SBSW",
+"name": "Sibanye Stillwater Limited (ADR)",
+"sector": "Materials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/SBSW"
+},
+{
+"ticker": "SEER",
+"name": "Seer, Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/SEER"
+},
+{
+"ticker": "SERA",
+"name": "Sera Prognostics, Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/SERA"
+},
+{
+"ticker": "SFBC",
+"name": "Sound Financial Bancorp, Inc.",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/SFBC"
+},
+{
+"ticker": "SGC",
+"name": "Superior Group of Companies, Inc.",
+"sector": "Consumer Cyclical",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/SGC"
+},
+{
+"ticker": "SHAZ",
+"name": "SharonAI Holdings",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/SHAZ"
+},
+{
+"ticker": "SKHYNIX",
+"name": "SK Hynix Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/SKHYNIX"
+},
+{
+"ticker": "SKLZ",
+"name": "Skillz Inc.",
+"sector": "Communication Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/SKLZ"
+},
+{
+"ticker": "SLNG",
+"name": "Stabilis Solutions, Inc.",
+"sector": "Energy",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/SLNG"
+},
+{
+"ticker": "SNDK",
+"name": "Sandisk Corporation",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/SNDK"
+},
+{
+"ticker": "SRBK",
+"name": "SR Bancorp, Inc.",
+"sector": "Financials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/SRBK"
+},
+{
+"ticker": "SRL",
+"name": "Scully Royalty Ltd.",
+"sector": "Materials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/SRL"
+},
+{
+"ticker": "SVCO",
+"name": "Silvaco Group, Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/SVCO"
+},
+{
+"ticker": "SWBI",
+"name": "Smith & Wesson Brands, Inc.",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/SWBI"
+},
+{
+"ticker": "TARA",
+"name": "Protara Therapeutics, Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/TARA"
+},
+{
+"ticker": "TE",
+"name": "T1 Energy Inc",
+"sector": "Energy",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/TE"
+},
+{
+"ticker": "TIL",
+"name": "Instil Bio, Inc.",
+"sector": "Healthcare",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/TIL"
+},
+{
+"ticker": "TLRY",
+"name": "Tilray Brands, Inc.",
+"sector": "Consumer Defensive",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/TLRY"
+},
+{
+"ticker": "TONX",
+"name": "TON Strategy Company (formerly Verb Technology)",
+"sector": "Financials (de facto crypto)",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/TONX"
+},
+{
+"ticker": "TRAK",
+"name": "ReposiTrak, Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/TRAK"
+},
+{
+"ticker": "TSBK",
+"name": "Timberland Bancorp, Inc.",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/TSBK"
+},
+{
+"ticker": "TSM",
+"name": "Taiwan Semiconductor Manufacturing",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/TSM"
+},
+{
+"ticker": "UNTY",
+"name": "Unity Bancorp, Inc.",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/UNTY"
+},
+{
+"ticker": "VATE",
+"name": "INNOVATE Corp",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/VATE"
+},
+{
+"ticker": "VLGEA",
+"name": "Village Super Market, Inc.",
+"sector": "Consumer Defensive",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/VLGEA"
+},
+{
+"ticker": "VST",
+"name": "Vistra Corp.",
+"sector": "Utilities",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/VST"
+},
+{
+"ticker": "VTOL",
+"name": "Bristow Group Inc.",
+"sector": "Energy",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/VTOL"
+},
+{
+"ticker": "WABC",
+"name": "Westamerica Bancorporation",
+"sector": "Financial Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/WABC"
+},
+{
+"ticker": "WULF",
+"name": "TeraWulf Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/WULF"
+},
+{
+"ticker": "WYFI",
+"name": "WhiteFiber, Inc.",
+"sector": "Technology",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/WYFI"
+},
+{
+"ticker": "XTIA",
+"name": "XTI Aerospace, Inc.",
+"sector": "Industrials",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/XTIA"
+},
+{
+"ticker": "ZIP",
+"name": "ZipRecruiter, Inc.",
+"sector": "Communication Services",
+"version": "V1",
+"url": "https://work-66h.pages.dev/research/investments/universe/reports-v3/ZIP"
+}
+]

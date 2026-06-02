@@ -3,6 +3,9 @@
 import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { fetchApiJson } from '@/lib/api'
+import { STOCK_REPORTS } from '@/lib/static-reports'
+
+const REPORT_SET = new Set(STOCK_REPORTS.map((r) => r.ticker.toUpperCase()))
 
 interface StockRow {
   security_id: number
@@ -16,6 +19,7 @@ interface StockRow {
   avg_weight: number | null
   max_weight: number | null
   latest_report_date: string | null
+  hasReport?: boolean
 }
 
 type SortKey = 'holders' | 'value' | 'weight' | 'ticker'
@@ -45,6 +49,7 @@ export default function StocksClient() {
   const [failed, setFailed] = useState(false)
   const [query, setQuery] = useState('')
   const [sort, setSort] = useState<SortKey>('holders')
+  const [reportOnly, setReportOnly] = useState(false)
   const [visible, setVisible] = useState(PAGE_SIZE)
 
   useEffect(() => {
@@ -55,9 +60,36 @@ export default function StocksClient() {
     return () => { cancelled = true }
   }, [])
 
+  // Combined universe: held stocks (tagged with hasReport) plus report-only
+  // tickers that no tracked investor holds, so the full research corpus is browsable.
+  const combined = useMemo(() => {
+    const held = stocks
+      .filter((s) => !isNoiseTicker(s.ticker))
+      .map((s) => ({ ...s, hasReport: REPORT_SET.has((s.ticker ?? '').toUpperCase()) }))
+    const heldTickers = new Set(held.map((s) => (s.ticker ?? '').toUpperCase()))
+    const reportOnlyRows: StockRow[] = STOCK_REPORTS
+      .filter((r) => !heldTickers.has(r.ticker.toUpperCase()))
+      .map((r, i) => ({
+        security_id: -1 - i,
+        ticker: r.ticker,
+        name: r.name,
+        security_slug: null,
+        sector: r.sector,
+        cusip: null,
+        holder_count: 0,
+        total_value: 0,
+        avg_weight: null,
+        max_weight: null,
+        latest_report_date: null,
+        hasReport: true,
+      }))
+    return [...held, ...reportOnlyRows]
+  }, [stocks])
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
-    let rows = stocks.filter((s) => !isNoiseTicker(s.ticker))
+    let rows = combined
+    if (reportOnly) rows = rows.filter((s) => s.hasReport)
     if (q) {
       rows = rows.filter((s) =>
         (s.ticker ?? '').toLowerCase().includes(q) ||
@@ -74,9 +106,9 @@ export default function StocksClient() {
       }
     })
     return sorted
-  }, [stocks, query, sort])
+  }, [combined, query, sort, reportOnly])
 
-  useEffect(() => { setVisible(PAGE_SIZE) }, [query, sort])
+  useEffect(() => { setVisible(PAGE_SIZE) }, [query, sort, reportOnly])
 
   if (!loaded) {
     return <div className="bg-white rounded-xl border border-gray-200 px-5 py-8 text-center text-sm text-gray-400">Loading stocks…</div>
@@ -85,7 +117,7 @@ export default function StocksClient() {
     return <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 text-sm text-amber-800">Stock data is unavailable right now.</div>
   }
 
-  const maxHolders = filtered.length ? filtered[0].holder_count : 1
+  const maxHolders = filtered.reduce((m, s) => Math.max(m, s.holder_count), 1)
 
   return (
     <div className="space-y-4">
@@ -109,10 +141,20 @@ export default function StocksClient() {
               {label}
             </button>
           ))}
+          <button
+            onClick={() => setReportOnly((v) => !v)}
+            className={`px-3 py-1.5 text-xs font-semibold rounded-lg border ${
+              reportOnly ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white text-indigo-600 border-indigo-200 hover:bg-indigo-50'
+            }`}
+          >
+            📄 Deep-dive only
+          </button>
         </div>
       </div>
 
-      <p className="text-xs text-gray-400">{filtered.length.toLocaleString()} stocks</p>
+      <p className="text-xs text-gray-400">
+        {filtered.length.toLocaleString()} stocks{reportOnly ? ' with a deep-dive report' : ` · ${REPORT_SET.size} have a deep-dive report`}
+      </p>
 
       <div className="bg-white rounded-xl border border-gray-200 overflow-x-auto">
         <table className="w-full text-sm">
@@ -129,9 +171,12 @@ export default function StocksClient() {
             {filtered.slice(0, visible).map((s) => (
               <tr key={s.security_id} className="border-b border-gray-50 hover:bg-gray-50 transition">
                 <td className="px-4 py-3">
-                  <Link href={`/stocks/${encodeURIComponent(s.ticker as string)}`} className="font-mono font-bold text-indigo-600 hover:text-indigo-800">
-                    {s.ticker}
-                  </Link>
+                  <span className="inline-flex items-center gap-1">
+                    <Link href={`/stocks/${encodeURIComponent(s.ticker as string)}`} className="font-mono font-bold text-indigo-600 hover:text-indigo-800">
+                      {s.ticker}
+                    </Link>
+                    {s.hasReport && <span title="Has a deep-dive research report" aria-label="Has deep-dive report">📄</span>}
+                  </span>
                   <div className="sm:hidden text-[11px] text-gray-400 truncate max-w-[160px]">{titleCase(s.name)}</div>
                 </td>
                 <td className="px-4 py-3 hidden sm:table-cell text-gray-600 truncate max-w-[260px]">{titleCase(s.name)}</td>
