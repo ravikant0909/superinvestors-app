@@ -41,7 +41,10 @@ jobs:
       - name: Fetch latest 13F filings (SEC EDGAR)
         run: cd data && python run_pipeline.py --all
 
-      - name: Load into local SQLite
+      - name: Create + seed the SQLite database (schema + investors)
+        run: python seed_db.py
+
+      - name: Load 13F holdings into SQLite
         run: python load_13f_to_db.py
 
       - name: Regenerate stock index
