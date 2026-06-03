@@ -210,6 +210,14 @@ function formatQuarter(year: number, quarter: number): string {
   return `${year}-Q${quarter}`
 }
 
+function quarterFromReportDate(date: string | null | undefined): string | null {
+  if (!date) return null
+  const year = date.slice(0, 4)
+  const month = parseInt(date.slice(5, 7), 10)
+  if (!year || !month) return null
+  return `${year}-Q${Math.floor((month - 1) / 3) + 1}`
+}
+
 function displayTicker(ticker: string | null, companyName: string): string {
   if (!ticker || /^\d{5,}/.test(ticker)) {
     return companyName.split(' ').slice(0, 2).join(' ')
@@ -229,6 +237,12 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
     prices: {},
     loading: true,
     notFound: false,
+  })
+  // "Since your last visit": remember the latest filing this browser has seen
+  // (localStorage, no account needed) so returning visitors see what's new.
+  const [visit, setVisit] = useState<{ state: 'first' | 'return' | 'caught'; lastQ: string | null }>({
+    state: 'first',
+    lastQ: null,
   })
 
   useEffect(() => {
@@ -277,6 +291,23 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
       cancelled = true
     }
   }, [slug])
+
+  // Compare the latest filing to what this browser last saw, then remember it.
+  useEffect(() => {
+    if (!state.investor) return
+    const currentQ = quarterFromReportDate(state.investor.latest_report_date)
+    if (!currentQ) return
+    try {
+      const key = `si-lastq-${slug}`
+      const stored = localStorage.getItem(key)
+      if (!stored) setVisit({ state: 'first', lastQ: null })
+      else if (stored < currentQ) setVisit({ state: 'return', lastQ: stored })
+      else setVisit({ state: 'caught', lastQ: stored })
+      localStorage.setItem(key, currentQ)
+    } catch {
+      /* localStorage unavailable */
+    }
+  }, [state.investor, slug])
 
   const investor = state.investor
 
@@ -337,6 +368,12 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
   const verdict = verdictLabel(investor.verdict_follow)
   const combinedScore = investor.composite_score ?? 0
   const has13FData = (investor.filings_count ?? 0) > 0
+  const currentQuarter = quarterFromReportDate(investor.latest_report_date)
+  const changeRank: Record<string, number> = { NEW: 0, INCREASED: 1, DECREASED: 2, SOLD_OUT: 3 }
+  const sortedChanges = [...investor.recent_changes].sort((a, b) => {
+    const r = (changeRank[a.change_type] ?? 9) - (changeRank[b.change_type] ?? 9)
+    return r !== 0 ? r : Math.abs(b.value_change) - Math.abs(a.value_change)
+  })
 
   return (
     <div className="space-y-6">
@@ -347,6 +384,13 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
         <span className="text-gray-300">/</span>
         <span className="text-gray-900 font-medium">{investor.name}</span>
       </nav>
+
+      {has13FData && (
+        <div className="flex gap-2">
+          <span className="px-4 py-1.5 text-sm font-semibold rounded-lg bg-gray-900 text-white border border-gray-900">Overview</span>
+          <Link href={`/investors/${slug}/track-record`} className="px-4 py-1.5 text-sm font-semibold rounded-lg bg-white text-gray-600 border border-gray-200 hover:bg-gray-50">History</Link>
+        </div>
+      )}
 
       <header className="bg-white rounded-xl shadow-sm border border-gray-200 px-5 py-5 sm:px-6">
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
@@ -366,18 +410,19 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
             </div>
             <p className="mt-1 text-sm text-gray-500">{investor.firm_name ?? investor.style ?? 'Unknown firm'}</p>
             <div className="mt-2 flex flex-wrap items-center gap-2 text-xs">
-              <span
-                className={`inline-flex items-center rounded-full px-2.5 py-1 font-semibold border ${
-                  has13FData
-                    ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                    : 'bg-gray-100 text-gray-600 border-gray-200'
-                }`}
-              >
-                {has13FData ? '13F data loaded' : 'Profile only'}
-              </span>
+              {has13FData ? (
+                <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-semibold border bg-emerald-50 text-emerald-700 border-emerald-200">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  13F as of {quarterFromReportDate(investor.latest_report_date) ?? '--'}
+                </span>
+              ) : (
+                <span className="inline-flex items-center rounded-full px-2.5 py-1 font-semibold border bg-gray-100 text-gray-600 border-gray-200">
+                  Profile only
+                </span>
+              )}
               <span className="text-gray-400">
                 {has13FData && investor.latest_report_date
-                  ? `Latest filing: ${investor.latest_report_date}`
+                  ? `Filed ${investor.latest_report_date} · ~45-day reporting delay`
                   : 'No 13F filing history is loaded in the current dataset.'}
               </span>
             </div>
@@ -403,6 +448,104 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
         <section className="bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 text-sm text-amber-900">
           This investor is part of the tracked roster, but no 13F filing history is loaded in the
           current runtime dataset. This page currently shows qualitative research and scoring only.
+        </section>
+      )}
+
+      {has13FData && visit.state === 'return' && (
+        <section className="rounded-xl border border-indigo-200 bg-indigo-50 px-4 py-3 flex gap-3 items-start">
+          <span className="text-xl leading-none">🆕</span>
+          <div>
+            <div className="font-semibold text-indigo-900 text-sm">New filing since your last visit</div>
+            <div className="text-xs text-indigo-700 mt-0.5">
+              You last saw <strong>{visit.lastQ}</strong>. The latest 13F is <strong>{currentQuarter}</strong> — here&apos;s what changed.
+            </div>
+          </div>
+        </section>
+      )}
+      {has13FData && visit.state === 'caught' && (
+        <section className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 flex gap-3 items-start">
+          <span className="text-xl leading-none">✓</span>
+          <div>
+            <div className="font-semibold text-emerald-900 text-sm">You&apos;re up to date</div>
+            <div className="text-xs text-emerald-700 mt-0.5">
+              Latest filing is <strong>{currentQuarter}</strong> — the same one you saw last time. We&apos;ll flag this page when the next 13F lands.
+            </div>
+          </div>
+        </section>
+      )}
+
+      {has13FData && investor.recent_changes.length > 0 && (
+        <section className="bg-white rounded-xl shadow-sm border border-gray-200 px-5 py-5 sm:px-6">
+          <div className="flex items-start justify-between gap-3 mb-3">
+            <div>
+              <h2 className="text-lg font-bold text-gray-900">What changed this quarter</h2>
+              <p className="text-xs text-gray-500 mt-0.5">{currentQuarter} &middot; new buys first</p>
+            </div>
+            <div className="flex flex-wrap gap-1.5 text-[10px] flex-shrink-0">
+              {(['NEW', 'INCREASED', 'DECREASED', 'SOLD_OUT'] as const).map((type) => {
+                const count = investor.recent_changes.filter((change) => change.change_type === type).length
+                if (!count) return null
+                return (
+                  <span key={type} className={`px-1.5 py-0.5 rounded font-semibold ${changeBadge(type).className}`}>
+                    {count} {changeBadge(type).label}
+                  </span>
+                )
+              })}
+            </div>
+          </div>
+
+          <div className="grid gap-2.5 sm:grid-cols-2">
+            {sortedChanges.map((change) => {
+              const badge = changeBadge(change.change_type)
+              const isNew = change.change_type === 'NEW'
+              const estTradePrice = change.shares_change !== 0
+                ? (Math.abs(change.value_change) * 1000) / Math.abs(change.shares_change)
+                : null
+              const convictionHref = isNew ? getConvictionHref(slug, change.ticker) : null
+              const afterW = change.pct_of_portfolio_after
+              return (
+                <div
+                  key={`${change.security_slug}-${change.change_type}`}
+                  className={`rounded-xl border p-3 ${isNew ? 'border-green-200 bg-green-50/40' : 'border-gray-200 bg-white'}`}
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-mono font-bold text-gray-900 text-sm">{displayTicker(change.ticker, change.name)}</span>
+                    <span className={`px-1.5 py-0.5 rounded text-[9px] font-bold uppercase ${badge.className}`}>{badge.label}</span>
+                  </div>
+                  <p className="text-[11px] text-gray-400 truncate mt-0.5">{change.name}</p>
+                  <div className="mt-2 flex flex-wrap gap-x-3 gap-y-0.5 text-xs">
+                    <span>
+                      <span className="text-gray-400">{change.value_change >= 0 ? 'Bought' : 'Sold'}: </span>
+                      <span className="font-mono font-semibold text-gray-800">{formatShares(Math.abs(change.shares_change))} sh</span>
+                    </span>
+                    <span>
+                      <span className="text-gray-400">Value: </span>
+                      <span className={`font-mono font-semibold ${change.value_change >= 0 ? 'text-green-600' : 'text-red-500'}`}>
+                        {change.value_change >= 0 ? '+' : ''}{formatValueFromThousands(change.value_change)}
+                      </span>
+                    </span>
+                    {estTradePrice != null && (
+                      <span title="Estimated trade price = change in value ÷ change in shares this quarter (an estimate, not the actual fill).">
+                        <span className="text-gray-400">est. @ </span>
+                        <span className="font-mono font-semibold text-gray-800 border-b border-dotted border-gray-300">{formatPrice(estTradePrice)}</span>
+                      </span>
+                    )}
+                    {afterW != null && afterW > 0 && (
+                      <span><span className="text-gray-400">now </span><span className="font-mono font-semibold text-gray-800">{afterW.toFixed(1)}%</span></span>
+                    )}
+                  </div>
+                  {convictionHref && (
+                    <Link href={convictionHref} className="inline-block mt-1.5 text-[11px] font-semibold text-indigo-600 hover:text-indigo-800">
+                      Read the deep-dive &rarr;
+                    </Link>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+          <p className="text-[11px] text-gray-400 mt-3">
+            Estimated trade price = change in 13F value ÷ change in shares for the quarter — an estimate from a quarter-end snapshot, not the actual fill.
+          </p>
         </section>
       )}
 
@@ -567,88 +710,6 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
         </section>
       )}
 
-      {investor.recent_changes.length > 0 && (
-        <section className="bg-white rounded-xl shadow-sm border border-gray-200 px-5 py-5 sm:px-6">
-          <div className="flex items-start justify-between gap-4 mb-3">
-            <div>
-              <h2 className="text-lg font-bold text-gray-900">Recent Changes</h2>
-              <p className="text-xs text-gray-500 mt-0.5">
-                Latest quarter reported in the runtime database
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-1.5 text-[10px] flex-shrink-0">
-              {(['NEW', 'INCREASED', 'DECREASED', 'SOLD_OUT'] as const).map((type) => {
-                const count = investor.recent_changes.filter((change) => change.change_type === type).length
-                if (!count) return null
-                return (
-                  <span key={type} className={`px-1.5 py-0.5 rounded font-semibold ${changeBadge(type).className}`}>
-                    {count} {changeBadge(type).label}
-                  </span>
-                )
-              })}
-            </div>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-xs">
-              <thead>
-                <tr className="border-b border-gray-200 text-[10px] text-gray-500 uppercase tracking-wide">
-                  <th className="py-1.5 px-1.5 text-left">Action</th>
-                  <th className="py-1.5 px-1.5 text-left">Ticker</th>
-                  <th className="py-1.5 px-1.5 text-left hidden sm:table-cell">Company</th>
-                  <th className="py-1.5 px-1.5 text-right">Shares Change</th>
-                  <th className="py-1.5 px-1.5 text-right">Value Change</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-50">
-                {investor.recent_changes.map((change) => {
-                  const badge = changeBadge(change.change_type)
-                  const estimatedTradePrice = change.shares_change !== 0
-                    ? (Math.abs(change.value_change) * 1000) / Math.abs(change.shares_change)
-                    : null
-                  return (
-                    <tr key={`${change.security_slug}-${change.change_type}`} className="hover:bg-gray-50/50 transition">
-                      <td className="py-2 px-1.5">
-                        <span className={`inline-block px-1.5 py-0.5 rounded text-[9px] font-bold uppercase ${badge.className}`}>
-                          {badge.label}
-                        </span>
-                      </td>
-                      <td className="py-2 px-1.5">
-                        <span className="font-mono font-bold text-gray-900">
-                          {displayTicker(change.ticker, change.name)}
-                        </span>
-                      </td>
-                      <td className="py-2 px-1.5 text-gray-500 hidden sm:table-cell truncate max-w-[180px]">
-                        {change.name}
-                      </td>
-                      <td className="py-2 px-1.5 text-right">
-                        <span className={change.shares_change > 0 ? 'text-green-600' : 'text-red-500'}>
-                          {formatShares(change.shares_change)}
-                        </span>
-                        {change.shares_change_pct != null && (
-                          <span className="text-gray-400 text-[10px] ml-1">
-                            ({change.shares_change_pct > 0 ? '+' : ''}{change.shares_change_pct.toFixed(0)}%)
-                          </span>
-                        )}
-                      </td>
-                      <td className="py-2 px-1.5 text-right">
-                        <span className={change.value_change > 0 ? 'text-green-600 font-semibold' : 'text-red-500 font-semibold'}>
-                          {change.value_change > 0 ? '+' : ''}{formatValueFromThousands(change.value_change)}
-                        </span>
-                        {estimatedTradePrice != null && (
-                          <div className="text-[10px] text-gray-500 mt-0.5">
-                            ~{formatPrice(estimatedTradePrice)}
-                          </div>
-                        )}
-                      </td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </table>
-          </div>
-        </section>
-      )}
 
       <section className="bg-white rounded-xl shadow-sm border border-gray-200 px-5 py-4 sm:px-6">
         <h2 className="text-lg font-bold text-gray-900 mb-1">About {investor.name}</h2>
