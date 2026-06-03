@@ -365,6 +365,8 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
   const totalValue = currentHoldings.reduce((sum, holding) => sum + holding.value, 0)
   const top5Weight = currentHoldings.slice(0, 5).reduce((sum, holding) => sum + holding.pct_of_portfolio, 0)
   const maxWeight = currentHoldings[0]?.pct_of_portfolio ?? 1
+  const recByCusip = new Map(state.trackRecord.map((r) => [r.cusip, r]))
+  const concentrationShades = ['#4f46e5', '#6366f1', '#818cf8', '#a5b4fc', '#c7d2fe', '#ddd6fe']
   const verdict = verdictLabel(investor.verdict_follow)
   const combinedScore = investor.composite_score ?? 0
   const has13FData = (investor.filings_count ?? 0) > 0
@@ -580,6 +582,25 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
             <StatCard value={investor.recent_changes.length.toString()} label="Changes This Q" />
           </div>
 
+          <div className="mb-4">
+            <div className="flex h-7 rounded-lg overflow-hidden border border-gray-200">
+              {currentHoldings.slice(0, 6).map((holding, i) => (
+                <div
+                  key={holding.security_slug}
+                  className="h-full flex items-center justify-center text-[10px] font-bold text-white overflow-hidden whitespace-nowrap"
+                  style={{ width: `${holding.pct_of_portfolio}%`, background: concentrationShades[i] ?? '#c7d2fe' }}
+                  title={`${displayTicker(holding.ticker, holding.name)} · ${holding.pct_of_portfolio.toFixed(1)}%`}
+                >
+                  {holding.pct_of_portfolio >= 8 ? `${displayTicker(holding.ticker, holding.name)} ${holding.pct_of_portfolio.toFixed(0)}%` : ''}
+                </div>
+              ))}
+              {currentHoldings.length > 6 && (
+                <div className="h-full flex-1 bg-gray-100" title="Smaller positions" />
+              )}
+            </div>
+            <p className="text-[11px] text-gray-400 mt-1">How the portfolio is split — top 5 = {top5Weight.toFixed(0)}%</p>
+          </div>
+
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -587,10 +608,11 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
                   <th className="py-1.5 px-1.5 text-center w-8">#</th>
                   <th className="py-1.5 px-1.5 text-left">Ticker</th>
                   <th className="py-1.5 px-1.5 text-left hidden sm:table-cell">Company</th>
+                  <th className="py-1.5 px-1.5 text-right hidden sm:table-cell">Est. Entry</th>
                   <th className="py-1.5 px-1.5 text-right hidden sm:table-cell">Price</th>
-                  <th className="py-1.5 px-1.5 text-right">Value</th>
-                  <th className="py-1.5 px-1.5 text-right hidden sm:table-cell">Shares</th>
-                  <th className="py-1.5 px-1.5 text-right min-w-[130px]">Weight</th>
+                  <th className="py-1.5 px-1.5 text-right">Return</th>
+                  <th className="py-1.5 px-1.5 text-right hidden sm:table-cell">Value</th>
+                  <th className="py-1.5 px-1.5 text-right min-w-[120px]">Weight</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-50">
@@ -598,6 +620,7 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
                   const price = holding.ticker ? state.prices[holding.ticker] ?? null : null
                   const relatedChange = investor.recent_changes.find((change) => change.security_slug === holding.security_slug)
                   const convictionHref = getConvictionHref(slug, holding.ticker)
+                  const rec = recByCusip.get(holding.cusip)
                   const barWidthPct = maxWeight > 0 ? (holding.pct_of_portfolio / maxWeight) * 100 : 0
 
                   return (
@@ -627,13 +650,20 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
                         {holding.name}
                       </td>
                       <td className="py-2 px-1.5 text-right hidden sm:table-cell">
+                        <span className="font-mono text-xs text-gray-600" title={rec?.estimated_entry_price != null ? `Est. entry = 13F value ÷ shares in ${rec.first_seen_quarter}` : undefined}>
+                          {formatPrice(rec?.estimated_entry_price ?? null)}
+                        </span>
+                      </td>
+                      <td className="py-2 px-1.5 text-right hidden sm:table-cell">
                         <span className="font-mono text-xs text-gray-700">{formatPrice(price)}</span>
                       </td>
-                      <td className="py-2 px-1.5 text-right text-gray-700 text-xs">
-                        {formatValueFromThousands(holding.value)}
+                      <td className="py-2 px-1.5 text-right">
+                        <span className={`font-mono text-xs ${formatReturn(rec?.price_return_pct ?? null).className}`}>
+                          {formatReturn(rec?.price_return_pct ?? null).text}
+                        </span>
                       </td>
-                      <td className="py-2 px-1.5 text-right text-gray-500 text-xs hidden sm:table-cell">
-                        {holding.shares.toLocaleString()}
+                      <td className="py-2 px-1.5 text-right text-gray-700 text-xs hidden sm:table-cell">
+                        {formatValueFromThousands(holding.value)}
                       </td>
                       <td className="py-2 px-1.5">
                         <div className="flex items-center gap-1.5 justify-end">
@@ -658,19 +688,9 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
 
       {state.trackRecord.length > 0 && (
         <section className="bg-white rounded-xl shadow-sm border border-gray-200 px-5 py-5 sm:px-6">
-          <div className="flex items-start justify-between gap-4 mb-3">
-            <div>
-              <h2 className="text-lg font-bold text-gray-900">Investment History</h2>
-              <p className="text-xs text-gray-500 mt-0.5">
-                {state.trackRecord.length} positions tracked &middot; Current and recently exited
-              </p>
-            </div>
-            <Link
-              href={`/investors/${slug}/track-record`}
-              className="text-xs font-semibold text-indigo-600 hover:text-indigo-800 transition flex-shrink-0"
-            >
-              View Full Track Record &rarr;
-            </Link>
+          <div className="mb-3">
+            <h2 className="text-lg font-bold text-gray-900">Track Record</h2>
+            <p className="text-xs text-gray-500 mt-0.5">{state.trackRecord.length} positions tracked across the loaded filing history</p>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
@@ -691,22 +711,15 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
             <StatCard value={summary.currentRecords.length.toString()} label="Current" />
           </div>
 
-          {summary.currentRecords.length > 0 && (
-            <CompactTrackRecordTable
-              title="Current Holdings"
-              records={summary.currentRecords}
-              showCurrent
-            />
-          )}
-
-          {summary.recentExits.length > 0 && (
-            <div className="mt-4">
-              <CompactTrackRecordTable
-                title="Recently Exited"
-                records={summary.recentExits}
-              />
-            </div>
-          )}
+          <Link
+            href={`/investors/${slug}/track-record`}
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 transition"
+          >
+            See the full position history &rarr;
+          </Link>
+          <p className="text-xs text-gray-400 mt-2">
+            A visual timeline of every position — when he opened, added, trimmed, and exited, and how each bet performed.
+          </p>
         </section>
       )}
 
@@ -808,59 +821,3 @@ function StatCard({
   )
 }
 
-function CompactTrackRecordTable({
-  title,
-  records,
-  showCurrent = false,
-}: {
-  title: string
-  records: RuntimeInvestmentRecord[]
-  showCurrent?: boolean
-}) {
-  return (
-    <div>
-      <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">{title}</h3>
-      <div className="overflow-x-auto">
-        <table className="w-full text-xs">
-          <thead>
-            <tr className="border-b border-gray-200 text-[10px] text-gray-500 uppercase tracking-wide">
-              <th className="py-1.5 px-1.5 text-left">Ticker</th>
-              <th className="py-1.5 px-1.5 text-left hidden sm:table-cell">Company</th>
-              <th className="py-1.5 px-1.5 text-right">Entry</th>
-              <th className="py-1.5 px-1.5 text-right">{showCurrent ? 'Current' : 'Exit'}</th>
-              <th className="py-1.5 px-1.5 text-right hidden sm:table-cell">Hold</th>
-              <th className="py-1.5 px-1.5 text-right">Return</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-50">
-            {records.map((record) => {
-              const returnInfo = formatReturn(record.price_return_pct)
-              return (
-                <tr key={`${record.ticker}-${record.first_seen_quarter}`} className="hover:bg-gray-50/50 transition">
-                  <td className="py-1.5 px-1.5">
-                    <span className="font-mono font-bold text-gray-900">{displayTicker(record.ticker, record.company_name)}</span>
-                  </td>
-                  <td className="py-1.5 px-1.5 text-gray-500 hidden sm:table-cell truncate max-w-[150px]">
-                    {record.company_name}
-                  </td>
-                  <td className="py-1.5 px-1.5 text-right text-gray-500 font-mono">
-                    {record.first_seen_quarter}
-                  </td>
-                  <td className="py-1.5 px-1.5 text-right font-mono text-gray-700">
-                    {showCurrent ? formatPrice(record.current_price) : record.last_seen_quarter}
-                  </td>
-                  <td className="py-1.5 px-1.5 text-right text-gray-500 hidden sm:table-cell">
-                    {formatHoldingPeriod(record.holding_period_quarters)}
-                  </td>
-                  <td className="py-1.5 px-1.5 text-right">
-                    <span className={`font-mono ${returnInfo.className}`}>{returnInfo.text}</span>
-                  </td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  )
-}
