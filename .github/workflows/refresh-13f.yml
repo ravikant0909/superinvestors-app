@@ -7,7 +7,12 @@ name: Refresh 13F data
 # runs in GitHub's cloud, so it is machine-portable and does not need the Mac.
 
 on:
-  workflow_dispatch: {}          # manual "Run workflow" button
+  workflow_dispatch:
+    inputs:
+      force_deploy:
+        description: 'Rebuild + deploy Pages even if no new quarter landed (useful when local deploys fail)'
+        type: boolean
+        default: false
   schedule:
     # 07:00 UTC daily on the 14th–21st of Feb/May/Aug/Nov — the windows when
     # quarterly 13Fs are filed (45 days after quarter end). --if-changed makes
@@ -64,8 +69,8 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Rebuild & deploy Pages (only when data changed)
-        if: steps.sync.outputs.changed == 'true'
+      - name: Rebuild & deploy Pages (when data changed or force_deploy)
+        if: steps.sync.outputs.changed == 'true' || github.event.inputs.force_deploy == 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
@@ -74,7 +79,7 @@ jobs:
           wrangler pages deploy out --project-name superinvestors-app --branch main --commit-dirty=true
 
       - name: Commit refreshed artifacts (only when data changed)
-        if: steps.sync.outputs.changed == 'true'
+        if: steps.sync.outputs.changed == 'true' || github.event.inputs.force_deploy == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
