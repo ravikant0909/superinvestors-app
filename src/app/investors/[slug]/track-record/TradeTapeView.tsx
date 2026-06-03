@@ -282,7 +282,7 @@ export default function TradeTapeView({ view, slug: _slug }: { view: HistoryView
         <div className="relative pl-7 sm:pl-9">
           {/* spine */}
           <span className="pointer-events-none absolute bottom-2 left-[7px] top-2 w-0.5 bg-gradient-to-b from-gray-200 via-gray-200 to-transparent sm:left-[11px]" />
-          <div className="space-y-3.5">
+          <div className="space-y-2">
             {quarters.map((b, idx) => (
               <QuarterSection
                 key={b.qi}
@@ -356,7 +356,7 @@ function QuarterSection({
         {/* quarter header */}
         <button
           onClick={onToggleCollapse}
-          className="flex w-full items-center gap-2.5 px-3 py-2.5 text-left transition hover:bg-gray-50 sm:gap-3 sm:px-4"
+          className="flex w-full items-center gap-2 px-3 py-1.5 text-left transition hover:bg-gray-50 sm:gap-3 sm:px-4"
         >
           <svg
             viewBox="0 0 24 24"
@@ -429,77 +429,68 @@ function QuarterSection({
 
 function EventRow({ t }: { t: Trade }) {
   const meta = ACTION_META[t.type]
-  const priceLabel = t.type === 'exit' ? 'Exit mark' : t.type === 'open' ? 'Entry mark' : 'Mark'
+  const priceLabel = t.type === 'exit' ? 'exit' : t.type === 'open' ? 'entry' : 'mark'
 
   return (
     <div
-      className={`grid grid-cols-[28px_1fr_auto] items-center gap-x-2.5 gap-y-1 border-t border-gray-100 px-3 py-2.5 first:border-t-0 hover:bg-gray-50 sm:grid-cols-[30px_minmax(140px,176px)_1fr_96px_auto] sm:gap-x-3 sm:gap-y-0 ${
+      className={`grid grid-cols-[22px_1fr_auto] items-center gap-x-2 gap-y-0.5 border-t border-gray-100 px-3 py-1 first:border-t-0 hover:bg-gray-50 sm:grid-cols-[24px_minmax(132px,168px)_1fr_104px_auto] sm:gap-x-3 sm:gap-y-0 ${
         t.transient ? 'opacity-60' : ''
       }`}
     >
       {/* action glyph */}
       <span
-        className={`row-span-3 flex h-7 w-7 flex-none items-center justify-center self-start rounded-lg text-sm font-bold sm:row-span-1 sm:self-center ${meta.bg} ${meta.text}`}
+        className={`row-span-2 flex h-5 w-5 flex-none items-center justify-center self-start rounded text-[11px] font-bold sm:row-span-1 sm:self-center ${meta.bg} ${meta.text}`}
       >
         {meta.glyph}
       </span>
 
-      {/* ticker + company */}
-      <div className="col-start-2 min-w-0 sm:col-start-2">
-        <div className="flex items-center gap-1.5">
-          {t.linkable ? (
-            <Link
-              href={`/stocks/${encodeURIComponent(t.ticker)}`}
-              className="text-sm font-extrabold tracking-tight text-indigo-600 hover:text-indigo-800 hover:underline"
-            >
-              {tidyTicker(t.ticker, t.name)}
-            </Link>
-          ) : (
-            <span className="text-sm font-extrabold tracking-tight text-gray-800">{tidyTicker(t.ticker, t.name)}</span>
-          )}
-          {t.status === 'held' && (
-            <span className="rounded bg-gray-100 px-1.5 py-px text-[9px] font-bold uppercase tracking-wide text-gray-500">
-              held
-            </span>
-          )}
-        </div>
-        <div className="truncate text-[11px] text-gray-400">{t.name}</div>
+      {/* ticker + company (one line) */}
+      <div className="col-start-2 flex min-w-0 items-baseline gap-1.5 sm:col-start-2">
+        {t.linkable ? (
+          <Link
+            href={`/stocks/${encodeURIComponent(t.ticker)}`}
+            className="flex-none text-[13px] font-extrabold tracking-tight text-indigo-600 hover:text-indigo-800 hover:underline"
+          >
+            {tidyTicker(t.ticker, t.name)}
+          </Link>
+        ) : (
+          <span className="flex-none text-[13px] font-extrabold tracking-tight text-gray-800">{tidyTicker(t.ticker, t.name)}</span>
+        )}
+        {t.status === 'held' && (
+          <span className="flex-none rounded bg-gray-100 px-1 py-px text-[8px] font-bold uppercase tracking-wide text-gray-500">held</span>
+        )}
+        <span className="truncate text-[10px] text-gray-400">{t.name}</span>
       </div>
 
       {/* return pill (top-right on mobile, last column on desktop) */}
-      <div className="col-start-3 row-start-1 self-start text-right sm:col-start-5 sm:row-start-1 sm:self-center">
+      <div className="col-start-3 row-start-1 self-center text-right sm:col-start-5 sm:row-start-1">
         <ReturnCell t={t} />
       </div>
 
       {/* action text + size */}
-      <div className="col-start-2 row-start-2 min-w-0 text-xs text-gray-600 sm:col-start-3 sm:row-start-1">
+      <div className="col-start-2 row-start-2 min-w-0 truncate text-[11px] text-gray-600 sm:col-start-3 sm:row-start-1 sm:text-xs">
         <span className={`font-bold ${meta.text}`}>{meta.verb}</span>
         {t.chg_pct != null && (t.type === 'add' || t.type === 'trim') && (
           <>
             {' '}
-            <span className={`font-bold ${t.chg_pct >= 0 ? 'text-blue-600' : 'text-orange-600'}`}>
-              {fmtPct(t.chg_pct)}
-            </span>{' '}
-            <span className="text-gray-400">shares</span>
+            <span className={`font-bold ${t.chg_pct >= 0 ? 'text-blue-600' : 'text-orange-600'}`}>{fmtPct(t.chg_pct)}</span>
           </>
         )}
-        {t.type !== 'exit' && t.shares_delta !== 0 && (
-          <span className="text-gray-400"> ({fmtShares(t.shares_delta)})</span>
-        )}
+        {t.type !== 'exit' && t.shares_delta !== 0 && <span className="text-gray-400"> {fmtShares(t.shares_delta)}sh</span>}
         {t.type === 'exit' ? (
-          <span className="text-gray-400"> — position closed</span>
+          <span className="text-gray-400"> · closed</span>
         ) : (
           <span className="text-gray-400">
             {' '}
-            → <b className="font-bold text-gray-600">{t.weight.toFixed(1)}%</b> of portfolio
+            → <b className="font-bold text-gray-600">{t.weight.toFixed(1)}%</b>
           </span>
         )}
       </div>
 
-      {/* price */}
-      <div className="col-start-2 row-start-3 flex items-baseline gap-1.5 text-xs text-gray-600 sm:col-start-4 sm:row-start-1 sm:block sm:text-right">
-        <span className="text-[9px] font-bold uppercase tracking-wide text-gray-400 sm:block">{priceLabel}</span>
-        <b className="text-[13px] font-bold text-gray-900">{fmtPrice(t.price)}</b>
+      {/* price (one line) */}
+      <div className="col-start-3 row-start-2 text-right text-[11px] text-gray-600 sm:col-start-4 sm:row-start-1">
+        <span className="mr-1 text-[9px] uppercase tracking-wide text-gray-400">{priceLabel}</span>
+        <b className="text-[12px] font-bold text-gray-900">{fmtPrice(t.price)}</b>
       </div>
     </div>
   )

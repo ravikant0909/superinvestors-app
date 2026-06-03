@@ -32,46 +32,42 @@ function EventBox({ e, peakWeight }: { e: HistoryEvent; peakWeight: number }) {
 
   return (
     <div
-      className={`relative flex-shrink-0 w-[132px] sm:w-[144px] rounded-lg border p-2.5 flex flex-col gap-1.5 ${meta.bg} ${meta.ring} ${
-        isExit ? 'ring-2 ring-rose-300' : ''
+      className={`relative flex-shrink-0 w-[104px] sm:w-[112px] rounded-md border px-2 py-1.5 flex flex-col gap-1 ${meta.bg} ${meta.ring} ${
+        isExit ? 'ring-1 ring-rose-300' : ''
       }`}
     >
       {/* header: glyph + verb + quarter */}
-      <div className="flex items-center gap-1.5 min-w-0">
-        <span className={`text-sm leading-none font-bold ${meta.text}`} style={{ color: meta.dot }} aria-hidden>
+      <div className="flex items-center gap-1 min-w-0">
+        <span className={`text-[11px] leading-none font-bold`} style={{ color: meta.dot }} aria-hidden>
           {meta.glyph}
         </span>
-        <span className={`text-[11px] font-bold ${meta.text}`}>{meta.verb}</span>
-        <span className="ml-auto text-[10px] font-semibold text-gray-500 whitespace-nowrap">{e.label}</span>
+        <span className={`text-[10px] font-bold ${meta.text}`}>{meta.verb}</span>
+        <span className="ml-auto text-[9px] font-semibold text-gray-500 whitespace-nowrap">{e.label}</span>
       </div>
 
-      {/* the trade: signed shares + share %chg */}
-      <div className="text-[11px] font-mono text-gray-800 leading-tight">
+      {/* the trade: signed shares + share %chg, then price — kept on tight lines */}
+      <div className="text-[10px] font-mono text-gray-800 leading-tight">
         {isExit ? (
           <span>sold {fmtShares(e.shares_delta)}</span>
         ) : (
           <span>
-            {fmtShares(e.shares_delta)} sh
-            {e.chg_pct != null && (
-              <span className="text-gray-400"> {fmtPct(e.chg_pct)}</span>
-            )}
+            {fmtShares(e.shares_delta)}sh
+            {e.chg_pct != null && <span className="text-gray-400"> {fmtPct(e.chg_pct)}</span>}
           </span>
         )}
+        <span className="text-gray-500"> @{fmtPrice(e.price)}</span>
       </div>
-
-      {/* price */}
-      <div className="text-[11px] text-gray-500 leading-tight">@ {fmtPrice(e.price)}</div>
 
       {/* resulting weight: tiny bar + label */}
       <div className="mt-auto pt-0.5">
-        <div className="h-1.5 w-full rounded-full bg-white/70 overflow-hidden ring-1 ring-inset ring-black/5">
+        <div className="h-1 w-full rounded-full bg-white/70 overflow-hidden ring-1 ring-inset ring-black/5">
           <div
             className="h-full rounded-full"
             style={{ width: `${pct}%`, backgroundColor: meta.dot, opacity: isExit ? 0.35 : 0.85 }}
           />
         </div>
-        <div className="mt-0.5 text-[10px] text-gray-500 leading-none">
-          {isExit ? 'out · 0%' : `${e.weight.toFixed(e.weight >= 10 ? 0 : 1)}% of port.`}
+        <div className="mt-0.5 text-[9px] text-gray-500 leading-none">
+          {isExit ? 'out · 0%' : `${e.weight.toFixed(e.weight >= 10 ? 0 : 1)}%`}
         </div>
       </div>
     </div>
@@ -97,71 +93,65 @@ function PositionRow({ p, slug }: { p: HistoryPosition; slug: string }) {
 
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+      {/* items-stretch (flex default) makes the right strip fill the row height so its
+          horizontal scrollbar sits at the BOTTOM of the row, not mid-row. */}
       <div className="flex flex-col md:flex-row">
         {/* LEFT header block */}
-        <div className="md:w-[188px] md:flex-shrink-0 p-3.5 md:border-r border-b md:border-b-0 border-gray-100">
-          <div className="flex items-center gap-2 flex-wrap">
+        <div className="md:w-[164px] md:flex-shrink-0 px-3 py-2 md:border-r border-b md:border-b-0 border-gray-100">
+          <div className="flex items-center gap-1.5 flex-wrap">
             {p.linkable ? (
               <Link
                 href={`/stocks/${encodeURIComponent(p.ticker)}`}
-                className="font-mono font-extrabold text-base text-indigo-600 hover:text-indigo-800"
+                className="font-mono font-extrabold text-sm text-indigo-600 hover:text-indigo-800"
               >
                 {tidyTicker(p.ticker, p.name)}
               </Link>
             ) : (
-              <span className="font-mono font-extrabold text-base text-gray-800">{tidyTicker(p.ticker, p.name)}</span>
+              <span className="font-mono font-extrabold text-sm text-gray-800">{tidyTicker(p.ticker, p.name)}</span>
             )}
             {statusBadge}
           </div>
-          <p className="text-[11px] text-gray-400 truncate mt-0.5">{p.name}</p>
+          <p className="text-[10px] text-gray-400 truncate">{p.name}</p>
 
-          {/* the big return */}
-          <div className={`mt-2 text-2xl font-extrabold leading-none ${retClass(p.return_pct)}`}>
-            {fmtPct(p.return_pct)}
-          </div>
-          <div className="text-[11px] text-gray-500 mt-0.5">
-            vs avg cost {fmtPrice(p.avg_cost)} &rarr; {fmtPrice(p.end_price)}
-            {held && !p.end_is_live && p.return_pct != null && (
-              <span className="text-amber-600"> (as of {p.now_label})</span>
+          {/* big return + avg-cost→end inline */}
+          <div className="mt-1 flex items-baseline gap-1.5">
+            <span className={`text-xl font-extrabold leading-none ${retClass(p.return_pct)}`}>{fmtPct(p.return_pct)}</span>
+            {p.annualized_pct != null && (
+              <span className="text-[10px] font-semibold text-gray-500">{fmtPct(p.annualized_pct)}/yr</span>
             )}
-          </div>
-
-          {/* annualized + S&P pill */}
-          {p.annualized_pct != null && (
-            <div className="mt-1.5 flex items-center gap-1.5 flex-wrap text-[11px]">
-              <span className="font-semibold text-gray-700">{fmtPct(p.annualized_pct)}/yr</span>
-              {p.spx_annual_pct != null && <span className="text-gray-400">S&amp;P {fmtPct(p.spx_annual_pct)}/yr</span>}
+            {p.annualized_pct != null && (
               <span
-                className={`px-1.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wide ${
+                className={`px-1 py-px rounded text-[8px] font-bold uppercase tracking-wide ${
                   p.beat_spx ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'
                 }`}
               >
-                {p.beat_spx ? 'beat' : 'lagged'}
+                {p.beat_spx ? 'beat' : 'lag'}
               </span>
-            </div>
-          )}
-
-          {/* holding period + prior stints */}
-          <div className="mt-1.5 text-[10px] text-gray-400">
-            held {p.holding_years.toFixed(p.holding_years >= 10 ? 0 : 1)}y · {p.holding_quarters}q
+            )}
           </div>
-          {p.prior_stints > 0 && (
-            <div className="text-[10px] text-amber-600 mt-0.5">held &amp; exited {p.prior_stints}× before</div>
-          )}
+          <div className="text-[10px] text-gray-500 leading-tight">
+            {fmtPrice(p.avg_cost)} &rarr; {fmtPrice(p.end_price)}
+            {p.spx_annual_pct != null && <span className="text-gray-400"> · S&amp;P {fmtPct(p.spx_annual_pct)}/yr</span>}
+            {held && !p.end_is_live && p.return_pct != null && <span className="text-amber-600"> (as of {p.now_label})</span>}
+          </div>
+          <div className="mt-0.5 text-[10px] text-gray-400">
+            held {p.holding_years.toFixed(p.holding_years >= 10 ? 0 : 1)}y · {p.holding_quarters}q
+            {p.prior_stints > 0 && <span className="text-amber-600"> · {p.prior_stints}× before</span>}
+          </div>
         </div>
 
-        {/* RIGHT event strip */}
-        <div className="flex-1 min-w-0 p-3 bg-gray-50/60">
+        {/* RIGHT event strip — full-height overflow container → scrollbar at row bottom */}
+        <div className="flex-1 min-w-0 bg-gray-50/60 flex">
           {p.events.length === 0 ? (
-            <div className="text-[11px] text-gray-400 py-4 text-center">No recorded trades.</div>
+            <div className="text-[11px] text-gray-400 py-4 px-3 text-center w-full">No recorded trades.</div>
           ) : (
-            <div className="overflow-x-auto -mx-1 px-1 pb-1">
-              <div className="flex items-stretch gap-0">
+            <div className="w-full overflow-x-auto px-2.5 py-2">
+              <div className="flex h-full items-center gap-0">
                 {p.events.map((e, i) => (
                   <div key={`${e.qi}-${e.type}-${i}`} className="flex items-center">
                     <EventBox e={e} peakWeight={rowPeak} />
                     {i < p.events.length - 1 && (
-                      <span className="flex-shrink-0 px-1 text-gray-300 select-none" aria-hidden>
+                      <span className="flex-shrink-0 px-0.5 text-gray-300 select-none" aria-hidden>
                         &rarr;
                       </span>
                     )}
@@ -256,7 +246,7 @@ export default function TimelineBoxesView({ view, slug }: { view: HistoryView; s
         <span className="flex-1 h-px bg-gray-200" />
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-2">
         {shown.map((p, i) => (
           <div key={`${p.ticker}-${p.first_quarter}-${p.cusip}`}>
             {/* exited divider appears inline once we cross into exited rows */}

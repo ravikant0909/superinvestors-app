@@ -78,6 +78,69 @@ function round(value: number | null, decimals: number = 2): number | null {
   return Math.round(value * factor) / factor
 }
 
+// Stock-split normalization. 13F reports a position's VALUE (split-invariant) and
+// SHARE COUNT (which multiplies by the split ratio R at a split). Without correction
+// the running-average cost basis treats a split as a giant buy/sell (e.g. AMZN's 20:1
+// makes 165k pre-split shares look "diluted" by 3.3M new shares at a 20x-lower price),
+// producing nonsense returns. We DETECT splits from the series and rescale every
+// pre-split quarter's shares onto the latest basis (value untouched), so prices and
+// share counts are continuous and the cost-basis/return math is correct.
+//
+// Detection is deliberately precise over exhaustive (a false split corrupts good data,
+// a miss only leaves today's already-wrong behavior): only LARGE splits (>=4:1 or
+// <=1:4), where the share ratio matches a clean ratio AND the implied price moved by
+// ~the same ratio AND the position value was roughly preserved. This catches the
+// high-impact mega-cap splits (AMZN/GOOG 20:1, etc.) while rejecting look-alikes such
+// as a big add (price ~flat) or a sell into an offsetting rally (a clean 1:2-shaped
+// move). Splits masked by a huge same-quarter trade may be missed — acceptable.
+const SPLIT_RATIOS_FWD = [4, 5, 6, 7, 8, 10, 12, 15, 20, 25, 30, 40, 50]
+
+function detectSplitRatio(
+  prev: TrackRecordApiTimelineEntry,
+  cur: TrackRecordApiTimelineEntry,
+): number | null {
+  if (prev.shares <= 0 || cur.shares <= 0 || prev.value <= 0 || cur.value <= 0) return null
+  const f = cur.shares / prev.shares // share ratio
+  const g = (prev.value / prev.shares) / (cur.value / cur.shares) // implied price ratio (old/new)
+  const v = cur.value / prev.value // value ratio (≈1 at a pure split)
+  const candidates = f >= 1 ? SPLIT_RATIOS_FWD : SPLIT_RATIOS_FWD.map((r) => 1 / r)
+  let best: number | null = null
+  let bestErr = Infinity
+  for (const r of candidates) {
+    const err = Math.abs(f - r) / r
+    if (err < bestErr) {
+      bestErr = err
+      best = r
+    }
+  }
+  if (best == null || bestErr > 0.12) return null
+  const gr = g / best
+  if (gr < 0.5 || gr > 2.0) return null // price must have moved ~by the split ratio
+  if (v < 0.5 || v > 2.0) return null // value roughly preserved (not a big add/trim)
+  return best
+}
+
+// Rescale each pre-split quarter's shares onto the latest split basis (value unchanged).
+function normalizeSplits(sorted: TrackRecordApiTimelineEntry[]): TrackRecordApiTimelineEntry[] {
+  if (sorted.length < 2) return sorted
+  const splitAt: (number | null)[] = new Array(sorted.length).fill(null)
+  for (let i = 1; i < sorted.length; i += 1) {
+    const prevIdx = quarterIndex(quarterKey(sorted[i - 1].year, sorted[i - 1].quarter))
+    const curIdx = quarterIndex(quarterKey(sorted[i].year, sorted[i].quarter))
+    if (curIdx - prevIdx !== 1) continue // only consecutive quarters
+    splitAt[i] = detectSplitRatio(sorted[i - 1], sorted[i])
+  }
+  if (splitAt.every((r) => r == null)) return sorted
+  // factor[i] = product of split ratios occurring AFTER quarter i
+  const factor: number[] = new Array(sorted.length).fill(1)
+  let cum = 1
+  for (let i = sorted.length - 1; i >= 0; i -= 1) {
+    factor[i] = cum
+    if (splitAt[i]) cum *= splitAt[i] as number
+  }
+  return sorted.map((t, i) => (factor[i] === 1 ? t : { ...t, shares: t.shares * factor[i] }))
+}
+
 export function buildRuntimeTrackRecords(
   groups: TrackRecordApiGroup[],
   currentPrices: RuntimePriceMap,
@@ -91,10 +154,12 @@ export function buildRuntimeTrackRecords(
   }, 0)
 
   const records = groups.map((group) => {
-    const timeline = [...group.timeline].sort((a, b) => {
-      if (a.year !== b.year) return a.year - b.year
-      return a.quarter - b.quarter
-    })
+    const timeline = normalizeSplits(
+      [...group.timeline].sort((a, b) => {
+        if (a.year !== b.year) return a.year - b.year
+        return a.quarter - b.quarter
+      }),
+    )
 
     const runtimeTimeline: RuntimeTimelineEntry[] = []
     // Running-average cost basis of the shares CURRENTLY HELD. Sells reduce it at
