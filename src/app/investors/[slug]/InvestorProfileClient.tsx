@@ -526,6 +526,12 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
                         {change.value_change >= 0 ? '+' : ''}{formatValueFromThousands(change.value_change)}
                       </span>
                     </span>
+                    {totalValue > 0 && (
+                      <span title="Size of this trade relative to the current portfolio value">
+                        <span className="text-gray-400">= </span>
+                        <span className="font-mono font-semibold text-gray-800">{((Math.abs(change.value_change) / totalValue) * 100).toFixed(1)}% of portfolio</span>
+                      </span>
+                    )}
                     {estTradePrice != null && (
                       <span title="Estimated trade price = change in value ÷ change in shares this quarter (an estimate, not the actual fill).">
                         <span className="text-gray-400">est. @ </span>
