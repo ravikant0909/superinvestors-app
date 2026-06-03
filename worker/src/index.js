@@ -162,6 +162,7 @@ async function executeChatTool(name, input, env) {
         FROM holdings h
         JOIN securities sec ON h.security_id = sec.id
         WHERE h.investor_id = ?
+          AND h.report_date = (SELECT MAX(report_date) FROM holdings hm WHERE hm.investor_id = h.investor_id)
         ORDER BY h.pct_of_portfolio DESC
         LIMIT 15
       `).bind(investor.id).all();
@@ -198,6 +199,7 @@ async function executeChatTool(name, input, env) {
         JOIN securities sec ON h.security_id = sec.id
         JOIN investors i ON h.investor_id = i.id
         WHERE sec.ticker IS NOT NULL
+          AND h.report_date = (SELECT MAX(report_date) FROM holdings hm WHERE hm.investor_id = h.investor_id)
         GROUP BY sec.id
         HAVING holder_count >= 2
         ORDER BY holder_count DESC, avg_weight DESC
@@ -370,7 +372,8 @@ async function handleAPI(path, request, env) {
         JOIN investors i ON h.investor_id = i.id
         LEFT JOIN investor_scores s ON i.id = s.investor_id
         JOIN securities sec ON h.security_id = sec.id
-        ${activeOnly ? 'WHERE i.active = 1' : ''}
+        WHERE h.report_date = (SELECT MAX(report_date) FROM holdings hm WHERE hm.investor_id = h.investor_id)
+        ${activeOnly ? 'AND i.active = 1' : ''}
         ORDER BY i.name, h.pct_of_portfolio DESC
       `;
       const { results } = await env.DB.prepare(query).all();
@@ -414,6 +417,7 @@ async function handleAPI(path, request, env) {
         FROM holdings h
         JOIN securities sec ON h.security_id = sec.id
         WHERE h.investor_id = ?
+          AND h.report_date = (SELECT MAX(report_date) FROM holdings hm WHERE hm.investor_id = h.investor_id)
         ORDER BY h.pct_of_portfolio DESC
       `).bind(investor.id).all();
 
@@ -472,6 +476,7 @@ async function handleAPI(path, request, env) {
         FROM holdings h
         JOIN securities sec ON h.security_id = sec.id
         WHERE h.investor_id = ?
+          AND h.report_date = (SELECT MAX(report_date) FROM holdings hm WHERE hm.investor_id = h.investor_id)
         ORDER BY h.pct_of_portfolio DESC
       `).bind(investor.id).all();
       return jsonResponse(results);
@@ -627,6 +632,7 @@ async function handleAPI(path, request, env) {
         JOIN investors i ON h.investor_id = i.id
         LEFT JOIN investor_scores s ON i.id = s.investor_id
         WHERE sec.ticker IS NOT NULL
+          AND h.report_date = (SELECT MAX(report_date) FROM holdings hm WHERE hm.investor_id = h.investor_id)
         GROUP BY sec.id
         HAVING holder_count >= 2
         ORDER BY composite_score DESC
@@ -650,6 +656,7 @@ async function handleAPI(path, request, env) {
         JOIN investors i ON h.investor_id = i.id
         LEFT JOIN investor_scores s ON i.id = s.investor_id
         WHERE h.security_id IN (${placeholders})
+          AND h.report_date = (SELECT MAX(report_date) FROM holdings hm WHERE hm.investor_id = h.investor_id)
         ORDER BY h.security_id, h.pct_of_portfolio DESC
       `).bind(...securityIds).all();
 
@@ -748,6 +755,7 @@ async function handleAPI(path, request, env) {
         FROM holdings h
         JOIN securities sec ON h.security_id = sec.id
         JOIN investors i ON h.investor_id = i.id
+        WHERE h.report_date = (SELECT MAX(report_date) FROM holdings hm WHERE hm.investor_id = h.investor_id)
         GROUP BY sec.id
         ORDER BY holder_count DESC, total_value DESC
       `).all();
@@ -780,6 +788,7 @@ async function handleAPI(path, request, env) {
         JOIN investors i ON h.investor_id = i.id
         LEFT JOIN investor_scores s ON i.id = s.investor_id
         WHERE h.security_id = ?
+          AND h.report_date = (SELECT MAX(report_date) FROM holdings hm WHERE hm.investor_id = h.investor_id)
         ORDER BY h.pct_of_portfolio DESC
       `).bind(security.id).all();
 
@@ -830,6 +839,7 @@ async function handleAPI(path, request, env) {
         FROM holdings h
         JOIN securities sec ON h.security_id = sec.id
         WHERE sec.ticker IS NOT NULL
+          AND h.report_date = (SELECT MAX(report_date) FROM holdings hm WHERE hm.investor_id = h.investor_id)
         GROUP BY sec.id
         HAVING holder_count >= 2
         ORDER BY holder_count DESC, total_value DESC
@@ -849,6 +859,7 @@ async function handleAPI(path, request, env) {
         JOIN investors i ON h.investor_id = i.id
         LEFT JOIN investor_scores s ON i.id = s.investor_id
         WHERE h.security_id IN (${placeholders})
+          AND h.report_date = (SELECT MAX(report_date) FROM holdings hm WHERE hm.investor_id = h.investor_id)
       `).bind(...ids).all();
 
       const invMap = new Map();

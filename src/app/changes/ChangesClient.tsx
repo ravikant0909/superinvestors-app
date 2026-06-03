@@ -185,9 +185,14 @@ export default function ChangesClient() {
       ? titleCase(change.security_name).split(' ').slice(0, 3).join(' ')
       : change.ticker
     const convictionHref = getConvictionHref(change.investor_slug, change.ticker)
-    const estimatedTradePrice = change.shares_change !== 0
-      ? (Math.abs(change.value_change) * 1000) / Math.abs(change.shares_change)
-      : null
+    // Quarter-end price (13F value ÷ shares). NOT value_change/shares_change, which
+    // for adds wrongly divides the whole position's value change (incl. mark-to-market
+    // on existing shares) by only the new shares.
+    const estimatedTradePrice = change.shares_after > 0
+      ? (change.value_after * 1000) / change.shares_after
+      : change.shares_before > 0
+        ? (change.value_before * 1000) / change.shares_before
+        : null
 
     return (
       <div
@@ -237,7 +242,7 @@ export default function ChangesClient() {
           </div>
           {estimatedTradePrice != null && (
             <div>
-              <span className="text-gray-400">Est. @ </span>
+              <span className="text-gray-400" title="Quarter-end price = 13F value ÷ shares for the quarter (a snapshot, not the actual fill).">Qtr price </span>
               <span className="font-mono font-semibold text-gray-800">{fmtPrice(estimatedTradePrice)}</span>
             </div>
           )}

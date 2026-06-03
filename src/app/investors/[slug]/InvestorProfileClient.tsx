@@ -500,9 +500,15 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
             {sortedChanges.map((change) => {
               const badge = changeBadge(change.change_type)
               const isNew = change.change_type === 'NEW'
-              const estTradePrice = change.shares_change !== 0
-                ? (Math.abs(change.value_change) * 1000) / Math.abs(change.shares_change)
-                : null
+              // Quarter-end price (13F value ÷ shares); NOT value_change/shares_change.
+              const estTradePrice = change.shares_after > 0
+                ? (change.value_after * 1000) / change.shares_after
+                : change.shares_before > 0 ? (change.value_before * 1000) / change.shares_before : null
+              const bought = change.shares_change >= 0
+              // Cash traded ≈ |shares changed| × quarter price (immune to mark-to-market sign flips).
+              const tradeCashThousands = estTradePrice != null
+                ? (Math.abs(change.shares_change) * estTradePrice) / 1000
+                : Math.abs(change.value_change)
               const convictionHref = isNew ? getConvictionHref(slug, change.ticker) : null
               const afterW = change.pct_of_portfolio_after
               return (
@@ -517,24 +523,24 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
                   <p className="text-[11px] text-gray-400 truncate mt-0.5">{change.name}</p>
                   <div className="mt-2 flex flex-wrap gap-x-3 gap-y-0.5 text-xs">
                     <span>
-                      <span className="text-gray-400">{change.value_change >= 0 ? 'Bought' : 'Sold'}: </span>
+                      <span className="text-gray-400">{bought ? 'Bought' : 'Sold'}: </span>
                       <span className="font-mono font-semibold text-gray-800">{formatShares(Math.abs(change.shares_change))} sh</span>
                     </span>
                     <span>
-                      <span className="text-gray-400">Value: </span>
-                      <span className={`font-mono font-semibold ${change.value_change >= 0 ? 'text-green-600' : 'text-red-500'}`}>
-                        {change.value_change >= 0 ? '+' : ''}{formatValueFromThousands(change.value_change)}
+                      <span className="text-gray-400">Traded: </span>
+                      <span className={`font-mono font-semibold ${bought ? 'text-green-600' : 'text-red-500'}`}>
+                        {bought ? '+' : '−'}{formatValueFromThousands(tradeCashThousands)}
                       </span>
                     </span>
                     {totalValue > 0 && (
-                      <span title="Size of this trade relative to the current portfolio value">
+                      <span title="Cash traded (|shares changed| × quarter price) as a share of the current portfolio">
                         <span className="text-gray-400">= </span>
-                        <span className="font-mono font-semibold text-gray-800">{((Math.abs(change.value_change) / totalValue) * 100).toFixed(1)}% of portfolio</span>
+                        <span className="font-mono font-semibold text-gray-800">{((tradeCashThousands / totalValue) * 100).toFixed(1)}% of portfolio</span>
                       </span>
                     )}
                     {estTradePrice != null && (
-                      <span title="Estimated trade price = change in value ÷ change in shares this quarter (an estimate, not the actual fill).">
-                        <span className="text-gray-400">est. @ </span>
+                      <span title="Quarter-end price = 13F value ÷ shares for the quarter (a snapshot, not the actual fill).">
+                        <span className="text-gray-400">qtr price </span>
                         <span className="font-mono font-semibold text-gray-800 border-b border-dotted border-gray-300">{formatPrice(estTradePrice)}</span>
                       </span>
                     )}
@@ -552,7 +558,7 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
             })}
           </div>
           <p className="text-[11px] text-gray-400 mt-3">
-            Estimated trade price = change in 13F value ÷ change in shares for the quarter — an estimate from a quarter-end snapshot, not the actual fill.
+            Quarter price = 13F value ÷ shares for the quarter (a snapshot, not the actual fill). Trade size = shares changed × that price.
           </p>
         </section>
       )}
