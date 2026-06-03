@@ -185,14 +185,18 @@ export default function ChangesClient() {
       ? titleCase(change.security_name).split(' ').slice(0, 3).join(' ')
       : change.ticker
     const convictionHref = getConvictionHref(change.investor_slug, change.ticker)
-    // Quarter-end price (13F value ÷ shares). NOT value_change/shares_change, which
-    // for adds wrongly divides the whole position's value change (incl. mark-to-market
-    // on existing shares) by only the new shares.
-    const estimatedTradePrice = change.shares_after > 0
-      ? (change.value_after * 1000) / change.shares_after
-      : change.shares_before > 0
-        ? (change.value_before * 1000) / change.shares_before
-        : null
+    // Estimated trade price = the quarter MEAN ≈ the midpoint of the prior and current
+    // quarter-end 13F marks (value÷shares). The trade happened at an unknown point during
+    // the quarter, so the midpoint of the two surrounding marks minimises estimation error.
+    // (NOT value_change/shares_change, which for adds wrongly divides the whole position's
+    // value change — incl. mark-to-market on existing shares — by only the new shares.)
+    // Fall back to the single available mark for opens (no prior) and exits (no current).
+    const beforePrice = change.shares_before > 0 ? (change.value_before * 1000) / change.shares_before : null
+    const afterPrice = change.shares_after > 0 ? (change.value_after * 1000) / change.shares_after : null
+    const estimatedTradePrice =
+      beforePrice != null && afterPrice != null
+        ? (beforePrice + afterPrice) / 2
+        : afterPrice ?? beforePrice
 
     return (
       <div
@@ -242,7 +246,7 @@ export default function ChangesClient() {
           </div>
           {estimatedTradePrice != null && (
             <div>
-              <span className="text-gray-400" title="Quarter-end price = 13F value ÷ shares for the quarter (a snapshot, not the actual fill).">Qtr price </span>
+              <span className="text-gray-400 border-b border-dotted border-gray-300" title="Estimated trade price = the quarter's mean ≈ the midpoint of the prior and current quarter-end 13F marks (value ÷ shares). The exact fill is unknown; the midpoint minimises the estimation error.">Est. price </span>
               <span className="font-mono font-semibold text-gray-800">{fmtPrice(estimatedTradePrice)}</span>
             </div>
           )}

@@ -221,7 +221,7 @@ export default function TrackRecordClient({ slug }: { slug: string }) {
       )}
 
       <p className="text-[11px] text-gray-400">
-        Adds/trims under {EVENT_THRESHOLD}% of the position are folded into the line. Prices are quarter-end 13F snapshots (value ÷ shares), not actual fills. 13F = long US equity only, ~45-day delay. Not investment advice.
+        Adds/trims under {EVENT_THRESHOLD}% of the position are folded into the line. Prices are estimated as the quarter&apos;s mean — the midpoint of the prior and current quarter-end 13F marks (value ÷ shares) — since the exact fill within the quarter is unknown; this minimises the estimation error. 13F = long US equity only, ~45-day delay. Not investment advice.
       </p>
     </div>
   )

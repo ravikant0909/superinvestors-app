@@ -112,7 +112,17 @@ export function buildRuntimeTrackRecords(
       const curIdx = quarterIndex(quarterKey(current.year, current.quarter))
       const prevIdx = previous ? quarterIndex(quarterKey(previous.year, previous.quarter)) : null
       const isReopen = prevIdx != null && curIdx - prevIdx > 1
-      const price = estimatePrice(current.value, current.shares)
+      const contiguous = prevIdx != null && curIdx - prevIdx === 1
+      const curPrice = estimatePrice(current.value, current.shares) // quarter-END mark (value÷shares)
+      const prevPrice = previous ? estimatePrice(previous.value, previous.shares) : null
+      // The trade happened at some unknown point DURING the quarter, so the quarter-end close
+      // is a biased estimate of the fill. Use the quarter MEAN ≈ the midpoint of the prior and
+      // current quarter-end marks, which minimises the expected estimation error. Fall back to
+      // the quarter-end mark for opens / re-entries, where there is no prior contiguous mark.
+      const price =
+        contiguous && prevPrice != null && curPrice != null
+          ? (prevPrice + curPrice) / 2
+          : curPrice
 
       let action: RuntimeTimelineEntry['action']
       let sharesDelta: number

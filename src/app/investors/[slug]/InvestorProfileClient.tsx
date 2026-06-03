@@ -500,12 +500,16 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
             {sortedChanges.map((change) => {
               const badge = changeBadge(change.change_type)
               const isNew = change.change_type === 'NEW'
-              // Quarter-end price (13F value ÷ shares); NOT value_change/shares_change.
-              const estTradePrice = change.shares_after > 0
-                ? (change.value_after * 1000) / change.shares_after
-                : change.shares_before > 0 ? (change.value_before * 1000) / change.shares_before : null
+              // Estimated trade price = the quarter MEAN ≈ the midpoint of the prior and current
+              // quarter-end 13F marks (value÷shares); NOT value_change/shares_change. The fill
+              // happened at an unknown point in the quarter, so the midpoint of the two surrounding
+              // marks minimises estimation error. Fall back to the one available mark for opens/exits.
+              const beforeP = change.shares_before > 0 ? (change.value_before * 1000) / change.shares_before : null
+              const afterP = change.shares_after > 0 ? (change.value_after * 1000) / change.shares_after : null
+              const estTradePrice =
+                beforeP != null && afterP != null ? (beforeP + afterP) / 2 : afterP ?? beforeP
               const bought = change.shares_change >= 0
-              // Cash traded ≈ |shares changed| × quarter price (immune to mark-to-market sign flips).
+              // Cash traded ≈ |shares changed| × estimated trade price (immune to mark-to-market sign flips).
               const tradeCashThousands = estTradePrice != null
                 ? (Math.abs(change.shares_change) * estTradePrice) / 1000
                 : Math.abs(change.value_change)
@@ -533,14 +537,14 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
                       </span>
                     </span>
                     {totalValue > 0 && (
-                      <span title="Cash traded (|shares changed| × quarter price) as a share of the current portfolio">
+                      <span title="Cash traded (|shares changed| × estimated trade price) as a share of the current portfolio">
                         <span className="text-gray-400">= </span>
                         <span className="font-mono font-semibold text-gray-800">{((tradeCashThousands / totalValue) * 100).toFixed(1)}% of portfolio</span>
                       </span>
                     )}
                     {estTradePrice != null && (
-                      <span title="Quarter-end price = 13F value ÷ shares for the quarter (a snapshot, not the actual fill).">
-                        <span className="text-gray-400">qtr price </span>
+                      <span title="Estimated trade price = the quarter's mean ≈ the midpoint of the prior and current quarter-end 13F marks (value ÷ shares). The exact fill is unknown; the midpoint minimises the estimation error.">
+                        <span className="text-gray-400">est. price </span>
                         <span className="font-mono font-semibold text-gray-800 border-b border-dotted border-gray-300">{formatPrice(estTradePrice)}</span>
                       </span>
                     )}
@@ -558,7 +562,7 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
             })}
           </div>
           <p className="text-[11px] text-gray-400 mt-3">
-            Quarter price = 13F value ÷ shares for the quarter (a snapshot, not the actual fill). Trade size = shares changed × that price.
+            Est. price = the quarter&apos;s mean ≈ the midpoint of the prior and current quarter-end 13F marks (value ÷ shares). The exact fill is unknown, so the midpoint of the two surrounding marks is used to minimise the estimation error. Trade size = shares changed × that price.
           </p>
         </section>
       )}
