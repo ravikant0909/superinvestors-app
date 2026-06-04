@@ -86,7 +86,10 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
-          npm ci
+          # npm install (not ci): the committed lock is generated on macOS and omits some
+          # linux-only optional deps (@emnapi/*), which makes strict `npm ci` fail on the
+          # ubuntu runner. install resolves per-platform.
+          npm install --no-audit --no-fund
           npm run build
           wrangler pages deploy out --project-name superinvestors-app --branch main --commit-dirty=true
 
