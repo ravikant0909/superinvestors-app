@@ -2,7 +2,7 @@
 
 ## Reality Check
 
-- The app tracks 149 investor profiles, but the current 13F pipeline only covers 60 filers.
+- The app tracks 149 investor profiles; the 13F pipeline covers 83 filers (the rest genuinely cannot be 13F-covered: non-US managers, historical/retired figures, endowments, VC/PE, individuals, or people whose holdings sit inside another filer such as Berkshire). `src/lib/coverage-notes.ts` records the specific reason per profile-only investor.
 - Do not claim full 13F coverage for all tracked investors unless the pipeline and data actually support it.
 - Conviction pages are separate AI-written stock research artifacts, not direct 13F coverage.
 
