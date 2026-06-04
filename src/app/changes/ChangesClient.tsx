@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { fetchApiJson, fetchPriceMap } from '@/lib/api'
 import { getConvictionHref } from '@/lib/conviction-index'
+import { usePrivateMode } from '@/lib/private-mode'
 
 interface ChangeRecord {
   change_type: 'NEW' | 'INCREASED' | 'DECREASED' | 'SOLD_OUT'
@@ -92,6 +93,7 @@ const ACTION_TABS: { key: ActionFilter; label: string; active: string }[] = [
 ]
 
 export default function ChangesClient() {
+  const priv = usePrivateMode()
   const [changes, setChanges] = useState<ChangeRecord[]>([])
   const [prices, setPrices] = useState<Record<string, number>>({})
   const [loaded, setLoaded] = useState(false)
@@ -160,8 +162,12 @@ export default function ChangesClient() {
       }
       grouped.get(change.investor_slug)!.changes.push(change)
     }
-    return Array.from(grouped.values()).sort((a, b) => b.score - a.score)
-  }, [changes])
+    const groups = Array.from(grouped.values())
+    if (priv) {
+      return groups.sort((a, b) => b.score - a.score)
+    }
+    return groups.sort((a, b) => b.changes.length - a.changes.length || a.name.localeCompare(b.name))
+  }, [changes, priv])
 
   const actionCounts = useMemo(() => ({
     NEW: byActionType.NEW.length,
@@ -210,14 +216,16 @@ export default function ChangesClient() {
                 <Link href={`/investors/${change.investor_slug}`} className="text-sm font-semibold text-gray-900 hover:text-indigo-600 truncate">
                   {change.investor_name}
                 </Link>
-                <span className={`shrink-0 inline-flex items-center justify-center w-5 h-5 rounded-full text-[9px] font-bold ${
-                  (change.investor_score ?? 0) >= 8 ? 'bg-green-100 text-green-700' :
-                  (change.investor_score ?? 0) >= 7 ? 'bg-blue-100 text-blue-700' :
-                  (change.investor_score ?? 0) >= 6 ? 'bg-yellow-100 text-yellow-700' :
-                  'bg-gray-100 text-gray-600'
-                }`}>
-                  {(change.investor_score ?? 0).toFixed(1)}
-                </span>
+                {priv && (
+                  <span className={`shrink-0 inline-flex items-center justify-center w-5 h-5 rounded-full text-[9px] font-bold ${
+                    (change.investor_score ?? 0) >= 8 ? 'bg-green-100 text-green-700' :
+                    (change.investor_score ?? 0) >= 7 ? 'bg-blue-100 text-blue-700' :
+                    (change.investor_score ?? 0) >= 6 ? 'bg-yellow-100 text-yellow-700' :
+                    'bg-gray-100 text-gray-600'
+                  }`}>
+                    {(change.investor_score ?? 0).toFixed(1)}
+                  </span>
+                )}
               </>
             )}
           </div>
@@ -361,14 +369,16 @@ export default function ChangesClient() {
                     <p className="mt-1 text-sm text-gray-500">{group.changes.length} recent changes</p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className={`text-sm font-bold ${
-                      group.score >= 8 ? 'text-green-600' :
-                      group.score >= 7 ? 'text-blue-600' :
-                      group.score >= 6 ? 'text-yellow-600' :
-                      'text-gray-600'
-                    }`}>
-                      {group.score.toFixed(1)}
-                    </span>
+                    {priv && (
+                      <span className={`text-sm font-bold ${
+                        group.score >= 8 ? 'text-green-600' :
+                        group.score >= 7 ? 'text-blue-600' :
+                        group.score >= 6 ? 'text-yellow-600' :
+                        'text-gray-600'
+                      }`}>
+                        {group.score.toFixed(1)}
+                      </span>
+                    )}
                     <span className="text-gray-400">{isExpanded ? '−' : '+'}</span>
                   </div>
                 </button>

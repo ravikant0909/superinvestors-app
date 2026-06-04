@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { fetchApiJson, fetchPriceMap } from '@/lib/api'
 import { getConvictionHref } from '@/lib/conviction-index'
+import { usePrivateMode } from '@/lib/private-mode'
 
 interface HolderInfo {
   investor_name: string
@@ -78,6 +79,7 @@ function ScoreBar({ value, max = 1, color }: { value: number; max?: number; colo
 }
 
 export default function BestIdeasClient() {
+  const priv = usePrivateMode()
   const [ideas, setIdeas] = useState<BestIdea[]>([])
   const [prices, setPrices] = useState<Record<string, number>>({})
   const [loaded, setLoaded] = useState(false)
@@ -109,6 +111,13 @@ export default function BestIdeasClient() {
     }
   }, [])
 
+  const rankedIdeas = useMemo(() => {
+    // Public default: pure consensus ranking — held by the most tracked investors,
+    // then by average portfolio weight. Private (owner) keeps the API's composite-score order.
+    if (priv) return ideas
+    return [...ideas].sort((a, b) => b.holder_count - a.holder_count || b.avg_weight - a.avg_weight)
+  }, [ideas, priv])
+
   const summary = useMemo(() => {
     const totalUniqueInvestors = new Set(ideas.flatMap((idea) => idea.holders.map((holder) => holder.investor_slug))).size
     return {
@@ -136,15 +145,17 @@ export default function BestIdeasClient() {
 
   return (
     <div className="space-y-8">
-      <section className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <section className={`grid grid-cols-2 gap-4 ${priv ? 'sm:grid-cols-4' : 'sm:grid-cols-3'}`}>
         <StatCard value={ideas.length.toString()} label="Best Ideas" />
         <StatCard value={summary.totalUniqueInvestors.toString()} label="Investors" />
-        <StatCard value={summary.topScore.toFixed(1)} label="Top Score" valueClass="text-indigo-600" />
+        {priv && (
+          <StatCard value={summary.topScore.toFixed(1)} label="Top Score" valueClass="text-indigo-600" />
+        )}
         <StatCard value={summary.withRecentActivity.toString()} label="Recent Activity" />
       </section>
 
       <div className="grid gap-5">
-        {ideas.map((idea, index) => (
+        {rankedIdeas.map((idea, index) => (
           <div key={idea.security_id} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
             <div className="px-5 pt-5 pb-4">
               <div className="flex items-start justify-between gap-4 flex-wrap sm:flex-nowrap">
@@ -167,13 +178,15 @@ export default function BestIdeasClient() {
                   </div>
                 </div>
 
-                <div className="flex flex-col items-center flex-shrink-0">
-                  <div className="text-2xl font-extrabold text-indigo-600">{idea.composite_score.toFixed(1)}</div>
-                  <div className="text-[10px] uppercase tracking-wider text-gray-400 font-semibold">Score</div>
-                </div>
+                {priv && (
+                  <div className="flex flex-col items-center flex-shrink-0">
+                    <div className="text-2xl font-extrabold text-indigo-600">{idea.composite_score.toFixed(1)}</div>
+                    <div className="text-[10px] uppercase tracking-wider text-gray-400 font-semibold">Score</div>
+                  </div>
+                )}
               </div>
 
-              <div className="mt-4 grid grid-cols-3 gap-3 text-[11px]">
+              <div className={`mt-4 grid gap-3 text-[11px] ${priv ? 'grid-cols-3' : 'grid-cols-2'}`}>
                 <div>
                   <div className="flex justify-between text-gray-500 mb-0.5">
                     <span>Holders</span>
@@ -188,13 +201,15 @@ export default function BestIdeasClient() {
                   </div>
                   <ScoreBar value={idea.avg_weight} max={Math.max(idea.avg_weight, 20)} color="bg-blue-500" />
                 </div>
-                <div>
-                  <div className="flex justify-between text-gray-500 mb-0.5">
-                    <span>Avg Quality</span>
-                    <span className="font-medium text-gray-700">{idea.avg_investor_score.toFixed(1)}</span>
+                {priv && (
+                  <div>
+                    <div className="flex justify-between text-gray-500 mb-0.5">
+                      <span>Avg Quality</span>
+                      <span className="font-medium text-gray-700">{idea.avg_investor_score.toFixed(1)}</span>
+                    </div>
+                    <ScoreBar value={idea.avg_investor_score} max={10} color="bg-emerald-500" />
                   </div>
-                  <ScoreBar value={idea.avg_investor_score} max={10} color="bg-emerald-500" />
-                </div>
+                )}
               </div>
             </div>
 
@@ -225,14 +240,16 @@ export default function BestIdeasClient() {
                         <span className="text-xs font-mono text-gray-600 w-12 text-right flex-shrink-0">
                           {holder.weight_pct.toFixed(1)}%
                         </span>
-                        <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded flex-shrink-0 ${
-                          (holder.investor_score ?? 0) >= 8 ? 'bg-green-50 text-green-700' :
-                          (holder.investor_score ?? 0) >= 7 ? 'bg-blue-50 text-blue-700' :
-                          (holder.investor_score ?? 0) >= 6 ? 'bg-yellow-50 text-yellow-700' :
-                          'bg-gray-50 text-gray-500'
-                        }`}>
-                          {(holder.investor_score ?? 0).toFixed(1)}
-                        </span>
+                        {priv && (
+                          <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded flex-shrink-0 ${
+                            (holder.investor_score ?? 0) >= 8 ? 'bg-green-50 text-green-700' :
+                            (holder.investor_score ?? 0) >= 7 ? 'bg-blue-50 text-blue-700' :
+                            (holder.investor_score ?? 0) >= 6 ? 'bg-yellow-50 text-yellow-700' :
+                            'bg-gray-50 text-gray-500'
+                          }`}>
+                            {(holder.investor_score ?? 0).toFixed(1)}
+                          </span>
+                        )}
                         {convictionHref && (
                           <Link href={convictionHref} className="text-[10px] font-medium text-purple-700 hover:text-purple-900">
                             Deep dive
@@ -274,8 +291,10 @@ export default function BestIdeasClient() {
       <div className="bg-white rounded-xl shadow-sm border border-gray-200 px-6 py-5">
         <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wide">Methodology</h3>
         <p className="mt-2 text-sm text-gray-500 leading-relaxed">
-          The runtime version ranks ideas using current holder overlap, average portfolio weight, and average investor quality from the D1-backed API.
-          We filter out obvious index ETFs, preferred shares, warrants, and unresolved CUSIP-style tickers.
+          {priv
+            ? 'The runtime version ranks ideas using current holder overlap, average portfolio weight, and average investor quality from the D1-backed API.'
+            : 'These ideas are held by the most tracked investors, ranked by how many hold each name and then by average portfolio weight, from the D1-backed API.'}
+          {' '}We filter out obvious index ETFs, preferred shares, warrants, and unresolved CUSIP-style tickers.
         </p>
       </div>
     </div>

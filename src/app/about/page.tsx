@@ -1,145 +1,85 @@
 import type { Metadata } from 'next'
-import { VERDICT_COUNTS } from '@/lib/static-investors'
 
 export const metadata: Metadata = {
   title: 'About & Methodology — SuperInvestors',
-  description: 'How we score investors, our data sources, methodology, and limitations. Learn about our 8-dimension scoring framework and verdict system.',
+  description:
+    'What SuperInvestors tracks, where the data comes from (SEC EDGAR 13F filings), how returns and cost basis are estimated, and the limitations of 13F data.',
 }
 
-const scoringDimensions = [
+const coverage = [
   {
-    name: 'Philosophy Alignment',
-    weight: 20,
-    description:
-      'How closely does this investor\'s philosophy match concentrated, long-term, downside-first value investing? Do they buy wonderful businesses at fair prices, focus on margin of safety, and think in decades?',
-    high: 'Clear, consistent philosophy focused on durable advantages and long-term compounding.',
-    low: 'Momentum-driven, macro-trading, or no coherent investment framework.',
+    stat: '149',
+    label: 'tracked investor profiles',
+    detail:
+      'Notable investors and funds with a profile page on the site.',
   },
   {
-    name: 'Concentration',
-    weight: 15,
-    description:
-      'Does this investor make a few big bets with high conviction, or spray capital across hundreds of positions? Concentrated portfolios produce higher-signal 13F filings.',
-    high: '5-15 positions, top 5 representing 60%+ of the portfolio.',
-    low: '100+ positions with no clear conviction sizing.',
+    stat: '83',
+    label: 'with loaded 13F history',
+    detail:
+      'Profiles backed by parsed SEC 13F-HR filings and quarter-over-quarter holdings.',
   },
   {
-    name: 'Rationality',
-    weight: 15,
-    description:
-      'Evidence of clear thinking, willingness to change mind with new data, avoidance of behavioral biases, and discipline under pressure.',
-    high: 'Admits mistakes publicly, holds through volatility when thesis intact, sells when thesis breaks.',
-    low: 'Chases momentum, panic-sells, anchors to positions despite thesis deterioration.',
-  },
-  {
-    name: 'Integrity',
-    weight: 15,
-    description:
-      'Alignment with investors, honest communication, fee structure fairness, absence of scandals or self-dealing.',
-    high: 'Co-invests alongside LPs, reasonable fees, returns capital when opportunities are scarce.',
-    low: 'Fee extraction, misleading communication, regulatory issues, conflicts of interest.',
-  },
-  {
-    name: 'Track Record',
-    weight: 15,
-    description:
-      'Long-term performance versus benchmarks, measured over full market cycles (10+ years). Consistency and risk-adjusted returns matter more than peak performance.',
-    high: 'Market-beating returns over 15+ years across multiple cycles with reasonable volatility.',
-    low: 'Short track record, inconsistent returns, or strong performance driven by leverage/luck.',
-  },
-  {
-    name: 'Transparency',
-    weight: 10,
-    description:
-      'How much can we learn from this investor\'s public communications? Quality of letters, speeches, interviews, and willingness to explain reasoning.',
-    high: 'Publishes detailed letters, gives talks, explains individual positions and mistakes.',
-    low: 'No public letters, never speaks publicly, opaque about investment process.',
-  },
-  {
-    name: 'Relevance',
-    weight: 5,
-    description:
-      'Is this investor still actively managing money and making decisions? Retired, deceased, or coasting managers produce stale 13F signals.',
-    high: 'Actively investing, recent high-conviction new positions, engaged in markets.',
-    low: 'Retired, deceased, or fund on autopilot with no active decision-making.',
-  },
-  {
-    name: 'AGI Awareness',
-    weight: 5,
-    description:
-      'Does this investor understand and incorporate the implications of artificial general intelligence into their analysis? AGI will reshape most businesses by 2030.',
-    high: 'Explicitly discusses AI/AGI impact on portfolio companies, positions reflect AI thesis.',
-    low: 'No engagement with technological disruption, portfolio ignores AI transformation.',
+    stat: '~8,000',
+    label: 'all 13F filers (coming)',
+    detail:
+      'A directory of every institutional manager that files a 13F-HR is being added.',
   },
 ]
 
-const verdicts = [
+const methodology = [
   {
-    label: 'FOLLOW',
-    color: 'bg-green-100 text-green-800 border-green-200',
-    dotColor: 'bg-green-500',
-    count: VERDICT_COUNTS.FOLLOW ?? 0,
-    description:
-      'High-conviction investors whose 13F filings are worth studying in detail every quarter. Their new positions and significant increases are potential idea sources. These investors have demonstrated strong alignment with concentrated, long-term value investing and have the track records to back it up.',
+    title: 'Estimated trade prices',
+    detail:
+      'A 13F shows position value and share count at each quarter-end, but not the price at which shares were bought or sold. To estimate the price paid for a quarter’s change in shares, we use the quarter mean: the midpoint of the consecutive quarter-end value-per-share marks. This is an approximation, not the investor’s actual fill price.',
   },
   {
-    label: 'WATCH',
-    color: 'bg-yellow-100 text-yellow-800 border-yellow-200',
-    dotColor: 'bg-yellow-500',
-    count: VERDICT_COUNTS.WATCH ?? 0,
-    description:
-      'Interesting investors worth monitoring but with meaningful gaps in our scoring criteria. They may have excellent track records but low concentration, or great philosophy but short history. Their 13F filings provide useful context but are not primary idea sources.',
+    title: 'Running-average cost basis',
+    detail:
+      'Cost basis for a position is tracked as a running average. Each quarter’s estimated buys raise the average cost; sells reduce shares at the prevailing average. This produces an approximate, evolving cost basis from public filings alone.',
   },
   {
-    label: 'SKIP',
-    color: 'bg-red-100 text-red-800 border-red-200',
-    dotColor: 'bg-red-500',
-    count: VERDICT_COUNTS.SKIP ?? 0,
-    description:
-      'Investors who do not meet our criteria for tracking. They may be quantitative/algorithmic, excessively diversified, have integrity concerns, or follow strategies that produce low-signal 13F filings. Included in our database for completeness but not actively monitored.',
+    title: 'Returns vs the S&P 500',
+    detail:
+      'Position and portfolio returns are benchmarked against the S&P 500 over the same period, so performance is shown relative to simply owning the index rather than in isolation.',
+  },
+  {
+    title: 'Stock-split adjusted',
+    detail:
+      'Share counts and per-share figures are adjusted for stock splits so that quarter-over-quarter comparisons and cost-basis math stay consistent across split events.',
   },
 ]
 
 const limitations = [
   {
-    title: '13F only shows long equity positions',
+    title: 'Long US equity only',
     detail:
-      'Short positions, bonds, private investments, real estate, derivatives (except certain options), and cash positions are invisible. An investor\'s 13F may represent only 30-50% of their total portfolio.',
+      'A 13F discloses only long positions in US-listed securities (stocks, ETFs, certain options, and convertibles). Short positions, bonds, private investments, real estate, cash, and most derivatives are invisible. An investor’s 13F may represent only part of their total portfolio.',
   },
   {
-    title: '45-day reporting delay',
+    title: '~45-day reporting delay',
     detail:
-      'Holdings are reported as of quarter-end, but filings are due 45 days later. By the time we see the data, positions may have already changed significantly.',
+      'Holdings are reported as of quarter-end, but filings are due roughly 45 days later. By the time the data is public, positions may already have changed.',
   },
   {
-    title: 'No position cost basis',
+    title: 'Quarterly snapshots only',
     detail:
-      '13F filings show market value, not purchase price. We cannot determine whether a position is profitable or at what price the investor entered.',
+      '13F is a quarterly snapshot. Intra-quarter trades that open and close before a quarter-end never appear, and the timing of any change within the quarter is unknown.',
   },
   {
-    title: 'No short positions',
+    title: 'No shorts, options intent, or non-US holdings',
     detail:
-      'Short positions are not disclosed in 13F filings. An investor may appear bullish on a sector while hedging heavily via shorts we cannot see.',
+      'Short books, the directional intent behind options, and securities listed only on non-US exchanges are not disclosed. Managers with significant international or hedged exposure have incomplete 13F disclosure.',
   },
   {
-    title: 'No international holdings',
+    title: 'Estimates, not actuals',
     detail:
-      '13F only covers securities on US exchanges. Investors with significant international portfolios (e.g., Li Lu\'s BYD position) have incomplete disclosure.',
+      'Estimated trade prices, running-average cost basis, and derived returns are approximations built from quarter-end marks. They are labeled as estimates and should not be read as the investor’s realized prices or returns.',
   },
   {
-    title: 'Confidential treatment',
+    title: 'Not investment advice',
     detail:
-      'Investors can request confidential treatment from the SEC for positions they are actively building, delaying disclosure by up to a year.',
-  },
-  {
-    title: 'Attribution ambiguity',
-    detail:
-      'Large firms file a single 13F covering multiple portfolio managers. A position in Berkshire\'s 13F might be Buffett, Todd Combs, or Ted Weschler.',
-  },
-  {
-    title: 'Small position noise',
-    detail:
-      'Positions under $200M may be analyst-level or compliance-driven rather than reflecting the lead PM\'s conviction. We focus on large, concentrated positions.',
+      'This is an educational and research tool. Nothing here is investment advice, a recommendation, or a solicitation. The fact that a notable investor owns a stock does not mean you should — their horizon, risk tolerance, and information set differ from yours.',
   },
 ]
 
@@ -152,11 +92,12 @@ export default function AboutPage() {
           About SuperInvestors
         </h1>
         <p className="text-lg text-gray-600 leading-relaxed">
-          How we track, score, and analyze the world&apos;s greatest investors.
+          A tracker for what notable investors hold, built from their SEC 13F
+          filings.
         </p>
       </div>
 
-      {/* Section 1: What We Do */}
+      {/* Section 1: What it is */}
       <section className="mb-14">
         <div className="bg-white rounded-xl border border-gray-200 p-8">
           <h2 className="text-xl font-semibold text-gray-900 mb-4">
@@ -164,135 +105,32 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-4 text-gray-700 leading-relaxed">
             <p>
-              SuperInvestors tracks the portfolios of legendary value investors
-              through their SEC 13F filings. Every quarter, institutional
-              investment managers with over $100M in assets must disclose their
-              US equity holdings. We collect, parse, and analyze these filings
-              to show you exactly what the world&apos;s best investors are buying
-              and selling.
+              SuperInvestors tracks what notable investors hold, drawn directly
+              from their SEC 13F filings. Every quarter, institutional
+              investment managers with over $100M in qualifying US assets must
+              disclose their long US equity holdings. We collect, parse, and
+              organize these filings so you can see what each tracked investor
+              owns and how their positions change quarter over quarter.
             </p>
             <p>
-              But we go further than raw data. We score each investor across 8
-              dimensions to separate genuine conviction investors from asset
-              gatherers. We track position changes quarter over quarter. We
-              identify stocks where multiple top investors converge. And we
-              generate AI-powered investment theses explaining <em>why</em> each
-              investor likely holds each position.
+              On top of that filing data, the site is growing an emerging layer
+              of AI-assisted, per-stock research — context on individual
+              positions to help you study them, not tips to act on.
             </p>
             <p>
-              This site is built for serious individual investors, financial
-              advisors, and students of value investing who want to understand
-              how the greatest capital allocators think and act &mdash; not for
-              short-term traders looking for tips.
+              It is built for people who want to understand how respected
+              capital allocators are positioned, using the official public
+              record rather than rumor or marketing.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Section 2: Scoring System */}
+      {/* Section 2: Data source */}
       <section className="mb-14" id="methodology">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">
-          How We Score Investors
-        </h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Data Source</h2>
         <p className="text-gray-600 mb-6 leading-relaxed">
-          Every investor is scored on 8 dimensions, each rated 1&ndash;10. The
-          weighted composite score determines their verdict. Weights reflect
-          what matters most for generating actionable, high-signal investment
-          ideas.
-        </p>
-
-        <div className="space-y-4">
-          {scoringDimensions.map((dim) => (
-            <div
-              key={dim.name}
-              className="bg-white rounded-xl border border-gray-200 p-6"
-            >
-              <div className="flex items-start justify-between mb-3">
-                <h3 className="text-base font-semibold text-gray-900">
-                  {dim.name}
-                </h3>
-                <span className="text-sm font-mono font-semibold text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-full whitespace-nowrap ml-4">
-                  {dim.weight}% weight
-                </span>
-              </div>
-              <p className="text-sm text-gray-700 leading-relaxed mb-3">
-                {dim.description}
-              </p>
-              <div className="grid sm:grid-cols-2 gap-3">
-                <div className="bg-green-50 rounded-lg px-4 py-3">
-                  <p className="text-xs font-semibold text-green-700 uppercase tracking-wide mb-1">
-                    Score 9-10
-                  </p>
-                  <p className="text-sm text-green-800">{dim.high}</p>
-                </div>
-                <div className="bg-red-50 rounded-lg px-4 py-3">
-                  <p className="text-xs font-semibold text-red-700 uppercase tracking-wide mb-1">
-                    Score 1-3
-                  </p>
-                  <p className="text-sm text-red-800">{dim.low}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Composite formula */}
-        <div className="mt-6 bg-gray-50 rounded-xl border border-gray-200 p-6">
-          <h3 className="text-base font-semibold text-gray-900 mb-3">
-            Composite Score Formula
-          </h3>
-          <div className="bg-white rounded-lg border border-gray-200 px-4 py-3 font-mono text-sm text-gray-800 overflow-x-auto">
-            <code>
-              Composite = Philosophy(20%) + Concentration(15%) +
-              Rationality(15%) + Integrity(15%) + Track&nbsp;Record(15%) +
-              Transparency(10%) + Relevance(5%) + AGI&nbsp;Awareness(5%)
-            </code>
-          </div>
-          <p className="text-sm text-gray-600 mt-3">
-            All scores are on a 1&ndash;10 scale. The composite is a weighted
-            average, also on a 1&ndash;10 scale. Scores are based on extensive
-            research into each investor&apos;s public record, writings, track
-            record, and portfolio characteristics.
-          </p>
-        </div>
-      </section>
-
-      {/* Section 3: Verdict System */}
-      <section className="mb-14">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">
-          Verdict System
-        </h2>
-        <p className="text-gray-600 mb-6 leading-relaxed">
-          Each investor receives a verdict based on their composite score. The
-          verdict determines how closely we track their portfolio activity.
-        </p>
-
-        <div className="space-y-4">
-          {verdicts.map((v) => (
-            <div
-              key={v.label}
-              className={`rounded-xl border p-6 ${v.color}`}
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <span className={`w-3 h-3 rounded-full ${v.dotColor}`} />
-                <h3 className="text-lg font-bold">{v.label}</h3>
-                <span className="text-sm opacity-75 ml-auto">
-                  {v.count} investors
-                </span>
-              </div>
-              <p className="text-sm leading-relaxed opacity-90">
-                {v.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Section 4: Data Sources */}
-      <section className="mb-14">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Data Sources</h2>
-        <p className="text-gray-600 mb-6 leading-relaxed">
-          All portfolio data comes from SEC EDGAR 13F filings &mdash; the
+          All portfolio data comes from SEC EDGAR 13F-HR filings &mdash; the
           official, legally mandated disclosure of institutional holdings.
         </p>
 
@@ -303,11 +141,11 @@ export default function AboutPage() {
                 What is a 13F filing?
               </h3>
               <p className="text-sm text-gray-700 leading-relaxed">
-                SEC Form 13F is a quarterly report filed by institutional
+                SEC Form 13F-HR is a quarterly report filed by institutional
                 investment managers with at least $100 million in qualifying
-                assets under management. It discloses all US-listed equity
-                positions (stocks, ETFs, certain options, and convertible
-                securities) held at the end of each calendar quarter.
+                assets. It discloses long positions in US-listed securities
+                &mdash; stocks, ETFs, certain options, and convertibles &mdash;
+                held at the end of each calendar quarter.
               </p>
             </div>
 
@@ -324,16 +162,16 @@ export default function AboutPage() {
                     </p>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">Filing deadline</p>
+                    <p className="font-semibold text-gray-900">
+                      Filing deadline
+                    </p>
                     <p className="text-gray-600">
-                      45 calendar days after quarter end
+                      ~45 calendar days after quarter end
                     </p>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">Our processing</p>
-                    <p className="text-gray-600">
-                      Within 24 hours of filing
-                    </p>
+                    <p className="font-semibold text-gray-900">Frequency</p>
+                    <p className="text-gray-600">Quarterly</p>
                   </div>
                 </div>
               </div>
@@ -346,7 +184,7 @@ export default function AboutPage() {
               <ul className="text-sm text-gray-700 leading-relaxed space-y-1.5">
                 <li className="flex items-start gap-2">
                   <span className="text-green-500 mt-0.5 font-bold">+</span>
-                  <span>US-listed common and preferred stocks</span>
+                  <span>Long positions in US-listed common and preferred stocks</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-500 mt-0.5 font-bold">+</span>
@@ -384,14 +222,78 @@ export default function AboutPage() {
                 >
                   SEC EDGAR
                 </a>{' '}
-                using each investor&apos;s CIK (Central Index Key). Filings are
-                parsed, holdings are extracted, position changes are computed by
-                comparing to the previous quarter, and cross-investor overlap is
-                updated. AI theses are generated using Claude for significant
-                position changes.
+                using each filer&apos;s CIK (Central Index Key). Filings are
+                parsed, holdings are extracted, and position changes are computed
+                by comparing each quarter to the previous one.
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Section 3: Coverage */}
+      <section className="mb-14">
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Coverage</h2>
+        <p className="text-gray-600 mb-6 leading-relaxed">
+          Not every notable investor files a US 13F. We&apos;re explicit about
+          the gap between the profiles we track and the ones with loaded filing
+          history.
+        </p>
+
+        <div className="grid sm:grid-cols-3 gap-4 mb-6">
+          {coverage.map((c) => (
+            <div
+              key={c.label}
+              className="bg-white rounded-xl border border-gray-200 p-6"
+            >
+              <p className="text-3xl font-bold text-gray-900 mb-1">{c.stat}</p>
+              <p className="text-sm font-semibold text-gray-800 mb-2">
+                {c.label}
+              </p>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                {c.detail}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="bg-white rounded-xl border border-gray-200 p-6">
+          <p className="text-sm text-gray-700 leading-relaxed">
+            Many tracked profiles genuinely don&apos;t file US 13Fs &mdash;
+            non-US managers, historical figures, endowments, VC/PE firms, and
+            individuals whose holdings sit inside another filer. Those profiles
+            are kept for context and labeled as profile-only, not presented as
+            having filing coverage they lack. A directory of all{' '}
+            <span className="whitespace-nowrap">~8,000</span> institutional 13F
+            filers is being added so the full universe is searchable.
+          </p>
+        </div>
+      </section>
+
+      {/* Section 4: Methodology */}
+      <section className="mb-14">
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Methodology</h2>
+        <p className="text-gray-600 mb-6 leading-relaxed">
+          13F filings report position value and share count, but not the prices
+          an investor actually paid. We estimate trade prices, cost basis, and
+          returns from quarter-end marks. These are approximations, labeled as
+          estimates throughout the site.
+        </p>
+
+        <div className="space-y-4">
+          {methodology.map((m) => (
+            <div
+              key={m.title}
+              className="bg-white rounded-xl border border-gray-200 p-6"
+            >
+              <h3 className="text-base font-semibold text-gray-900 mb-2">
+                {m.title}
+              </h3>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                {m.detail}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -401,7 +303,7 @@ export default function AboutPage() {
         <p className="text-gray-600 mb-6 leading-relaxed">
           13F filings are the best publicly available window into institutional
           portfolios, but they have significant blind spots. Understanding these
-          limitations is essential for using this data responsibly.
+          limitations is essential for using the data responsibly.
         </p>
 
         <div className="grid sm:grid-cols-2 gap-4">
@@ -421,7 +323,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Section 6: Methodology Note */}
+      {/* Section 6: Not Investment Advice */}
       <section className="mb-8">
         <div className="bg-amber-50 rounded-xl border border-amber-200 p-8">
           <h2 className="text-lg font-semibold text-amber-900 mb-3">
@@ -430,19 +332,18 @@ export default function AboutPage() {
           <div className="text-sm text-amber-800 leading-relaxed space-y-3">
             <p>
               SuperInvestors is an educational and research tool. Nothing on this
-              site constitutes investment advice, a recommendation to buy or
-              sell any security, or a solicitation of any kind. The fact that a
-              legendary investor owns a stock does not mean you should buy it
+              site constitutes investment advice, a recommendation to buy or sell
+              any security, or a solicitation of any kind. The fact that a
+              notable investor owns a stock does not mean you should buy it
               &mdash; they may have a different time horizon, risk tolerance,
               portfolio context, or information set than you do.
             </p>
             <p>
-              13F filings are backward-looking snapshots with a 45-day delay.
-              Positions may have been sold by the time you see the data. Our
-              investor scores are editorial assessments based on publicly
-              available information and reflect our analytical framework, not
-              objective truth. AI-generated theses are speculative
-              interpretations, not statements of fact.
+              13F filings are backward-looking, long-US-equity-only snapshots
+              with a roughly 45-day delay. Positions may have been sold by the
+              time you see the data, and shorts, options intent, and non-US
+              holdings are not disclosed at all. Estimated prices, cost basis,
+              and returns are derived approximations, not realized figures.
             </p>
             <p>
               Always do your own research. Never invest based solely on what

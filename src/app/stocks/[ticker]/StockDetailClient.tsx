@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { fetchApiJson, fetchPriceMap } from '@/lib/api'
 import { getConvictionHref } from '@/lib/conviction-index'
 import { getStockReport, type StockReport } from '@/lib/static-reports'
+import { usePrivateMode } from '@/lib/private-mode'
 
 interface Holder {
   investor_name: string
@@ -88,6 +89,7 @@ function changeVerb(type: string): string {
 }
 
 export default function StockDetailClient({ ticker }: { ticker: string }) {
+  const priv = usePrivateMode()
   const [stock, setStock] = useState<StockDetail | null>(null)
   const [price, setPrice] = useState<number | null>(null)
   const [loaded, setLoaded] = useState(false)
@@ -197,7 +199,7 @@ export default function StockDetailClient({ ticker }: { ticker: string }) {
                         <Link href={`/investors/${h.investor_slug}`} className="font-semibold text-gray-900 hover:text-indigo-600">
                           {h.investor_name}
                         </Link>
-                        {h.investor_score != null && (
+                        {priv && h.investor_score != null && (
                           <span className={`inline-flex items-center justify-center w-5 h-5 rounded-full text-[9px] font-bold ${
                             h.investor_score >= 8 ? 'bg-green-100 text-green-700' :
                             h.investor_score >= 7 ? 'bg-blue-100 text-blue-700' :

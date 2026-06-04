@@ -6,6 +6,7 @@ import { AccordionItem } from '@/components/Accordion'
 import { fetchApiJson, fetchPriceMap } from '@/lib/api'
 import { getConvictionHref } from '@/lib/conviction-index'
 import { coverageNote } from '@/lib/coverage-notes'
+import { usePrivateMode } from '@/lib/private-mode'
 import {
   buildRuntimeTrackRecords,
   type RuntimeInvestmentRecord,
@@ -232,6 +233,7 @@ function quarterIndex(quarter: string): number {
 }
 
 export default function InvestorProfileClient({ slug }: { slug: string }) {
+  const priv = usePrivateMode()
   const [state, setState] = useState<LoadState>({
     investor: null,
     trackRecord: [],
@@ -402,9 +404,11 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
               <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
                 {investor.name}
               </h1>
-              <span className={`inline-block px-2.5 py-0.5 rounded-md text-xs font-bold uppercase tracking-wide ${verdictStyle(investor.verdict_follow)}`}>
-                {verdict}
-              </span>
+              {priv && (
+                <span className={`inline-block px-2.5 py-0.5 rounded-md text-xs font-bold uppercase tracking-wide ${verdictStyle(investor.verdict_follow)}`}>
+                  {verdict}
+                </span>
+              )}
               {investor.active === 0 && (
                 <span className="inline-block px-2 py-0.5 rounded-md text-xs font-semibold uppercase tracking-wide bg-gray-100 text-gray-600 border border-gray-200">
                   Archived
@@ -429,21 +433,23 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
                   : coverageNote(slug) ?? 'No 13F filing history is available for this investor.'}
               </span>
             </div>
-            {investor.verdict_summary && (
+            {priv && investor.verdict_summary && (
               <p className="mt-2 text-sm text-gray-600 italic leading-relaxed max-w-3xl">
                 {investor.verdict_summary}
               </p>
             )}
           </div>
 
-          <div className={`flex-shrink-0 flex flex-col items-center justify-center w-24 h-24 rounded-2xl border ${combinedScoreBgClass(combinedScore)}`}>
-            <span className={`text-3xl font-extrabold ${combinedScoreColor(combinedScore)}`}>
-              {combinedScore.toFixed(1)}
-            </span>
-            <span className="text-[10px] text-gray-400 uppercase tracking-widest mt-0.5">
-              / 10
-            </span>
-          </div>
+          {priv && (
+            <div className={`flex-shrink-0 flex flex-col items-center justify-center w-24 h-24 rounded-2xl border ${combinedScoreBgClass(combinedScore)}`}>
+              <span className={`text-3xl font-extrabold ${combinedScoreColor(combinedScore)}`}>
+                {combinedScore.toFixed(1)}
+              </span>
+              <span className="text-[10px] text-gray-400 uppercase tracking-widest mt-0.5">
+                / 10
+              </span>
+            </div>
+          )}
         </div>
       </header>
 
@@ -793,28 +799,30 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
         )}
       </section>
 
-      <section className="bg-white rounded-xl shadow-sm border border-gray-200 px-5 py-5 sm:px-6">
-        <h2 className="text-base font-bold text-gray-900 mb-4">Score Breakdown</h2>
-        <div className="space-y-2.5">
-          {SCORE_DIMENSIONS.map(({ key, label, weight }) => {
-            const value = investor[key] ?? 0
-            return (
-              <div key={key} className="flex items-center gap-3">
-                <div className="w-36 flex-shrink-0">
-                  <span className="text-xs font-medium text-gray-700">{label}</span>
-                  <span className="ml-1 text-[10px] text-gray-400">({weight})</span>
+      {priv && (
+        <section className="bg-white rounded-xl shadow-sm border border-gray-200 px-5 py-5 sm:px-6">
+          <h2 className="text-base font-bold text-gray-900 mb-4">Score Breakdown</h2>
+          <div className="space-y-2.5">
+            {SCORE_DIMENSIONS.map(({ key, label, weight }) => {
+              const value = investor[key] ?? 0
+              return (
+                <div key={key} className="flex items-center gap-3">
+                  <div className="w-36 flex-shrink-0">
+                    <span className="text-xs font-medium text-gray-700">{label}</span>
+                    <span className="ml-1 text-[10px] text-gray-400">({weight})</span>
+                  </div>
+                  <div className="flex-1 h-4 bg-gray-100 rounded-full overflow-hidden">
+                    <div className={`h-full rounded-full transition-all ${barColor(value)}`} style={{ width: `${(value / 10) * 100}%` }} />
+                  </div>
+                  <span className={`w-8 text-right text-xs font-bold ${scoreColor(value)}`}>
+                    {value}
+                  </span>
                 </div>
-                <div className="flex-1 h-4 bg-gray-100 rounded-full overflow-hidden">
-                  <div className={`h-full rounded-full transition-all ${barColor(value)}`} style={{ width: `${(value / 10) * 100}%` }} />
-                </div>
-                <span className={`w-8 text-right text-xs font-bold ${scoreColor(value)}`}>
-                  {value}
-                </span>
-              </div>
-            )
-          })}
-        </div>
-      </section>
+              )
+            })}
+          </div>
+        </section>
+      )}
 
       <div className="pt-2 pb-6">
         <Link

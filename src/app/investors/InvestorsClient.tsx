@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { fetchApiJson } from '@/lib/api'
+import { usePrivateMode } from '@/lib/private-mode'
 
 interface InvestorApiRecord {
   name: string
@@ -45,7 +46,7 @@ interface InvestorCard {
 }
 
 type VerdictFilter = 'ALL' | 'FOLLOW' | 'WATCH' | 'SKIP'
-type SortOption = 'score' | 'name'
+type SortOption = 'score' | 'recent' | 'name'
 
 const SCORE_DIMENSION_LABELS: Record<string, string> = {
   philosophy_alignment: 'Philosophy',
@@ -113,10 +114,11 @@ export default function InvestorsClient({
   initialTrackedCount: number
   initialCoverageCount: number
 }) {
+  const priv = usePrivateMode()
   const [investors, setInvestors] = useState<InvestorCard[]>([])
   const [loaded, setLoaded] = useState(false)
   const [verdictFilter, setVerdictFilter] = useState<VerdictFilter>('ALL')
-  const [sortOption, setSortOption] = useState<SortOption>('score')
+  const [sortOption, setSortOption] = useState<SortOption>('recent')
   const [searchQuery, setSearchQuery] = useState('')
 
   useEffect(() => {
@@ -178,8 +180,8 @@ export default function InvestorsClient({
   const filtered = useMemo(() => {
     let result = [...investors]
 
-    // Filter by verdict
-    if (verdictFilter !== 'ALL') {
+    // Filter by verdict (owner-only; the verdict filter is hidden in public mode)
+    if (priv && verdictFilter !== 'ALL') {
       result = result.filter((inv) => inv.verdict === verdictFilter)
     }
 
@@ -193,15 +195,32 @@ export default function InvestorsClient({
       )
     }
 
+    // Effective sort: 'score' is owner-only; public never score-ranks
+    const effectiveSort: SortOption =
+      sortOption === 'score' && !priv ? 'recent' : sortOption
+
     // Sort
-    if (sortOption === 'score') {
+    if (effectiveSort === 'score') {
       result.sort((a, b) => b.combined - a.combined)
+    } else if (effectiveSort === 'recent') {
+      result.sort((a, b) => {
+        const ad = a.latestReportDate
+        const bd = b.latestReportDate
+        if (ad && bd) {
+          if (ad !== bd) return bd.localeCompare(ad) // most recent first
+        } else if (ad) {
+          return -1 // nulls last
+        } else if (bd) {
+          return 1
+        }
+        return a.name.localeCompare(b.name) // tie-break A-Z
+      })
     } else {
       result.sort((a, b) => a.name.localeCompare(b.name))
     }
 
     return result
-  }, [investors, verdictFilter, sortOption, searchQuery])
+  }, [investors, verdictFilter, sortOption, searchQuery, priv])
 
   const counts = useMemo(() => {
     const base = searchQuery.trim()
@@ -268,24 +287,26 @@ export default function InvestorsClient({
 
       {/* Controls Bar */}
       <div className="mb-6 flex flex-col sm:flex-row sm:items-center gap-4">
-        {/* Filter Tabs */}
-        <div className="flex gap-2 flex-wrap">
-          {filterTabs.map((tab) => (
-            <button
-              key={tab.key}
-              onClick={() => setVerdictFilter(tab.key)}
-              className={tabStyle(tab.key)}
-            >
-              {tab.label}
-              {loaded && (
-                <>
-                  {' '}
-                  <span className="ml-1 opacity-70">({counts[tab.key]})</span>
-                </>
-              )}
-            </button>
-          ))}
-        </div>
+        {/* Filter Tabs (owner-only verdict filter) */}
+        {priv && (
+          <div className="flex gap-2 flex-wrap">
+            {filterTabs.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setVerdictFilter(tab.key)}
+                className={tabStyle(tab.key)}
+              >
+                {tab.label}
+                {loaded && (
+                  <>
+                    {' '}
+                    <span className="ml-1 opacity-70">({counts[tab.key]})</span>
+                  </>
+                )}
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Spacer */}
         <div className="flex-1" />
@@ -297,7 +318,8 @@ export default function InvestorsClient({
             onChange={(e) => setSortOption(e.target.value as SortOption)}
             className="text-sm border border-gray-200 rounded-lg px-3 py-2 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-300"
           >
-            <option value="score">Sort: Score</option>
+            {priv && <option value="score">Sort: Score</option>}
+            <option value="recent">Sort: Recently filed</option>
             <option value="name">Sort: Name</option>
           </select>
           <div className="relative">
@@ -360,22 +382,26 @@ export default function InvestorsClient({
                     </h2>
                     <p className="text-sm text-gray-500 truncate">{inv.firm}</p>
                   </div>
-                  <div className="flex flex-col items-end shrink-0">
-                    <span
-                      className={`text-2xl font-bold tabular-nums ${getScoreColorClass(inv.combined)}`}
-                    >
-                      {inv.combined.toFixed(1)}
-                    </span>
-                  </div>
+                  {priv && (
+                    <div className="flex flex-col items-end shrink-0">
+                      <span
+                        className={`text-2xl font-bold tabular-nums ${getScoreColorClass(inv.combined)}`}
+                      >
+                        {inv.combined.toFixed(1)}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
-                {/* Verdict Badge */}
+                {/* Verdict Badge (owner-only) + 13F coverage indicator */}
                 <div className="mb-3 flex items-center gap-2 flex-wrap">
-                  <span
-                    className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide ${getVerdictStyle(inv.verdict)}`}
-                  >
-                    {inv.verdict}
-                  </span>
+                  {priv && (
+                    <span
+                      className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide ${getVerdictStyle(inv.verdict)}`}
+                    >
+                      {inv.verdict}
+                    </span>
+                  )}
                   <span
                     className={`inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold border ${
                       inv.has13FData
@@ -387,10 +413,12 @@ export default function InvestorsClient({
                   </span>
                 </div>
 
-                {/* Summary */}
-                <p className="text-sm text-gray-600 leading-relaxed mb-4 line-clamp-2">
-                  {truncate(inv.one_line_summary, 160)}
-                </p>
+                {/* Summary (owner editorial "relevance to us" note) */}
+                {priv && (
+                  <p className="text-sm text-gray-600 leading-relaxed mb-4 line-clamp-2">
+                    {truncate(inv.one_line_summary, 160)}
+                  </p>
+                )}
 
                 <p className="text-[11px] text-gray-400 mb-4">
                   {inv.has13FData && inv.latestReportDate
@@ -398,18 +426,20 @@ export default function InvestorsClient({
                     : 'No 13F filing data is loaded for this investor yet.'}
                 </p>
 
-                {/* Top Score Dimensions */}
-                <div className="flex flex-wrap gap-1.5">
-                  {topDims.map((dim) => (
-                    <span
-                      key={dim.key}
-                      className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium border ${getScoreBgClass(dim.value)}`}
-                    >
-                      {dim.label}
-                      <span className="font-bold">{dim.value}</span>
-                    </span>
-                  ))}
-                </div>
+                {/* Top Score Dimensions (owner-only) */}
+                {priv && (
+                  <div className="flex flex-wrap gap-1.5">
+                    {topDims.map((dim) => (
+                      <span
+                        key={dim.key}
+                        className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium border ${getScoreBgClass(dim.value)}`}
+                      >
+                        {dim.label}
+                        <span className="font-bold">{dim.value}</span>
+                      </span>
+                    ))}
+                  </div>
+                )}
               </Link>
             )
           })}
