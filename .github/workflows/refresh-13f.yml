@@ -86,6 +86,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/cusip_ticker_map.json data/stocks_index.json data/spx_quarter_closes.json conviction_data/index.json public/conviction-data/index.json 2>/dev/null || true
+          git add data/cusip_ticker_map.json data/stocks_index.json data/spx_quarter_closes.json data/static-summary.json conviction_data/index.json public/conviction-data/index.json 2>/dev/null || true
           git commit -m "Auto-refresh 13F data artifacts [skip ci]" || echo "nothing to commit"
           git push || true

@@ -1,4 +1,6 @@
-import latestSummary from '../../data/output/latest_summary.json'
+// Committed (not under the Drive-symlinked, gitignored data/output) so a clean checkout
+// builds without first running the Python pipeline. Refreshed by run_pipeline.py.
+import latestSummary from '../../data/static-summary.json'
 
 interface LatestSummaryPayload {
   investors_processed?: number

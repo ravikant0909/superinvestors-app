@@ -211,6 +211,10 @@ CREATE TABLE holdings (
 CREATE INDEX idx_holdings_investor ON holdings(investor_id);
 CREATE INDEX idx_holdings_security ON holdings(security_id);
 CREATE INDEX idx_holdings_pct ON holdings(pct_of_portfolio DESC);
+-- Composite index for the per-investor latest-quarter filter used by every aggregate
+-- endpoint (best-ideas/stocks/overlap). Turns the correlated MAX(report_date) subquery
+-- into an index seek — ~470x faster (14s -> 0.03s) and avoids D1 query-limit 500s.
+CREATE INDEX idx_holdings_investor_date ON holdings(investor_id, report_date);
 
 
 -- =============================================================================

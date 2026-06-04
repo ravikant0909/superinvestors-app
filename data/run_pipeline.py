@@ -297,6 +297,21 @@ def save_results(results: list[dict], output_dir: Path):
     with open(latest_path, "w") as f:
         json.dump(summary, f, indent=2)
 
+    # And a tiny COMMITTED copy at data/static-summary.json (output_dir is the Drive-
+    # symlinked, gitignored data/output). src/lib/static-13f-summary.ts imports this so a
+    # clean checkout / CI / agent can build without first running the pipeline.
+    from pathlib import Path as _Path
+    static_path = _Path(__file__).resolve().parent / "static-summary.json"
+    with open(static_path, "w") as f:
+        json.dump(
+            {
+                "investors_processed": summary.get("investors_processed", 0),
+                "investors_successful": summary.get("investors_successful", 0),
+            },
+            f,
+            indent=2,
+        )
+
     return summary_path
 
 

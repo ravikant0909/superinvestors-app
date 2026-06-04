@@ -743,20 +743,29 @@ async function handleAPI(path, request, env) {
   // GET /api/stocks — every stock held by tracked investors, aggregated
   if (path === '/api/stocks' && method === 'GET') {
     try {
+      // Aggregate by TICKER (not security id): a ticker can map to multiple security
+      // rows (CUSIP changes, share classes), e.g. BRK-A — grouping by id split & under-
+      // counted holders. Ticker-less securities stay per-row (keyed by id) since they
+      // have no detail page. The `latest` CTE applies the per-investor latest-quarter
+      // filter once (was a per-row correlated subquery).
       const { results } = await env.DB.prepare(`
+        WITH latest AS (SELECT investor_id, MAX(report_date) AS rd FROM holdings GROUP BY investor_id)
         SELECT
-          sec.id AS security_id, sec.ticker, sec.name, sec.slug AS security_slug,
-          sec.sector, sec.cusip,
+          MIN(sec.id) AS security_id,
+          UPPER(NULLIF(sec.ticker, '')) AS ticker,
+          MAX(sec.name) AS name,
+          MIN(sec.slug) AS security_slug,
+          MAX(sec.sector) AS sector,
+          MIN(sec.cusip) AS cusip,
           COUNT(DISTINCT h.investor_id) AS holder_count,
           SUM(h.value) AS total_value,
           AVG(h.pct_of_portfolio) AS avg_weight,
           MAX(h.pct_of_portfolio) AS max_weight,
           MAX(h.report_date) AS latest_report_date
         FROM holdings h
+        JOIN latest l ON l.investor_id = h.investor_id AND h.report_date = l.rd
         JOIN securities sec ON h.security_id = sec.id
-        JOIN investors i ON h.investor_id = i.id
-        WHERE h.report_date = (SELECT MAX(report_date) FROM holdings hm WHERE hm.investor_id = h.investor_id)
-        GROUP BY sec.id
+        GROUP BY COALESCE(UPPER(NULLIF(sec.ticker, '')), 'C' || sec.id)
         ORDER BY holder_count DESC, total_value DESC
       `).all();
       return jsonResponse(results);
@@ -771,26 +780,33 @@ async function handleAPI(path, request, env) {
   if (stockMatch && method === 'GET') {
     const ticker = decodeURIComponent(stockMatch[1]).toUpperCase();
     try {
-      const security = await env.DB.prepare(`
+      // A ticker can map to several security rows (CUSIP changes / share classes).
+      // Gather ALL of them and aggregate across the set, so holder counts match the
+      // /api/stocks list (was: LIMIT 1 → undercounted, e.g. BRK-A 28 of 45).
+      const { results: secs } = await env.DB.prepare(`
         SELECT id, ticker, name, slug, sector, industry, cusip, security_type, country
         FROM securities
         WHERE UPPER(ticker) = ?
-        LIMIT 1
-      `).bind(ticker).first();
-      if (!security) return errorResponse('Stock not found', 404);
+      `).bind(ticker).all();
+      if (!secs.length) return errorResponse('Stock not found', 404);
+      const secIds = secs.map((s) => s.id);
+      const ph = secIds.map(() => '?').join(', ');
+      // representative metadata: prefer the security with the most current holders
+      const security = secs[0];
 
       const { results: holders } = await env.DB.prepare(`
+        WITH latest AS (SELECT investor_id, MAX(report_date) AS rd FROM holdings GROUP BY investor_id)
         SELECT
           i.name AS investor_name, i.slug AS investor_slug, i.firm_name AS investor_firm,
           i.verdict_follow, s.composite_score AS investor_score,
           h.shares, h.value, h.pct_of_portfolio, h.position_rank, h.report_date
         FROM holdings h
+        JOIN latest l ON l.investor_id = h.investor_id AND h.report_date = l.rd
         JOIN investors i ON h.investor_id = i.id
         LEFT JOIN investor_scores s ON i.id = s.investor_id
-        WHERE h.security_id = ?
-          AND h.report_date = (SELECT MAX(report_date) FROM holdings hm WHERE hm.investor_id = h.investor_id)
+        WHERE h.security_id IN (${ph})
         ORDER BY h.pct_of_portfolio DESC
-      `).bind(security.id).all();
+      `).bind(...secIds).all();
 
       const { results: recentChanges } = await env.DB.prepare(`
         SELECT
@@ -801,15 +817,15 @@ async function handleAPI(path, request, env) {
           i.name AS investor_name, i.slug AS investor_slug
         FROM position_changes pc
         JOIN investors i ON pc.investor_id = i.id
-        WHERE pc.security_id = ?
+        WHERE pc.security_id IN (${ph})
         ORDER BY pc.year DESC, pc.quarter DESC, ABS(COALESCE(pc.value_change, 0)) DESC
         LIMIT 40
-      `).bind(security.id).all();
+      `).bind(...secIds).all();
 
-      const holderCount = holders.length;
+      const holderCount = new Set(holders.map((h) => h.investor_slug)).size;
       const totalValue = holders.reduce((sum, h) => sum + (h.value || 0), 0);
-      const avgWeight = holderCount
-        ? holders.reduce((sum, h) => sum + (h.pct_of_portfolio || 0), 0) / holderCount
+      const avgWeight = holders.length
+        ? holders.reduce((sum, h) => sum + (h.pct_of_portfolio || 0), 0) / holders.length
         : 0;
 
       return jsonResponse({
@@ -1043,7 +1059,12 @@ async function handleChat(request, env) {
   if (!sessionId) {
     return errorResponse('sessionId is required', 400);
   }
-  if (await isRateLimited(sessionId, env)) {
+  // Rate-limit on the CLIENT IP (Cloudflare-provided), not the caller-supplied
+  // sessionId — a browser can rotate the localStorage sessionId to bypass a
+  // session-keyed limit and keep burning Anthropic calls. IP can't be rotated as
+  // trivially. (sessionId is still used for conversation continuity.)
+  const clientIp = request.headers.get('CF-Connecting-IP') || request.headers.get('x-real-ip') || 'unknown';
+  if (await isRateLimited(`ip:${clientIp}`, env)) {
     return errorResponse('Rate limit exceeded. Try again later.', 429);
   }
 
