@@ -14,12 +14,51 @@ const SUGGESTION_CHIPS = [
   'Suggest an improvement',
 ]
 
-const ROTATING_PLACEHOLDERS = [
-  'Ask anything about investor portfolios, or give us feedback...',
-  'Why does Li Lu own Google?',
-  'Which investors recently bought new positions?',
-  'I wish this site showed...',
-]
+// Tiny, dependency-free markdown renderer for assistant messages.
+// Escapes HTML first, then applies a small set of safe replacements.
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
+function renderMarkdown(raw: string): string {
+  const escaped = escapeHtml(raw)
+  const lines = escaped.split('\n')
+  const html: string[] = []
+  let inList = false
+
+  const inline = (s: string): string =>
+    s
+      // inline code: `x`
+      .replace(/`([^`]+)`/g, '<code class="px-1 py-0.5 rounded bg-gray-200 text-[0.85em] font-mono">$1</code>')
+      // bold: **x** or __x__
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      .replace(/__([^_]+)__/g, '<strong>$1</strong>')
+
+  for (const line of lines) {
+    const bullet = line.match(/^\s*[-*]\s+(.*)$/)
+    if (bullet) {
+      if (!inList) {
+        html.push('<ul class="list-disc pl-5 space-y-0.5">')
+        inList = true
+      }
+      html.push(`<li>${inline(bullet[1])}</li>`)
+    } else {
+      if (inList) {
+        html.push('</ul>')
+        inList = false
+      }
+      html.push(inline(line))
+    }
+  }
+  if (inList) html.push('</ul>')
+
+  return html.join('<br />').replace(/<\/ul><br \/>/g, '</ul>').replace(/<br \/><ul/g, '<ul')
+}
 
 function getPageContext(): string {
   if (typeof window === 'undefined') return 'Homepage'
@@ -55,19 +94,8 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [placeholderIndex, setPlaceholderIndex] = useState(0)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
-  const collapsedInputRef = useRef<HTMLInputElement>(null)
-
-  // Rotate placeholder text every 4 seconds when collapsed
-  useEffect(() => {
-    if (isOpen) return
-    const interval = setInterval(() => {
-      setPlaceholderIndex(prev => (prev + 1) % ROTATING_PLACEHOLDERS.length)
-    }, 4000)
-    return () => clearInterval(interval)
-  }, [isOpen])
 
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -187,53 +215,24 @@ export default function ChatWidget() {
 
   return (
     <>
-      {/* Backdrop overlay when chat is open */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black/20 z-40 transition-opacity"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
-
-      {/* Collapsed state: bottom-center search bar */}
+      {/* Collapsed state: floating action button (FAB), non-blocking */}
       {!isOpen && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-center pb-5 px-4 pointer-events-none">
-          <div className="w-full max-w-2xl pointer-events-auto">
-            <div
-              className="bg-white rounded-2xl shadow-lg border border-gray-200 px-5 py-3 cursor-text hover:shadow-xl transition-shadow"
-              onClick={() => setIsOpen(true)}
-            >
-              <div className="flex items-center gap-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                </svg>
-                <input
-                  ref={collapsedInputRef}
-                  type="text"
-                  readOnly
-                  tabIndex={-1}
-                  className="flex-1 text-sm text-gray-400 bg-transparent outline-none cursor-text placeholder:text-gray-400"
-                  placeholder={ROTATING_PLACEHOLDERS[placeholderIndex]}
-                  onFocus={() => setIsOpen(true)}
-                />
-                <div className="flex-shrink-0 bg-indigo-500 rounded-lg p-1.5">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                  </svg>
-                </div>
-              </div>
-              <p className="mt-1.5 text-[11px] text-gray-400 text-center">
-                Powered by AI &middot; All site data included &middot; Feedback welcome
-              </p>
-            </div>
-          </div>
-        </div>
+        <button
+          onClick={() => setIsOpen(true)}
+          aria-label="Open chat"
+          className="fixed bottom-5 right-5 z-50 flex items-center gap-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all pl-4 pr-5 py-3"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+          </svg>
+          <span className="text-sm font-medium hidden sm:inline">Ask AI</span>
+        </button>
       )}
 
-      {/* Expanded state: full chat panel from bottom-center */}
+      {/* Expanded state: bottom-right chat panel */}
       {isOpen && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-center pb-5 px-4">
-          <div className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col max-h-[600px]">
+        <div className="fixed bottom-5 right-0 left-0 sm:left-auto sm:right-5 z-50 flex justify-center sm:justify-end px-4 sm:px-0">
+          <div className="w-full max-w-md sm:w-96 bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col max-h-[80vh] sm:max-h-[600px]">
             {/* Header */}
             <div className="px-5 py-4 border-b border-gray-100">
               <div className="flex items-center justify-between">
@@ -246,7 +245,7 @@ export default function ChatWidget() {
                 <button
                   onClick={() => setIsOpen(false)}
                   className="text-gray-400 hover:text-gray-600 transition-colors p-1"
-                  aria-label="Close chat"
+                  aria-label="Minimize chat"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -275,19 +274,28 @@ export default function ChatWidget() {
               {messages.map((msg, i) => (
                 <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div
-                    className={`max-w-[80%] px-3 py-2 rounded-lg text-sm whitespace-pre-wrap ${
+                    className={`max-w-[80%] px-3 py-2 rounded-lg text-sm ${
                       msg.role === 'user'
-                        ? 'bg-indigo-50 text-gray-900'
+                        ? 'bg-indigo-50 text-gray-900 whitespace-pre-wrap'
                         : 'bg-gray-50 text-gray-900'
                     }`}
                   >
-                    {msg.content || (isLoading && i === messages.length - 1 ? (
+                    {msg.content ? (
+                      msg.role === 'assistant' ? (
+                        <div
+                          className="leading-relaxed [&_strong]:font-semibold [&_ul]:my-1"
+                          dangerouslySetInnerHTML={{ __html: renderMarkdown(msg.content) }}
+                        />
+                      ) : (
+                        msg.content
+                      )
+                    ) : isLoading && i === messages.length - 1 ? (
                       <span className="inline-flex gap-1">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                       </span>
-                    ) : '')}
+                    ) : ''}
                   </div>
                 </div>
               ))}

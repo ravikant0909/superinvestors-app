@@ -3,10 +3,25 @@ import './globals.css'
 import Link from 'next/link'
 import ChatWidget from '@/components/ChatWidget'
 
+const SITE_TITLE = 'SuperInvestors — Track the World\'s Greatest Investors'
+const SITE_DESCRIPTION = 'Track what leading superinvestors are buying and selling with deep investor profiles, conviction theses, and cross-investor analysis.'
+
 export const metadata: Metadata = {
-  title: 'SuperInvestors — Track the World\'s Greatest Investors',
-  description: 'Track what leading superinvestors are buying and selling with deep investor profiles, conviction theses, and cross-investor analysis.',
+  metadataBase: new URL('https://superinvestors-app.pages.dev'),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   keywords: ['super investors', '13F filings', 'value investing', 'portfolio tracker', 'Warren Buffett portfolio'],
+  openGraph: {
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    siteName: 'SuperInvestors',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
 }
 
 const NAV_ITEMS = [

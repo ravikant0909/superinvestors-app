@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { fetchApiJson } from '@/lib/api'
 import { STOCK_REPORTS } from '@/lib/static-reports'
+import { Skeleton } from '@/components/Skeleton'
 
 const REPORT_SET = new Set(STOCK_REPORTS.map((r) => r.ticker.toUpperCase()))
 
@@ -23,6 +24,17 @@ interface StockRow {
 }
 
 type SortKey = 'holders' | 'value' | 'weight' | 'ticker'
+
+// Null-safe descending numeric compare: nullish/NaN always sort LAST,
+// regardless of direction, so missing prices/values never scramble order.
+function cmpDescNullable(a: number | null | undefined, b: number | null | undefined): number {
+  const an = a == null || Number.isNaN(a) ? null : a
+  const bn = b == null || Number.isNaN(b) ? null : b
+  if (an === null && bn === null) return 0
+  if (an === null) return 1
+  if (bn === null) return -1
+  return bn - an
+}
 
 function fmtValue(value: number | null): string {
   if (!value) return '—'
@@ -99,10 +111,10 @@ export default function StocksClient() {
     const sorted = [...rows]
     sorted.sort((a, b) => {
       switch (sort) {
-        case 'value': return (b.total_value ?? 0) - (a.total_value ?? 0)
-        case 'weight': return (b.avg_weight ?? 0) - (a.avg_weight ?? 0)
+        case 'value': return cmpDescNullable(a.total_value, b.total_value)
+        case 'weight': return cmpDescNullable(a.avg_weight, b.avg_weight)
         case 'ticker': return (a.ticker ?? '').localeCompare(b.ticker ?? '')
-        default: return (b.holder_count - a.holder_count) || ((b.total_value ?? 0) - (a.total_value ?? 0))
+        default: return cmpDescNullable(a.holder_count, b.holder_count) || cmpDescNullable(a.total_value, b.total_value)
       }
     })
     return sorted
@@ -111,7 +123,29 @@ export default function StocksClient() {
   useEffect(() => { setVisible(PAGE_SIZE) }, [query, sort, reportOnly])
 
   if (!loaded) {
-    return <div className="bg-white rounded-xl border border-gray-200 px-5 py-8 text-center text-sm text-gray-400">Loading stocks…</div>
+    return (
+      <div className="space-y-4">
+        <div className="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+          <Skeleton className="h-10 w-full sm:max-w-xs rounded-lg" />
+          <div className="flex gap-2 flex-wrap">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Skeleton key={i} className="h-8 w-24 rounded-lg" />
+            ))}
+          </div>
+        </div>
+        <div className="bg-white rounded-xl border border-gray-200 divide-y divide-gray-50">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={i} className="flex items-center justify-between gap-4 px-4 py-3">
+              <Skeleton className="h-4 w-16" />
+              <Skeleton className="h-4 flex-1 max-w-[200px] hidden sm:block" />
+              <Skeleton className="h-4 w-12" />
+              <Skeleton className="h-4 w-14 hidden sm:block" />
+              <Skeleton className="h-4 w-10" />
+            </div>
+          ))}
+        </div>
+      </div>
+    )
   }
   if (failed || stocks.length === 0) {
     return <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 text-sm text-amber-800">Stock data is unavailable right now.</div>

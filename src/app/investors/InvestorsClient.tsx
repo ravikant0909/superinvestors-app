@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { fetchApiJson } from '@/lib/api'
 import { usePrivateMode } from '@/lib/private-mode'
+import { Skeleton } from '@/components/Skeleton'
 
 interface InvestorApiRecord {
   name: string
@@ -356,8 +357,25 @@ export default function InvestorsClient({
 
       {/* Card Grid */}
       {!loaded ? (
-        <div className="text-center py-16 text-gray-400">
-          <p className="text-lg font-medium">Loading investors...</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="bg-white border border-gray-200 rounded-xl p-5">
+              <div className="flex items-start justify-between gap-3 mb-3">
+                <div className="min-w-0 flex-1">
+                  <Skeleton className="h-5 w-36 mb-2" />
+                  <Skeleton className="h-4 w-24" />
+                </div>
+                {priv && <Skeleton className="h-7 w-10" />}
+              </div>
+              <Skeleton className="h-5 w-20 rounded-full mb-4" />
+              <Skeleton className="h-3 w-48 mb-4" />
+              <div className="flex flex-wrap gap-1.5">
+                <Skeleton className="h-5 w-20" />
+                <Skeleton className="h-5 w-24" />
+                <Skeleton className="h-5 w-16" />
+              </div>
+            </div>
+          ))}
         </div>
       ) : filtered.length === 0 ? (
         <div className="text-center py-16 text-gray-400">

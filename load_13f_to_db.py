@@ -141,6 +141,42 @@ def normalize_ticker(cusip, ticker):
     return (mapped or ticker or "").strip().upper()
 
 
+def clean_filing_holdings(holdings):
+    """Per-filing cleanup applied to RAW fetched holdings (which carry share_type/put_call):
+
+    1. Equity-only — drop put/call OPTIONS and PRN (debt/principal) positions. This is a
+       long-equity 13F tracker; a PRN row's "shares" is a principal-dollar amount (e.g. a
+       20,000,000,000 "share" row) that corrupts share/price display.
+    2. Value-scale fix — some filers report the value column in DOLLARS instead of the 13F
+       standard THOUSANDS, which made equity prices/values 1000x too big (e.g. an Oaktree
+       QQQ "trade" of $329B). Detect on EQUITY value/shares only (median-based detection was
+       fooled by bonds/preferreds sitting near par ~1.0); if most equities imply a price > $5,
+       the column is dollars -> divide by 1000.
+    """
+    eq = []
+    for h in holdings:
+        pc = (h.get("put_call") or "").upper()
+        st = (h.get("share_type") or "SH").upper()
+        if pc in ("PUT", "CALL") or st == "PRN":
+            continue
+        eq.append(h)
+    ratios = sorted(
+        h["value"] / h["shares"]
+        for h in eq
+        if (h.get("value") or 0) > 0 and (h.get("shares") or 0) > 0
+    )
+    if ratios:
+        median_ratio = ratios[len(ratios) // 2]
+        # MEDIAN value/shares over equities: thousands-scale => ~price/1000 (≪1.5);
+        # dollars-scale => the real median price (≫1.5). Robust to one BRK-A-class outlier
+        # and to distressed/low-priced books (where a fraction-of-positions>$5 test fails).
+        if median_ratio > 1.5:  # dollars column -> convert to the 13F thousands standard
+            for h in eq:
+                if h.get("value"):
+                    h["value"] = round(h["value"] / 1000)
+    return eq
+
+
 def normalize_holdings_list(holdings_list):
     """Aggregate duplicate holdings by CUSIP before loading them into the DB."""
     aggregated = {}
@@ -214,10 +250,19 @@ def make_security_slug(name, ticker):
     return base[:80] if base else ticker.lower() if ticker else "unknown"
 
 
+# Canonical company-name overrides (13F filings carry stale legal names). Keyed by CUSIP.
+CANONICAL_NAMES = {
+    "30303M102": "Meta Platforms Inc",  # filed as "FACEBOOK INC"
+}
+
+
 def upsert_security(cur, cusip, name, ticker, put_call=None):
     """Insert or get existing security by CUSIP. Returns security_id."""
     if not cusip:
         return None
+    canonical = CANONICAL_NAMES.get(cusip)
+    if canonical:
+        name = canonical
 
     cur.execute("SELECT id FROM securities WHERE cusip = ?", (cusip,))
     row = cur.fetchone()
@@ -336,6 +381,19 @@ def load_investor_file(cur, filepath):
     filings_sorted = sorted(
         filings, key=lambda f: (f.get("report_date", ""), -(f.get("holdings_count") or 0))
     )
+    # Keep ONLY the richest filing per quarter. Processing duplicate same-quarter filings
+    # (original + amendment) both runs the loop twice and the smaller amendment, loaded
+    # last, overwrites holdings/history/changes via INSERT OR REPLACE — and if its holdings
+    # subset mis-detects the value scale, it reintroduces unconverted (dollar) values.
+    _seen_q = set()
+    _deduped = []
+    for _f in filings_sorted:
+        _rd = _f.get("report_date", "")
+        if _rd in _seen_q:
+            continue
+        _seen_q.add(_rd)
+        _deduped.append(_f)
+    filings_sorted = _deduped
 
     latest_report_date = filings_sorted[-1].get("report_date", "") if filings_sorted else ""
 
@@ -359,7 +417,15 @@ def load_investor_file(cur, filepath):
         holdings_list = filing.get("holdings", [])
         if is_latest and not holdings_list and data.get("top_holdings"):
             holdings_list = data.get("top_holdings", [])
+        # Equity-only + value-scale fix on raw holdings (carry share_type/put_call)
+        holdings_list = clean_filing_holdings(holdings_list)
         holdings_list = normalize_holdings_list(holdings_list)
+        # Recompute the filing total over the cleaned, scale-normalized equity holdings so
+        # weights (pct_of_portfolio) and the stored total are correct & in thousands.
+        eq_total = sum(h.get("value", 0) for h in holdings_list)
+        if eq_total > 0:
+            total_value = eq_total
+            cur.execute("UPDATE filings_13f SET total_value = ? WHERE id = ?", (eq_total, filing_id))
 
         # Track current quarter holdings for change computation
         current_holdings = {}
@@ -486,59 +552,12 @@ def load_investor_file(cur, filepath):
 
         prev_holdings = current_holdings
 
-    # Also load changes from the JSON "changes" field for the latest filing
-    # (These may have better data than our computed ones since they may span non-adjacent quarters)
-    changes_data = data.get("changes", {})
-    if isinstance(changes_data, dict):
-        change_list = changes_data.get("changes", [])
-        if change_list and filings_sorted:
-            latest_filing = filings_sorted[-1]
-            latest_filing_id = None
-            cur.execute("SELECT id FROM filings_13f WHERE accession_number = ?",
-                        (latest_filing["accession_number"],))
-            r = cur.fetchone()
-            if r:
-                latest_filing_id = r[0]
-
-            lr = latest_filing.get("report_date", "")
-            ly = int(lr[:4]) if lr else 0
-            lm = int(lr[5:7]) if lr else 0
-            lq = (lm - 1) // 3 + 1 if lm else 0
-
-            for change in change_list:
-                cusip = change.get("cusip", "")
-                ch_name = change.get("name_of_issuer", "")
-                ch_ticker = normalize_ticker(cusip, change.get("ticker", ""))
-                ch_type = change.get("change_type", "").lower()
-
-                if ch_type not in ("new", "increased", "decreased", "sold_out"):
-                    continue
-
-                security_id = upsert_security(cur, cusip, ch_name, ch_ticker)
-                if not security_id:
-                    continue
-
-                shares_before = change.get("previous_shares", 0)
-                shares_after = change.get("current_shares", 0)
-                shares_change = change.get("share_delta", shares_after - shares_before)
-                shares_change_pct = change.get("share_change_pct")
-                value_before = change.get("previous_value", 0)
-                value_after = change.get("current_value", 0)
-                value_change = change.get("value_delta", value_after - value_before)
-
-                try:
-                    cur.execute(
-                        """INSERT OR REPLACE INTO position_changes
-                           (investor_id, security_id, filing_id, year, quarter, report_date,
-                            change_type, shares_before, shares_after, shares_change, shares_change_pct,
-                            value_before, value_after, value_change)
-                           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
-                        (investor_id, security_id, latest_filing_id, ly, lq, lr,
-                         ch_type, shares_before, shares_after, shares_change, shares_change_pct,
-                         value_before, value_after, value_change),
-                    )
-                except sqlite3.IntegrityError:
-                    pass
+    # NOTE: the pipeline's precomputed "changes" array is intentionally NOT loaded here.
+    # It carries RAW (un-scale-normalized, un-equity-filtered) values and, via INSERT OR
+    # REPLACE, used to overwrite the correct changes computed above from the cleaned holdings
+    # (producing e.g. a $212B "trade"). The computed-from-holdings block covers every
+    # adjacent-quarter transition, including the latest quarter, with correct thousands-scale,
+    # equity-only values — so it is the single source of truth for position_changes.
 
     print(f"  Loaded {investor_key} -> {slug} (investor_id={investor_id})")
 

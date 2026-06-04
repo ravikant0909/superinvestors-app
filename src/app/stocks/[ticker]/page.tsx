@@ -26,9 +26,13 @@ export async function generateMetadata({
   const name = report?.name || (meta?.name ? titleCase(meta.name) : symbol)
   const ownedBy = meta ? ` ${meta.holder_count} tracked super investors own it.` : ''
   const hasReport = report ? ' Includes a deep-dive research report.' : ''
+  const title = `Who Owns ${symbol}? — ${name} | SuperInvestors`
+  const description = `Which super investors hold ${name} (${symbol}).${ownedBy}${hasReport} See position sizes, recent buys and sells, and consensus from 13F filings.`
   return {
-    title: `Who Owns ${symbol}? — ${name} | SuperInvestors`,
-    description: `Which super investors hold ${name} (${symbol}).${ownedBy}${hasReport} See position sizes, recent buys and sells, and consensus from 13F filings.`,
+    title,
+    description,
+    openGraph: { title, description, type: 'website' },
+    twitter: { card: 'summary_large_image', title, description },
   }
 }
 

@@ -232,6 +232,17 @@ function quarterIndex(quarter: string): number {
   return parseInt(year, 10) * 4 + parseInt(q, 10)
 }
 
+// Null-safe descending numeric compare: nullish/NaN always sort LAST,
+// regardless of direction, so missing price/return/value never scramble order.
+function cmpDescNullable(a: number | null | undefined, b: number | null | undefined): number {
+  const an = a == null || Number.isNaN(a) ? null : a
+  const bn = b == null || Number.isNaN(b) ? null : b
+  if (an === null && bn === null) return 0
+  if (an === null) return 1
+  if (bn === null) return -1
+  return bn - an
+}
+
 export default function InvestorProfileClient({ slug }: { slug: string }) {
   const priv = usePrivateMode()
   const [state, setState] = useState<LoadState>({
@@ -364,7 +375,7 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
     )
   }
 
-  const currentHoldings = [...investor.holdings].sort((a, b) => b.pct_of_portfolio - a.pct_of_portfolio)
+  const currentHoldings = [...investor.holdings].sort((a, b) => cmpDescNullable(a.pct_of_portfolio, b.pct_of_portfolio))
   const totalValue = currentHoldings.reduce((sum, holding) => sum + holding.value, 0)
   const top5Weight = currentHoldings.slice(0, 5).reduce((sum, holding) => sum + holding.pct_of_portfolio, 0)
   const maxWeight = currentHoldings[0]?.pct_of_portfolio ?? 1
@@ -377,7 +388,7 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
   const changeRank: Record<string, number> = { NEW: 0, INCREASED: 1, DECREASED: 2, SOLD_OUT: 3 }
   const sortedChanges = [...investor.recent_changes].sort((a, b) => {
     const r = (changeRank[a.change_type] ?? 9) - (changeRank[b.change_type] ?? 9)
-    return r !== 0 ? r : Math.abs(b.value_change) - Math.abs(a.value_change)
+    return r !== 0 ? r : cmpDescNullable(Math.abs(a.value_change), Math.abs(b.value_change))
   })
 
   return (

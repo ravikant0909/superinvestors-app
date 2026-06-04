@@ -613,10 +613,18 @@ async function handleAPI(path, request, env) {
   // GET /api/best-ideas — aggregate holdings across investors
   if (path === '/api/best-ideas' && method === 'GET') {
     try {
+      // Aggregate by TICKER (not security id): a ticker can map to multiple security
+      // rows (CUSIP changes / share classes), e.g. BRK-A — grouping by id duplicated
+      // the idea row and split holders/activity across CUSIPs. Group on the upper-cased
+      // ticker (fall back to 'C'||id for ticker-less rows, though those are excluded by
+      // the WHERE clause below).
       const { results: aggregates } = await env.DB.prepare(`
         SELECT
-          sec.id AS security_id,
-          sec.ticker, sec.name, sec.slug AS security_slug, sec.sector,
+          UPPER(NULLIF(sec.ticker, '')) AS ticker,
+          MIN(sec.id) AS security_id,
+          MAX(sec.name) AS name,
+          MIN(sec.slug) AS security_slug,
+          MAX(sec.sector) AS sector,
           COUNT(DISTINCT h.investor_id) AS holder_count,
           AVG(h.pct_of_portfolio) AS avg_weight,
           SUM(h.value) AS total_value,
@@ -631,9 +639,9 @@ async function handleAPI(path, request, env) {
         JOIN securities sec ON h.security_id = sec.id
         JOIN investors i ON h.investor_id = i.id
         LEFT JOIN investor_scores s ON i.id = s.investor_id
-        WHERE sec.ticker IS NOT NULL
+        WHERE sec.ticker IS NOT NULL AND sec.ticker != ''
           AND h.report_date = (SELECT MAX(report_date) FROM holdings hm WHERE hm.investor_id = h.investor_id)
-        GROUP BY sec.id
+        GROUP BY COALESCE(UPPER(NULLIF(sec.ticker, '')), 'C' || sec.id)
         HAVING holder_count >= 2
         ORDER BY composite_score DESC
         LIMIT 100
@@ -643,41 +651,46 @@ async function handleAPI(path, request, env) {
         return jsonResponse([]);
       }
 
-      const securityIds = aggregates.map((row) => row.security_id);
-      const placeholders = securityIds.map(() => '?').join(', ');
+      // Gather every security_id belonging to the chosen tickers so holders/activity
+      // merge across a ticker's CUSIPs. The sub-queries carry sec.ticker so the maps
+      // can be keyed by UPPER(ticker) instead of security_id.
+      const tickers = aggregates.map((row) => row.ticker);
+      const tickerPh = tickers.map(() => '?').join(', ');
 
       const { results: holderRows } = await env.DB.prepare(`
         SELECT
-          h.security_id,
+          UPPER(sec.ticker) AS ticker,
           h.pct_of_portfolio, h.value,
           i.name AS investor_name, i.slug AS investor_slug, i.firm_name AS investor_firm,
           i.verdict_follow, s.composite_score AS investor_score
         FROM holdings h
+        JOIN securities sec ON h.security_id = sec.id
         JOIN investors i ON h.investor_id = i.id
         LEFT JOIN investor_scores s ON i.id = s.investor_id
-        WHERE h.security_id IN (${placeholders})
+        WHERE UPPER(sec.ticker) IN (${tickerPh})
           AND h.report_date = (SELECT MAX(report_date) FROM holdings hm WHERE hm.investor_id = h.investor_id)
-        ORDER BY h.security_id, h.pct_of_portfolio DESC
-      `).bind(...securityIds).all();
+        ORDER BY h.pct_of_portfolio DESC
+      `).bind(...tickers).all();
 
       const { results: changeRows } = await env.DB.prepare(`
         SELECT
-          pc.security_id,
+          UPPER(sec.ticker) AS ticker,
           UPPER(pc.change_type) AS change_type,
           pc.shares_change_pct, pc.year, pc.quarter,
           i.name AS investor_name, i.slug AS investor_slug
         FROM position_changes pc
+        JOIN securities sec ON pc.security_id = sec.id
         JOIN investors i ON pc.investor_id = i.id
-        WHERE pc.security_id IN (${placeholders})
-        ORDER BY pc.security_id, pc.year DESC, pc.quarter DESC, ABS(pc.value_change) DESC
-      `).bind(...securityIds).all();
+        WHERE UPPER(sec.ticker) IN (${tickerPh})
+        ORDER BY pc.year DESC, pc.quarter DESC, ABS(pc.value_change) DESC
+      `).bind(...tickers).all();
 
-      const holdersBySecurity = new Map();
+      const holdersByTicker = new Map();
       for (const row of holderRows) {
-        if (!holdersBySecurity.has(row.security_id)) {
-          holdersBySecurity.set(row.security_id, []);
+        if (!holdersByTicker.has(row.ticker)) {
+          holdersByTicker.set(row.ticker, []);
         }
-        holdersBySecurity.get(row.security_id).push({
+        holdersByTicker.get(row.ticker).push({
           investor_name: row.investor_name,
           investor_slug: row.investor_slug,
           investor_firm: row.investor_firm,
@@ -688,16 +701,16 @@ async function handleAPI(path, request, env) {
         });
       }
 
-      const recentActivityBySecurity = new Map();
+      const recentActivityByTicker = new Map();
       for (const row of changeRows) {
         if (row.change_type !== 'NEW' && row.change_type !== 'INCREASED') {
           continue;
         }
 
         const quarterKey = `${row.year}-Q${row.quarter}`;
-        const existing = recentActivityBySecurity.get(row.security_id);
+        const existing = recentActivityByTicker.get(row.ticker);
         if (!existing) {
-          recentActivityBySecurity.set(row.security_id, {
+          recentActivityByTicker.set(row.ticker, {
             latestQuarter: quarterKey,
             entries: [{
               investor_name: row.investor_name,
@@ -727,8 +740,8 @@ async function handleAPI(path, request, env) {
 
       const results = aggregates.map((row) => ({
         ...row,
-        holders: holdersBySecurity.get(row.security_id) || [],
-        recent_activity: recentActivityBySecurity.get(row.security_id)?.entries || [],
+        holders: holdersByTicker.get(row.ticker) || [],
+        recent_activity: recentActivityByTicker.get(row.ticker)?.entries || [],
       }));
 
       return jsonResponse(results);
@@ -794,7 +807,7 @@ async function handleAPI(path, request, env) {
       // representative metadata: prefer the security with the most current holders
       const security = secs[0];
 
-      const { results: holders } = await env.DB.prepare(`
+      const { results: holderRowsRaw } = await env.DB.prepare(`
         WITH latest AS (SELECT investor_id, MAX(report_date) AS rd FROM holdings GROUP BY investor_id)
         SELECT
           i.name AS investor_name, i.slug AS investor_slug, i.firm_name AS investor_firm,
@@ -807,6 +820,28 @@ async function handleAPI(path, request, env) {
         WHERE h.security_id IN (${ph})
         ORDER BY h.pct_of_portfolio DESC
       `).bind(...secIds).all();
+
+      // Dedupe by investor_slug: an investor can hold two CUSIPs of the same ticker
+      // (e.g. BRK-A across CUSIP changes / share classes), producing duplicate rows.
+      // Sum value & shares across the CUSIPs and take the max pct_of_portfolio so the
+      // returned holder_count matches the distinct-investor count.
+      const holderMap = new Map();
+      for (const row of holderRowsRaw) {
+        const existing = holderMap.get(row.investor_slug);
+        if (!existing) {
+          holderMap.set(row.investor_slug, { ...row });
+          continue;
+        }
+        existing.value = (existing.value || 0) + (row.value || 0);
+        existing.shares = (existing.shares || 0) + (row.shares || 0);
+        existing.pct_of_portfolio = Math.max(
+          existing.pct_of_portfolio || 0,
+          row.pct_of_portfolio || 0,
+        );
+      }
+      const holders = Array.from(holderMap.values()).sort(
+        (a, b) => (b.pct_of_portfolio || 0) - (a.pct_of_portfolio || 0),
+      );
 
       const { results: recentChanges } = await env.DB.prepare(`
         SELECT
@@ -822,7 +857,9 @@ async function handleAPI(path, request, env) {
         LIMIT 40
       `).bind(...secIds).all();
 
-      const holderCount = new Set(holders.map((h) => h.investor_slug)).size;
+      // holders is already deduped to one row per investor, so holder_count is its
+      // length and avg_weight is the mean over distinct investors (matches the API).
+      const holderCount = holders.length;
       const totalValue = holders.reduce((sum, h) => sum + (h.value || 0), 0);
       const avgWeight = holders.length
         ? holders.reduce((sum, h) => sum + (h.pct_of_portfolio || 0), 0) / holders.length
@@ -848,15 +885,20 @@ async function handleAPI(path, request, env) {
   if (path === '/api/overlap' && method === 'GET') {
     const limit = Math.min(Math.max(parseInt(url.searchParams.get('limit') || '40', 10), 5), 80);
     try {
+      // Aggregate by TICKER (not security id): a ticker can map to multiple security
+      // rows (CUSIP changes / share classes), e.g. BRK-A — grouping by id duplicated
+      // the stock row and split holders across CUSIPs.
       const { results: topStocks } = await env.DB.prepare(`
-        SELECT sec.id AS security_id, sec.ticker, sec.name, sec.slug AS security_slug, sec.sector,
+        SELECT MIN(sec.id) AS security_id,
+               UPPER(NULLIF(sec.ticker, '')) AS ticker,
+               MAX(sec.name) AS name, MIN(sec.slug) AS security_slug, MAX(sec.sector) AS sector,
                COUNT(DISTINCT h.investor_id) AS holder_count,
                SUM(h.value) AS total_value
         FROM holdings h
         JOIN securities sec ON h.security_id = sec.id
-        WHERE sec.ticker IS NOT NULL
+        WHERE sec.ticker IS NOT NULL AND sec.ticker != ''
           AND h.report_date = (SELECT MAX(report_date) FROM holdings hm WHERE hm.investor_id = h.investor_id)
-        GROUP BY sec.id
+        GROUP BY COALESCE(UPPER(NULLIF(sec.ticker, '')), 'C' || sec.id)
         HAVING holder_count >= 2
         ORDER BY holder_count DESC, total_value DESC
         LIMIT ?
@@ -866,42 +908,60 @@ async function handleAPI(path, request, env) {
         return jsonResponse({ stocks: [], investors: [], cells: [] });
       }
 
-      const ids = topStocks.map((s) => s.security_id);
-      const placeholders = ids.map(() => '?').join(', ');
+      // Fetch cells by the set of tickers and carry sec.ticker so each cell is per
+      // (ticker, investor). An investor holding two CUSIPs of the same ticker would
+      // otherwise produce two cells.
+      const tickers = topStocks.map((s) => s.ticker);
+      const placeholders = tickers.map(() => '?').join(', ');
       const { results: cellRows } = await env.DB.prepare(`
-        SELECT h.security_id, i.slug AS investor_slug, i.name AS investor_name,
+        SELECT UPPER(sec.ticker) AS ticker, i.slug AS investor_slug, i.name AS investor_name,
                s.composite_score AS investor_score, h.pct_of_portfolio
         FROM holdings h
+        JOIN securities sec ON h.security_id = sec.id
         JOIN investors i ON h.investor_id = i.id
         LEFT JOIN investor_scores s ON i.id = s.investor_id
-        WHERE h.security_id IN (${placeholders})
+        WHERE UPPER(sec.ticker) IN (${placeholders})
           AND h.report_date = (SELECT MAX(report_date) FROM holdings hm WHERE hm.investor_id = h.investor_id)
-      `).bind(...ids).all();
+      `).bind(...tickers).all();
 
+      // Map ticker -> representative security_id (MIN, matching topStocks) so the
+      // response cells keep a security_id field while being keyed by ticker.
+      const secIdByTicker = new Map(topStocks.map((s) => [s.ticker, s.security_id]));
+
+      // Dedupe cells by (ticker, investor_slug) keeping the max weight.
+      const cellMap = new Map();
       const invMap = new Map();
       for (const c of cellRows) {
+        const key = `${c.ticker} ${c.investor_slug}`;
+        const existing = cellMap.get(key);
+        if (!existing) {
+          cellMap.set(key, {
+            ticker: c.ticker,
+            security_id: secIdByTicker.get(c.ticker),
+            investor_slug: c.investor_slug,
+            weight: c.pct_of_portfolio,
+          });
+        } else {
+          existing.weight = Math.max(existing.weight || 0, c.pct_of_portfolio || 0);
+        }
         if (!invMap.has(c.investor_slug)) {
           invMap.set(c.investor_slug, {
             slug: c.investor_slug,
             name: c.investor_name,
             score: c.investor_score,
-            holdings: 0,
+            holdings: new Set(),
           });
         }
-        invMap.get(c.investor_slug).holdings += 1;
+        invMap.get(c.investor_slug).holdings.add(c.ticker);
       }
-      const investors = Array.from(invMap.values()).sort(
-        (a, b) => (b.score || 0) - (a.score || 0),
-      );
+      const investors = Array.from(invMap.values())
+        .map((inv) => ({ ...inv, holdings: inv.holdings.size }))
+        .sort((a, b) => (b.score || 0) - (a.score || 0));
 
       return jsonResponse({
         stocks: topStocks,
         investors,
-        cells: cellRows.map((c) => ({
-          security_id: c.security_id,
-          investor_slug: c.investor_slug,
-          weight: c.pct_of_portfolio,
-        })),
+        cells: Array.from(cellMap.values()),
       });
     } catch (err) {
       console.error('Error fetching overlap:', err);
@@ -1059,6 +1119,10 @@ async function handleChat(request, env) {
   if (!sessionId) {
     return errorResponse('sessionId is required', 400);
   }
+  // Cap inputs to stop cost abuse before any Anthropic call.
+  if (message.length > 2000) {
+    return errorResponse('message too long (max 2000 chars)', 400);
+  }
   // Rate-limit on the CLIENT IP (Cloudflare-provided), not the caller-supplied
   // sessionId — a browser can rotate the localStorage sessionId to bypass a
   // session-keyed limit and keep burning Anthropic calls. IP can't be rotated as
@@ -1068,14 +1132,18 @@ async function handleChat(request, env) {
     return errorResponse('Rate limit exceeded. Try again later.', 429);
   }
 
-  const systemPrompt = SYSTEM_PROMPT.replace('{context}', context || 'Homepage');
+  // Truncate the page context to bound prompt size.
+  const safeContext = (typeof context === 'string' ? context : 'Homepage').slice(0, 4000);
+  const systemPrompt = SYSTEM_PROMPT.replace('{context}', safeContext || 'Homepage');
 
   const messages = [];
   if (Array.isArray(history)) {
+    // Cap history to the last 10 entries; only accept valid role + string content,
+    // truncate each entry's content to bound prompt size.
     for (const msg of history.slice(-10)) {
-      if (msg.role && typeof msg.content === 'string' && msg.content.trim()) {
-        messages.push({ role: msg.role, content: msg.content });
-      }
+      if (!msg || (msg.role !== 'user' && msg.role !== 'assistant')) continue;
+      if (typeof msg.content !== 'string' || !msg.content.trim()) continue;
+      messages.push({ role: msg.role, content: msg.content.slice(0, 4000) });
     }
   }
   messages.push({ role: 'user', content: message });

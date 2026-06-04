@@ -15,12 +15,26 @@ export async function generateMetadata({
   const investor = STATIC_INVESTOR_META.get(slug)
 
   if (!investor) {
-    return { title: 'Investor — SuperInvestors' }
+    const fallbackTitle = 'Investor — SuperInvestors'
+    const fallbackDescription = 'Investor 13F holdings and track record on SuperInvestors.'
+    return {
+      title: fallbackTitle,
+      description: fallbackDescription,
+      openGraph: { title: fallbackTitle, description: fallbackDescription, type: 'profile' },
+      twitter: { card: 'summary_large_image', title: fallbackTitle, description: fallbackDescription },
+    }
   }
 
+  const title = `${investor.name} — 13F holdings & track record · SuperInvestors`
+  const description =
+    investor.one_line_summary ||
+    `See ${investor.name}'s latest 13F holdings, buys and sells, and conviction picks on SuperInvestors.`
+
   return {
-    title: `${investor.name} — SuperInvestors`,
-    description: investor.one_line_summary || `${investor.name} investor profile`,
+    title,
+    description,
+    openGraph: { title, description, type: 'profile' },
+    twitter: { card: 'summary_large_image', title, description },
   }
 }
 

@@ -94,15 +94,15 @@ export default function OverlapClient() {
         <span>More conviction</span>
       </div>
 
-      <div className="bg-white rounded-xl border border-gray-200 overflow-x-auto">
+      <div className="bg-white rounded-xl border border-gray-200 overflow-auto max-h-[70vh]">
         <table className="text-xs border-collapse">
           <thead>
             <tr>
-              <th className="sticky left-0 z-10 bg-white px-3 py-2 text-left text-[11px] uppercase tracking-wide text-gray-400 border-b border-gray-100 min-w-[150px]">
+              <th className="sticky top-0 left-0 z-30 bg-white px-3 py-2 text-left text-[11px] uppercase tracking-wide text-gray-400 border-b border-gray-100 min-w-[150px]">
                 Investor
               </th>
               {view.stocks.map((s) => (
-                <th key={s.security_id} className="px-1 py-2 border-b border-gray-100 align-bottom">
+                <th key={s.security_id} className="sticky top-0 z-20 bg-white px-1 py-2 border-b border-gray-100 align-bottom">
                   <Link href={`/stocks/${encodeURIComponent(s.ticker)}`} className="block text-indigo-600 hover:text-indigo-800 font-mono font-semibold whitespace-nowrap" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)', height: '78px' }}>
                     {s.ticker}
                   </Link>

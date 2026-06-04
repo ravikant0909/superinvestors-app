@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { fetchApiJson, fetchPriceMap } from '@/lib/api'
 import { getConvictionHref } from '@/lib/conviction-index'
 import { usePrivateMode } from '@/lib/private-mode'
+import { Skeleton } from '@/components/Skeleton'
 
 interface HolderInfo {
   investor_name: string
@@ -129,8 +130,38 @@ export default function BestIdeasClient() {
 
   if (!loaded) {
     return (
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 px-5 py-8 text-center text-sm text-gray-400">
-        Loading best ideas...
+      <div className="space-y-8">
+        <section className={`grid grid-cols-2 gap-4 ${priv ? 'sm:grid-cols-4' : 'sm:grid-cols-3'}`}>
+          {Array.from({ length: priv ? 4 : 3 }).map((_, i) => (
+            <div key={i} className="bg-white rounded-xl shadow-sm border border-gray-200 px-5 py-4 text-center">
+              <Skeleton className="h-8 w-16 mx-auto" />
+              <Skeleton className="h-3 w-20 mx-auto mt-2" />
+            </div>
+          ))}
+        </section>
+        <div className="grid gap-5">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div key={i} className="bg-white rounded-xl shadow-sm border border-gray-200 px-5 py-5">
+              <div className="flex items-start gap-3 mb-4">
+                <Skeleton className="h-9 w-9 rounded-full flex-shrink-0" />
+                <div className="flex-1">
+                  <Skeleton className="h-6 w-40 mb-2" />
+                  <Skeleton className="h-4 w-24" />
+                </div>
+              </div>
+              <div className={`grid gap-3 mb-4 ${priv ? 'grid-cols-3' : 'grid-cols-2'}`}>
+                <Skeleton className="h-6 w-full" />
+                <Skeleton className="h-6 w-full" />
+                {priv && <Skeleton className="h-6 w-full" />}
+              </div>
+              <div className="space-y-2">
+                {Array.from({ length: 3 }).map((__, j) => (
+                  <Skeleton key={j} className="h-4 w-full" />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     )
   }

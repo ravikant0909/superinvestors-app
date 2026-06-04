@@ -160,20 +160,25 @@ class Fetcher13F:
         holdings = filing_data.get("holdings", [])
         if not holdings:
             return
-        # Compute value/shares ratios for holdings with both values
+        # Compute value/shares ratios over EQUITY (SH) positions only — bonds/preferreds
+        # (PRN) and options sit near par (~1.0) and dragged the all-positions median below
+        # the old threshold for credit/insurance-heavy filers (Oaktree/Fairfax/Markel),
+        # leaving their equity values in dollars (1000x too big). Equity-only is robust.
         ratios = []
         for h in holdings:
             v = h.get("value", 0)
             s = h.get("shares", 0)
+            st = (h.get("share_type") or "SH").upper()
+            if st == "PRN" or h.get("put_call"):
+                continue
             if v > 0 and s > 0:
                 ratios.append(v / s)
         if not ratios:
             return
         ratios.sort()
         median_ratio = ratios[len(ratios) // 2]
-        # In thousands format: median ratio ≈ 0.01-1.0 (prices $10-$1000)
-        # In dollars format: median ratio ≈ 10-1000 (actual prices)
-        if median_ratio > 5:
+        # thousands: equity median ≈ price/1000 (≪1.5); dollars: real median price (≫1.5)
+        if median_ratio > 1.5:
             # Values are in dollars, convert to thousands
             for h in holdings:
                 h["value"] = round(h.get("value", 0) / 1000)

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { fetchApiJson, fetchPriceMap } from '@/lib/api'
 import { getConvictionHref } from '@/lib/conviction-index'
 import { usePrivateMode } from '@/lib/private-mode'
+import { Skeleton } from '@/components/Skeleton'
 
 interface ChangeRecord {
   change_type: 'NEW' | 'INCREASED' | 'DECREASED' | 'SOLD_OUT'
@@ -275,8 +276,25 @@ export default function ChangesClient() {
 
   if (!loaded) {
     return (
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 px-5 py-8 text-center text-sm text-gray-400">
-        Loading changes...
+      <div className="grid gap-4">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div key={i} className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+            <div className="flex items-center justify-between gap-2 mb-3">
+              <Skeleton className="h-4 w-32" />
+              <Skeleton className="h-4 w-14" />
+            </div>
+            <div className="flex items-baseline gap-2 mb-2">
+              <Skeleton className="h-5 w-16" />
+              <Skeleton className="h-4 w-12" />
+            </div>
+            <Skeleton className="h-3 w-40 mb-3" />
+            <div className="grid grid-cols-3 gap-3">
+              <Skeleton className="h-12 w-full" />
+              <Skeleton className="h-12 w-full" />
+              <Skeleton className="h-12 w-full" />
+            </div>
+          </div>
+        ))}
       </div>
     )
   }

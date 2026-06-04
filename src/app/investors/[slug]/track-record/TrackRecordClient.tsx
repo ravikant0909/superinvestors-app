@@ -6,6 +6,7 @@ import { fetchApiJson, fetchPriceMap } from '@/lib/api'
 import type { TrackRecordApiGroup } from '@/lib/track-record'
 import { buildHistoryView, type HistoryView } from '@/lib/history-view'
 import { SPX_ASOF } from '@/lib/spx'
+import { Skeleton } from '@/components/Skeleton'
 import LedgerView from './LedgerView'
 import TradeTapeView from './TradeTapeView'
 import TimelineBoxesView from './TimelineBoxesView'
@@ -59,8 +60,27 @@ export default function TrackRecordClient({ slug }: { slug: string }) {
 
   if (loading) {
     return (
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 px-6 py-12 text-center text-sm text-gray-400">
-        Loading position history...
+      <div className="space-y-5">
+        <Skeleton className="h-4 w-64" />
+        <div>
+          <Skeleton className="h-8 w-80 mb-2" />
+          <Skeleton className="h-4 w-96 max-w-full" />
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <Skeleton key={i} className="h-14 w-40 rounded-xl" />
+          ))}
+        </div>
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 divide-y divide-gray-50">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={i} className="flex items-center justify-between gap-4 px-4 py-3">
+              <Skeleton className="h-4 w-20" />
+              <Skeleton className="h-4 flex-1 max-w-[200px]" />
+              <Skeleton className="h-4 w-16" />
+              <Skeleton className="h-4 w-12" />
+            </div>
+          ))}
+        </div>
       </div>
     )
   }
