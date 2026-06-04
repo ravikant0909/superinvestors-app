@@ -95,39 +95,6 @@ function flatten(positions: HistoryPosition[]): Trade[] {
   return out
 }
 
-// star standout: biggest open, else biggest add, else biggest exit by |return|, else deepest trim
-function standout(trades: Trade[]): React.ReactNode | null {
-  const opens = trades.filter((t) => t.type === 'open').sort((a, b) => (b.weight || 0) - (a.weight || 0))
-  if (opens.length)
-    return (
-      <>
-        opened <b className="text-gray-900">{tidyTicker(opens[0].ticker, opens[0].name)}</b> {opens[0].weight.toFixed(1)}%
-      </>
-    )
-  const adds = trades.filter((t) => t.type === 'add' && t.chg_pct != null).sort((a, b) => (b.chg_pct || 0) - (a.chg_pct || 0))
-  if (adds.length && adds[0].chg_pct != null)
-    return (
-      <>
-        piled into <b className="text-gray-900">{tidyTicker(adds[0].ticker, adds[0].name)}</b> +{Math.round(adds[0].chg_pct)}%
-      </>
-    )
-  const exits = trades.filter((t) => t.type === 'exit' && t.ret != null).sort((a, b) => Math.abs(b.ret!) - Math.abs(a.ret!))
-  if (exits.length)
-    return (
-      <>
-        exited <b className="text-gray-900">{tidyTicker(exits[0].ticker, exits[0].name)}</b> {fmtPct(exits[0].ret)}
-      </>
-    )
-  const trims = trades.filter((t) => t.type === 'trim' && t.chg_pct != null).sort((a, b) => (a.chg_pct || 0) - (b.chg_pct || 0))
-  if (trims.length && trims[0].chg_pct != null)
-    return (
-      <>
-        cut <b className="text-gray-900">{tidyTicker(trims[0].ticker, trims[0].name)}</b> {Math.round(trims[0].chg_pct)}%
-      </>
-    )
-  return null
-}
-
 export default function TradeTapeView({ view, slug: _slug }: { view: HistoryView; slug: string }) {
   const [active, setActive] = useState<Set<ActionType>>(new Set())
   const [hideTransient, setHideTransient] = useState(true)
@@ -339,7 +306,6 @@ function QuarterSection({
   ).filter((p) => p.n > 0)
 
   const maxC = Math.max(counts.open, counts.add, counts.trim, counts.exit, 1)
-  const so = standout(bucket.trades)
 
   const visible = expanded ? bucket.trades : bucket.trades.slice(0, COLLAPSE_AT)
   const hiddenCount = bucket.trades.length - visible.length
@@ -395,13 +361,6 @@ function QuarterSection({
               </span>
             ))}
           </span>
-          {/* standout */}
-          {so && (
-            <span className="hidden whitespace-nowrap rounded-md border border-amber-200 bg-amber-50 px-2 py-0.5 text-xs font-semibold text-gray-700 md:inline-flex">
-              <span className="mr-1 text-amber-500">★</span>
-              {so}
-            </span>
-          )}
         </button>
 
         {/* events */}

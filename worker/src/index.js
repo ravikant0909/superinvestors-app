@@ -1144,8 +1144,26 @@ function buildCorsHeaders(request) {
   };
 }
 
+// Read-heavy GET endpoints worth caching at the Cloudflare edge. Traffic concentrates
+// on a few investors/stocks, so the first request in a colo hits D1 and the rest are
+// served from cache — fast, and far less D1 load. Excludes /api/prices (own short
+// cache + volatile), /api/health (live), and /api/chat (POST). 13F data changes ~quarterly,
+// so a 30-min edge TTL is safe; a refresh propagates within that window.
+const CACHEABLE_PATH = /^\/api\/(investors$|investor\/|changes$|best-ideas$|stocks$|stocks\/|overlap$|holdings$)/;
+const EDGE_TTL = 1800; // seconds at the edge (s-maxage)
+const BROWSER_TTL = 300; // seconds in the browser (max-age)
+
+// Build a fresh Response with CORS added (cache hits have immutable headers, so we
+// always reconstruct). The CACHED copy is stored WITHOUT CORS so it's origin-agnostic.
+function withCors(resp, corsHeaders, cacheState) {
+  const headers = new Headers(resp.headers);
+  Object.entries(corsHeaders).forEach(([k, v]) => headers.set(k, v));
+  if (cacheState) headers.set('X-Edge-Cache', cacheState);
+  return new Response(resp.body, { status: resp.status, statusText: resp.statusText, headers });
+}
+
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
     const path = url.pathname;
 
@@ -1157,10 +1175,27 @@ export default {
       return new Response(null, { headers: corsHeaders });
     }
 
+    const cacheable = request.method === 'GET' && CACHEABLE_PATH.test(path);
+    const cache = caches.default;
+
     try {
       // API Routes
       if (path.startsWith('/api/')) {
+        // Edge cache: serve a stored copy if present (CORS re-applied per request).
+        if (cacheable) {
+          const hit = await cache.match(request);
+          if (hit) return withCors(hit, corsHeaders, 'HIT');
+        }
+
         const response = await handleAPI(path, request, env);
+
+        // Store successful cacheable responses (without CORS) for the edge.
+        if (cacheable && response.status === 200) {
+          response.headers.set('Cache-Control', `public, max-age=${BROWSER_TTL}, s-maxage=${EDGE_TTL}`);
+          ctx.waitUntil(cache.put(request, response.clone()));
+          return withCors(response, corsHeaders, 'MISS');
+        }
+
         // Add CORS headers to all API responses (skip redirects)
         if (response.status < 300 || response.status >= 400) {
           Object.entries(corsHeaders).forEach(([key, value]) => {
