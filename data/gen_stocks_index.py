@@ -59,6 +59,19 @@ def main():
                 "total_value": r["total_value"] or 0,
             }
 
+    # Union with the existing committed index so tickers are NEVER dropped when a given
+    # run's DB is shallow/incomplete (CI re-fetches only ~12 quarters and a partial fetch
+    # can miss investors). The static /stocks/[ticker] pages must cover every ticker that
+    # /api/stocks (served from the full D1 data) can return, or those links 404.
+    try:
+        with open(OUT_PATH) as fh:
+            for s in json.load(fh):
+                t = (s.get("ticker") or "").strip().upper()
+                if t and t not in by_ticker:
+                    by_ticker[t] = s
+    except (FileNotFoundError, json.JSONDecodeError):
+        pass
+
     stocks = sorted(
         by_ticker.values(),
         key=lambda s: (-s["holder_count"], -s["total_value"]),
