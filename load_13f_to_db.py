@@ -91,6 +91,29 @@ INVESTOR_KEY_TO_SLUG = {
     "viking_global": "andreas-halvorsen",
     "weitz_investment": "wally-weitz",
     "whale_rock": "alex-sacerdote",
+    # coverage expansion 2026-06
+    "ark_invest": "cathie-wood",
+    "gqg_partners": "rajiv-jain",
+    "royce_associates": "chuck-royce",
+    "southeastern_asset": "mason-hawkins",
+    "first_eagle": "matthew-mclennan",
+    "daily_journal": "charlie-munger",
+    "tweedy_browne": "tweedy-browne",
+    "baker_bros": "julian-baker-felix-baker",
+    "tudor_investment": "paul-tudor-jones",
+    "apollo_management": "leon-black",
+    "de_shaw": "david-shaw",
+    "gotham_asset": "joel-greenblatt",
+    "esl_investments": "eddie-lampert",
+    "aqr_capital": "cliff-asness",
+    "citadel_advisors": "ken-griffin",
+    "renaissance_tech": "jim-simons",
+    "point72": "steve-cohen",
+    "two_sigma": "john-overdeck-david-siegel",
+    "hayman_capital": "kyle-bass",
+    "ruane_cunniff_goldfarb": "robert-goldfarb",
+    "wintergreen_advisers": "david-winters",
+    "praetorian_capital": "harris-kupperman-kuppy",
 }
 
 _CUSIP_TO_TICKER = None
@@ -301,12 +324,18 @@ def load_investor_file(cur, filepath):
             )
 
     filings = data.get("filings", [])
+    # Drop empty filings (13F-NT notices / empty amendments carry no holdings and
+    # would otherwise win the unique (investor, quarter) slot over the real filing).
+    filings = [f for f in filings if (f.get("holdings") or (f.get("holdings_count") or 0) > 0)]
     if not filings:
-        print(f"  SKIP: No filings for {investor_key}")
+        print(f"  SKIP: No non-empty filings for {investor_key}")
         return
 
-    # Sort filings by report_date to process oldest first
-    filings_sorted = sorted(filings, key=lambda f: f.get("report_date", ""))
+    # Oldest-first for change computation; for a quarter with multiple filings
+    # (original + amendment), the one with the MOST holdings wins the slot.
+    filings_sorted = sorted(
+        filings, key=lambda f: (f.get("report_date", ""), -(f.get("holdings_count") or 0))
+    )
 
     latest_report_date = filings_sorted[-1].get("report_date", "") if filings_sorted else ""
 

@@ -406,13 +406,17 @@ Examples:
     for i, key in enumerate(investor_keys, 1):
         print(f"\n[{i}/{len(investor_keys)}] Processing: {key}")
         try:
+            # Respect a per-investor depth cap (max_quarters) so huge quant/
+            # market-maker books don't bloat the DB on --all or scheduled refreshes.
+            qcap = INVESTORS[key].get("max_quarters")
+            quarters_back = min(args.quarters, qcap) if qcap else args.quarters
             result = process_investor(
                 key,
                 INVESTORS[key],
                 fetcher,
                 mapper,
                 tracker,
-                quarters_back=args.quarters,
+                quarters_back=quarters_back,
             )
             results.append(result)
         except Exception as e:

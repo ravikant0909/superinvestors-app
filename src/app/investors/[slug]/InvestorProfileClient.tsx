@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { AccordionItem } from '@/components/Accordion'
 import { fetchApiJson, fetchPriceMap } from '@/lib/api'
 import { getConvictionHref } from '@/lib/conviction-index'
+import { coverageNote } from '@/lib/coverage-notes'
 import {
   buildRuntimeTrackRecords,
   type RuntimeInvestmentRecord,
@@ -425,7 +426,7 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
               <span className="text-gray-400">
                 {has13FData && investor.latest_report_date
                   ? `Filed ${investor.latest_report_date} · ~45-day reporting delay`
-                  : 'No 13F filing history is loaded in the current dataset.'}
+                  : coverageNote(slug) ?? 'No 13F filing history is available for this investor.'}
               </span>
             </div>
             {investor.verdict_summary && (
@@ -448,8 +449,15 @@ export default function InvestorProfileClient({ slug }: { slug: string }) {
 
       {!has13FData && (
         <section className="bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 text-sm text-amber-900">
-          This investor is part of the tracked roster, but no 13F filing history is loaded in the
-          current runtime dataset. This page currently shows qualitative research and scoring only.
+          {coverageNote(slug) ? (
+            <>
+              <span className="font-semibold">Why no holdings? </span>
+              {coverageNote(slug)} This page shows qualitative research and scoring only.
+            </>
+          ) : (
+            <>This investor is part of the tracked roster, but does not have 13F holdings in the dataset.
+            This page shows qualitative research and scoring only.</>
+          )}
         </section>
       )}
 
