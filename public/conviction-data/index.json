@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T23:24:36.886475",
+  "generated_at": "2026-06-04T01:13:44.226564",
   "total_conviction_bets": 64,
   "threshold_pct": null,
   "source": "published_conviction_detail_files",
@@ -665,7 +665,7 @@
     {
       "investor_name": "Robert Goldfarb",
       "investor_slug": "robert-goldfarb",
-      "investor_key": null,
+      "investor_key": "ruane_cunniff_goldfarb",
       "firm_name": "Ruane, Cunniff & Goldfarb (Sequoia Fund)",
       "ticker": "GOOGL",
       "company_name": "Alphabet Inc.",
